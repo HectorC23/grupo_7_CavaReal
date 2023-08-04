@@ -1,8 +1,17 @@
 CAVA REAL 🍷👑
 
-    Somos Cava Real y nuestro sitio de vinos ofrece una amplia y cuidadosamente seleccionada gama de vinos 🍷 de calidad premium provenientes de diversas regiones vinícolas alrededor del mundo 🌍. Desde refinados tintos hasta elegantes blancos y espumantes, nuestro catálogo incluye una variedad de estilos que satisfacen los paladares más exigentes. Además de vinos tranquilos ofrecemos licores de alta gama y variedad, tambien ofrecemos opciones de vinos de postre y aperitivos🍸, así como una selección de accesorios y productos relacionados con el mundo del vino, como copas, sacacorchos y decantadores.
+    Somos Cava Real y nuestro sitio de vinos ofrece una amplia y cuidadosamente seleccionada gama de vinos 🍷
+    de calidad premium provenientes de diversas regiones vinícolas alrededor del mundo 🌍. Desde refinados 
+    tintos hasta elegantes blancos y espumantes, nuestro catálogo incluye una variedad de estilos que 
+    satisfacen los paladares más exigentes. Además de vinos tranquilos ofrecemos licores de alta gama y 
+    variedad, tambien ofrecemos opciones de vinos de postre y aperitivos🍸, así como una selección de 
+    accesorios y productos relacionados con el mundo del vino, como copas, sacacorchos y decantadores.
 
-    Nuestro sitio de vinos está dirigido a una audiencia apasionada por el mundo del vino 🍇, desde conocedores y coleccionistas hasta entusiastas aficionados que deseen descubrir y disfrutar de experiencias vinícolas únicas. Nuestro público objetivo está formado por personas que valoran la calidad, la autenticidad y la historia detrás de cada botella🍾. Son aquellos que aprecian el arte del vino y buscan deleitar sus sentidos con vinos excepcionales y distintivos.
+    Nuestro sitio de vinos está dirigido a una audiencia apasionada por el mundo del vino 🍇, desde 
+    conocedores y coleccionistas hasta entusiastas aficionados que deseen descubrir y disfrutar de 
+    experiencias vinícolas únicas. Nuestro público objetivo está formado por personas que valoran la calidad, 
+    la autenticidad y la historia detrás de cada botella🍾. Son aquellos que aprecian el arte del vino y 
+    buscan deleitar sus sentidos con vinos excepcionales y distintivos.
 
 
 DESCRIPCION DE LOS INTEGRANTES:
