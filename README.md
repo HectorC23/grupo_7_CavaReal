@@ -28,17 +28,16 @@ Elegimos la idea de armar un e-comerce de vinos ya que nos pareció una propuest
 
 INSPIRACIÓN:
 
-- https://www.vinosyspirits.com : De esta pagina nos gusta la interfaz y un poco el atractivo visual que tienen las otras secciones de la pagina.
+    - https://www.vinosyspirits.com : De esta pagina nos gusta la interfaz y un poco el atractivo visual que tienen las otras secciones de la pagina.
 
-- https://vinotecaligier.com : Elegimos esta pagina como referencia porque ofrece los mismos productos que tenemos planeados nosotros ofrecer.
+    - https://vinotecaligier.com : Elegimos esta pagina como referencia porque ofrece los mismos productos que tenemos planeados nosotros ofrecer.
 
-- https://licoresmardelplata.com.ar : Elegimos esta pagina ya que nos llamó bastante la atención las funcionalidades que tiene, las animaciones y tranciciones de la interfaz. 
+    - https://licoresmardelplata.com.ar : Elegimos esta pagina ya que nos llamó bastante la atención las funcionalidades que tiene, las animaciones y tranciciones de la interfaz. 
 
-- https://tienda.luigibosca.com : Nos llamo la atencion esta pagina ya que ofrece una descripcion especifica y detallada de cada vino lo que llamaria mucho la atencion de 
-nuestro publico dirigido, al ser este coleccionistas y expertos del mundo del vino.
+    - https://tienda.luigibosca.com : Nos llamo la atencion esta pagina ya que ofrece una descripcion especifica y detallada de cada vino lo que llamaria mucho la atencion de nuestro publico dirigido, al ser este coleccionistas y expertos del mundo del vino.
 
-- https://www.fullescabio.com : De esta pagina nos gusta la interfaz para filtrar sus productos.
+    - https://www.fullescabio.com : De esta pagina nos gusta la interfaz para filtrar sus productos.
 
 LINK DEL TABLERO DE TRABAJO
 
-https://trello.com/b/K4BRuz4y/cava-real
+    https://trello.com/b/K4BRuz4y/cava-real
