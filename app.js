@@ -2,10 +2,14 @@ const express = require("express");
 
 const app = express();
 
-const PORT = 8080;
+const PORT = 3030;
 
 
 
+
+app.get("/", (req,res) => {
+    res.sendFile(__dirname + "/views/home.html")
+})
 
 
 app.use(express.static("public"));
