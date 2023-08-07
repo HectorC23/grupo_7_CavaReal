@@ -23,6 +23,8 @@ DESCRIPCION DE LOS INTEGRANTES:
     - 🧑 Me llamo Héctor Chaparro, tengo 22 años, estoy estudiando la tecnicatura de Analista Programador Universitarios en la facultad de Ingenieria y vivo en San Salvador de Jujuy.
 
     - 👩 Hola, me llamo Milagro Martínez tengo 19 años soy estudiante universitaria y vivo en Monterrico.
+    
+    - 🧑 Saludos, soy jesus jimenez tengo 22 años y soy de San Pablo Jujuy.
 
 Elegimos la idea de armar un e-comerce de vinos ya que nos pareció una propuesta atractiva y desafiante, debido a que vimos que no habian buenas paginas relacionas con el mundo del vino y sus apacionados.
 
