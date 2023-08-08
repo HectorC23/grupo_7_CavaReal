@@ -69,12 +69,6 @@ main{
     border-radius: 50%;
 }
 
-.wine-information img{
-    color: #7A1745;
-    background-color: #ffff;
-    border-radius: 50%;
-}
-
 .wine-information-text{
     display: flex;
     flex-direction: column;
@@ -112,6 +106,7 @@ main{
 .wine-description-text p{
     text-align: justify;
     width: 95%;
+    font-size: 1em;
 }
 
 #catador-tittle{
@@ -251,6 +246,8 @@ main{
     bottom: 0;
     flex-direction: column;
     color: #333333;
+    justify-content: center;
+    align-items: center;
 }
 
 .name-wine{
@@ -272,7 +269,7 @@ main{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 65%;
+    width: 70%;
 }
 .container-fixed button{
     width: 100%;
@@ -283,4 +280,223 @@ main{
     font-size: 1.2em;
     margin-top: 5px;
     color: #ffffff;
+}
+
+@media (min-width: 361px){
+
+    .container-main{
+        padding-bottom: 200px;
+    }
+
+    .container-secondary{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .container-wine-information{
+        width: 35%;
+    }
+
+    .wine-information-text{
+        margin-left: 15px;
+    }
+
+    .nav-wine{
+        padding: 15px;
+    }
+    .nav-wine a{
+        font-size: 0.9em;
+    }
+
+    .wine-description-text{
+        padding: 20px;
+    }
+
+    .wine-description-text p{
+        font-size: 1.15em;
+
+    }
+
+    #catador-tittle{
+        padding: 15px 15px 15px 20px;
+        font-size: 0.9em;
+    }
+
+    .container-tertiary{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .wine-catador-description{
+        margin: 10px 0px;
+    }
+
+    .wine-catador-description p{
+        font-size: 1.05em;
+    }
+
+    .wine-catador-description-percentage{
+        height: 7px;
+    }
+
+    .pay-delivery-mobile-container{
+        display: none;
+    }
+
+    .container-fixed{
+        padding: 15px 15px 5px 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-fixed-secondary{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .fixed-information{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wine-box, .pay-delivery{
+        display: inline;
+    }
+
+    .pay-delivery-tablet{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .pay-delivery{
+        display: flex;
+        margin-bottom: 15px;
+    }
+
+    .pay-delivery i{
+        font-size: 1.5em;
+        margin-right: 5px;
+    }
+
+    .wine-units{
+        width: 50%;
+        padding: 10px;
+    }
+
+    .wine-units i{
+        font-size: 1.3em;
+    }
+
+}
+
+@media (min-width: 769px){
+
+    main{
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .container-main{
+        width: 70%;
+        padding-bottom: 20px;
+    }
+
+    .wine-information{
+        margin-bottom: 15px;
+        padding: 10px 5px 10px 10px;
+    }
+
+    .wine-information i{
+        transition: all 450ms;
+    }
+
+    .wine-information:hover i{
+        font-size: 2em;
+    }
+
+    .nav-wine a{
+        transition: all 400ms;
+    }
+    .nav-wine a:hover{
+        font-size: 1em;
+        color: #000000;
+    }
+
+    .container-fixed{
+        position: fixed;
+        right: 0px;
+        height: 100%;
+        width: 30%;
+        justify-content: flex-start;
+        padding: 30px 20px 20px 40px;
+    }
+
+    .container-fixed-secondary{
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .name-wine{
+        font-size: 2.5em;
+        font-style: italic;
+        margin-bottom: 30px;
+        transition: font-size 400ms;
+    }
+
+    .container-fixed:hover .name-wine{
+        font-size: 2.6em;
+    }
+
+    .price-wine{
+        font-size: 2.3em;
+        font-weight: 1000;
+        margin-bottom: 10px;
+    }
+
+    .wine-box, .price-unity{
+        margin-bottom: 10px;
+    }
+
+    .pay-delivery-tablet{
+        margin-top: 30px;
+    }
+
+    .pay-delivery i{
+        margin-right: 10px;
+    }
+
+    #pay-card i{
+        transition: all 400ms;
+    }
+
+    #pay-card:hover i{
+        font-size: 1.8em;
+    }
+
+    #truck i{
+        transition: all 400ms;
+    }
+
+    #truck:hover i{
+        font-size: 1.8em;
+    }
+
+    .wine-units{
+        width: 95%;
+        margin-bottom: 20px;
+    }
+    
+    .container-fixed button{
+        padding: 10px;
+        border-radius: 10px;
+        transition: all 450ms;
+    }
+
+    .container-fixed button:hover{
+        background-color: #500f2d;
+    }
 }
