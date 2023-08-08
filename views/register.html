@@ -4,21 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
     <title>Registro</title>
 </head>
 
-<body>
+<body class="body">
     <header>
-
+        <div class="body-header">
+            <p>HEADER</p>
+        </div>
     </header>
 
     <main>
-        <div>
-            <h2>Crear Cuenta</h2>
-            <div>
+        <div class="form-container">
+            <div class="div-title">
+                <h2 class="form-title">Regístrate</h2>
+            </div>
+            <div class="form-subtitle">
                 <p>Por favor complete la información a continuación</p>
             </div>
-            <form action="register.html" method="POST">
+            <form action="register.html" method="POST" class="form">
                 <div class="inputs-wrapper">
                     <div class="input-item">
                         <label for="name">Nombre</label>
@@ -33,13 +42,13 @@
                         <input type="text" id="userName" name="userName" placeholder="Usuario">
                     </div>
                     <div class="input-item">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="Email">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="E-mail">
                     </div>
                 </div>
 
-                <div class="inputs-wrapper-password">
-                    <div class="input-item">
+                <div class="inputs-wrapper password">
+                    <div class="input-item-password">
                         <label for="password">Contraseña</label>
                         <input type="password" id="password" name="password" required placeholder="Contraseña">
                     </div>
@@ -50,7 +59,8 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <button type="submit" class="button-send">Crear Cuenta</button>
+                    <button type="submit" class="button send">Crear Cuenta</button>
+                    <button type="reset" class="button delete">Borrar</button>
                 </div>
                 <div class="reCAPTCHA">
                     <p>
@@ -59,7 +69,7 @@
                     </p>
                 </div>
             </form>
-            <div class="account">
+            <div class="account-container">
                 <div>
                     <p>¿Ya tienes una cuenta?</p>
                 </div>
@@ -71,7 +81,9 @@
     </main>
 
     <footer>
-
+        <div class="body-footer">
+            <p>FOOTER</p>
+        </div>
     </footer>
 </body>
 
