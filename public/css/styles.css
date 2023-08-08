@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.body {
+    font-weight: 400;
+}
+
+.body-header {
+    font-size: 3em;
+    color: #ce367d;
+}
+
+.body-footer {
+    font-size: 3em;
+    color: #ce367d;
+}
+
+main {
+    background-image: url('/images/vino-333.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.form-container {
+    color: white;
+    width: 90vw;
+    padding: 2em;
+    border-radius: 5px;
+    margin: 1.5em auto 0;
+    box-shadow: #EEE0CB -1px 1px 5px, #EEE0CB 2px -3px 6px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    position: relative;
+    z-index: 1;
+}
+
+.form-container::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    background-color: black;
+    opacity: 0.3;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs-wrapper,
+.buttons,
+.reCAPTCHA {
+    padding-bottom: 1.5em;
+}
+
+.form-title {
+    padding-bottom: 0.8em;
+    text-align: center;
+}
+
+.form-subtitle {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    margin-bottom: 2em;
+    align-items: center;
+    padding: 0.4em;
+    color: wheat;
+    font-size: 0.8em;
+    justify-content: center;
+    align-items: center
+}
+
+.form-subtitle::before,
+.account-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 6px;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.input-item,
+.input-item-password {
+    padding-bottom: 1.5em;
+}
+
+label {
+    color: #7A1745;
+    font-size: 1.2em;
+    padding-bottom: 0.08em;
+    opacity: 0.8;
+}
+
+label,
+input {
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 1em;
+    border-radius: 4px;
+    border: 1px solid #7a17456e;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    margin-bottom: 1.1em;
+    padding: 0.5em;
+    width: 70%;
+    font-size: 1em;
+    border: none;
+    color: #F3F5F6;
+    box-shadow: #333333 0px -3px 6px, #333333 0px 3px 6px;
+    border-radius: 3px;
+}
+
+.send {
+    background-color: #7A1745;
+    transition-property: background-color, border, font-size;
+    transition-duration: 0.5s;
+}
+
+.delete {
+    background-color: #629677;
+    transition-property: background-color, border, font-size;
+    transition-duration: 0.5s;
+}
+
+.reCAPTCHA {
+    text-align: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    font-size: 0.8em
+}
+
+.account-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 1.2em;
+    padding-top: 1.2em;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    color: wheat;
+}
+
+.div-title {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    background-color: #333333;
+    width: 60%;
+    padding-top: 0.5em;
+    box-shadow: #ce367d 0px -3px 6px, #ce367d 0px 3px 6px;
+    margin-bottom: 1.2em;
+    border-radius: 10px;
+    font-size: 1.3em;
+}
+
+label {
+    color: #eee0cb;
+    opacity: 1;
+    background-color: #ce367d;
+    width: 35%;
+    border-radius: 3px;
+    padding-left: 0.3em;
+    font-size: 1.05em;
+}
+
+.password>.input-item label {
+    width: 11em;
+}
+
+.password>.input-item-password label {
+    width: 7em;
+}
+
+
+@keyframes background-fondo-big {
+
+    0%{
+        background-image: url('/images/vino-3.png');
+        background-position: center;
+        background-size: 100% auto;
+    }
+
+    70% {
+        background-image: url('/images/vino-1.png');
+        background-position: center;
+        background-size: 100% auto;
+    }
+
+    100% {
+        background-image: url('/images/vino-22.png');
+        background-position: center;
+        background-size: 100% auto;
+    }
+}
+
+@keyframes background-fondo-medium {
+
+    0% {
+        background-image: url('/images/vino-3.png');
+        background-position: center;
+        background-size: 100% auto;
+    }
+
+    70% {
+        background-image: url('/images/vino-11.png');
+        background-position: center;
+        background-size: 100% auto;
+    }
+
+    100% {
+        background-image: url('/images/vino-222.png');
+        background-position: center;
+        background-size: 100% auto;
+    }
+}
+
+@media (min-width: 600px) {
+
+    .form-container {
+        width: 70vw;
+        background-color: transparent;
+        color: white;
+        display: grid;
+    }
+
+    .inputs-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 1em;
+        justify-content: center;
+        padding: 0.01em;
+    }
+
+    .inputs-wrapper .input-item,
+    .inputs-wrapper .input-item-password {
+        display: block;
+        width: 45%;
+    }
+
+    .password {
+        margin-top: none;
+    }
+
+    .buttons {
+        margin-top: 1.5em;
+    }
+
+    .form-title {
+        font-size: 1.3em;
+    }
+
+    .account-container {
+        font-size: 1.3em;
+    }
+
+    .reCAPTCHA {
+        width: 75%;
+        font-size: 0.8em;
+    }
+
+    main {
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
+        width: 100vw;
+        animation-name: background-fondo-medium;
+        animation-duration: 47s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+    }
+
+    h2 {
+        background-color: #333333;
+        width: 7em;
+        padding-top: 0.5em;
+        box-shadow: #ce367d 0px -3px 6px, #ce367d 0px 3px 6px;
+        margin-bottom: 1.2em;
+        border-radius: 10px;
+    }
+
+    label {
+        width: 50%;
+        border-radius: 3px;
+        padding-left: 0.3em;
+        font-size: 1em;
+    }
+
+    .password>.input-item label {
+        width: 11em;
+        font-size: 0.9em;
+    }
+
+    input {
+        opacity: 0.9;
+    }
+
+    .send:active {
+        background-color: #ce367d;
+        border: 4px solid #ce367d;
+        font-size: 1.3em;
+        border-radius: 10px;
+    }
+
+    .delete:active {
+        background-color: #63ce8e;
+        border: 2px solid #63ce8e;
+        font-size: 1.2em;
+        border-radius: 10px;
+    }
+
+    .form-subtitle::before
+    {
+        width: 23em;
+        left: revert;
+    }
+
+    .account-container::before {
+        width: 13em;
+        left: revert;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .form-container {
+        width: 50vw;
+        background-color: transparent;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .form-title {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        background-color: #333333;
+        width: 7em;
+        padding-top: 0.5em;
+        box-shadow: #ce367d 0px -3px 6px, #ce367d 0px 3px 6px;
+        margin-bottom: 1.2em;
+        border-radius: 10px;
+    }
+
+    label {
+        width: 40%;
+        border-radius: 3px;
+        padding-left: 0.3em;
+    }
+
+    input {
+        opacity: 0.9;
+    }
+
+    .password>.input-item label {
+        width: 65%;
+    }
+
+    .send:hover {
+        background-color: #ce367d;
+        border: 2px solid #ce367d;
+        font-size: 1.2em;
+        border-radius: 10px;
+    }
+
+    .delete:hover {
+        background-color: #63ce8e;
+        border: 1px solid #63ce8e;
+        font-size: 1.1em;
+        border-radius: 10px;
+    }
+
+    main {
+        width: 100vw;
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
+        animation-name: background-fondo-big;
+        animation-duration: 37s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+    }
+
+    .form-subtitle::before {
+        width: 23em;
+        left: revert;
+    }
+
+    .account-container::before {
+        width: 13em;
+        left: revert;
+    }
+}
