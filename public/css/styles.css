@@ -28,7 +28,7 @@ main {
 }
 
 .form-container {
-    color: white;
+    color: #F3F5F6;
     width: 90vw;
     padding: 2em;
     border-radius: 5px;
@@ -176,7 +176,7 @@ input {
 
 h2 {
     background-color: #333333;
-    width: 60%;
+    width: 7em;
     padding-top: 0.5em;
     box-shadow: #ce367d 0px -3px 6px, #ce367d 0px 3px 6px;
     margin-bottom: 1.2em;
@@ -249,8 +249,6 @@ label {
 
     .form-container {
         width: 70vw;
-        background-color: transparent;
-        color: white;
         display: grid;
     }
 
@@ -301,19 +299,8 @@ label {
         animation-timing-function: ease-in-out;
     }
 
-    h2 {
-        background-color: #333333;
-        width: 7em;
-        padding-top: 0.5em;
-        box-shadow: #ce367d 0px -3px 6px, #ce367d 0px 3px 6px;
-        margin-bottom: 1.2em;
-        border-radius: 10px;
-    }
-
     label {
         width: 50%;
-        border-radius: 3px;
-        padding-left: 0.3em;
         font-size: 1em;
     }
 
@@ -357,8 +344,6 @@ label {
 
     .form-container {
         width: 50vw;
-        background-color: transparent;
-        color: white;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -370,19 +355,8 @@ label {
         font-size: 1.5em;
     }
 
-    h2 {
-        background-color: #333333;
-        width: 7em;
-        padding-top: 0.5em;
-        box-shadow: #ce367d 0px -3px 6px, #ce367d 0px 3px 6px;
-        margin-bottom: 1.2em;
-        border-radius: 10px;
-    }
-
     label {
         width: 40%;
-        border-radius: 3px;
-        padding-left: 0.3em;
     }
 
     input {
