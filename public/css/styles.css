@@ -22,6 +22,7 @@
 main {
     background-color: #F3F5F6;
     padding-top: 2em;
+    padding-bottom: 2em;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
