@@ -1,0 +1,243 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Encabezado */
+header {
+  background-color:rgb(139, 31, 77);
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.buscador {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-icon,
+.cart-icon,
+.menu-icon {
+  padding: 0.5em;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 100px;
+
+}
+
+.logo {
+  padding: 0em;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.logo img {
+  height: 50%; /* Ajusta el tamaño máximo de la imagen */
+  width: 40%; /* Ajusta el ancho máximo de la imagen */
+  margin-right: 10px; /* Agrega espacio entre el logo y otros elementos */
+}
+/* Contenido principal */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.login-box {
+  background-color: #eee0ca;
+  border-radius: 10px;
+  padding: 2em;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.login-box h2 {
+  margin: 0;
+  margin-bottom: 1em;
+  color: rgb(139, 31, 77)00;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  color: #fefffe;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.label-bar {
+  background-color:  #b5808a;
+  padding: 0.5em;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-bottom: 0em;
+}
+
+.input-bar {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+input[type="password"] {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.label-pass {
+  background-color:  #b5808a;
+  padding: 0.5em;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-bottom: 0em;
+}
+
+.input-pass {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+input[type="password"] {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color:rgb(139, 31, 77);
+  color: #fff;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.google-login {
+  background-color: #629677;
+  color: #fff;
+  border: 1px solid #629677;
+  margin-top: 0.5em;
+}
+
+.recaptcha-info {
+  font-size: 12px;
+  margin-top: 1em;
+  color: #1b1815;
+}
+
+.login-options {
+  margin-top: 1em;
+}
+
+.login-options a {
+  color: rgb(139, 31, 77);
+  text-decoration: none;
+  margin: 0.5em 0;
+  display: block;
+}
+
+/* Pie de página */
+footer {
+  background-color: rgb(139, 31, 77);
+  color: #fff;
+  text-align: center;
+  padding: 2em 0;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1em;
+}
+
+.newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.newsletter input {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 0.5em;
+}
+
+.newsletter button {
+  background-color: #fff;
+  color: #550000;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer-info {
+  font-size: 12px;
+}
