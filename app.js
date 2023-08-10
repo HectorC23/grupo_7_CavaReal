@@ -2,12 +2,12 @@ const express = require("express");
 
 const app = express();
 
-const PORT = 8080;
+const PORT = 3030;
 
 app.use(express.static("public"));
 
-app.get("/detalle" , (req, res) =>{
-    res.sendFile(__dirname + "/views/productDetail.html");
+app.get("/", (req, res)=> {
+    res.sendFile(__dirname + '/views/register.html');
 })
 
 app.listen(PORT, () => {
