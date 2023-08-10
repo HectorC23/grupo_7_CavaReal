@@ -20,23 +20,25 @@
 }
 
 main {
-    background-color: #F3F5F6;
+    background-image: url('/images/vino-333.png');
+    background-size: cover;
+    background-position: center;
     padding-top: 2em;
     padding-bottom: 2em;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 
 .form-container {
-    background-color: #EEE0CB;
     width: 90vw;
     padding: 2em;
     border-radius: 5px;
     margin: 1.5em auto 0;
-    box-shadow: #bc7495 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+    box-shadow: #EEE0CB -1px 1px 5px, #EEE0CB 2px -3px 6px;
     margin-top: 1em;
     margin-bottom: 1em;
+    position: relative;
+    z-index: 1;
+    color: #7A1745;
+    background-color: #EEE0CB;
 }
 
 .form {
@@ -44,7 +46,7 @@ main {
     flex-direction: column;
 }
 
-.password,
+.inputs-wrapper,
 .buttons,
 .reCAPTCHA {
     padding-bottom: 1.5em;
@@ -56,61 +58,34 @@ main {
 }
 
 .form-subtitle {
-    padding-bottom: 2.1em;
     text-align: center;
-    font-size: 0.9em;
-    color: #333333;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    margin-bottom: 2em;
+    align-items: center;
+    padding: 0.4em;
+    font-size: 0.8em;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
-.input-item {
+.input-item,
+.input-item-password {
     padding-bottom: 1.5em;
 }
 
 label {
-
-    color: #F3F5F6;
+    color: #7A1745;
     font-size: 1.2em;
     padding-bottom: 0.08em;
     opacity: 0.8;
-    position: relative;
-    z-index: 1;
-    padding-left: 0.5em;
-    font-weight: 550;
-    padding-top: 0.5em;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.25em;
 }
 
-label::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #7A1745;
-    border-radius: 6px;
-    opacity: 0.6;
-    z-index: -1;
-}
-
-.box-images {
-    width: 100%;
-    height: 100%;
-    animation-name: background-fondo-big;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-    box-shadow: #bc7495 2px -2px 5px 0px, rgba(0, 0, 0, 0.23) 3px -2px 6px;
-    border: 2px solid rgba(0, 0, 0, 0.16);
-    opacity: 0.87;
-}
-
-.box-container {
-    margin-top: 7em;
-    width: 100vw;
-    height: 30em;
+label,
+input {
+    display: block;
 }
 
 input {
@@ -133,38 +108,20 @@ input {
     font-size: 1em;
     border: none;
     color: #F3F5F6;
+    box-shadow: #333333 0px -3px 6px, #333333 0px 3px 6px;
+    border-radius: 3px;
 }
 
 .send {
     background-color: #7A1745;
     transition-property: background-color, border, font-size;
-    transition-duration: 0.4s;
-    transition-timing-function: linear;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px,
-        rgba(0, 0, 0, 0.23) 0 3px 6px;
+    transition-duration: 0.5s;
 }
 
 .delete {
     background-color: #629677;
-    transition-property: background-color, border, background-size;
-    transition-duration: 0.4s;
-    border-radius: 5px;
-    transition-timing-function: linear;
-    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px,
-        rgba(0, 0, 0, 0.23) 0 3px 6px;
-}
-
-.send:focus {
-    background-color: #ce367d;
-    border: 2px solid #ce367d;
-    font-size: 1.15em;
-}
-
-.delete:focus {
-    background-color: #63ce8e;
-    border: 2px solid #63ce8e;
-    font-size: 1.15em;
+    transition-property: background-color, border, font-size;
+    transition-duration: 0.5s;
 }
 
 .reCAPTCHA {
@@ -174,8 +131,7 @@ input {
     flex-direction: column;
     justify-content: center;
     align-self: center;
-    font-size: 0.8em;
-    color: #333333;
+    font-size: 0.8em
 }
 
 .account-container {
@@ -183,65 +139,107 @@ input {
     width: 100%;
     justify-content: center;
     font-size: 1.2em;
-    padding-top: 1.2em;
-    color: #7A1745;
+    padding-top: 1.1em;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.div-title {
+    display: flex;
+    justify-content: center;
+    color: #F3F5F6;
 }
 
 h2 {
-    color: #7A1745;
-    position: relative;
-    z-index: 1;
-    font-weight: 900;
+    background-color: #333333;
+    width: 7em;
+    padding-top: 0.5em;
+    box-shadow: #ce367d 0px -3px 6px, #ce367d 0px 3px 6px;
+    margin-bottom: 1.2em;
+    border-radius: 10px;
+    font-size: 1.3em;
 }
 
-.newslester {
-    flex-direction: row;
-}
-
-.send:hover {
-    border: 3px solid #ce367d;
+label {
+    color: #eee0cb;
+    opacity: 1;
     background-color: #ce367d;
-    font-size: 1.15em;
+    width: 35%;
+    border-radius: 3px;
+    padding-left: 0.3em;
+    font-size: 1.05em;
 }
 
-.delete:hover {
-    border: 2px solid #63ce8e;
-    background-color: #63ce8e;
-    font-size: 1.15em;
+.password>.input-item label {
+    width: 11em;
 }
+
+.password>.input-item-password label {
+    width: 7em;
+}
+
 
 @keyframes background-fondo-big {
 
     0% {
+        background-image: url('/images/vino-3.png');
+        background-position: center;
+        background-size: 100% auto;
+    }
+
+    70% {
         background-image: url('/images/vino-1.png');
         background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        background-size: 100% auto;
     }
 
     100% {
-        background-image: url('/images/vino-5.png');
+        background-image: url('/images/vino-22.png');
         background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+}
+
+@keyframes background-fondo-medium {
+
+    0% {
+        background-image: url('/images/vino-3.png');
+        background-position: center;
+        background-size: 100% auto;
+    }
+
+    70% {
+        background-image: url('/images/vino-11.png');
+        background-position: center;
+        background-size: 100% auto;
+    }
+
+    100% {
+        background-image: url('/images/vino-222.png');
+        background-position: center;
+        background-size: 100% auto;
     }
 }
 
 @media (min-width: 600px) {
 
     .form-container {
-        width: 70vw;
+        width: 75vw;
+        display: grid;
+        height: 100%;
     }
 
     .inputs-wrapper {
         display: flex;
         flex-wrap: wrap;
-        column-gap: 1.5em;
+        column-gap: 1em;
         justify-content: center;
         padding: 0.01em;
     }
 
-    .inputs-wrapper .input-item {
+    .inputs-wrapper .input-item,
+    .inputs-wrapper .input-item-password {
         display: block;
         width: 45%;
     }
@@ -252,32 +250,85 @@ h2 {
 
     .buttons {
         margin-top: 1.5em;
-        font-size: 1.1em;
     }
 
     .form-title {
-        font-size: 1.8em;
-    }
-
-    .form-subtitle,
-    .reCAPTCHA {
-        font-size: 0.75em;
+        font-size: 1em;
     }
 
     .account-container {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 
     .reCAPTCHA {
         width: 75%;
+        font-size: 0.8em;
     }
 
-    .password label,
-    label {
-        font-size: 0.95em;
+    main {
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
+        width: 100vw;
+        animation-name: background-fondo-medium;
+        animation-duration: 47s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .box-container {
-        margin-top: 7em;
+
+    label {
+        width: 50%;
+        font-size: 1em;
+    }
+
+    .password>.input-item label {
+        width: 11em;
+        font-size: 0.9em;
+    }
+
+    input {
+        opacity: 0.9;
+        padding: 0.5em;
+    }
+
+    .send:focus {
+        background-color: #ce367d;
+        border: 4px solid #ce367d;
+        font-size: 1.3em;
+        border-radius: 10px;
+    }
+
+    .delete:focus {
+        background-color: #63ce8e;
+        border: 2px solid #63ce8e;
+        font-size: 1.2em;
+        border-radius: 10px;
+    }
+
+    .form-subtitle::before {
+        width: 23em;
+        left: revert;
+    }
+
+    .account-container::before {
+        width: 13em;
+        left: revert;
+    }
+
+    .button {
+        padding: 0.2em;
+        width: 40%;
+    }
+
+    .buttons {
+        flex-direction: row;
+        column-gap: 1em;
+        justify-content: center;
     }
 
 }
@@ -285,25 +336,72 @@ h2 {
 @media (min-width: 1024px) {
 
     .form-container {
-        width: 55vw;
+        width: 60vw;
+        height: 105%;
     }
 
-    label,
-    .password label {
-        font-size: 1em;
-
+    .form-title {
+        font-size: 1.05em;
     }
 
-    .form-subtitle {
-        font-size: 0.9em;
+    label {
+        width: 7em;
     }
 
-    .reCAPTCHA {
-        font-size: 0.8em;
-        width: 70%;
+    input {
+        opacity: 0.9;
     }
 
-    .box-container {
-        margin-top: 7em;
+    .password>.input-item label {
+        width: 13em;
+    }
+
+    .send:hover {
+        background-color: #ce367d;
+        border: 2px solid #ce367d;
+        font-size: 1.2em;
+        border-radius: 10px;
+    }
+
+    .delete:hover {
+        background-color: #63ce8e;
+        border: 1px solid #63ce8e;
+        font-size: 1.1em;
+        border-radius: 10px;
+    }
+
+    main {
+        width: 100vw;
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
+        animation-name: background-fondo-big;
+        animation-duration: 37s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+    }
+
+    .form-subtitle::before {
+        width: 23em;
+        left: revert;
+    }
+
+    .account-container::before {
+        width: 13em;
+        left: revert;
+        padding-top: revert;
+    }
+
+    .buttons {
+        flex-direction: row;
+        column-gap: 2em;
+        justify-content: center;
+    }
+
+    .button {
+        padding: 0.3em;
+        width: 40%;
     }
 }
+
