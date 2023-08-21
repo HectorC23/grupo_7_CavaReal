@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
@@ -20,6 +19,11 @@
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 140px; */
     background-image: url('/images/vino-333.png');
     background-size: cover;
     background-position: center;
@@ -36,7 +40,7 @@ main {
     margin-top: 1em;
     margin-bottom: 1em;
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     color: #7A1745;
     background-color: #EEE0CB;
 }
@@ -60,7 +64,7 @@ main {
 .form-subtitle {
     text-align: center;
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     display: flex;
     margin-bottom: 2em;
     align-items: center;
@@ -76,19 +80,19 @@ main {
     padding-bottom: 1.5em;
 }
 
-label {
+main label {
     color: #7A1745;
     font-size: 1.2em;
     padding-bottom: 0.08em;
     opacity: 0.8;
 }
 
-label,
-input {
+main label,
+main input {
     display: block;
 }
 
-input {
+main input {
     width: 100%;
     padding: 1em;
     border-radius: 4px;
@@ -142,7 +146,7 @@ input {
     padding-top: 1.1em;
     align-items: center;
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .div-title {
@@ -161,7 +165,7 @@ h2 {
     font-size: 1.3em;
 }
 
-label {
+main label {
     color: #eee0cb;
     opacity: 1;
     background-color: #ce367d;
@@ -281,7 +285,7 @@ label {
         align-items: center;
     }
 
-    label {
+    main label {
         width: 50%;
         font-size: 1em;
     }
@@ -291,7 +295,7 @@ label {
         font-size: 0.9em;
     }
 
-    input {
+    main input {
         opacity: 0.9;
         padding: 0.5em;
     }
@@ -344,11 +348,11 @@ label {
         font-size: 1.05em;
     }
 
-    label {
+    main label {
         width: 7em;
     }
 
-    input {
+    main input {
         opacity: 0.9;
     }
 

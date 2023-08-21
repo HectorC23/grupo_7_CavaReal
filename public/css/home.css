@@ -4,18 +4,23 @@ body{
     margin: 0%;
     background-color: #F3F5F6;
     font-family: 'Lato', sans-serif;
+    min-width: 404px;
+}
+h3{
+    margin: 0%;
 }
 
 /* HEADER */
 header{
     width: 100%;
-    height: 75px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     
     background-color: #333333;
     color: white;
+    position:fixed;
 }
 .cont_logo_header{
     width: 20%;
@@ -32,14 +37,15 @@ header{
 }
 
 .cont_buscador {
-    min-width: 180px;
     width: 45%;
     height: 40%;
+    min-width: 150px;
+    max-width: 450px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 13px;
     box-sizing: border-box;
     border:1px solid black;
 }
@@ -48,28 +54,39 @@ header{
     border: none;
     height: 80%;
     font-size: 16px;
+    background-color: transparent;
 }
 #buscador:focus-visible{
     outline: none;
 }
 #btn_buscador {
     border: none;
-    background-color: white;
+    background-color: transparent;
 }
 
 .cont_log_reg{
-    width: 40px;;
+    width: 10%;
+    max-width: 50px;
+    height: 60%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 .cont_carrito{
     width: 20px;
 }
 
 /* NAV */
-nav {
+.nav {
+    top: 100px;
     height: 40px;
     width: 100%;
+    position: fixed;
+    background-color: #F3F5F6;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
 }
 .nav_ul {
     list-style-type: none;
@@ -91,6 +108,7 @@ nav {
     text-decoration: underline;
 }
 main{
+    margin-top: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -287,12 +305,13 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
-    height: 30%;
+    height: 34%;
 }
 .cont_logo{
-    height: 40%;
+    height: 37%;
+    /* max-height: 50px; */
 }
 .cont_logo img {
     height: 100%;
@@ -302,7 +321,7 @@ footer{
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    height: 55%;
+    height: 60%;
 }
 .cont_info h3 {
     text-align: center;
@@ -357,11 +376,12 @@ footer div p {
     }
     footer{
         flex-direction: row;
-        height: 35vh;
+        height: 40vh;
     }
     .div_foot{
-        height: 80%;
+        height: 85%;
         justify-content: start;
+        gap: 8px;
     }
 }
 

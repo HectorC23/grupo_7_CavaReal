@@ -281,6 +281,9 @@ main{
     margin-top: 5px;
     color: #ffffff;
 }
+footer{
+    margin-bottom: 26.5vh;
+}
 
 @media (min-width: 361px){
 
@@ -388,6 +391,9 @@ main{
 
     .wine-units i{
         font-size: 1.3em;
+    }
+    footer{
+        margin-bottom: 32.5vh;
     }
 
 }
@@ -498,5 +504,9 @@ main{
 
     .container-fixed button:hover{
         background-color: #500f2d;
+    }
+
+    footer{
+        margin-bottom: 0%;
     }
 }

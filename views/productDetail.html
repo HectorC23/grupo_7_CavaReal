@@ -8,13 +8,36 @@
     <link rel="stylesheet" href="/css/productDetailStyle.css">
     <script src="https://kit.fontawesome.com/ecd0310594.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header.css">
     <title>Detalle de Producto</title>
 </head>
 <body>
     <header>
-
+        <div class="cont_logo_header">
+            <img src="/images/logo.jpeg" alt="logo">
+        </div>
+        <div class="cont_buscador">
+            <input type="text" placeholder="nombre del producto" id="buscador">
+            <button id="btn_buscador"> <label for="buscador"> <i class="fa-solid fa-magnifying-glass"></i> </label></button>
+        </div>
+        <div class="cont_log_reg">
+            <a href="/login.html"><i class="fa-solid fa-user"></i></a>
+            <a href="/register.html"><i class="fa-solid fa-user-plus"></i></a>
+        </div>
+        <div class="cont_carrito">
+            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
     </header>
+    <nav class="nav">
+        <ul class="nav_ul">
+            <li> <a href="/#OFERTAS">ofertas</a> </li>
+            <li> <a href="/#PRODUCTOS">productos</a> </li>
+            <li> <a href="/#BENEFICIOS">beneficios</a> </li>
+            <li> <a href="/#SUSCRIPCION">suscripcion</a> </li>
+            <li> <a href="/#INFORMACION">informacion</a> </li>
+        </ul>
+    </nav>
 
     <main>
         <div class="container-main">
@@ -197,8 +220,41 @@
         </div>
     </main>
 
-    <footer>
+    <footer id="INFORMACION">
+        <div class="cont_info_foot div_foot">
+            <div class="cont_logo">
+                <img src="/images/logo.jpeg" alt="logo">
+            </div>
+            <div class="cont_info ">
+                <h3>Cava Real</h3>
+                <p> calle numero, barrio</p>
+                <p> provincia, codigo postal, pais</p>
+                <p> Nosotros</p>
 
+            </div>
+        </div>
+        <div class="cont_foot div_foot">
+            <h3>Servicio al cliente</h3>
+            <p>Ayuda</p>
+            <p>Preguntas frecuentes</p>
+            <p>Términos y condiciones</p>
+            <p>Privacidad</p>
+        </div>
+        <div class="cont_foot div_foot">
+            <h3>Tienda</h3>
+            <p>Vinos</p>
+            <p>whisky</p>
+            <p>Otros</p>
+            <p>Ofertas</p>
+        </div>
+        <div class="cont_redes div_foot">
+            <h3>Seguinos</h3>
+            <nav class="nav_redes">
+                <a href="www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+                <a href="www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="www.twitter.com"><i class="fa-brands fa-x-twitter"></i></a>
+            </nav>
+        </div>
     </footer>
 </body>
 </html>

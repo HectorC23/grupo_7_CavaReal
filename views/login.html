@@ -4,19 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header.css">
     <title>Tienda de Vinos - Iniciar Sesión</title>
 </head>
 <body>
     <header>
-        <div class="search-bar">
-            <div class="menu-icon">Menú</div>
-            <div class="logo"><img src="images/cavareal.PNG" alt="logo-web"></div>
-            <input class="buscador" type="text" placeholder="Buscar vinos...">
-            <div class="user-icon"><a href="#">Usuario</a></div>
-            <div class="cart-icon"><a href="#">Carrito</a></div>
-           
+        <div class="cont_logo_header">
+            <img src="/images/logo.jpeg" alt="logo">
+        </div>
+        <div class="cont_buscador">
+            <input type="text" placeholder="nombre del producto" id="buscador">
+            <button id="btn_buscador"> <label for="buscador"> <i class="fa-solid fa-magnifying-glass"></i> </label></button>
+        </div>
+        <div class="cont_log_reg">
+            <a href="/login.html"><i class="fa-solid fa-user"></i></a>
+            <a href="/register.html"><i class="fa-solid fa-user-plus"></i></a>
+        </div>
+        <div class="cont_carrito">
+            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </header>
+    <nav class="nav">
+        <ul class="nav_ul">
+            <li> <a href="/#OFERTAS">ofertas</a> </li>
+            <li> <a href="/#PRODUCTOS">productos</a> </li>
+            <li> <a href="/#BENEFICIOS">beneficios</a> </li>
+            <li> <a href="/#SUSCRIPCION">suscripcion</a> </li>
+            <li> <a href="/#INFORMACION">informacion</a> </li>
+        </ul>
+    </nav>
     <main>
         <div class="login-box">
             <h2>Conéctate a tu cuenta</h2>
@@ -35,21 +52,40 @@
             </form>
         </div>
     </main>
-    <footer>
-        <div class="footer-links">
-            <a href="#">Contacto</a>
-            <a href="#">Quiénes somos</a>
-            <a href="#">Productos</a>
-            <a href="#">Preguntas frecuentes</a>
-            <a href="#">Términos y condiciones</a>
+    <footer id="INFORMACION">
+        <div class="cont_info_foot div_foot">
+            <div class="cont_logo">
+                <img src="/images/logo.jpeg" alt="logo">
+            </div>
+            <div class="cont_info ">
+                <h3>Cava Real</h3>
+                <p> calle numero, barrio</p>
+                <p> provincia, codigo postal, pais</p>
+                <p> Nosotros</p>
+
+            </div>
         </div>
-        <div class="newsletter">
-            <p>Recibe el newsletter de promociones y novedades</p>
-            <input type="email" placeholder="Ingresa tu email">
-            <button>Suscribirse</button>
+        <div class="cont_foot div_foot">
+            <h3>Servicio al cliente</h3>
+            <p>Ayuda</p>
+            <p>Preguntas frecuentes</p>
+            <p>Términos y condiciones</p>
+            <p>Privacidad</p>
         </div>
-        <div class="footer-info">
-            <p>&copy; 2023 Tienda de Vinos. Todos los derechos reservados.</p>
+        <div class="cont_foot div_foot">
+            <h3>Tienda</h3>
+            <p>Vinos</p>
+            <p>whisky</p>
+            <p>Otros</p>
+            <p>Ofertas</p>
+        </div>
+        <div class="cont_redes div_foot">
+            <h3>Seguinos</h3>
+            <nav class="nav_redes">
+                <a href="www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+                <a href="www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="www.twitter.com"><i class="fa-brands fa-x-twitter"></i></a>
+            </nav>
         </div>
     </footer>
 </body>

@@ -2,18 +2,8 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #f7f7f7;
   background-size: cover;
   background-position: center;
-}
-
-/* Encabezado */
-header {
-  background-color:rgb(139, 31, 77);
-  color: #fff;
-  padding: 1em 0;
-  text-align: center;
 }
 
 .search-bar {
@@ -60,7 +50,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 110vh;
+  background-image: url('/images/vino-333.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .login-box {
@@ -83,7 +76,7 @@ main {
   align-items: center;
 }
 
-label {
+main label {
   color: #fefffe;
   font-weight: bold;
   margin-bottom: 0.5em;
@@ -107,13 +100,13 @@ label {
   padding: 10px;
 }
 
-input[type="password"] {
+main input[type="password"] {
   flex: 1;
   border: none;
   outline: none;
 }
 
-button {
+main button {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -140,21 +133,12 @@ button {
   padding: 10px;
 }
 
-input[type="password"] {
+main input[type="password"] {
   flex: 1;
   border: none;
   outline: none;
 }
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-input {
+main input {
   padding: 0.5em;
   margin-bottom: 1em;
   width: 100%;
@@ -162,7 +146,7 @@ input {
   border-radius: 5px;
 }
 
-button {
+main button {
   background-color:rgb(139, 31, 77);
   color: #fff;
   padding: 0.5em 1em;
@@ -193,51 +177,4 @@ button {
   text-decoration: none;
   margin: 0.5em 0;
   display: block;
-}
-
-/* Pie de página */
-footer {
-  background-color: rgb(139, 31, 77);
-  color: #fff;
-  text-align: center;
-  padding: 2em 0;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1em;
-}
-
-.footer-links a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 1em;
-}
-
-.newsletter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1em;
-}
-
-.newsletter input {
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-left: 0.5em;
-}
-
-.newsletter button {
-  background-color: #fff;
-  color: #550000;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.footer-info {
-  font-size: 12px;
 }
