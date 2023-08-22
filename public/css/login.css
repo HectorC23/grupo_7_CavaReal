@@ -1,59 +1,23 @@
 /* Estilos generales */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-size: cover;
-  background-position: center;
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-.search-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.buscador {
-  padding: 0.5em;
-  margin-bottom: 1em;
+body{
+  background-color: #f3f5f6;
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
 }
 
-.user-icon,
-.cart-icon,
-.menu-icon {
-  padding: 0.5em;
-  cursor: pointer;
-  color: #fff;
-  margin-right: 100px;
-
-}
-
-.logo {
-  padding: 0em;
-  font-weight: bold;
-  font-size: 1.5em;
-  color: #fff;
+main{
+  width: 100%;
   display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-.logo img {
-  height: 50%; /* Ajusta el tamaño máximo de la imagen */
-  width: 40%; /* Ajusta el ancho máximo de la imagen */
-  margin-right: 10px; /* Agrega espacio entre el logo y otros elementos */
-}
-/* Contenido principal */
-main {
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 110vh;
-  background-image: url('/images/vino-333.png');
-  background-size: cover;
-  background-position: center;
 }
 
 .login-box {
@@ -61,28 +25,35 @@ main {
   border-radius: 10px;
   padding: 2em;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0px;
 }
 
 .login-box h2 {
+  font-size: 1.5em;
   margin: 0;
   margin-bottom: 1em;
-  color: rgb(139, 31, 77)00;
 }
 
 .login-box form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
 main label {
-  color: #fefffe;
+  color: white;
   font-weight: bold;
   margin-bottom: 0.5em;
 }
-.label-bar {
-  background-color:  #b5808a;
+
+.label-bar, .label-pass{
+  background-color:  #333333;
   padding: 0.5em;
   width: 100%;
   border-top-left-radius: 5px;
@@ -90,7 +61,8 @@ main label {
   margin-bottom: 0em;
 }
 
-.input-bar {
+
+.input-bar, .input-pass {
   background-color: #fff;
   border: 1px solid #ccc;
   border-bottom-left-radius: 5px;
@@ -100,59 +72,22 @@ main label {
   padding: 10px;
 }
 
-main input[type="password"] {
-  flex: 1;
-  border: none;
-  outline: none;
-}
-
-main button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-.label-pass {
-  background-color:  #b5808a;
-  padding: 0.5em;
-  width: 100%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  margin-bottom: 0em;
-}
-
-.input-pass {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-}
-
-main input[type="password"] {
-  flex: 1;
-  border: none;
-  outline: none;
-}
 main input {
   padding: 0.5em;
   margin-bottom: 1em;
   width: 100%;
   border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 main button {
-  background-color:rgb(139, 31, 77);
+  width: 100%;
+  background-color:#7A1745;
   color: #fff;
-  padding: 0.5em 1em;
+  padding: 10px 0px;
   border: none;
-  border-radius: 5px;
+  border-radius: 7px;
   cursor: pointer;
+  font-size: 1em;
 }
 
 .google-login {
@@ -163,9 +98,10 @@ main button {
 }
 
 .recaptcha-info {
-  font-size: 12px;
+  font-size: 0.8em;
   margin-top: 1em;
   color: #1b1815;
+  text-align: center;
 }
 
 .login-options {
@@ -173,8 +109,76 @@ main button {
 }
 
 .login-options a {
-  color: rgb(139, 31, 77);
+  color: #7A1745;
   text-decoration: none;
   margin: 0.5em 0;
   display: block;
+  font-weight: 500;
+}
+
+.botones{
+  width: 100%;
+}
+
+@media (min-width: 361px){
+  .login-box{
+    width: 70%;
+    margin: 60px 0px;
+  }
+
+  .login-box h2{
+    font-size: 1.7em;
+  }
+
+  .login-box form{
+    width: 85%;
+  }
+
+  .login-box input{
+    margin-bottom: 25px;
+  }
+
+  .recaptcha-info{
+    margin: 20px 0px;
+  }
+}
+
+@media (min-width: 769px){
+  .login-box{
+    width: 50%;
+    margin: 60px 0px;
+  }
+
+  .login-box h2{
+    font-size: 1.8em;
+  }
+
+  .login-box input{
+    transition: all 450ms;
+  }
+  .login-box input:hover{
+    border: #1b1815 1px solid;
+  }
+
+  .botones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .botones button{
+    width: 48%;
+    transition: all 450ms;
+  }
+
+  .botones button:hover{
+    background-color: #4f0f2d;
+  }
+
+  .botones .google-login:hover{
+    background-color: #456a54;
+  }
+  .google-login{
+    margin-top: 0px;
+  }
 }
