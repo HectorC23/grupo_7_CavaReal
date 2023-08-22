@@ -213,10 +213,10 @@ main{
 
 .pay-delivery-mobile-container{
     width: 100%;
-    padding-bottom: 200px;
     display: flex;
     flex-direction: row;
     margin-top: 20px;
+    margin-bottom: 50px;
     justify-content: space-around;
     align-items: center;
 }
@@ -287,6 +287,10 @@ footer{
 
 @media (min-width: 361px){
 
+    .container-fixed i{
+        color: #000000;
+    }
+    
     .container-main{
         padding-bottom: 200px;
     }
@@ -432,13 +436,14 @@ footer{
     }
 
     .container-fixed{
-        position: fixed;
+        position: sticky;
         right: 0px;
         height: 100%;
         width: 30%;
         justify-content: flex-start;
         padding: 30px 20px 20px 40px;
     }
+
 
     .container-fixed-secondary{
         flex-direction: column;
@@ -494,6 +499,9 @@ footer{
     .wine-units{
         width: 95%;
         margin-bottom: 20px;
+    }
+    .container-fixed{
+        box-shadow: 0px 4px 5px rgb(100, 100, 100);
     }
     
     .container-fixed button{

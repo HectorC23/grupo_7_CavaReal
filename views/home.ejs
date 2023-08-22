@@ -7,40 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ecd0310594.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+
+    <link rel="icon" href="/images/icon-pestaña.png">
+    <title>Home</title>
 </head>
 <body>
-    <header>
-        <div class="cont_logo_header">
-            <img src="/images/logo.jpeg" alt="logo">
-        </div>
-        <div class="cont_buscador">
-            <input type="text" placeholder="nombre del producto" id="buscador">
-            <button id="btn_buscador"> <label for="buscador"> <i class="fa-solid fa-magnifying-glass"></i> </label></button>
-        </div>
-        <div class="cont_log_reg">
-            <a href="/login.html"><i class="fa-solid fa-user"></i></a>
-            <a href="/register.html"><i class="fa-solid fa-user-plus"></i></a>
-        </div>
-        <div class="cont_carrito">
-            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-    </header>
-    <nav class="nav">
-        <ul class="nav_ul">
-            <li> <a href="#OFERTAS">ofertas</a> </li>
-            <li> <a href="#PRODUCTOS">productos</a> </li>
-            <li> <a href="#BENEFICIOS">beneficios</a> </li>
-            <li> <a href="#SUSCRIPCION">suscripcion</a> </li>
-            <li> <a href="#INFORMACION">informacion</a> </li>
-        </ul>
-    </nav>
+    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/nav.ejs") %>
+
     <main>
         <section id="#OFERTAS" class="sec_ofertas">
-            <img src="/images/pancarta-vinos.jpg" alt="">
+            <img src="/images/copa-uvas.jpg" alt="banner">
         </section>
         
-        <section id="PRODUCTOS" class="sec_productos">
+        <section id="#PRODUCTOS" class="sec_productos">
             <div class="cont_categorias">
                 <div class="catego">
                     <h2>Vinos</h2>
@@ -49,21 +29,79 @@
                     <h2>Whiskys</h2>
                 </div>
                 <div class="catego">
-                    <h2>Otros</h2>
+                    <h2>Aperitivos</h2>
+                </div>
+                <div class="catego">
+                    <h2>Accesorios</h2>
                 </div>
             </div>
+
+            <div class="cont-presentacion">
+                <p>Somos Cava Real y nuestro sitio de vinos ofrece una amplia y cuidadosamente seleccionada gama de vinos 🍷
+                    de calidad premium provenientes de diversas regiones vinícolas alrededor del mundo 🌍.</p>
+            </div>
+            
             <div class="cont_prod">
                 <div class="cont_filtros">
-                    <p> Lorem ipsum dolor, sit amet </p>
-                    <p> Lorem ipsum dolor, sit amet </p>
-                    <p> Lorem ipsum dolor, sit amet </p>
-                    <p> Lorem ipsum dolor, sit amet </p>
-                    <p> Lorem ipsum dolor, sit amet </p>
-                    <p> Lorem ipsum dolor, sit amet </p>
-                    <p> Lorem ipsum dolor, sit amet </p>
-                    <p> Lorem ipsum dolor, sit amet </p>
-                    <p> Lorem ipsum dolor, sit amet </p>
-                    <p> Lorem ipsum dolor, sit amet </p>
+                    <p>FILTROS</p>
+                    <form action="#" method="post">
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Afrutado" multiple>
+                    <label for="Afrutado">Afrutado</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Muy-complejo" multiple>
+                    <label for="Muy-complejo">Muy complejo</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Seco" multiple>
+                    <label for="Seco">Seco</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Postre" multiple>
+                    <label for="Postre">Postre</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Mucha-madera" multiple>
+                    <label for="Mucha-madera">Mucha madera</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Nada-madera" multiple>
+                    <label for="Nada-madera">Nada madera</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Amable" multiple>
+                    <label for="Amable" >Amable</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Refrescante" multiple>
+                    <label for="Refrescante">Refrescante</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Aterciopelado" multiple>
+                    <label for="Aterciopelado">Aterciopelado</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Taninos-intensos" multiple>
+                    <label for="Taninos-intensos">Taninos intensos</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Liviano" multiple>
+                    <label for="Liviano">Liviano</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Mucho-cuerpo" multiple>
+                    <label for="Mucho-cuerpo">Mucho cuerpo</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Delicado" multiple>
+                    <label for="Delicado">Delicado</label>
+                </div>
+                    <div class="filtro-check">
+                    <input type="checkbox" name="filtros"  id="Estructurado" multiple>
+                    <label for="Estructurado">Estructurado</label>
+                </div>
+                    </form>
                 </div>
                 <div class="cont_tproductos">
                     <div class="card_producto">
@@ -74,8 +112,8 @@
                         <p class="descuento">10% Off</p>
                         <p class="nombre"> Vino y se fue</p>
                         <div class="cont_dsc">
-                            <a href="/productDetail.html" class="btn_dsc">Ver producto</a>
-                            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="/detalle" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
                     <div class="card_producto">
@@ -86,8 +124,8 @@
                         <p class="descuento">10% Off</p>
                         <p class="nombre"> Vino y se fue</p>
                         <div class="cont_dsc">
-                            <a href="/productDetail.html" class="btn_dsc">Ver producto</a>
-                            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="/detalle" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
                     <div class="card_producto">
@@ -98,8 +136,8 @@
                         <p class="descuento">10% Off</p>
                         <p class="nombre"> Vino y se fue</p>
                         <div class="cont_dsc">
-                            <a href="/productDetail.html" class="btn_dsc">Ver producto</a>
-                            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="/detalle" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
                     <div class="card_producto">
@@ -110,8 +148,8 @@
                         <p class="descuento">10% Off</p>
                         <p class="nombre"> Vino y se fue</p>
                         <div class="cont_dsc">
-                            <a href="/productDetail.html" class="btn_dsc">Ver producto</a>
-                            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="/detalle" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
                     <div class="card_producto">
@@ -122,8 +160,8 @@
                         <p class="descuento">10% Off</p>
                         <p class="nombre"> Vino y se fue</p>
                         <div class="cont_dsc">
-                            <a href="/productDetail.html" class="btn_dsc">Ver producto</a>
-                            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="/detalle" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
                     <div class="card_producto">
@@ -134,8 +172,8 @@
                         <p class="descuento">10% Off</p>
                         <p class="nombre"> Vino y se fue</p>
                         <div class="cont_dsc">
-                            <a href="/productDetail.html" class="btn_dsc">Ver producto</a>
-                            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="/detalle" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
                     <div class="card_producto">
@@ -146,8 +184,8 @@
                         <p class="descuento">10% Off</p>
                         <p class="nombre"> Vino y se fue</p>
                         <div class="cont_dsc">
-                            <a href="/productDetail.html" class="btn_dsc">Ver producto</a>
-                            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="/detalle" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
                     <div class="card_producto">
@@ -158,20 +196,20 @@
                         <p class="descuento">10% Off</p>
                         <p class="nombre"> Vino y se fue</p>
                         <div class="cont_dsc">
-                            <a href="/productDetail.html" class="btn_dsc">Ver producto</a>
-                            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="/detalle" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
                     <div class="card_producto">
                         <div class="cont_imgproducto">
-                            <img src="/images/botella.png" alt="producto">
+                            <img src="/images/example-wine.png" alt="producto">
                         </div>
                         <p class="precio">$50.000</p>
                         <p class="descuento">10% Off</p>
                         <p class="nombre"> Vino y se fue</p>
                         <div class="cont_dsc">
-                            <a href="/productDetail.html" class="btn_dsc">Ver producto</a>
-                            <a href="/carritoDeCompra.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="/detalle" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
                 </div>
@@ -194,11 +232,9 @@
         <form id="SUSCRIPCION" class="sec_suscripcion">
             <div class="suscripcion_info">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing 
-                    elit. Nam temporibus vero, totam rem tenetur ipsa 
-                    minima earum hic quo corrupti. Doloremque veritatis 
-                    non soluta natus! Cumque laborum accusamus commodi 
-                    dicta!
+                    Nuestro sitio está dirigido a una <b>audiencia apasionada por el mundo del vino 🍇</b>, desde 
+    conocedores y coleccionistas hasta entusiastas aficionados que deseen descubrir y disfrutar de 
+    experiencias vinícolas únicas. <b>Subscribete</b> para recibir contenido interesante, promos descuentos y mas!
                 </p>
             </div>
             <div class="suscripcion_input">
@@ -207,42 +243,7 @@
             </div>
         </form>
     </main>
-    <footer id="INFORMACION">
-        <div class="cont_info_foot div_foot">
-            <div class="cont_logo">
-                <img src="/images/logo.jpeg" alt="logo">
-            </div>
-            <div class="cont_info ">
-                <h3>Cava Real</h3>
-                <p> calle numero, barrio</p>
-                <p> provincia, codigo postal, pais</p>
-                <p> Nosotros</p>
 
-            </div>
-        </div>
-        <div class="cont_foot div_foot">
-            <h3>Servicio al cliente</h3>
-            <p>Ayuda</p>
-            <p>Preguntas frecuentes</p>
-            <p>Términos y condiciones</p>
-            <p>Privacidad</p>
-        </div>
-        <div class="cont_foot div_foot">
-            <h3>Tienda</h3>
-            <p>Vinos</p>
-            <p>whisky</p>
-            <p>Otros</p>
-            <p>Ofertas</p>
-        </div>
-        <div class="cont_redes div_foot">
-            <h3>Seguinos</h3>
-            <nav class="nav_redes">
-                <a href="www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
-                <a href="www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
-                <a href="www.twitter.com"><i class="fa-brands fa-x-twitter"></i></a>
-            </nav>
-        </div>
-    </footer>
-
+    <%- include("./partials/footer.ejs") %>
 </body>
 </html>
