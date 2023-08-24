@@ -2,10 +2,10 @@
   "name": "grupo_7_cavareal",
   "version": "1.0.0",
   "description": "CAVA REAL 🍷👑",
-  "main": "app2.js",
+  "main": "src/app.js",
   "scripts": {
-    "dev": "npx nodemon app2.js",
-    "start": "npx nodemon app2.js",
+    "dev": "npx nodemon src/app.js",
+    "start": "npx nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
