@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/add.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+    <link rel="icon" href="/images/icon-pestaña.png">
+
+    <title>Registro</title>
+</head>
+
+<body>
+
+    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/nav.ejs") %>
+
+    <main>
+        <div class="register-box">
+            <h2>Agregar Producto</h2>
+            <p class="subtitulo" >Por favor complete la información a continuación</p>
+            <form action="/home">
+                
+                    <div class="input-content">
+                        <label for="nameProduct" class="label-bar">Nombre Del Producto</label>
+                        <input type="text" id="name" name="nameProduct" required placeholder="Nombre Del Producto" class="input-bar">
+                    </div>
+                    <div class="input-content">
+                        <label for="tipProduct" class="label-bar">Tipo De Prodcuto</label>
+                        <!-- <input type="text" name="tipProduct" required placeholder="Vino, Wisky, Accesorio, Otros" class="input-bar"> -->
+                        <select id="tipProduct" name="tipProduct" required class="input-bar" >
+                            <option value="">--Please choose an option--</option>
+                            <option value="vino">vino</option>
+                            <option value="wisky">wisky</option>
+                            <option value="accesorio">accesorio</option>
+                            <option value="otro">otro</option>
+                          </select>
+                    </div>
+                    <div class="input-content">
+                        <label for="descriptionProduct" class="label-bar">Descripción Del Producto</label>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <input type="textarea" id="lastname" name="descriptionProduct" required placeholder="Descripción Del Producto" class="input-bar">
+                        <input type="text" id="lastname" name="descriptionProduct" required placeholder="Viñedo" class="input-bar">
+                        <input type="text" id="lastname" name="descriptionProduct" required placeholder="Edad del viñedo" class="input-bar">
+                        <input type="number" id="lastname" name="descriptionProduct" required placeholder="Altitud" class="input-bar">
+                        <input type="text" id="lastname" name="descriptionProduct" required placeholder="Variedad" class="input-bar">
+                        <input type="text" id="lastname" name="descriptionProduct" required placeholder="Guardado en barriles" class="input-bar">
+                        <input type="text" id="lastname" name="descriptionProduct" required placeholder="Potencial de guardado" class="input-bar">
+                    </div>
+                    <div class="input-content">
+                        <label for="categoriProduct" class="label-bar">Catador</label>
+                        <input type="range" id="categoriProduct" name="categoriProduct" list="markers" min="0" max="100">
+                        
+                        <datalist id="markers">
+                          <option value="0" label="Afrutado"></option>
+                          <option value="100" label="Muy Complejo"></option>
+                        </datalist>
+                        <input type="range" id="categoriProduct" name="categoriProduct" list="markers" min="0" max="100">
+                        
+                        <datalist id="markers">
+                          <option value="0" label="Afrutado"></option>
+                          <option value="100" label="Muy Complejo"></option>
+                        </datalist><input type="range" id="categoriProduct" name="categoriProduct" list="markers" min="0" max="100">
+                        
+                        <datalist id="markers">
+                          <option value="0" label="Afrutado"></option>
+                          <option value="100" label="Muy Complejo"></option>
+                        </datalist><input type="range" id="categoriProduct" name="categoriProduct" list="markers" min="0" max="100">
+                        
+                        <datalist id="markers">
+                          <option value="0" label="Afrutado"></option>
+                          <option value="100" label="Muy Complejo"></option>
+                        </datalist><input type="range" id="categoriProduct" name="categoriProduct" list="markers" min="0" max="100">
+                        
+                        <datalist id="markers">
+                          <option value="0" label="Afrutado"></option>
+                          <option value="100" label="Muy Complejo"></option>
+                        </datalist>
+                        <!-- <input type="text" id="email" name="categoriProduct" required placeholder="Vino, Wisky, Accesorio, Otros" class="input-bar"> -->
+                        <!-- <div>
+                            <input type="checkbox" id="afrutado"  value="afrutado" checked />
+                            <label for="afrutado">Afrutado</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="complejo"  value="complejo"  />
+                            <label for="complejo">Muy complejo</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="seco"  value="seco"  />
+                            <label for="seco">Seco</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="postre"  value="postre"  />
+                            <label for="postre">Postre</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="muchaMadera"  value="muchaMadera"  />
+                            <label for="muchaMadera">Mucha Madera</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="nadaMadera"  value="nadaMadera"  />
+                            <label for="nadaMadera">Nada Madera</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="amable"  value="amable"  />
+                            <label for="amable">Amable</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="refrescante"  value="refrescante"  />
+                            <label for="refrescante">Refrescante</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="aterciopelado"  value="aterciopelado"  />
+                            <label for="aterciopelado">Aterciopelado</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="taninosIntensos"  value="taninosIntensos"  />
+                            <label for="taninosIntensos">Taninos Intensos</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="liviano"  value="liviano"  />
+                            <label for="liviano">Liviano</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="muchoCuerpo"  value="muchoCuerpo"  />
+                            <label for="muchoCuerpo">Mucho Cuerpo</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="delicado"  value="delicado"  />
+                            <label for="delicado">Delicado</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="estructurado"  value="estructurado"  />
+                            <label for="estructurado">Estructurado</label>
+                        </div> -->
+                        
+                    </div>
+                    <div class="input-content">
+                        <label for="password" class="label-bar">Contraseña</label>
+                        <input type="password" id="password" name="password" required placeholder="Contraseña" class="input-bar">
+                    </div>
+                    <div class="input-content">
+                        <label for="passwordConfirmation" class="label-bar">Confirmar Contraseña</label>
+                        <input type="password" id="passwordConfirmation" name="passwordConfirmation" required
+                            placeholder="Confirmar Contraseña" class="input-bar">
+                    </div>
+
+                    <div class="input-content">
+                        <label for="imageProduct" class="label-bar">Imagen Del Producto</label>
+                        <input type="file" id="userName" name="imageProduct" required class="input-bar" accept=".png">
+                    </div>
+                    <div class="botones">
+                        <button type="submit">Crear Cuenta</button>
+                        <button type="reset" class="delete">Borrar</button>
+                    </div>
+
+                    <p class="recaptcha-info">
+                        Este sitio esta protegido por reCAPTCHA y se aplican las Politicas de Privacidad de Google
+                        y los terminos del Servicio.
+                    </p>
+                    
+            </form>
+            <div class="login-options">
+                <a href="#">¿Ya tienes una cuenta? <b>Entra aquí</b></a>
+            </div>
+        </div>
+    </main>
+
+    <%- include("./partials/footer.ejs")%>
+
+</body>
+
+</html>

@@ -32,7 +32,7 @@
     align-items: center;
     margin: 20px 0px 40px 0px;
   }
-  
+
   .register-box h2 {
     font-size: 1.5em;
     margin: 0;
@@ -42,6 +42,7 @@
   .subtitulo{
     font-size: 0.9em;
     margin-bottom: 20px;
+    text-align: center;
   }
   
   .register-box form {
@@ -126,6 +127,12 @@
   }
   
   .botones{
+    width: 100%;
+  }
+
+  datalist {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
   }
   

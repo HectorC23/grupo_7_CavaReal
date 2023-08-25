@@ -34,9 +34,9 @@ body{
 }
 
 @media (min-width: 361px){
-    .nav_ul {
+    /* .nav_ul {
         flex-wrap: nowrap;
-    }
+    } */
     .nav_ul li a {
         font-size: 1em;
     }
