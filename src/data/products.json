@@ -1,0 +1,99 @@
+[
+    {
+        "id":1,
+        "descripcion": "Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. Se distingue por sus aromas de excelente tipicidad varietal, dominados por la fruta negra y las notas de pimienta muy bien equilibradas con los tonos de torrefacción producto de su crianza en barricas. En el paladar es compacto, tenso, con muy buena estructura y cuerpo. Taninos finos y maduros, acidez equilibrada que aporta buena fluidez y final persistente y elegante.",
+        "viñedo": "Las Compuertas, Agrelo, Gualtallary y Altamira",
+        "edad del viñedo": "23",
+        "altitud": "Las Compuertas y Agrelo 1050 metros, Gualtallary 1230 metros y Altamira 1080 metros",
+        "variedad": "Cabernet Sauvignon",
+        "guardado en barriles": "12 meses",
+        "potencial de guardado": "12 años",
+        "catador": "Este Cabernet Sauvignon ofrece una experiencia sensorial rica con su fruta negra dominante, notas de pimienta y un equilibrio entre taninos y acidez. Su final persistente y elegante deja una impresión duradera en el paladar.",
+        "price": "9145"
+      },
+      {
+        "id":2,
+        "descripcion": "LUIGI BOSCA DE SANGRE · Red Blend es un tinto rojo granate brillante con aromas muy atractivos a fruta negra, pimienta negra y notas de té en armonía, equilibrados con leves tonos ahumados de la crianza en roble. En boca se lo percibe compacto, maduro, con taninos incipientes y textura redonda. Llena la boca con fruta que denota muy buena definición de terroir. Gran carácter y acidez, y final largo, complejo y profundo. Composición: Cabernet Sauvignon 78%, Syrah 12%, Merlot 10%.",
+        "viñedo": "Las Compuertas y Agrelo",
+        "edad del viñedo": "Los Nobles 100 años, Agrelo 17 años",
+        "altitud": "Las Compuertas 1050, Agrelo 1050",
+        "variedad": "Blend",
+        "guardado en barriles": "12 meses",
+        "potencial de guardado": "12 años",
+        "catador": "Este Red Blend es una armoniosa combinación de Cabernet Sauvignon, Syrah y Merlot. Sus aromas expresivos y su paladar jugoso resaltan la calidad de los viñedos. Con notas especiadas y un final complejo, este vino ofrece una experiencia única.",
+        "price": "7559"
+      },
+      {
+        "id":3,
+        "descripcion": "La Linda · Malbec es un tinto de color rojo violáceo brillante, de aromas muy expresivos que recuerdan a frutas rojas y especias. Su paladar es franco y fluido, con taninos incipientes. Es un vino de trago intenso y amable, jugoso y de buen volumen, con una notable tipicidad varietal y un final de boca muy agradable, con todo lo que un Malbec joven puede ofrecer. Presentación: 6 botellas de 750 ml",
+        "viñedo": "Luigi Bosca",
+        "edad del viñedo": "10",
+        "altitud": "1.150",
+        "variedad": "Malbec",
+        "guardado en barriles": "0 meses",
+        "potencial de guardado": "6 años",
+        "catador": "El Malbec presenta una intensidad violácea y aromas expresivos de frutas rojas y especias. En boca, su textura suave y jugosa resalta la tipicidad varietal. Un vino joven y fresco con gran potencial de evolución.",
+        "price": "3504"
+      },
+      {
+        "id":4,
+        "descripcion": "Luigi Bosca Cabernet Sauvignon es un tinto de color rojo rubí profundo y brillante. Sus aromas son sutiles y equilibrados, con notas de frutos negros, especias y cuero. En boca es jugoso y expresivo, con taninos finos y firmes que se agarran. De paladar franco y fresco, con buen cuerpo y carácter vivaz, y final profundo en el que se aprecian los ahumados de la crianza en barricas de roble. Es un vino referente del varietal, con gran potencial de guarda.",
+        "viñedo": "Luigi Bosca",
+        "edad del viñedo": "10 años",
+        "altitud": "1.150 metros",
+        "variedad": "Cabernet Sauvignon",
+        "guardado en barriles": "12 meses",
+        "potencial de guardado": "7 años",
+        "catador": "Este Cabernet Sauvignon destaca por su elegancia y profundidad. Con aromas sutiles de frutos negros y cuero, su paladar franco y fresco se combina con taninos finos y firmes. Un vino de carácter y gran potencial de guarda.",
+        "price": "5779"
+      },
+      { 
+        "id":5,
+        "descripcion": "Luigi Bosca De Sangre· Cabernet Franc es un tinto de color rojo granate oscuro y profundo. Sus aromas son típicos de la variedad, con notas placenteras que recuerdan a regaliz, especias, pimienta rosa y algo de fruta negra, todo bien amalgamado con la crianza en barricas. En boca la entrada es compacta, con nervio, concentración y muy buena fluidez. Gran acidez y firmeza, de textura equilibrada y muy buena redondez. Final largo y profundo, con dejos de fruta negra y algo de especias.",
+        "viñedo": "Finca el Paraiso",
+        "variedad": "Cabernet Franc",
+        "edad del viñedo": "25 años",
+        "altitud": "780 metros",
+        "guardado en barriles": "10 meses",
+        "potencial de guardado": "12 años",
+        "catador": "Afrutado 60% muy complejo, Nada 10 % Mucha Madera, Muy seco 15% Postre, Amable 15% Refrescante, Aterciopelado 20% Taninos Intensos, Liviano 70% Mucho Cuerpo, Delicado 70% Estructurado",
+        "price": "9825"
+      },
+      { 
+        "id":6,
+        "descripcion": "La Linda · Torrontés es un blanco de color amarillo claro y brillante. De aromas intensos a flores blancas y frutas tropicales. Su paladar es expresivo y perfumado, de paso fluido y refrescante. Es un vino con gracia, vibrante y directo, con tipicidad varietal inconfundible y final cítrico persistente y agradable. Presentación: 6 botellas de 750 ml.",
+        "viñedo": "Luigi Bosca",
+        "edad del viñedo": "10 años",
+        "altitud": "1.150 metros",
+        "variedad": "Torrontes",
+        "guardado en barriles": "0 meses",
+        "potencial de guardado": "2 años",
+        "catador": "Afrutado 30% Muy Complejo, Nada 10% Mucha Madera, Muy seco 15% Postre, Amable 90% Refrescante, Aterciopelado 60% Taninos Intensos, Liviano 30% Mucho Cuerpo, Delicado 15% Estructurado",
+        "price": "3045"
+      },
+      {
+        "id":7,
+        "descripcion": "Luigi Bosca Chardonnay es un blanco de color amarillo brillante. Sus aromas remiten a frutas blancas levemente tropicales, en armonía con notas cítricas y florales. Su entrada en boca es redonda y compacta, de paladar definido, buen volumen y carácter frutal maduro. Su acidez equilibrada le aporta una agradable vivacidad. Final expresivo y amplio, con un dejo floral muy elegante y una larga persistencia.",
+        "viñedo": "Elaborado con uvas de viñedos propios situados en Luján de Cuyo y Valle de Uco.",
+        "edad del viñedo": "20 años promedio",
+        "altitud": "900 a 1.200 metros",
+        "variedad": "Chardonnay",
+        "guardado en barriles": "2 años",
+        "potencial de guardado": "2 años",
+        "catador": "Afrutado 20% muy complejo, Nada 15 % Mucha Madera, Muy seco 20% Postre, Amable 80% Refrescante, Aterciopelado 50% Taninos Intensos, Liviano 55% Mucho Cuerpo, Delicado 50% Estructurado",
+        "price": "4988"
+      },
+      {
+        "id":8,
+        "descripcion": "LUIGI BOSCA · Rosé es un vino de color tenue y brillante con reflejos cobrizos. Sus aromas son vibrantes, con notas de frutas rojas, membrillo, miel y flores blancas. En boca es vivaz y refrescante, de paladar franco y tenso. Es un rosado voluptuoso, con agarre y un carácter expresivo y bien sutil. De buen cuerpo, final persistente y delicado. Es un rosado innovador y original que va evolucionando desde el viñedo.",
+        "viñedo": "Luigi Bosca",
+        "edad del viñedo": "10 años",
+        "altitud": "1.150 metros",
+        "variedad": "Blend, Pinot Gris, Rose, Syrah",
+        "guardado en barriles": "12 meses",
+        "potencial de guardado": "2 años",
+        "catador": "Afrutado 15% muy complejo, Nada 15% Mucha Madera, Muy seco 30% Postre, Amable 65% Refrescante, Aterciopelado 20% Taninos Intensos, Liviano 15% Mucho Cuerpo, Delicado 50% Estructurado",
+        "price": "9825"
+      }
+      
+]
