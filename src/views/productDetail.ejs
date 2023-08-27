@@ -27,47 +27,47 @@
                         <i class="fa-solid fa-tractor"></i>
                         <div class="wine-information-text">
                             <b>Viñedo</b>
-                            <p>Las Compuertas, Vistalba y Agrelo</p>
+                            <p> <%= product.viñedo%> </p>
                         </div>
                     </div>
                     <div class="wine-information">
                         <i class="fa-regular fa-clock"></i>
                         <div class="wine-information-text">
                             <b>Edad del viñedo</b>
-                            <p>70 años</p>
+                            <p> <%= product.edad%> </p>
                         </div>
                     </div>
                     <div class="wine-information">
                         <i class="fa-solid fa-arrows-up-down"></i>
                         <div class="wine-information-text">
                             <b>Altitud</b>
-                            <p>960 metros</p>
+                            <p> <%= product.altitud %> </p>
                         </div>
                     </div>
                     <div class="wine-information">
                         <i class="fa-solid fa-wine-glass"></i>
                         <div class="wine-information-text">
                             <b>Variedad</b>
-                            <p>Malbec</p>
+                            <p> <%= product.variedad %> </p>
                         </div>
                     </div>
                     <div class="wine-information">
                         <i class="fa-solid fa-boxes-stacked"></i>
                         <div class="wine-information-text">
                             <b>Guardado en barriles</b>
-                            <p>12 meses</p>
+                            <p> <%= product.barriles %> </p>
                         </div>
                     </div>
                     <div class="wine-information">
                         <i class="fa-solid fa-box"></i>
                         <div class="wine-information-text">
                             <b>Potencial de guardado</b>
-                            <p>10 años</p>
+                            <p> <%= product.guardado %> </p>
                         </div>
                     </div>
                 </div>
                 <div class="wine-image">
-                    <img src="/images/example-wine.png" alt="example-wine">
+                    <img src="<%= product.img%>" alt="example-wine">
                 </div>
             </div>
             <div class="nav-wine">
@@ -79,7 +79,7 @@
                 </nav>
             </div>
             <div class="wine-description-text" id="wine-description">
-                <p>Cava Real De Sangre - Malbec D.O.C es uno de los primeros vinos argentinos con Denominación de Origen. De color rojo violáceo profundo y brillante, sus aromas son equilibrados, con notas de frutas rojas y negras, y especias dulces. En boca es refrescante y voluptuoso, con taninos finos y delicados. De paladar franco y expresivo, con carácter y tipicidad, y un final profundo con suaves tonos ahumados de la crianza en barricas de roble. Es un gran exponente del varietal y de su terruño, con gran potencial de guarda.</p>
+                <p> <%= product.descripcion %> </p>
             </div>
             <p id="catador-tittle">CATADOR</p>
             <div class="container-tertiary">
@@ -91,7 +91,8 @@
                     <p>Muy complejo</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-1"></div>
+                        
+                        <div id="percentage-<%= product.afrutado %>"></div>
                     </div>
                 </div>
                 <div class="wine-catador-description">
@@ -100,7 +101,7 @@
                         <p>Postre</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-2"></div>
+                        <div id="percentage-<%= product.seco %>"></div>
                     </div>
                 </div>
                 <div class="wine-catador-description">
@@ -109,7 +110,7 @@
                     <p>Mucha madera</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-3"></div>
+                        <div id="percentage-<%= product.nada %>"></div>
 
                     </div>
                 </div>
@@ -119,7 +120,7 @@
                     <p>Refrescante</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-4"></div>
+                        <div id="percentage-<%= product.amable %>"></div>
                     </div>          
                 </div>
                 <div class="wine-catador-description">
@@ -128,7 +129,7 @@
                     <p>Taninos intensos</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-5"></div>
+                        <div id="percentage-<%= product.aterciopelado %>"></div>
                     </div>
                 </div>
                 <div class="wine-catador-description">
@@ -137,7 +138,7 @@
                     <p>Mucho cuerpo</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-6"></div>
+                        <div id="percentage-<%= product.liviano %>"></div>
                     </div>        
                 </div>
                 <div class="wine-catador-description">
@@ -146,7 +147,7 @@
                     <p>Estructurado</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-7"></div>
+                        <div id="percentage-<%= product.delicado %>"></div>
                     </div>       
                 </div>
             </div>
@@ -170,10 +171,10 @@
         <div class="container-fixed">
             <div class="container-fixed-secondary">
                 <div class="fixed-information">
-                    <p class="name-wine">DE SANGRE · Malbec D.O.C</p>
-                    <b class="price-wine">$61.200</b>
+                    <p class="name-wine"> <%= product.name %> </p>
+                    <b class="price-wine"><%= product.priceSix %> </b>
                     <p class="wine-box">Caja de 6 unidades</p>
-                    <p class="price-unity">Precio por botella: <b>$ 10.200</b></p>
+                    <p class="price-unity">Precio por botella: <b> <%= product.priceUnity %> </b></p>
                 </div>
                 <div class="pay-delivery-tablet">
                     <div class="pay-delivery" id="pay-card">

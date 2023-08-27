@@ -507,6 +507,8 @@ main{
 
 .cont_imgproducto img {
     transition: all 450ms ease;
+    width: 512px;
+    height: 512px;
 }
 
 
