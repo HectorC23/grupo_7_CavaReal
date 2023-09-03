@@ -484,14 +484,18 @@ main .fa-cart-shopping{
     }
 
     .btn_dsc{
-        width: auto;
+        max-width: 130px;
         transition: all 450ms;
+        text-align: center;
+        display: flex;
+        justify-content: center;
     }
 
     .btn_dsc:hover{
         color: white;
         font-size: 1.25em;
         background-color: #561131;
+        transform: scale(1.1,1.1);
     }
     .card_producto:hover i{
             transform: rotate(-90deg);
