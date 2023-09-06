@@ -1,5 +1,7 @@
 const express = require("express");
 const routes = require('./routes/index')
+const routesProduct = require("./routes/product")
+const routesUser = require('./routes/user')
 
 const app = express();
 
@@ -12,6 +14,10 @@ app.set('views', './src/views');
 app.use(express.static("public"));
 
 app.use("/", routes);
+
+app.use("/product", routesProduct)
+
+app.use("/user", routesUser)
 
 app.listen(PORT, () => {
     console.log(`[Server]: running on port ${PORT}`)

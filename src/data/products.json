@@ -4,21 +4,21 @@
         "name":"DE SANGRE · Cabernet Sauvignon",
         "descripcion": "Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. Se distingue por sus aromas de excelente tipicidad varietal, dominados por la fruta negra y las notas de pimienta muy bien equilibradas con los tonos de torrefacción producto de su crianza en barricas. En el paladar es compacto, tenso, con muy buena estructura y cuerpo. Taninos finos y maduros, acidez equilibrada que aporta buena fluidez y final persistente y elegante.",
         "viñedo": "Las Compuertas, Agrelo, Gualtallary y Altamira",
-        "edad": "23 años",
+        "edad": 23,
         "altitud": "Las Compuertas y Agrelo 1050 metros, Gualtallary 1230 metros y Altamira 1080 metros",
         "variedad": "Cabernet Sauvignon",
-        "barriles": "12 meses",
-        "guardado": "12 años",
-        "priceUnity": " $ 10.675",
-        "priceSix":"$91.500",
-        "afrutado":"3",
-        "nada":"1",
-        "seco":"2",
-        "amable":"5",
-        "aterciopelado":"5",
-        "liviano":"2",
-        "delicado":"2",
-        "img":"/images/product1.png"
+        "barriles": 12,
+        "guardado": 12,
+        "priceUnity": 10.675,
+        "priceSix":91.599,
+        "afrutado":20,
+        "nada":10,
+        "seco":20,
+        "amable":50,
+        "aterciopelado":50,
+        "liviano":20,
+        "delicado":20,
+        "img":"product1.png"
       },
       {
         "id":2,
@@ -30,8 +30,8 @@
         "variedad": "Blend",
         "barriles": "12 meses",
         "guardado": "12 años",
-        "priceUnity": "$7.559",
-        "priceSix":"$66.900",
+        "priceUnity": 7.559,
+        "priceSix":66.900,
         "afrutado":"8",
         "nada":"6",
         "seco":"1",
@@ -39,7 +39,7 @@
         "aterciopelado":"2",
         "liviano":"9",
         "delicado":"9",
-        "img":"/images/product2.png"
+        "img":"product2.png"
       },
       {
         "id":3,
@@ -51,8 +51,8 @@
         "variedad": "Malbec",
         "barriles": "0 meses",
         "guardado": "6 años",
-        "priceUnity": "$3.504",
-        "priceSix":"$26.100",
+        "priceUnity": 3.504,
+        "priceSix":26.100,
         "afrutado":"4",
         "nada":"2",
         "seco":"3",
@@ -60,7 +60,7 @@
         "aterciopelado":"6",
         "liviano":"8",
         "delicado":"7",
-        "img":"/images/product3.webp"
+        "img":"product3.webp"
       },
       {
         "id":4,
@@ -72,8 +72,8 @@
         "variedad": "Cabernet Sauvignon",
         "barriles": "12 meses",
         "guardado": "7 años",
-        "priceUnity": "$5.779",
-        "priceSix":"$39.900",
+        "priceUnity": 5.779,
+        "priceSix":39.900,
         "afrutado":"8",
         "nada":"1",
         "seco":"2",
@@ -81,7 +81,7 @@
         "aterciopelado":"4",
         "liviano":"6",
         "delicado":"7",
-        "img":"/images/product4.png"
+        "img":"product4.png"
       },
       { 
         "id":5,
@@ -93,8 +93,8 @@
         "altitud": "780 metros",
         "barriles": "10 meses",
         "guardado": "12 años",
-        "priceUnity": "$9.825",
-        "priceSix":"$78.600",
+        "priceUnity": 9.825,
+        "priceSix":78.600,
         "afrutado":"6",
         "nada":"1",
         "seco":"2",
@@ -102,7 +102,7 @@
         "aterciopelado":"3",
         "liviano":"7",
         "delicado":"7",
-        "img":"/images/product5.png"
+        "img":"product5.png"
         
       },
       { 
@@ -115,8 +115,8 @@
         "variedad": "Torrontes",
         "barriles": "0 meses",
         "guardado": "2 años",
-        "priceUnity": "$3.045",
-        "priceSix":"$26.100",
+        "priceUnity": 3.045,
+        "priceSix":26.100,
         "afrutado":"3",
         "nada":"1",
         "seco":"2",
@@ -124,7 +124,7 @@
         "aterciopelado":"5",
         "liviano":"3",
         "delicado":"2",
-        "img":"/images/product6.png"
+        "img":"product6.png"
       },
       {
         "id":7,
@@ -136,8 +136,8 @@
         "variedad": "Chardonnay",
         "barriles": "2 años",
         "guardado": "2 años",
-        "priceUnity": "$4.988",
-        "priceSix":"$39.900",
+        "priceUnity": 4.988,
+        "priceSix":39.900,
         "afrutado":"3",
         "nada":"2",
         "seco":"3",
@@ -145,7 +145,7 @@
         "aterciopelado":"5",
         "liviano":"6",
         "delicado":"5",
-        "img":"/images/product7.png"
+        "img":"product7.png"
       },
       {
         "id":8,
@@ -157,8 +157,8 @@
         "variedad": "Malbec",
         "barriles": "12 meses",
         "guardado": "2 años",
-        "priceUnity": "$9.825",
-        "priceSix":"$62.099",
+        "priceUnity": 9.825,
+        "priceSix":62.099,
         "afrutado":"1",
         "nada":"1",
         "seco":"3",
@@ -166,7 +166,7 @@
         "aterciopelado":"2",
         "liviano":"1",
         "delicado":"5",
-        "img":"/images/product8.png"
+        "img":"product8.png"
       },
       {
       "id":9,
@@ -178,8 +178,8 @@
         "variedad": "Malbec",
         "barriles": "12 meses",
         "guardado": "10 años",
-        "priceUnity": " $10.675",
-        "priceSix":"$61.200",
+        "priceUnity": 10.675,
+        "priceSix":61.200,
         "afrutado":"2",
         "nada":"5",
         "seco":"1",
@@ -187,6 +187,6 @@
         "aterciopelado":"4",
         "liviano":"7",
         "delicado":"8",
-        "img":"/images/product9.png"
+        "img":"product9.png"
       }
 ]

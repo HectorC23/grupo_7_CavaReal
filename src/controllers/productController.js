@@ -2,9 +2,6 @@ const products = require('../data/products.json');
 
 
 const productController = {
-    carrito: (req,res)=> {
-        res.render("carritoDeCompra");
-    },
     productoDetalle: (req,res)=> {
         const { id } =req.params;
 

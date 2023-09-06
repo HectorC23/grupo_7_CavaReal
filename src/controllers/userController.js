@@ -1,7 +1,6 @@
+const products = require("../data/products.json");
+
 const controllerUser = {
-    home: (req,res)=> {
-        res.render("home");
-    },
     register: (req,res)=> {
         res.render("register");
     },
