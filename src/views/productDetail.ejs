@@ -20,6 +20,7 @@
     <%- include("./partials/nav.ejs") %>
 
     <main>
+        <!-- <form action="" class="container-main"> -->
         <div class="container-main">
             <div class="container-secondary">
                 <div class="container-wine-information">
@@ -201,9 +202,12 @@
                 <i class="fa-solid fa-circle-plus"></i>
             </div>
             <button>Agregar al carrito</button>
-            <button>Editar producto</button>
+            <form action="../add/<%= product.id%>">
+                <button>Editar producto</button>
+            </form>
             <button>Borar producto</button>
         </div>
+        <!-- </form> -->
     </main>
 
     <%- include("./partials/footer.ejs")%>

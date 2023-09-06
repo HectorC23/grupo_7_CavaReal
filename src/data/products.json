@@ -18,7 +18,8 @@
         "aterciopelado":50,
         "liviano":20,
         "delicado":20,
-        "img":"product1.png"
+        "img":"product1.png",
+        "category": "vino"
       },
       {
         "id":2,

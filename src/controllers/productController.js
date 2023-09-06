@@ -9,7 +9,13 @@ const productController = {
         res.render("productDetail",{product});
     },
     productAdd: (req,res)=> {
-        res.render("productAdd");
+        res.render("productAdd", {product: products});
+    },
+    edit: (req, res) => {
+        const { id } =req.params;
+
+        const product = products.find(p =>p.id == id)
+        res.render("productAdd",{product})
     }
 }
 
