@@ -3,16 +3,16 @@ const products = require('../data/products.json');
 
 
 const productController = {
-    productoDetalle: (req,res)=> {
+    detalle: (req,res)=> {
         const { id } =req.params;
 
         const product = products.find(p =>p.id == id)
         res.render("productDetail",{product});
     },
-    productAdd: (req,res)=> {
+    add: (req,res)=> {
         res.render("productAdd");
     },
-    productProcess:(req,res)=>{
+    process:(req,res)=>{
         const editedProduct={
             id: req.body.id,
         name: req.body.name,
@@ -42,7 +42,7 @@ const productController = {
 
         fs.writeFileSync('../data/products.json', productsJSON);
 
-        res.redirect('/productDetail/:idProduct');
+        res.redirect('/product/detail/:idProduct');
     }
 }
 
