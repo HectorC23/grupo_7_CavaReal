@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="wine-image">
-                    <img src="<%= product.img%>" alt="example-wine">
+                    <img src="/images/<%= product.img%>" alt="example-wine">
                 </div>
             </div>
             <div class="nav-wine">
@@ -90,9 +90,10 @@
                     <p>Afrutado</p>
                     <p>Muy complejo</p>
                     </div>
+
                     <div class="wine-catador-description-percentage">
                         
-                        <div id="percentage-<%= product.afrutado %>"></div>
+                        <div class="percentage" style="width:<%=product.afrutado%>%"></div>
                     </div>
                 </div>
                 <div class="wine-catador-description">
@@ -101,7 +102,7 @@
                         <p>Postre</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-<%= product.seco %>"></div>
+                        <div class="percentage" style="width:<%= product.seco %>%"></div>
                     </div>
                 </div>
                 <div class="wine-catador-description">
@@ -110,7 +111,7 @@
                     <p>Mucha madera</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-<%= product.nada %>"></div>
+                        <div class="percentage" style="width:<%= product.nada %>%"></div>
 
                     </div>
                 </div>
@@ -120,7 +121,7 @@
                     <p>Refrescante</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-<%= product.amable %>"></div>
+                        <div class="percentage" style="width:<%= product.amable %>%"></div>
                     </div>          
                 </div>
                 <div class="wine-catador-description">
@@ -129,7 +130,7 @@
                     <p>Taninos intensos</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-<%= product.aterciopelado %>"></div>
+                        <div class="percentage" style="width:<%= product.aterciopelado %>%"></div>
                     </div>
                 </div>
                 <div class="wine-catador-description">
@@ -138,7 +139,7 @@
                     <p>Mucho cuerpo</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-<%= product.liviano %>"></div>
+                        <div class="percentage" style="width:<%= product.liviano %>%"></div>
                     </div>        
                 </div>
                 <div class="wine-catador-description">
@@ -147,7 +148,7 @@
                     <p>Estructurado</p>
                     </div>
                     <div class="wine-catador-description-percentage">
-                        <div id="percentage-<%= product.delicado %>"></div>
+                        <div class="percentage" style="width:<%= product.delicado %>%"></div>
                     </div>       
                 </div>
             </div>
@@ -172,9 +173,9 @@
             <div class="container-fixed-secondary">
                 <div class="fixed-information">
                     <p class="name-wine"> <%= product.name %> </p>
-                    <b class="price-wine"><%= product.priceSix %> </b>
+                    <b class="price-wine">$ <%= product.priceSix %> </b>
                     <p class="wine-box">Caja de 6 unidades</p>
-                    <p class="price-unity">Precio por botella: <b> <%= product.priceUnity %> </b></p>
+                    <p class="price-unity">Precio por botella: <b>$ <%= product.priceUnity %> </b></p>
                 </div>
                 <div class="pay-delivery-tablet">
                     <div class="pay-delivery" id="pay-card">
@@ -198,6 +199,8 @@
                 <i class="fa-solid fa-circle-plus"></i>
             </div>
             <button>Agregar al carrito</button>
+            <button>Editar producto</button>
+            <button>Borar producto</button>
         </div>
     </main>
 

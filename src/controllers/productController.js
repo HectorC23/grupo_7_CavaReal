@@ -2,21 +2,50 @@ let products = require('../data/products.json');
 const fs = require('fs');
 const path = require('path');
 let idProduct = 9;
-
-
 const productController = {
-    carrito: (req,res)=> {
-        res.render("carritoDeCompra");
-    },
-    productoDetalle: (req,res)=> {
+    detalle: (req,res)=> {
         const { id } =req.params;
 
         const product = products.find(p =>p.id == id)
         res.render("productDetail",{product});
     },
-    productAddView: (req,res)=> {
+    add: (req,res)=> {
         res.render("productAdd");
     },
+
+    process:(req,res)=>{
+        const editedProduct={
+            id: req.body.id,
+        name: req.body.name,
+        descripcion: req.body.descripcion,
+        viñedo: req.body.viñedo,
+        edad: req.body.edad,
+        altitud: req.body.altitud,
+        variedad: req.body.variedad,
+        barriles:req.body.barriles,
+        guardado:req.body.guardado,
+        priceUnity:req.body.priceUnity,
+        priceSix:req.body.priceSix,
+        afrutado:req.body.afrutado,
+        nada:req.body.nada,
+        seco:req.body.seco,
+        amable:req.body.amable,
+        aterciopelado:req.body.aterciopelado,
+        liviano:req.body.liviano,
+        delicado:req.body.delicado,
+        img:req.body.img,
+        }
+
+        const idProduct= req.params.id;
+        products.find((p)=> p.id == idProduct? p=editedProduct : null);
+
+        const productsJSON= JSON.stringify(products);
+
+        fs.writeFileSync('../data/products.json', productsJSON);
+
+        res.redirect('/product/detail/:idProduct');
+    },
+
     productAdd: (req,res) => {
      const product = req.body;
      product.id = idProduct + 1;
@@ -24,14 +53,17 @@ const productController = {
      product.altitud = +product.altitud;
      product.guardado = +product.guardado;
      product.potencial = +product.potencial;
-     product.precio = +product.precio; // AHI QUE VER QUE ONDA CON LOS CATEGOTIAS PARA SABER SI SON numero;
+     product.priceUnity = +product.priceUnity; 
      products.push(product);
-     
+     console.log(product);
+
      fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products));
 
      res.redirect('/home');
      console.log(product);
-    }
+    },
+  
+    
 }
 
 module.exports = productController;
