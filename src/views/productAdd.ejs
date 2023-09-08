@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/add.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+    <link rel="icon" href="/images/icon-pestaña.png">
+
+    <title>Registro</title>
+</head>
+
+<body>
+
+    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/nav.ejs") %>
+
+    <main>
+        <div class="register-box">
+            <h2>Agregar Producto</h2>
+            <p class="subtitulo" >Por favor complete la información a continuación</p>
+            <form action="/home">
+                
+                    <div class="input-content">
+                        <label for="nameProduct" class="label-bar">Nombre Del Producto</label>
+                        <input type="text" id="name" name="nameProduct" required placeholder="Nombre Del Producto" class="input-bar">
+                    </div>
+                    <div class="input-content">
+                        <label for="tipProduct" class="label-bar">Tipo De Prodcuto</label>
+                        <select id="tipProduct" name="tipProduct" required class="input-bar" >
+                            <option value="">--Please choose an option--</option>
+                            <option value="vino">Vino</option>
+                            <option value="wisky">Wisky</option>
+                            <option value="accesorio">Accesorio</option>
+                            <option value="otro">Otro</option>
+                          </select>
+                    </div>
+                    <div class="input-content">
+                        <label for="descriptionProduct" class="label-bar">Descripción Del Producto</label>
+                        <textarea name="descriptionProduct" id="descriptionProduct" cols="30" rows="10"></textarea>
+                        <label for="viñedo" class="label-bar">Nombre del viñedo</label>
+                        <input type="text" id="viñedo" name="viñedo" required placeholder="Viñedo" class="input-bar">
+                        <label for="edad" class="label-bar">Edad del viñedo</label>
+                        <input type="number" id="edad" name="edad" required min="0" placeholder="Edad del viñedo en años" class="input-bar">
+                        <label for="Altitud" class="label-bar">Altitud</label>
+                        <input type="text" id="Altitud" name="Altitud" required min="0" placeholder="Altitud" class="input-bar">
+                        <label for="variedad" class="label-bar">Variedad</label>
+                        <input type="text" id="variedad" name="variedad" required placeholder="Variedad en marcas" class="input-bar">
+                        <label for="guardado" class="label-bar">Guardado en barriles</label>
+                        <input type="number" id="guardado" name="guardado" required min="0" placeholder="Guardado en barriles en meses" class="input-bar">
+                        <label for="potencial" class="label-bar">Potencial de guardado</label>
+                        <input type="number" id="potencial" name="potencial" required min="0" placeholder="Potencial de guardado en años" class="input-bar">
+                        <label for="precio" class="label-bar">Precio</label>
+                        <input type="number" id="precio" name="precio" required placeholder="$10.000.00" min="0" class="input-bar">
+                    </div>
+                    <div class="input-content rangos">
+
+                        <label for="categoriProduct" class="label-bar">Catador</label>
+                        <div class="input-content-2">
+                            <input type="range" class="categoriProduct" name="categoriProduct" list="markers" min="0" max="100">
+                            <datalist id="markers">
+                              <option value="0" label="Afrutado"></option>
+                              <option value="100" label="Muy Complejo"></option>
+                            </datalist>
+                        </div>
+                        
+                        <div class="input-content-2">
+                            <input type="range" class="categoriProduct-2-2" name="categoriProduct" list="markers" min="0" max="100">
+                            <datalist id="markers">
+                              <option value="0" label="Nada"></option>
+                              <option value="100" label="Mucha Madera"></option>
+                            </datalist>
+                        </div>
+                        
+                        <div class="input-content-2">
+                            <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100">
+                            <datalist id="markers">
+                              <option value="0" label="Muy Seco"></option>
+                              <option value="100" label="Postre"></option>
+                            </datalist>
+                        </div>
+                        
+                        <div class="input-content-2">
+                            <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100">
+                            <datalist id="markers">
+                              <option value="0" label="Amable"></option>
+                              <option value="100" label="Refrescante"></option>
+                            </datalist>
+                        </div>
+                        
+                        <div class="input-content-2">
+                            <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100">
+                            <datalist id="markers">
+                              <option value="0" label="Aterciopelado"></option>
+                              <option value="100" label="Taninos Intensos"></option>
+                            </datalist>
+                        </div>
+                        
+                        <div class="input-content-2">
+                            <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100">
+                            <datalist id="markers">
+                              <option value="0" label="Liviano "></option>
+                              <option value="100" label="Mucho Cuerpo"></option>
+                            </datalist>
+                        </div>
+                        
+                        <div class="input-content-2">
+                            <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100">
+                            <datalist id="markers">
+                                <option value="0" label="Delicado"></option>
+                                <option value="100" label="Estructurado"></option>
+                            </datalist>
+                        </div>
+                        
+                        <div class="input-content-2">
+                            <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100">
+                            <datalist id="markers">
+                                <option value="0" label="Aterciopelado"></option>
+                                <option value="100" label="Taninos Intensos"></option>
+                            </datalist>
+                        </div>
+                    </div>
+
+                    <div class="input-content">
+                        <label for="imageProduct" class="label-bar">Imagen Del Producto</label>
+                        <input type="file" id="userName" name="imageProduct" required class="input-bar" accept=".png">
+                    </div>
+                    <div class="botones">
+                        <button type="submit">Subir Producto</button>
+                        <button type="reset" class="delete">Borrar</button>
+                    </div>
+
+                    <p class="recaptcha-info">
+                        Este sitio esta protegido por reCAPTCHA y se aplican las Politicas de Privacidad de Google
+                        y los terminos del Servicio.
+                    </p>
+                    
+            </form>
+        </div>
+    </main>
+
+    <%- include("./partials/footer.ejs")%>
+
+</body>
+
+</html>
