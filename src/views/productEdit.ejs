@@ -22,7 +22,7 @@
         <div class="register-box">
             <h2>Agregar Producto</h2>
             <p class="subtitulo" >Por favor complete la información a continuación</p>
-            <form action="/product/edit/:<%= product.id %>?">
+            <form action="/product/edit/:<%= product.id %>?_method=PUT" method="POST">
                 
                     <div class="input-content">
                         <label for="nameProduct" class="label-bar">Nombre Del Producto</label>

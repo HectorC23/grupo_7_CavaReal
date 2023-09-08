@@ -41,11 +41,19 @@ const productController = {
         const idProduct= req.params.id;
         products.find((p)=> p.id == idProduct? p=editedProduct : null);
 
+        // products.forEach(e => {
+        //     if(e.id == editedProduct.id) {
+        //         e = editedProduct;
+        //     }
+        // })
+        // const product = products.find(e => e.id == idProduct)
+
         const productsJSON= JSON.stringify(products);
 
-        fs.writeFileSync('../data/products.json', productsJSON);
+        fs.writeFileSync('../../data/products.json', productsJSON);
 
         res.redirect('/product/detail/:idProduct');
+        // res.redirect("/home")
     },
     edit: (req, res) => {
         const { id } =req.params;
