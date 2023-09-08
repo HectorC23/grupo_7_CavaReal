@@ -6,11 +6,12 @@ const router = express.Router();
 const productController = require('../controllers/productController')
 
 
-routes.get('/detail/:id', productController.productoDetalle);
-routes.get('/add', productController.productAdd);
+router.get('/detail/:id', productController.detalle);
 
-router.put("/edit/:id", productController.process);
+router.get('/add', productController.add);
 
-routes.get('/add/:id', productController.edit);
+router.put("/edit/:id?", productController.process);
+
+router.get('/edita/:id', productController.edit);
 
 module.exports = router;
