@@ -1,7 +1,8 @@
-const fs = require('fs');
 let products = require('../data/products.json');
+const fs = require('fs');
 const { dirname } = require('path');
 
+const path = require('path');
 
 const productController = {
     detalle: (req,res)=> {
@@ -13,6 +14,7 @@ const productController = {
     add: (req,res)=> {
         res.render("productAdd");
     },
+
     process:(req,res)=>{
         const editedProduct={
             id: req.body.id,
@@ -46,13 +48,33 @@ const productController = {
         res.redirect('/product/detail/:idProduct');
     },
     deleteProduct:(req,res)=>{
-        const idProduct=  parseInt(req.params.id);
-        products  = products.filter((p)=> p.id !== idProduct);
+        const idProduct= +req.params.id;
+
+        products = products.filter((p)=> p.id !== idProduct);
 
         fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products));
 
         res.redirect('/home');
-    }
+    },
+
+    productAdd: (req,res) => {
+
+     const product = req.body;
+     product.id = Date.now();
+     product.img= req.file.filename;
+     product.edad = +product.edad;
+     product.altitud = +product.altitud;
+     product.guardado = +product.guardado;
+     product.potencial = +product.potencial;
+     product.priceUnity = +product.priceUnity; 
+     product.priceSix = +product.priceUnity*6;
+     products.push(product);
+
+     fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products));
+
+     res.redirect('/home');
+    },
+
 }
 
 module.exports = productController;

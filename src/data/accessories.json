@@ -1,0 +1,69 @@
+[{
+    "id": 1,
+    "name": "Copas de Vino",
+    "descripción": "Juego de copas de vino de alta calidad, ideales para realzar la experiencia de degustación de vinos. Incluye copas tintas, blancas y flautas.",
+    "precio": 49.99,
+    "material": "Cristal fino",
+    "detalles": "Apto para lavavajillas, diseño elegante."
+  },
+  {
+    "id": 2,
+    "name": "Sacacorchos",
+    "descripción": "Sacacorchos de palanca con diseño ergonómico para abrir fácilmente las botellas de vino. Incluye cortador de cápsulas y sacacorchos adicional.",
+    "precio": 29.99,
+    "material": "Acero inoxidable y plástico resistente",
+    "detalles": "Funciona con todas las botellas de vino estándar."
+  },
+  {
+    "id": 3,
+    "name": "Decantador de Vino",
+    "descripción": "Decantador de vidrio soplado a mano con forma elegante para mejorar la aireación y el sabor del vino.",
+    "precio": 39.99,
+    "detalles": "Fácil de limpiar y usar."
+  },
+  {
+    "id": 4,
+    "name": "Tapones para Botellas de Vino",
+    "descripción": "Tapones de silicona reutilizables para mantener el vino fresco después de abrir una botella.",
+    "precio": 9.99,
+    "material": "Silicona de grado alimenticio",
+    "detalles": "Aptos para lavavajillas, herméticos y resistentes al aire."
+  },
+  {
+    "id": 5,
+    "name": "Aireadores de Vino",
+    "descripción": "Aireador de vino de bolsillo que mejora instantáneamente el sabor y el aroma del vino al verterlo en la copa.",
+    "precio": 14.99,
+    "material": "Acrílico y silicona",
+    "detalles": "Diseño compacto, fácil de transportar."
+  },
+  {
+    "id": 6,
+    "name": "Cubiteras y Enfriadores de Vino",
+    "descripción": "Cubitera de acero inoxidable con enfriador de vino integrado para mantener el vino a la temperatura perfecta.",
+    "precio": 34.99,
+    "detalles": "Diseño elegante, mantiene el vino frío durante horas."
+  },
+  {
+    "id": 7,
+    "name": "Termómetros para Vinos",
+    "descripción": "Termómetro digital que muestra la temperatura exacta del vino para servirlo en su punto óptimo (rango temperatura: -9°C a 70°C)",
+    "precio": 19.99,
+    "detalles": "Pantalla LCD, fácil de usar."
+  },
+  {
+    "id": 8,
+    "name": "Sets de Regalo para Amantes del Vino",
+    "descripción": "Un set completo que incluye una botella de vino premium, copas de vino y otros accesorios elegantes (1 botella de vino, 2 copas, sacacorchos y tapones).",
+    "precio": 79.99,
+    "detalles": "Presentado en una caja de regalo de lujo."
+  },
+  {
+    "id": 9,
+    "name": "Marcadores de Copas de Vino",
+    "descripción": "Conjunto de marcadores de copas de vino reutilizables y coloridos para que tus invitados identifiquen sus copas fácilmente en reuniones (12 unidades).",
+    "precio": 12.99,
+    "detalles": "Se adhieren al tallo de la copa de manera segura y son aptos para lavavajillas."
+  }
+  
+  ]
