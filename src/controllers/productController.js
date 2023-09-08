@@ -1,7 +1,7 @@
 let products = require('../data/products.json');
 const fs = require('fs');
 const path = require('path');
-let idProduct = 9;
+
 const productController = {
     detalle: (req,res)=> {
         const { id } =req.params;
@@ -47,23 +47,23 @@ const productController = {
     },
 
     productAdd: (req,res) => {
+
      const product = req.body;
-     product.id = idProduct + 1;
+     product.id = Date.now();
+     product.img= req.file.filename;
      product.edad = +product.edad;
      product.altitud = +product.altitud;
      product.guardado = +product.guardado;
      product.potencial = +product.potencial;
      product.priceUnity = +product.priceUnity; 
+     product.priceSix = +product.priceUnity*6;
      products.push(product);
-     console.log(product);
 
      fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products));
 
      res.redirect('/home');
-     console.log(product);
     },
-  
-    
+
 }
 
 module.exports = productController;

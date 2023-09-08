@@ -26,6 +26,6 @@ router.put("/edit/:id", productController.process);
 
 //add
 router.post('/add', upload.single('img') ,productController.productAdd); 
-//router.post('/add',productController.productAdd); 
+
 
 module.exports = router;
