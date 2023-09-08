@@ -26,21 +26,21 @@
                 
                     <div class="input-content">
                         <label for="nameProduct" class="label-bar">Nombre Del Producto</label>
-                        <input type="text" id="name" name="nameProduct" required placeholder="Nombre Del Producto" class="input-bar" value="<%= product.name ? product.name : null %>">
+                        <input type="text" id="name" name="nameProduct" required placeholder="Nombre Del Producto" class="input-bar" value="">
                     </div>
                     <div class="input-content">
                         <label for="tipProduct" class="label-bar">Tipo De Prodcuto</label>
                         <select id="tipProduct" name="tipProduct" required class="input-bar" valu>
                             <option value="">--Please choose an option--</option>
-                            <option <%= product.category == "vino" ? "selected" : "" %> value="vino">Vino</option>
-                            <option <%= product.category == "wisky" ? "selected" : "" %> value="wisky">Wisky</option>
-                            <option <%= product.category == "accesorio" ? "selected" : "" %> value="accesorio">Accesorio</option>
-                            <option <%= product.category == "otro" ? "selected" : "" %> value="otro">Otro</option>
+                            <option value="vino">Vino</option>
+                            <option value="wisky">Wisky</option>
+                            <option value="accesorio">Accesorio</option>
+                            <option value="otro">Otro</option>
                           </select>
                     </div>
                     <div class="input-content">
                         <label for="descriptionProduct" class="label-bar">Descripción Del Producto</label>
-                        <textarea name="descriptionProduct" id="descriptionProduct" cols="30" rows="10"> <%= product.descripcion ? product.descripcion : null %> </textarea>
+                        <textarea name="descriptionProduct" id="descriptionProduct" cols="30" rows="10"> </textarea>
                         <label for="viñedo" class="label-bar">Nombre del viñedo</label>
                         <input type="text" id="viñedo" name="viñedo" required placeholder="Viñedo" class="input-bar">
                         <label for="edad" class="label-bar">Edad del viñedo</label>
