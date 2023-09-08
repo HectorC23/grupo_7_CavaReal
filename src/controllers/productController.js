@@ -1,6 +1,6 @@
+let products = require('../data/products.json');
 const fs = require('fs');
-const products = require('../data/products.json');
-
+const path = require('path');
 
 const productController = {
     detalle: (req,res)=> {
@@ -12,6 +12,7 @@ const productController = {
     add: (req,res)=> {
         res.render("productAdd");
     },
+
     process:(req,res)=>{
         const editedProduct={
             id: req.body.id,
@@ -43,7 +44,26 @@ const productController = {
         fs.writeFileSync('../data/products.json', productsJSON);
 
         res.redirect('/product/detail/:idProduct');
-    }
+    },
+
+    productAdd: (req,res) => {
+
+     const product = req.body;
+     product.id = Date.now();
+     product.img= req.file.filename;
+     product.edad = +product.edad;
+     product.altitud = +product.altitud;
+     product.guardado = +product.guardado;
+     product.potencial = +product.potencial;
+     product.priceUnity = +product.priceUnity; 
+     product.priceSix = +product.priceUnity*6;
+     products.push(product);
+
+     fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products));
+
+     res.redirect('/home');
+    },
+
 }
 
 module.exports = productController;

@@ -8,4 +8,5 @@ const indexController = require('../controllers/indexController')
 router.get(['/', '/home'], indexController.home);
 router.get('/carrito', indexController.carrito);
 
+
 module.exports = router;
