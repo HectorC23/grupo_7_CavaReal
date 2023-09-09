@@ -16,50 +16,48 @@ const productController = {
     },
 
     process:(req,res)=>{
+        
+        
+        //sirve
         const product= req.body;
-
         const { id } =req.params;
-
-        products = products.filter((p)=> p.id !== id);
-
-        products.push(product)
-        // const idProduct= req.params.id;
-        // products.find((p)=> p.id == idProduct? p=editedProduct : null);
+        // products = products.filter((p)=> p.id !== id);
+        // products.push(product)
         console.log("Este es el id " + id);
-    //     products.forEach((e) => {
-    //         if(e.id == id){
-    //             console.log("encontre el id" + e);
-    //             // e = editedProduct;
-    //             e.name = product.name
-    //             e.vinedo = product.vinedo;
-    //             e.edad = +product.edad;
-    //             e.variedad = product.variedad
-    //             e.altitud = +product.altitud;
-    //             e.barriles = +product.barriles;
-    //             e.guardado = +product.guardado;
-    //             e.priceUnity = +product.priceUnity; 
-    //             e.priceSix = +product.priceUnity*6;
 
-    //             e.afrutado = product.afrutado
-    //             e.nada = product.nada
-    //             e.seco = product.seco
-    //             e.amable = product.amable
-    //             e.aterciopelado = product.aterciopelado
-    //             e.liviano = product.liviano
-    //             e.delicado = product.delicado
-    //             e.img = product.img
-    //             e.category = product.category
-    //         }
-            
-    // })
-       
+        // probando 
 
-        // const productsJSON= JSON.stringify(products);
+        
 
-        // fs.writeFileSync('../data/products.json', productsJSON);
+        for(let i = 0; i < products.length; i++){
+            if(products[i].name == product.name){
+                products[i].name = product.name
+                products[i].vinedo = product.vinedo;
+                products[i].edad = +product.edad;
+                products[i].variedad = product.variedad
+                products[i].altitud = product.altitud;
+                products[i].barriles = +product.barriles;
+                products[i].guardado = +product.guardado;
+                products[i].priceUnity = +product.priceUnity; 
+                products[i].priceSix = +product.priceUnity*6;
+                products[i].afrutado = +product.afrutado
+                products[i].nada = +product.nada
+                products[i].seco = +product.seco
+                products[i].amable = +product.amable
+                products[i].aterciopelado = +product.aterciopelado
+                products[i].liviano = +product.liviano
+                products[i].delicado = +product.delicado
+                // products[i].img = (product.img != null ? req.file.filename : products[i].img)
+                products[i].img = req.file.filename
+                // products[i].img = product.img != products[i].img ? req.file.filename : product[i].img
+                products[i].category = product.category
+                console.log("Elemento encontrado");
+                console.log( products[i].img );
+            }
+        }
+
         fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products));
 
-        console.log(products[0]);
         res.redirect(`/`);
     },
     edit: (req, res) => {
@@ -78,12 +76,12 @@ const productController = {
         res.redirect('/home');
     },
     productAdd: (req,res) => {
-
+        // const id = products.length + 1;
         const product = req.body;
         product.id = Date.now();
         product.img= req.file.filename;
         product.edad = +product.edad;
-        product.altitud = +product.altitud;
+        product.altitud = product.altitud;
         product.guardado = +product.guardado;
         product.potencial = +product.potencial;
         product.priceUnity = +product.priceUnity; 

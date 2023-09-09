@@ -22,7 +22,7 @@
         <div class="register-box">
             <h2>Agregar Producto</h2>
             <p class="subtitulo" >Por favor complete la información a continuación</p>
-            <form action="/product/edit/:<%= product.id %>?_method=PUT" method="POST">
+            <form action="/product/edit/:<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 
                     <div class="input-content">
                         <label for="name" class="label-bar">Nombre Del Producto</label>
@@ -126,7 +126,7 @@
 
                     <div class="input-content">
                         <label for="img" class="label-bar">Imagen Del Producto</label>
-                        <input type="file" id="userName" name="img"  class="input-bar" accept=".png" value="/images/<%= product.img %>">
+                        <input type="file" id="userName" name="img" required  class="input-bar" accept=".png" placeholder="imagen">
                     </div>
                     <div class="botones">
                         <button type="submit">Editar Producto</button>
