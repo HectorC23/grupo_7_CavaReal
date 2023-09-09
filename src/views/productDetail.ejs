@@ -204,8 +204,8 @@
 
                 <button>Editar producto</button>
             </a>
-            <form method="post" action="/product/detail/<%=product.id%>">
-            <button type="submit">Borar producto</button>
+            <form action="/product/detail/<%=product.id%>?_method=DELETE" method="POST" ">
+                <button type="submit">Borar producto</button>
             </form>
         </div>
         <!-- </form> -->
