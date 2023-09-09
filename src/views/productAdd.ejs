@@ -25,7 +25,7 @@
             <form action="/product/add" method="post" enctype="multipart/form-data">
                 
                     <div class="input-content">
-                        <label for="nameProduct" class="label-bar">Nombre Del Producto</label>
+                        <label for="name" class="label-bar">Nombre Del Producto</label>
                         <input type="text" id="name" name="name" required placeholder="Nombre Del Producto" class="input-bar">
                     </div>
                     <div class="input-content">
@@ -39,7 +39,7 @@
                           </select>
                     </div>
                     <div class="input-content">
-                        <label for="descripcion" class="label-bar">Descripción Del Producto</label>
+                        <label for="descriptionProduct" class="label-bar">Descripción Del Producto</label>
                         <textarea name="descripcion" id="descriptionProduct" cols="30" rows="10"> </textarea>
                         <label for="vinedo" class="label-bar">Nombre del viñedo</label>
                         <input type="text" id="viñedo" name="vinedo" required placeholder="Viñedo" class="input-bar">
@@ -54,7 +54,7 @@
                         <label for="guardado" class="label-bar">Potencial de guardado</label>
                         <input type="number" id="potencial" name="guardado" required min="0" placeholder="Potencial de guardado en años" class="input-bar">
                         <label for="precio" class="label-bar">Precio</label>
-                        <input type="number" id="precio" name="priceUnity" required step="0.000001" placeholder="$10.000.00" min="0" class="input-bar">
+                        <input type="number" id="precio" name="priceUnity" required step="0.00" placeholder="$10.000.00" min="0" class="input-bar">
                     </div>
                     <div class="input-content rangos">
 

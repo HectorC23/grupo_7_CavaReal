@@ -18,31 +18,35 @@ const productController = {
     process:(req,res)=>{
         
         const product= req.body;
-        const { id } =req.params;
+        const id = req.params.id;
 
         for(let i = 0; i < products.length; i++){
-            if(products[i].name == product.name){
-                products[i].name = product.name
+            if( ":" + products[i].id == id){
+                // console.log("producto encontrado");
+                products[i].name = product.name;
+                products[i].descripcion = product.descripcion.trim();
+                products[i].descripcion = products[i].descripcion.trim();
                 products[i].vinedo = product.vinedo;
                 products[i].edad = +product.edad;
-                products[i].variedad = product.variedad
+                products[i].variedad = product.variedad;
                 products[i].altitud = product.altitud;
                 products[i].barriles = +product.barriles;
                 products[i].guardado = +product.guardado;
                 products[i].priceUnity = +product.priceUnity; 
-                products[i].priceSix = +product.priceUnity*6;
-                products[i].afrutado = +product.afrutado
-                products[i].nada = +product.nada
-                products[i].seco = +product.seco
-                products[i].amable = +product.amable
-                products[i].aterciopelado = +product.aterciopelado
-                products[i].liviano = +product.liviano
-                products[i].delicado = +product.delicado
+                products[i].priceSix = 0;
+                products[i].priceSix = (+product.priceUnity * 6) + Math.round(Math.random()*100)/100;
+                products[i].afrutado = +product.afrutado;
+                products[i].nada = +product.nada;
+                products[i].seco = +product.seco;
+                products[i].amable = +product.amable;
+                products[i].aterciopelado = +product.aterciopelado;
+                products[i].liviano = +product.liviano;
+                products[i].delicado = +product.delicado;
                 products[i].img = req.file ? req.file.filename : products[i].img;
-                products[i].category = product.category
+                products[i].category = product.category;
             }
         }
-
+        console.log(products[9].descripcion.trim());
         fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
 
         res.redirect(`/`);

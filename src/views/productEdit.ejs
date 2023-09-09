@@ -55,13 +55,13 @@
                         <input type="text" id="variedad" name="variedad" required placeholder="Variedad en marcas" class="input-bar" value="<%= product.variedad %>">
 
                         <label for="barriles" class="label-bar">Guardado en barriles</label>
-                        <input type="number" id="barriles" name="barriles" required min="0" placeholder="Guardado en barriles en meses" class="input-bar" value="<%= product.barriles %>">
+                        <input type="number" id="guardado" name="barriles" required min="0" placeholder="Guardado en barriles en meses" class="input-bar" value="<%= product.barriles %>">
 
                         <label for="guardado" class="label-bar">Potencial de guardado</label>
                         <input type="number" id="potencial" name="guardado" required min="0" placeholder="Potencial de guardado en años" class="input-bar" value="<%= product.guardado %>">
 
                         <label for="priceUnity" class="label-bar">Precio</label>
-                        <input type="number" id="precio" name="priceUnity" required step="0.000001" placeholder="$10.000.00" min="0" class="input-bar" value="<%= product.priceUnity %>">
+                        <input type="number" id="precio" name="priceUnity" required step="0.01" placeholder="$10.000.00" min="0" class="input-bar" value="<%= product.priceUnity %>">
                     </div>
                     <div class="input-content rangos">
 
