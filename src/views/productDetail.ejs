@@ -28,7 +28,7 @@
                         <i class="fa-solid fa-tractor"></i>
                         <div class="wine-information-text">
                             <b>Viñedo</b>
-                            <p> <%= product.viñedo %> </p>
+                            <p> <%= product.vinedo %> </p>
                         </div>
                     </div>
                     <div class="wine-information">
@@ -200,7 +200,10 @@
                 <i class="fa-solid fa-circle-plus"></i>
             </div>
             <button>Agregar al carrito</button>
-            <button>Editar producto</button>
+            <a href="/product/edit/<%= product.id %>">
+
+                <button>Editar producto</button>
+            </a>
             <form method="post" action="/product/detail/<%=product.id%>">
             <button type="submit">Borar producto</button>
             </form>

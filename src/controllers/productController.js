@@ -16,36 +16,51 @@ const productController = {
     },
 
     process:(req,res)=>{
-        const editedProduct={
-            id: req.body.id,
-            name: req.body.name,
-            descripcion: req.body.descripcion,
-            viñedo: req.body.viñedo,
-            edad: req.body.edad,
-            altitud: req.body.altitud,
-            variedad: req.body.variedad,
-            barriles:req.body.barriles,
-            guardado:req.body.guardado,
-            priceUnity:req.body.priceUnity,
-            priceSix:req.body.priceSix,
-            afrutado:req.body.afrutado,
-            nada:req.body.nada,
-            seco:req.body.seco,
-            amable:req.body.amable,
-            aterciopelado:req.body.aterciopelado,
-            liviano:req.body.liviano,
-            delicado:req.body.delicado,
-            img:req.body.img,
-        }
+        const product= req.body;
 
-        const idProduct= req.params.id;
-        products.find((p)=> p.id == idProduct? p=editedProduct : null);
+        const { id } =req.params;
 
-        const productsJSON= JSON.stringify(products);
+        products = products.filter((p)=> p.id !== id);
 
-        fs.writeFileSync('../data/products.json', productsJSON);
+        products.push(product)
+        // const idProduct= req.params.id;
+        // products.find((p)=> p.id == idProduct? p=editedProduct : null);
+        console.log("Este es el id " + id);
+    //     products.forEach((e) => {
+    //         if(e.id == id){
+    //             console.log("encontre el id" + e);
+    //             // e = editedProduct;
+    //             e.name = product.name
+    //             e.vinedo = product.vinedo;
+    //             e.edad = +product.edad;
+    //             e.variedad = product.variedad
+    //             e.altitud = +product.altitud;
+    //             e.barriles = +product.barriles;
+    //             e.guardado = +product.guardado;
+    //             e.priceUnity = +product.priceUnity; 
+    //             e.priceSix = +product.priceUnity*6;
 
-        res.redirect('/product/detail/:idProduct');
+    //             e.afrutado = product.afrutado
+    //             e.nada = product.nada
+    //             e.seco = product.seco
+    //             e.amable = product.amable
+    //             e.aterciopelado = product.aterciopelado
+    //             e.liviano = product.liviano
+    //             e.delicado = product.delicado
+    //             e.img = product.img
+    //             e.category = product.category
+    //         }
+            
+    // })
+       
+
+        // const productsJSON= JSON.stringify(products);
+
+        // fs.writeFileSync('../data/products.json', productsJSON);
+        fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products));
+
+        console.log(products[0]);
+        res.redirect(`/`);
     },
     edit: (req, res) => {
         const { id } =req.params;
