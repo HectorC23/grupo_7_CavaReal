@@ -21,11 +21,10 @@ router.get('/detail/:id', productController.detalle);
 
 router.get('/add', productController.add);
 
-router.get('/edit/:id', productController.edit);
-router.put("/edit/:id", productController.process);
+router.put("/edit/:id", upload.single('img') , productController.process);
+router.get('/edit/:id',upload.single('img') , productController.edit);
 
 router.post("/detail/:id", productController.deleteProduct);
 router.post('/add', upload.single('img') ,productController.productAdd); 
-
 
 module.exports = router;
