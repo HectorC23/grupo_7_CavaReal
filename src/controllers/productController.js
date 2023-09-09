@@ -32,9 +32,19 @@ const productController = {
                 products[i].altitud = product.altitud;
                 products[i].barriles = +product.barriles;
                 products[i].guardado = +product.guardado;
-                products[i].priceUnity = +product.priceUnity; 
-                products[i].priceSix = 0;
-                products[i].priceSix = (+product.priceUnity * 6) + Math.round(Math.random()*100)/100;
+                 
+                //cambio 6:57pm
+                if(products[i].priceUnity != +product.priceUnity) {
+                    console.log("ESTOY ADENTRO");
+                    console.log(products[i].priceSix);
+                    products[i].priceSix = 0;
+                    console.log(products[i].priceSix);
+                    products[i].priceSix = (product.priceUnity * 6) + (Math.round(Math.random()*100)/100);
+                    console.log(products[i].priceSix);
+                }
+                products[i].priceUnity = +product.priceUnity;
+                //
+                
                 products[i].afrutado = +product.afrutado;
                 products[i].nada = +product.nada;
                 products[i].seco = +product.seco;
@@ -46,7 +56,7 @@ const productController = {
                 products[i].category = product.category;
             }
         }
-        console.log(products[9].descripcion.trim());
+
         fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
 
         res.redirect(`/`);
