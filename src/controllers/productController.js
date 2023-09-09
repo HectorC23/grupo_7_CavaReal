@@ -17,17 +17,8 @@ const productController = {
 
     process:(req,res)=>{
         
-        
-        //sirve
         const product= req.body;
         const { id } =req.params;
-        // products = products.filter((p)=> p.id !== id);
-        // products.push(product)
-        console.log("Este es el id " + id);
-
-        // probando 
-
-        
 
         for(let i = 0; i < products.length; i++){
             if(products[i].name == product.name){
@@ -47,12 +38,8 @@ const productController = {
                 products[i].aterciopelado = +product.aterciopelado
                 products[i].liviano = +product.liviano
                 products[i].delicado = +product.delicado
-                // products[i].img = (product.img != null ? req.file.filename : products[i].img)
-                products[i].img = req.file.filename
-                // products[i].img = product.img != products[i].img ? req.file.filename : product[i].img
+                products[i].img = req.file ? req.file.filename : products[i].img;
                 products[i].category = product.category
-                console.log("Elemento encontrado");
-                console.log( products[i].img );
             }
         }
 
