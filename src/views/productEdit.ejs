@@ -30,7 +30,7 @@
                     </div>
                     <div class="input-content">
                         <label for="tipProduct" class="label-bar">Tipo De Prodcuto</label>
-                        <select id="tipProduct" name="tipProduct" required class="input-bar" valu>
+                        <select id="tipProduct" name="category" required class="input-bar" valu>
                             <option value="">--Please choose an option--</option>
                             <option <%= product.category == "vino" ? "selected" : "" %> value="vino">Vino</option>
                             <option <%= product.category == "wisky" ? "selected" : "" %> value="wisky">Wisky</option>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="input-content">
                         <label for="descriptionProduct" class="label-bar">Descripción Del Producto</label>
-                        <textarea name="descriptionProduct" id="descriptionProduct" cols="30" rows="10"> <%= product.descripcion %> </textarea>
+                        <textarea name="descriptionProduct" id="descripcion" cols="30" rows="10"> <%= product.descripcion %> </textarea>
 
                         <label for="viñedo" class="label-bar">Nombre del viñedo</label>
                         <input type="text" id="viñedo" name="viñedo" required placeholder="Viñedo" class="input-bar" value="<%= product.viñedo %>">
@@ -49,7 +49,7 @@
                         <input type="number" id="edad" name="edad" required min="0" placeholder="Edad del viñedo en años" class="input-bar" value="<%= product.edad %>">
 
                         <label for="Altitud" class="label-bar">Altitud</label>
-                        <input type="text" id="Altitud" name="Altitud" required min="0" placeholder="Altitud" class="input-bar" value="<%= product.altitud %>">
+                        <input type="text" id="altitud" name="altitud" required min="0" placeholder="Altitud" class="input-bar" value="<%= product.altitud %>">
 
                         <label for="variedad" class="label-bar">Variedad</label>
                         <input type="text" id="variedad" name="variedad" required placeholder="Variedad en marcas" class="input-bar" value="<%= product.variedad %>">
@@ -67,7 +67,7 @@
 
                         <label for="categoriProduct" class="label-bar">Catador</label>
                             <div class="input-content-2">
-                                <input type="range" class="categoriProduct" name="categoriProduct" list="markers" min="0" max="100" value="<%= product.afrutado %>">
+                                <input type="range" class="categoriProduct" name="afrutado" list="markers" min="0" max="100" value="<%= product.afrutado %>">
                                 <datalist id="markers">
                                 <option value="0" label="Afrutado"></option>
                                 <option value="100" label="Muy Complejo"></option>
@@ -75,7 +75,7 @@
                             </div>
                             
                             <div class="input-content-2">
-                                <input type="range" class="categoriProduct-2-2" name="categoriProduct" list="markers" min="0" max="100" value="<%= product.nada %>">
+                                <input type="range" class="categoriProduct-2-2" name="nada" list="markers" min="0" max="100" value="<%= product.nada %>">
                                 <datalist id="markers">
                                 <option value="0" label="Nada"></option>
                                 <option value="100" label="Mucha Madera"></option>
@@ -83,7 +83,7 @@
                             </div>
                             
                             <div class="input-content-2">
-                                <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100" value="<%= product.seco %>">
+                                <input type="range" class="categoriProduct-2" name="seco" list="markers" min="0" max="100" value="<%= product.seco %>">
                                 <datalist id="markers">
                                 <option value="0" label="Muy Seco"></option>
                                 <option value="100" label="Postre"></option>
@@ -91,7 +91,7 @@
                             </div>
                             
                             <div class="input-content-2">
-                                <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100" value="<%= product.amable %>">
+                                <input type="range" class="categoriProduct-2" name="amable" list="markers" min="0" max="100" value="<%= product.amable %>">
                                 <datalist id="markers">
                                 <option value="0" label="Amable"></option>
                                 <option value="100" label="Refrescante"></option>
@@ -99,7 +99,7 @@
                             </div>
                             
                             <div class="input-content-2">
-                                <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100" value="<%= product.aterciopelado %>">
+                                <input type="range" class="categoriProduct-2" name="aterciopelado" list="markers" min="0" max="100" value="<%= product.aterciopelado %>">
                                 <datalist id="markers">
                                 <option value="0" label="Aterciopelado"></option>
                                 <option value="100" label="Taninos Intensos"></option>
@@ -107,7 +107,7 @@
                             </div>
                             
                             <div class="input-content-2">
-                                <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100" value="<%= product.liviano %>">
+                                <input type="range" class="categoriProduct-2" name="liviano" list="markers" min="0" max="100" value="<%= product.liviano %>">
                                 <datalist id="markers">
                                 <option value="0" label="Liviano "></option>
                                 <option value="100" label="Mucho Cuerpo"></option>
@@ -115,7 +115,7 @@
                             </div>
                             
                             <div class="input-content-2">
-                                <input type="range" class="categoriProduct-2" name="categoriProduct" list="markers" min="0" max="100" value="<%= product.delicado %>">
+                                <input type="range" class="categoriProduct-2" name="delicado" list="markers" min="0" max="100" value="<%= product.delicado %>">
                                 <datalist id="markers">
                                     <option value="0" label="Delicado"></option>
                                     <option value="100" label="Estructurado"></option>
@@ -126,7 +126,7 @@
 
                     <div class="input-content">
                         <label for="imageProduct" class="label-bar">Imagen Del Producto</label>
-                        <input type="file" id="userName" name="imageProduct"  class="input-bar" accept=".png" value="/images/<%= product.img %>">
+                        <input type="file" id="userName" name="img"  class="input-bar" accept=".png" value="/images/<%= product.img %>">
                     </div>
                     <div class="botones">
                         <button type="submit">Editar Producto</button>
