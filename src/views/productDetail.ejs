@@ -171,42 +171,44 @@
         </div>
 
         <div class="container-fixed">
-            <div class="container-fixed-secondary">
-                <div class="fixed-information">
-                    <p class="name-wine"> <%= product.name %> </p>
-                    <b class="price-wine">$ <%= product.priceSix %> </b>
-                    <p class="wine-box">Caja de 6 unidades</p>
-                    <p class="price-unity">Precio por botella: <b>$ <%= product.priceUnity %> </b></p>
-                </div>
-                <div class="pay-delivery-tablet">
-                    <div class="pay-delivery" id="pay-card">
-                        <i class="fa-solid fa-credit-card"></i>
-                        <p> Hasta <b>6 cuotas sin interés</b></p>
+            <div class="algo">
+                <div class="container-fixed-secondary">
+                    <div class="fixed-information">
+                        <p class="name-wine"> <%= product.name %> </p>
+                        <b class="price-wine">$ <%= product.priceSix %> </b>
+                        <p class="wine-box">Caja de 6 unidades</p>
+                        <p class="price-unity">Precio por botella: <b>$ <%= product.priceUnity %> </b></p>
                     </div>
-                    <div class="pay-delivery" id="truck">
-                        <i class="fa-solid fa-truck-fast"></i>
-                        <p> Envíos a todo el país</p>
+                    <div class="pay-delivery-tablet">
+                        <div class="pay-delivery" id="pay-card">
+                            <i class="fa-solid fa-credit-card"></i>
+                            <p> Hasta <b>6 cuotas sin interés</b></p>
+                        </div>
+                        <div class="pay-delivery" id="truck">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            <p> Envíos a todo el país</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="wine-units">
-                <p>Cantidad </p>
-                <i class="fa-solid fa-circle-minus"></i>
-                <div class="units-number">
-                    <form action="">
-                        <input type="number" min="0" max="20">
-                    </form>
+                <div class="wine-units">
+                    <p>Cantidad </p>
+                    <i class="fa-solid fa-circle-minus"></i>
+                    <div class="units-number">
+                        <form action="">
+                            <input type="number" min="0" max="20">
+                        </form>
+                    </div>
+                    <i class="fa-solid fa-circle-plus"></i>
                 </div>
-                <i class="fa-solid fa-circle-plus"></i>
-            </div>
-            <button>Agregar al carrito</button>
-            <a href="/product/edit/<%= product.id %>">
+                <button>Agregar al carrito</button>
+                <a href="/product/edit/<%= product.id %>">
 
-                <button>Editar producto</button>
-            </a>
-            <form action="/product/detail/<%=product.id%>?_method=DELETE" method="POST" ">
-                <button type="submit">Borar producto</button>
-            </form>
+                    <button>Editar producto</button>
+                </a>
+                <form action="/product/detail/<%=product.id%>?_method=DELETE" method="POST" ">
+                    <button type="submit">Borar producto</button>
+                </form>
+            </div>
         </div>
         <!-- </form> -->
     </main>

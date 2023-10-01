@@ -20,9 +20,9 @@
 
     <main>
         <div class="register-box">
-            <h2>Agregar Producto</h2>
+            <h2>Editar Producto</h2>
             <p class="subtitulo" >Por favor complete la información a continuación</p>
-            <form action="/product/edit/:<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/product/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 
                     <div class="input-content">
                         <label for="name" class="label-bar">Nombre Del Producto</label>
@@ -62,7 +62,7 @@
                         <input type="number" id="potencial" name="guardado" required min="0" placeholder="Potencial de guardado en años" class="input-bar" value="<%= product.guardado %>">
 
                         <label for="priceUnity" class="label-bar">Precio</label>
-                        <input type="number" id="precio" name="priceUnity" required step="0.000001" placeholder="$10.000.00" min="0" class="input-bar" value="<%= product.priceUnity %>">
+                        <input type="number" id="precio" name="priceUnity" required step="0.01" placeholder="$10.000.00" min="0" class="input-bar" value="<%= product.priceUnity %>">
                     </div>
                     <div class="input-content rangos">
 

@@ -16,31 +16,45 @@ const productController = {
     },
 
     process:(req,res)=>{
-        const product= req.body;
-        const { id } =req.params;
-
-        for(let i = 0; i < products.length; i++){
-            if(products[i].name == product.name){
-                products[i].name = product.name
-                products[i].vinedo = product.vinedo;
-                products[i].edad = +product.edad;
-                products[i].variedad = product.variedad
-                products[i].altitud = product.altitud;
-                products[i].barriles = +product.barriles;
-                products[i].guardado = +product.guardado;
-                products[i].priceUnity = +product.priceUnity; 
-                products[i].priceSix = +product.priceUnity*6;
-                products[i].afrutado = +product.afrutado
-                products[i].nada = +product.nada
-                products[i].seco = +product.seco
-                products[i].amable = +product.amable
-                products[i].aterciopelado = +product.aterciopelado
-                products[i].liviano = +product.liviano
-                products[i].delicado = +product.delicado
-                products[i].img = req.file ? req.file.filename : products[i].img;
-                products[i].category = product.category
+        const id = +req.params.id;
+        // const product = products.find(p => p.id == id)
+        const product = req.body;
+        console.log(id);
+        console.log(product);
+        products.forEach( e => {
+            if( e.id == id){
+                console.log("ESTOY DENTRO");
+                e.name = product.name;
+                e.descripcion = product.descripcion.trim();
+                e.descripcion = e.descripcion.trim();
+                e.vinedo = product.vinedo;
+                e.edad = +product.edad;
+                e.variedad = product.variedad;
+                e.altitud = product.altitud;
+                e.barriles = +product.barriles;
+                e.guardado = +product.guardado;                
+                if(e.priceUnity != +product.priceUnity) {
+                    e.priceSix = ((product.priceUnity * 6).toFixed(2))*0.9;
+                }
+                e.priceUnity = +product.priceUnity;
+                e.afrutado = +product.afrutado;
+                e.nada = +product.nada;
+                e.seco = +product.seco;
+                e.amable = +product.amable;
+                e.aterciopelado = +product.aterciopelado;
+                e.liviano = +product.liviano;
+                e.delicado = +product.delicado;
+                if(req.file){
+                    let imagen = path.join(__dirname, '../../public/images/' + e.img)
+                    if(fs.existsSync(imagen)){
+                        fs.unlinkSync(imagen)
+                    };
+                    e.img = req.file.filename;
+                }
+                e.category = product.category;
+                console.log(e);
             }
-        }
+        });
 
         fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
 
@@ -77,7 +91,7 @@ const productController = {
         product.guardado = +product.guardado;
         product.potencial = +product.potencial;
         product.priceUnity = +product.priceUnity; 
-        product.priceSix = +product.priceUnity*6;
+        product.priceSix = +((product.priceUnity * 6).toFixed(2))*0.9;
         products.push(product);
 
         fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});

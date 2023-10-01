@@ -17,6 +17,7 @@ footer{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 300px;
 }
 
 .linea{
@@ -159,8 +160,10 @@ footer div p {
 @media (min-width: 768px) {
         footer{
             flex-direction: row;
-            height: 40vh;
+            height: 30vh;
             align-items: center;
+            padding-bottom: 0%;
+            margin-bottom: 0px;
         }
 
         .cont_info i{
