@@ -17,18 +17,65 @@
 
     <main>
         <div class="container-profile">
+            <div class="image-profile-container">
+                <img src="/images/<%= user.image %>" alt="<%= user.userName %>">
+                <div class="title-profile-image">
+                    <h2><%= user.firstName + ' ' + user.lastName %></h2>
+                    <p>@<%= user.userName %></p>
+                </div>
+                <div class="level">
+                    <div class="medals">
+                        <img src="/images/medals/<%= user.membershipLevel %>.png" alt="<%= user.membershipLevel %>">
+                    <p>Miembro <%= user.membershipLevel %></p>
+                    </div>
+                    <div class="benefits">
+                        <h3>BENEFICIOS</h3>
+                    <p class="discount">-<%=discount%>% en Vinos y Accesorios</p>
+                    </div>
+                </div>
+            </div>
             <div class="container-profile-user">
-                <div class="image-profile-container">
-                    <img src="/images/users/<%= user.image %>" alt="<%= user.userName %>">
-                </div>
                 <div class="container-profile-information">
-
+                    <div class="title-profile">
+                        <h2><%= user.firstName + ' ' + user.lastName %></h2>
+                        <p>@<%= user.userName %></p>
+                    </div>
+                    <h3>INFORMACION PERSONAL</h3>
+                    <div class="information">
+                        <div class="data-container">
+                            <h4 class="subtitle-information">Nombre Completo</h4>
+                            <p class="data"><%= user.firstName + ' ' + user.lastName %></p>
+                        </div>
+                       <div class="data-container">
+                        <h4 class="subtitle-information">Email</h4>
+                        <p class="data"><%= user.email %></p>
+                       </div>
+                       <div class="data-container">
+                        <h4 class="subtitle-information">Pais</h4>
+                        <p class="data"><%= user.state %></p>
+                       </div>
+                       <div class="data-container">
+                        <h4 class="subtitle-information">Codigo Postal</h4>
+                        <p class="data"><%= user.postalCode %></p>
+                       </div>
+                       <div class="data-container">
+                        <h4 class="subtitle-information">Direccion</h4>
+                        <p class="data"><%= user.address %></p>
+                       </div>
+                       <div class="data-container">
+                        <h4 class="subtitle-information">Telefono</h4>
+                        <p class="data"><%= user.phone %></p>
+                       </div>
+                       <div class="data-container">
+                        <h4 class="subtitle-information">Cumpleaños</h4>
+                        <p class="data"><%= user.birthday %></p>
+                       </div>
+                       <div class="button-edit">
+                        <button href="">Modificar perfil</button>
+                       </div>
+                    </div>
                 </div>
             </div>
-            <div class="container-profile-ranges">
-
-            </div>
-
         </div>
 
         <form id="SUSCRIPCION" class="sec_suscripcion">
