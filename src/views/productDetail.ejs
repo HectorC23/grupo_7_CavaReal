@@ -201,6 +201,17 @@
                     <i class="fa-solid fa-circle-plus"></i>
                 </div>
                 <button>Agregar al carrito</button>
+
+                <% //if (isUserLogger) { %>
+                    <!-- <a href="/product/edit/<%// product.id %>">
+
+                        <button>Editar producto</button>
+                    </a>
+                    <form action="/product/detail/<%//product.id%>?_method=DELETE" method="POST" ">
+                        <button type="submit">Borar producto</button>
+                    </form> -->
+                <%// } %>
+
                 <a href="/product/edit/<%= product.id %>">
 
                     <button>Editar producto</button>
@@ -208,6 +219,7 @@
                 <form action="/product/detail/<%=product.id%>?_method=DELETE" method="POST" ">
                     <button type="submit">Borar producto</button>
                 </form>
+
             </div>
         </div>
         <!-- </form> -->

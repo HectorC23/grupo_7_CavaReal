@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/users/profile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ecd0310594.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="/images/icon-pestaña.png">
+    <title>Home</title>
+</head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <%- include("../partials/nav.ejs") %>
+
+    <main>
+        <div class="container-profile">
+            <div class="container-profile-user">
+                <div class="image-profile-container">
+                    <img src="/images/users/<%= user.image %>" alt="<%= user.userName %>">
+                </div>
+                <div class="container-profile-information">
+
+                </div>
+            </div>
+            <div class="container-profile-ranges">
+
+            </div>
+
+        </div>
+
+        <form id="SUSCRIPCION" class="sec_suscripcion">
+            <div class="suscripcion_info">
+                <p>
+                    Nuestro sitio está dirigido a una <b>audiencia apasionada por el mundo del vino 🍇</b>, desde 
+    conocedores y coleccionistas hasta entusiastas aficionados que deseen descubrir y disfrutar de 
+    experiencias vinícolas únicas. <b>Subscribete</b> para recibir contenido interesante, promos descuentos y mas!
+                </p>
+            </div>
+            <div class="suscripcion_input">
+                <input type="email" id="suscripcion" placeholder="marta978@hotmail.com">
+                <label for="suscripcion"> <button> Enviar </button></label>
+            </div>
+
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html>
