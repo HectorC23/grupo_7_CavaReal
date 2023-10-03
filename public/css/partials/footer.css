@@ -160,7 +160,6 @@ footer div p {
 @media (min-width: 768px) {
         footer{
             flex-direction: row;
-            height: 30vh;
             align-items: center;
             padding-bottom: 0%;
             margin-bottom: 0px;

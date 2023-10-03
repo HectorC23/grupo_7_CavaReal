@@ -9,6 +9,21 @@ const controllerUser = {
     },
     profile: (req, res) => {
         //const user = req.locals.userProfile;
+        const discountUser = 20;
+        // switch (req.body.membershipLevel) {
+        //     case 'Platinum': discountUser = 25;
+        //         break;
+        //     case 'Gold': discountUser = 15;
+        //     break;
+        //     case 'Silver': discountUser = 10;
+        //     break;
+        //     case 'Bronze': discountUser = 5;
+        //     break;
+        //     default: discountUser=0;
+        // }
+
+        res.locals.discount=discountUser;
+
         const user = {
                 id: 1,
                 firstName: "Juan",
@@ -17,7 +32,7 @@ const controllerUser = {
                 email: "juan.perez@example.com",
                 password: "contraseña123",
                 category: "Cliente",
-                image: "juan_perez.jpg",
+                image: "/users/foto-perfil.jpg",
                 address: "Calle Principal 123",
                 state: "Argentina",
                 postalCode: "12345",
