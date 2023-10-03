@@ -77,7 +77,7 @@ i {
     width: 25%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 .cont_log_reg a{
     margin-right: 10px;

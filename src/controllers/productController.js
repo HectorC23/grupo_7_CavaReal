@@ -12,10 +12,11 @@ const productController = {
         res.render("productDetail",{product});
     },
     add: (req,res)=> {
-        res.render("productAdd");
+            res.render("productAdd");
     },
 
     process:(req,res)=>{
+
         const id = +req.params.id;
         // const product = products.find(p => p.id == id)
         const product = req.body;
@@ -61,25 +62,26 @@ const productController = {
         res.redirect(`/`);
     },
     edit: (req, res) => {
-        const { id } =req.params;
+            const { id } =req.params;
 
-        const product = products.find(p =>p.id == id)
-        res.render("productEdit",{product})
+            const product = products.find(p =>p.id == id)
+            res.render("productEdit",{product})
     },
     deleteProduct:(req,res)=>{
-        const idProduct= +req.params.id;
-        const product = products.find(p => p.id == idProduct)
-        let imagen = path.join(__dirname, '../../public/images/' + product.img)
-        if(fs.existsSync(imagen)){
-            fs.unlinkSync(imagen)
-        }
 
-        products = products.filter((p)=> p.id !== idProduct);
+            const idProduct= +req.params.id;
+            const product = products.find(p => p.id == idProduct)
+            let imagen = path.join(__dirname, '../../public/images/' + product.img)
+            if(fs.existsSync(imagen)){
+                fs.unlinkSync(imagen)
+            }
 
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
-        
-        //hay que actualizar la pagina luego de borrarla
-        res.redirect('/');
+            products = products.filter((p)=> p.id !== idProduct);
+
+            fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
+            
+            //hay que actualizar la pagina luego de borrarla
+            return res.redirect('/'); 
     },
     productAdd: (req,res) => {
         // const id = products.length + 1;

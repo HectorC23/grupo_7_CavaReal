@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/users/register.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
@@ -15,8 +15,8 @@
 
 <body>
 
-    <%- include("./partials/header.ejs") %>
-    <%- include("./partials/nav.ejs") %>
+    <%- include("../partials/header.ejs") %>
+    <%- include("../partials/nav.ejs") %>
 
     <main>
         <div class="register-box">
@@ -48,7 +48,7 @@
                         <label for="passwordConfirmation" class="label-bar">Confirmar Contraseña</label>
                         <input type="password" id="passwordConfirmation" name="passwordConfirmation" required
                             placeholder="Confirmar Contraseña" class="input-bar">
-                            </div>
+                        </div>
                 <div class="botones">
                     <button type="submit">Crear Cuenta</button>
                     <button type="reset" class="delete">Borrar</button>
@@ -66,7 +66,7 @@
         </div>
     </main>
 
-    <%- include("./partials/footer.ejs")%>
+    <%- include("../partials/footer.ejs")%>
 
 </body>
 
