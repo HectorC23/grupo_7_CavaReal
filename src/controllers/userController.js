@@ -1,4 +1,10 @@
-const products = require("../data/products.json");
+const userJson = require("../data/user.json");
+const fs = require('fs');
+const path = require('path');
+const bcrypt = require('bcryptjs');
+
+const { validationResult } = require('express-validator');
+const { error } = require("console");
 
 const controllerUser = {
     register: (req,res)=> {
@@ -42,6 +48,43 @@ const controllerUser = {
                 membershipLevel: "Platinum"
         }
         res.render('users/profile', { user });
+    },
+    registerAdd: (req,res) => {
+        // "id": 1,
+        // "firstName": "Juan",
+        // "lastName": "Pérez",
+        // "email": "juan.perez@example.com",
+        // "password": "contraseña123",
+        // "category": "Cliente",
+        // "image": "juan_perez.jpg",
+        // "address": "Calle Principal 123",
+        // "state": "Argentina",
+        // "postalCode": "12345",
+        // "phone": "+1234567890",
+        // "edad": "1990-05-15",
+        // "subscripcion": "Activa",
+        // "membershipLevel": "Platinum"
+
+        let errors = validationResult(req);
+
+        if(errors.isEmpty()){
+            const user = req.body;
+            user.id = Date.now();
+            user.category = "Cliente"
+            user.image = req.file ? req.file.filename : 'foto-perfil.jpg' ;
+            user.password = user.password ? bcrypt.hashSync(user.password, 10) : null;
+            delete user.passwordConfirmation;
+    
+            userJson.push(user);
+    
+            fs.writeFileSync(path.join(__dirname, '../data/user.json'),JSON.stringify(userJson),{encoding: 'utf-8'});
+            res.redirect('/user/profile')
+        } else {
+
+            res.render('users/register', {errors: errors.mapped(), old: req.body});
+            
+        }
+        
     }
 
 }
