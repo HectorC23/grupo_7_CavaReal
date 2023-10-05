@@ -4,6 +4,7 @@ const routesProduct = require("./routes/product")
 const routesUser = require('./routes/user')
 const methodOverride = require("method-override");
 const isUserLogger = require("./middlewares/isUserLogger");
+const session = require('express-session')
 
 const app = express();
 
@@ -14,6 +15,12 @@ app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
 // Middlewares
+app.use(session({
+    secret:"secret",
+    resave: false,
+    saveUninitialized: false,
+})) 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(methodOverride("_method"))

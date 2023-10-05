@@ -13,7 +13,43 @@ const controllerUser = {
     login: (req,res)=> {
         res.render("users/login")
     },
+    getData: function() {
+const userJson = require("../data/user.json");
+return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{encoding: 'utf-8'}))
+    },
+    loginProcess: (req, res) => {
+        const users = controllerUser.getData();
+        const userToLogin = users.find(user => user.email === req.body.email);
+    
+            if (userToLogin) {
+                let passwordConfirm = bcrypt.compareSync(req.body.password,userToLogin.password)
+                 if(passwordConfirm){
+                    delete userToLogin.password;
+                    req.session.userLogged = userToLogin;
+                      return res.redirect('/user/profile')
+                 }
+                 return res.render("users/login", {
+                    errors: {
+                        email: {
+                            msg:'Credenciales invalidas'
+                        }
+                    }
+                })
+            }
+
+            return res.render("users/login", {
+                errors: {
+                    email: {
+                        msg:'Email no registrado'
+                    }
+                }
+            })
+
+    },    
     profile: (req, res) => {
+        return res.render('users/profile',{
+            user: req.session.userLogged
+        });
         //const user = req.locals.userProfile;
         const discountUser = 20;
         // switch (req.body.membershipLevel) {
