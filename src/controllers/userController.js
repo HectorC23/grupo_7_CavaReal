@@ -75,10 +75,12 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
             const user = req.body;
             user.id = Date.now();
             user.category = "Cliente"
-            user.image = req.file ? req.file.filename : 'foto-perfil.jpg' ;
+            user.image = req.file ? req.file.filename : 'foto-perfil' ;
             user.password = user.password ? bcrypt.hashSync(user.password, 10) : null;
             delete user.passwordConfirmation;
-            user.birthdate
+            user.birthdate;
+            let medal = Math.random()
+            user.membershipLevel = medal < 0.2 ? 'Bronze' : (medal < 0.4 ? 'Silver' : (medal < 0.6 ? 'Gold' : 'Platinum') )
     
             userJson.push(user);
     
