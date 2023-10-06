@@ -25,7 +25,7 @@ const controllerUser = {
                     req.session.isUserLogger = true;                    
                     if(req.body.keepUserLogger == "true"){
                         console.log('Coockie guardada');
-                        res.cookie('userEmail',req.body.email, {maxAge: 100});
+                        res.cookie('userEmail',req.body.email, {maxAge: 90000000});
                      }
                     return res.redirect('/user/profile')
                  }
@@ -96,9 +96,9 @@ const controllerUser = {
     logout: (req, res) => {
         
         req.session.destroy();
-        res.clearCookie('userEmail');
+        // res.clearCookie('userEmail');
+        res.cookie('userEmail',req.body.email, {maxAge: 0});
         delete res.locals;
-
         return res.redirect('/');
     }
 
