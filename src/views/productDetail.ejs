@@ -175,7 +175,15 @@
                 <div class="container-fixed-secondary">
                     <div class="fixed-information">
                         <p class="name-wine"> <%= product.name %> </p>
+                        <% if (isUserLogger) { %>
+                            <div class="discount">
+                                <b class="price-wine-discount">$ <%= product.priceSix %> </b>
+                                <b class="discount-porcentage">-% <%= discount %></b>
+                            </div>
+                            <b class="price-wine">$ <%= (product.priceSix - (product.priceSix * discount / 100)).toFixed(2) %></b>
+                        <% } else {%>
                         <b class="price-wine">$ <%= product.priceSix %> </b>
+                        <% } %>
                         <p class="wine-box">Caja de 6 unidades</p>
                         <p class="price-unity">Precio por botella: <b>$ <%= product.priceUnity %> </b></p>
                     </div>
@@ -202,27 +210,18 @@
                 </div>
                 <button>Agregar al carrito</button>
 
-                <% //if (isUserLogger) { %>
-                    <!-- <a href="/product/edit/<%// product.id %>">
+                <% if (isUserLogger) { %>
+                    <a href="/product/edit/<% product.id %>">
 
                         <button>Editar producto</button>
                     </a>
-                    <form action="/product/detail/<%//product.id%>?_method=DELETE" method="POST" ">
+                    <form action="/product/detail/<%product.id%>?_method=DELETE" method="POST" ">
                         <button type="submit">Borar producto</button>
-                    </form> -->
-                <%// } %>
-
-                <a href="/product/edit/<%= product.id %>">
-
-                    <button>Editar producto</button>
-                </a>
-                <form action="/product/detail/<%=product.id%>?_method=DELETE" method="POST" ">
-                    <button type="submit">Borar producto</button>
-                </form>
+                    </form>
+                <% } %>
 
             </div>
         </div>
-        <!-- </form> -->
     </main>
 
     <%- include("./partials/footer.ejs")%>

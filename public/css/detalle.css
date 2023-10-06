@@ -453,6 +453,23 @@ footer{
         margin-bottom: 10px;
     }
 
+    .price-wine-discount{
+        text-decoration: line-through;
+        font-size: 1em;
+    }
+
+    .discount{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .discount-porcentage{
+        font-size: 1em;
+        margin-right: 11em;
+        color: #629677;
+    }
+
     .wine-box, .price-unity{
         margin-bottom: 10px;
     }

@@ -18,7 +18,7 @@
     <main>
         <div class="container-profile">
             <div class="image-profile-container">
-                <img src="/images/<%= user.image %>" alt="<%= user.userName %>">
+                <img src="/images/users/<%= user.image %>.jpg" alt="<%= user.userName %>">
                 <div class="title-profile-image">
                     <h2><%= user.firstName + ' ' + user.lastName %></h2>
                     <p>@<%= user.userName %></p>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="benefits">
                         <h3>BENEFICIOS</h3>
-                    <p class="discount"></p>
+                    <p class="discount">-<%= discount %>% en Vinos y Accesorios</p>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Direccion</h4>
-                        <p class="data"><%= user.address %></p>
+                        <p class="data"><%= user.adress %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Telefono</h4>
@@ -68,7 +68,7 @@
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Cumpleaños</h4>
-                        <p class="data"><%= user.birthday %></p>
+                        <p class="data"><%= user.birthdate %></p>
                        </div>
                        <div class="button-edit">
                         <button href="">Modificar perfil</button>
