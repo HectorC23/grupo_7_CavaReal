@@ -26,6 +26,7 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
                  if(passwordConfirm){
                     delete userToLogin.password;
                     req.session.userLogged = userToLogin;
+                    req.session.isUserLogger = true;
                       return res.redirect('/user/profile')
                  }
                  return res.render("users/login", {
@@ -47,43 +48,10 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
 
     },    
     profile: (req, res) => {
-        return res.render('users/profile',{
-            user: req.session.userLogged
-        });
-        //const user = req.locals.userProfile;
-        const discountUser = 20;
-        // switch (req.body.membershipLevel) {
-        //     case 'Platinum': discountUser = 25;
-        //         break;
-        //     case 'Gold': discountUser = 15;
-        //     break;
-        //     case 'Silver': discountUser = 10;
-        //     break;
-        //     case 'Bronze': discountUser = 5;
-        //     break;
-        //     default: discountUser=0;
-        // }
+        
+        const userLogger = req.session.userLogged;
 
-        res.locals.discount=discountUser;
-
-        const user = {
-                id: 1,
-                firstName: "Juan",
-                lastName: "Pérez",
-                userName: "Juan_P",
-                email: "juan.perez@example.com",
-                password: "contraseña123",
-                category: "Cliente",
-                image: "/users/foto-perfil.jpg",
-                address: "Calle Principal 123",
-                state: "Argentina",
-                postalCode: "12345",
-                phone: "+1234567890",
-                birthday: "1990-05-15",
-                subscripcion: "Activa",
-                membershipLevel: "Platinum"
-        }
-        res.render('users/profile', { user });
+        return res.render('users/profile', { user: userLogger });
     },
     registerAdd: (req,res) => {
         // "id": 1,
@@ -110,10 +78,11 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
             user.image = req.file ? req.file.filename : 'foto-perfil.jpg' ;
             user.password = user.password ? bcrypt.hashSync(user.password, 10) : null;
             delete user.passwordConfirmation;
+            user.birthdate
     
             userJson.push(user);
     
-            fs.writeFileSync(path.join(__dirname, '../data/user.json'),JSON.stringify(userJson),{encoding: 'utf-8'});
+            fs.writeFileSync(path.join(__dirname, '../data/user.json'),JSON.stringify(userJson, null, 4),{encoding: 'utf-8'});
             res.redirect('/user/profile')
         } else {
 
@@ -121,6 +90,12 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
             
         }
         
+    },
+    logout: (req, res) => {
+        req.session.destroy();
+        delete res.locals;
+
+        return res.redirect('/');
     }
 
 }

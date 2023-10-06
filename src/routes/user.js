@@ -10,11 +10,12 @@ const userPermissions = require("../middlewares/userPermissions");
 const multer = require("../middlewares/multer");
 const validaciones = require('../middlewares/validationsRegister');
 
-router.get('/register', userController.register);
+router.get('/register', guestPermissions,userController.register);
 router.post('/register',multer.single('img'), validaciones, userController.registerAdd)
 
-router.get('/login',userController.login); //guestPermissions
+router.get('/login',guestPermissions ,userController.login); 
 router.post('/login',userController.loginProcess);
-router.get('/profile',validationlogin,userController.profile);
+router.get('/logout', userPermissions, userController.logout)
+router.get('/profile',userPermissions,userController.profile);
 
 module.exports = router;
