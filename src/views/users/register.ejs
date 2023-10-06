@@ -55,8 +55,8 @@
                 </div>
 
                 <div class="input-content">
-                    <label for="edad" class="label-bar">Fecha de Nacimiento</label>
-                    <input type="date" id="edad" name="edad"  class="input-bar" value="<%= locals.old && old.edad ? old.edad : '' %>">
+                    <label for="birthdate" class="label-bar">Fecha de Nacimiento</label>
+                    <input type="date" id="birthdate" name="birthdate"  class="input-bar" value="<%= locals.old && old.edad ? old.edad : '' %>">
                     <% if (typeof errors !== 'undefined' && errors.edad) { %> 
                         <div>
                             <p class="msg-error""><%= errors.edad.msg %></p>
@@ -75,6 +75,17 @@
                 </div>
 
                 <div class="input-content">
+                    <label for="phone" class="label-bar">Telefono o celular</label>
+                    <input type="text" id="phone" name="phone" 
+                        placeholder="+54 9 388 4888888" class="input-bar" value="<%= locals.old && old.phone ? old.phone : '' %>">
+                        <% if (typeof errors !== 'undefined' && errors.phone) { %> 
+                        <div>
+                            <p class="msg-error""><%= errors.phone.msg %></p>
+                        </div>
+                    <% } %>
+                </div>
+
+                <div class="input-content">
                     <label for="state" class="label-bar">País</label>
                     <input type="text" id="state" name="state"  placeholder="País " class="input-bar" value="<%= locals.old && old.state ? old.state : '' %>">
                 </div>
@@ -86,7 +97,7 @@
 
                 <div class="input-content">
                     <label for="postalCode" class="label-bar">Código postal</label>
-                    <input type="text" id="postalCode" name="postalCode"  placeholder="Código Postal " class="input-bar" value="<%= locals.old && old.postalCode ? old.postalCode : '' %>">
+                    <input type="number" id="postalCode" name="postalCode"  placeholder="Código Postal " class="input-bar" value="<%= locals.old && old.postalCode ? old.postalCode : '' %>">
                 </div>
 
                 <div class="input-content">

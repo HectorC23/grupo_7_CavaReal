@@ -4,8 +4,10 @@ const routesProduct = require("./routes/product")
 const routesUser = require('./routes/user')
 const methodOverride = require("method-override");
 const isUserLogger = require("./middlewares/isUserLogger");
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
+
+const discountUser = require('./middlewares/discountUser');
 
 
 const app = express();
@@ -30,7 +32,8 @@ app.use(isUserLogger);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(methodOverride("_method"))
-//app.use(isUserLogger);
+app.use(isUserLogger);
+app.use(discountUser);
 
 // Routes
 

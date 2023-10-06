@@ -12,6 +12,7 @@ const validaciones = [
         }
         return true;
     }),
+    body('phone').trim().notEmpty().withMessage('El campo está vacio'),
     body('edad').trim().notEmpty().withMessage('El campo está vacio').bail().isBefore(new Date(new Date().setFullYear(new Date().getFullYear() - 16)).toString()).withMessage('Fecha no valida'),
     body('email').trim().isEmail().withMessage('El campo está vacio'),
     body('password').trim().notEmpty().withMessage('El campo está vacio').bail().isLength({ min: 8 }).withMessage('Debe tener minimo 8 caracteres').bail().matches(/[A-Z]/).withMessage('Debe contener al menos una MAYUSCULA').bail().matches(/[a-z]/).withMessage('Debe contener al menos una minuscula').bail().matches(/[0-9]/).withMessage('Debe contener al menos un número'),

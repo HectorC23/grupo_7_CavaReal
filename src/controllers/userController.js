@@ -13,11 +13,7 @@ const controllerUser = {
         }
         res.render("users/register");
     },
-    logout:(req,res)=>{
-        req.session.destroy();
-
-        res.redirect("/");
-    },
+    
     login: (req,res)=> {
         if(req.session.userLogged){
             return res.redirect('/');
@@ -25,21 +21,18 @@ const controllerUser = {
         res.render("users/login")
         
     },
-    getData: function() {
-const userJson = require("../data/user.json");
-return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{encoding: 'utf-8'}))
-    },
     loginProcess: (req, res) => {
-        const users = controllerUser.getData();
-        const userToLogin = users.find(user => user.email === req.body.email)
+        const userToLogin = userJson.find(user => user.email === req.body.email);
+        
             if (userToLogin) {
-                let passwordConfirm = bcrypt.compareSync(req.body.password,userToLogin.password)
+                let passwordConfirm = bcrypt.compareSync(req.body.password,userToLogin.password);
                  if(passwordConfirm){
                     delete userToLogin.password;
                     req.session.userLogged = userToLogin;
                     if(req.body.keepUserLogger){
                         res.cookie('userEmail',req.body.email);
                     }
+                    req.session.isUserLogger = true;
                       return res.redirect('/user/profile')
                  }
                 
@@ -62,44 +55,9 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
 
     },    
     profile: (req, res) => {
-        console.log(req.cookies.userEmail)
-        return res.render('users/profile',{
-            user: req.session.userLogged
-        });
-        //const user = req.locals.userProfile;
-        const discountUser = 20;
-        // switch (req.body.membershipLevel) {
-        //     case 'Platinum': discountUser = 25;
-        //         break;
-        //     case 'Gold': discountUser = 15;
-        //     break;
-        //     case 'Silver': discountUser = 10;
-        //     break;
-        //     case 'Bronze': discountUser = 5;
-        //     break;
-        //     default: discountUser=0;
-        // }
+        const userLogger = req.session.userLogged;
 
-        res.locals.discount=discountUser;
-
-        const user = {
-                id: 1,
-                firstName: "Juan",
-                lastName: "Pérez",
-                userName: "Juan_P",
-                email: "juan.perez@example.com",
-                password: "contraseña123",
-                category: "Cliente",
-                image: "/users/foto-perfil.jpg",
-                address: "Calle Principal 123",
-                state: "Argentina",
-                postalCode: "12345",
-                phone: "+1234567890",
-                birthday: "1990-05-15",
-                subscripcion: "Activa",
-                membershipLevel: "Platinum"
-        }
-        res.render('users/profile', { user });
+        return res.render('users/profile', { user: userLogger });
     },
     registerAdd: (req,res) => {
         // "id": 1,
@@ -123,13 +81,16 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
             const user = req.body;
             user.id = Date.now();
             user.category = "Cliente"
-            user.image = req.file ? req.file.filename : 'foto-perfil.jpg' ;
+            user.image = req.file ? req.file.filename : 'foto-perfil' ;
             user.password = user.password ? bcrypt.hashSync(user.password, 10) : null;
             delete user.passwordConfirmation;
+            user.birthdate;
+            let medal = Math.random()
+            user.membershipLevel = medal < 0.2 ? 'Bronze' : (medal < 0.4 ? 'Silver' : (medal < 0.6 ? 'Gold' : 'Platinum') )
     
             userJson.push(user);
     
-            fs.writeFileSync(path.join(__dirname, '../data/user.json'),JSON.stringify(userJson),{encoding: 'utf-8'});
+            fs.writeFileSync(path.join(__dirname, '../data/user.json'),JSON.stringify(userJson, null, 4),{encoding: 'utf-8'});
             res.redirect('/user/profile')
         } else {
 
@@ -137,6 +98,12 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
             
         }
         
+    },
+    logout: (req, res) => {
+        req.session.destroy();
+        delete res.locals;
+
+        return res.redirect('/');
     }
 
 }

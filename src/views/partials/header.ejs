@@ -24,20 +24,18 @@
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
-        <% //if (isUserLogger) { %>
-            <!-- <div class="cont_log_reg">
+        <% if (isUserLogger) { %>
+            <div class="cont_log_reg">
                 <a href="/user/profile"><i class="fa-solid fa-user"></i></a>
                 <a href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
     
             <div class="cont_log_reg-netbook">
-                <a href="/user/login"><i class="fa-solid fa-user"></i><%//userProfile.firstName + '' ' + userProfile.lastName %></a>
+                <a href="/user/profile"><i class="fa-solid fa-user"></i><%= userLogged.userName %></a>
                 <a href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión </a>
-            </div> -->
-        <% //} %>
-            
+            </div>
+        <% } else {%> 
 
-            
             <div class="cont_log_reg">
             <a href="/user/login"><i class="fa-solid fa-user"></i></a>
             <a href="/user/register"><i class="fa-solid fa-user-plus"></i></a>
@@ -47,6 +45,8 @@
             <a href="/user/login"><i class="fa-solid fa-user"></i> Iniciar Sesión</a>
             <a href="/user/register"><i class="fa-solid fa-user-plus"></i>Registrarse </a>
         </div>
+
+        <% } %>
 
         <div class="cont_carrito">
             <a id="carrito-header" href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
