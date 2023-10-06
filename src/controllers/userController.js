@@ -13,14 +13,9 @@ const controllerUser = {
     login: (req,res)=> {
         res.render("users/login")
     },
-    getData: function() {
-const userJson = require("../data/user.json");
-return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{encoding: 'utf-8'}))
-    },
     loginProcess: (req, res) => {
-        const users = controllerUser.getData();
-        const userToLogin = users.find(user => user.email === req.body.email);
-    
+        const userToLogin = userJson.find(user => user.email === req.body.email);
+        
             if (userToLogin) {
                 let passwordConfirm = bcrypt.compareSync(req.body.password,userToLogin.password)
                  if(passwordConfirm){
