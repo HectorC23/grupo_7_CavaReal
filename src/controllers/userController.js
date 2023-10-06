@@ -4,14 +4,26 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 
 const { validationResult } = require('express-validator');
-const { error } = require("console");
+const { error, log } = require("console");
 
 const controllerUser = {
     register: (req,res)=> {
+        if(req.session.userLogged){
+            return res.redirect('/');
+        }
         res.render("users/register");
     },
+    logout:(req,res)=>{
+        req.session.destroy();
+
+        res.redirect("/");
+    },
     login: (req,res)=> {
+        if(req.session.userLogged){
+            return res.redirect('/');
+        }
         res.render("users/login")
+        
     },
     getData: function() {
 const userJson = require("../data/user.json");
@@ -19,15 +31,18 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
     },
     loginProcess: (req, res) => {
         const users = controllerUser.getData();
-        const userToLogin = users.find(user => user.email === req.body.email);
-    
+        const userToLogin = users.find(user => user.email === req.body.email)
             if (userToLogin) {
                 let passwordConfirm = bcrypt.compareSync(req.body.password,userToLogin.password)
                  if(passwordConfirm){
                     delete userToLogin.password;
                     req.session.userLogged = userToLogin;
+                    if(req.body.keepUserLogger){
+                        res.cookie('userEmail',req.body.email);
+                    }
                       return res.redirect('/user/profile')
                  }
+                
                  return res.render("users/login", {
                     errors: {
                         email: {
@@ -36,7 +51,7 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
                     }
                 })
             }
-
+           
             return res.render("users/login", {
                 errors: {
                     email: {
@@ -47,6 +62,7 @@ return JSON.parse(fs.readFileSync(path.join(__dirname,"../data/user.json"),{enco
 
     },    
     profile: (req, res) => {
+        console.log(req.cookies.userEmail)
         return res.render('users/profile',{
             user: req.session.userLogged
         });

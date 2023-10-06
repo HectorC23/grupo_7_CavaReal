@@ -16,5 +16,5 @@ router.post('/register',multer.single('img'), validaciones, userController.regis
 router.get('/login',userController.login); //guestPermissions
 router.post('/login',userController.loginProcess);
 router.get('/profile',validationlogin,userController.profile);
-
+router.post('/logout', userController.logout);
 module.exports = router;
