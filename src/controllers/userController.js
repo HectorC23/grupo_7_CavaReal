@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 
-const { validationResult } = require('express-validator');
+const { validationResult, cookie } = require('express-validator');
 const { error } = require("console");
 
 const controllerUser = {
@@ -14,15 +14,20 @@ const controllerUser = {
         res.render("users/login")
     },
     loginProcess: (req, res) => {
+        console.log(req.body);
         const userToLogin = userJson.find(user => user.email === req.body.email);
-        
             if (userToLogin) {
-                let passwordConfirm = bcrypt.compareSync(req.body.password,userToLogin.password)
+                let passwordConfirm = bcrypt.compareSync(req.body.password,userToLogin.password);
                  if(passwordConfirm){
-                    delete userToLogin.password;
+                    console.log("contraseña confirmada");
+                    // delete userToLogin.password;
                     req.session.userLogged = userToLogin;
-                    req.session.isUserLogger = true;
-                      return res.redirect('/user/profile')
+                    req.session.isUserLogger = true;                    
+                    if(req.body.keepUserLogger == "true"){
+                        console.log('Coockie guardada');
+                        res.cookie('userEmail',req.body.email, {maxAge: 100});
+                     }
+                    return res.redirect('/user/profile')
                  }
                  return res.render("users/login", {
                     errors: {
@@ -89,7 +94,9 @@ const controllerUser = {
         
     },
     logout: (req, res) => {
+        
         req.session.destroy();
+        res.clearCookie('userEmail');
         delete res.locals;
 
         return res.redirect('/');

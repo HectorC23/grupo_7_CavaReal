@@ -25,6 +25,7 @@
         </div>
 
         <% if (isUserLogger) { %>
+            <%= 'ABIERTA' %> 
             <div class="cont_log_reg">
                 <a href="/user/profile"><i class="fa-solid fa-user"></i></a>
                 <a href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
@@ -35,7 +36,7 @@
                 <a href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión </a>
             </div>
         <% } else {%> 
-
+            <%= 'Cerrada' %> 
             <div class="cont_log_reg">
             <a href="/user/login"><i class="fa-solid fa-user"></i></a>
             <a href="/user/register"><i class="fa-solid fa-user-plus"></i></a>
