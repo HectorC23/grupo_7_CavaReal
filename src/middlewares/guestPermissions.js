@@ -1,10 +1,10 @@
 const guestPermissions = (req, res, next) => {
     if(!req.session.isUserLogger){
-        next();
+       next();
     }
     else{
-        res.redirect('/');
-    }
+       res.redirect('/');
+   }
 }
 
 module.exports = guestPermissions;

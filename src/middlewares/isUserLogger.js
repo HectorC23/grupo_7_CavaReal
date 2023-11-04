@@ -1,16 +1,43 @@
 const users = require('../data/user.json');
 
 const isUserLogger = (req, res, next) => {
-    if(req.session.isUserLogger){
+    res.locals.isUserLogger = false;
+
+
+    // let emailCookie = req.cookies.userEmail;
+    // let userCookie = users.find(e => e.email == emailCookie)
+    // console.log(userCookie);
+    
+    // console.log(req.session.userLogged);
+    
+    // if(userCookie) {
+    //     req.session.userLogged = userCookie;
+    //     res.locals.isUserLogger = true;
+    // }
+
+    // if(req.session.userLogged){
+    //     res.locals.isUserLogger = true;
+    //     res.locals.userLogged = req.session.userLogged;
+    // }
+    // console.log(res.locals.isUserLogger);       
+    // next();
+
+    if(req.cookies.userEmail){
+
+        // let userCookie = users.find(e => e.email == emailCookie)
+        req.session.userLogged = users.find(e => e.email == req.cookies.userEmail)
+    }
+
+
+    if(req.session.userLogged){
+
+        res.locals.userLogged = req.session.userLogged;
         res.locals.isUserLogger = true;
 
-        const id = +req.session.idUser;
-        const user = users.find((u) => u.id === id);
-        res.locals.userProfile = user;
+        req.session.isUserLogger = true;
     }
-    else{
-        res.locals.isUserLogger = false;
-    }
+
+    next();
 }
 
 module.exports = isUserLogger;

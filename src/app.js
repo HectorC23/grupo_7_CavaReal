@@ -4,6 +4,9 @@ const routesProduct = require("./routes/product")
 const routesUser = require('./routes/user')
 const methodOverride = require("method-override");
 const isUserLogger = require("./middlewares/isUserLogger");
+const discountUser = require('./middlewares/discountUser');
+const session = require('express-session')
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -14,10 +17,18 @@ app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
 // Middlewares
+app.use(session({
+    secret:"secret",
+    resave: false,
+    saveUninitialized: false,
+})) 
+app.use(cookieParser());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(methodOverride("_method"))
-//app.use(isUserLogger);
+app.use(isUserLogger);
+app.use(discountUser);
 
 // Routes
 

@@ -41,3 +41,44 @@
 - **Héctor**: Finalizar repaso y estudio del código para identificar oportunidades de mejora.
 - **Fernanda**: Evaluar mejoras en el diseño y estilo del sitio web.
 - **Jesus**: Ponerse al día con el contenido del curso y continuar contribuyendo al proyecto.
+
+
+------------------------------------------------------------------------------------------------
+
+
+**Semana del 26 de Septiembre al 3 de Octubre**
+
+## Integrantes y Logros
+
+### Guille
+-implementación de la funcion de recordar el usuario almacenadolo en cookies para el login
+
+### Milagro
+-Culminó la implementación de identidad de usuarios, facilitando el armado de la estructura de directorios y archivos. 
+
+### Héctor
+- Enlazó e hizo funcional el formulario de registro, implementó middlewares para el registro, actualizó las rutas de multer.
+- Abordó desafíos logicos al implementar las validaciones del formulario, las actualizaciones de las middlewares a su cargo y la carga de usuarios al JSON.
+
+### Fernanda
+- Creó la vista de perfil de usuarios para aquellos que inicien sesion y su respectivo controller, ademas de otras funcionalidad
+- Separó las rutas correspondientes a usuarios y huespedes, implementando middlewares 
+
+### Jesus
+-implementación de login funcional con validaciones y  direcionamiento a perfil.
+
+## Tareas Destacadas
+
+- **Guillermo**:  colocar un botón de recordame almacenando el usuario para que el campo se auto llene cuando el usuario desee logearse
+- **Milagro**: La redistribución de los carpetas permitió tener un mejor flujo de trabajo y de organización.
+- **Héctor**: Implementar las validaciones del formulario de registro con express-validator.
+- **Fernanda**: Creacion de middlewares globales y de rutas para restringir navegabilidad
+- **Jesus**:  se hasheo las contraseñas en la base de datos provisoria (user.js)
+
+## Próximas Tareas
+
+- **Guillermo**:profundizar en los últimos temas para posteriormente poder implementarlo de la mejor manera
+- **Milagro**: Implementar lo aprendido y profundizar los temas para mejorar la página.
+- **Héctor**: Practicar todo lo visto hasta ahora.
+- **Fernanda**: Evaluar mejoras en el diseño y estilo del sitio web.
+- **Jesus**: mantenerse actualizado con los últimos avances de las clases sobre  manejo de usuarios y base de datos.

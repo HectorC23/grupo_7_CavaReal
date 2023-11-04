@@ -159,7 +159,15 @@ main button {
   .login-box input:hover{
     border: #1b1815 1px solid;
   }
-
+  .msg-error {
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    margin-bottom: 10px;
+    color: #7A1745;
+    /*bottom: 4px;*/
+    left: 2px;
+  }
   .botones{
     display: flex;
     justify-content: space-between;

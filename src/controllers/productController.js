@@ -20,8 +20,7 @@ const productController = {
         const id = +req.params.id;
         // const product = products.find(p => p.id == id)
         const product = req.body;
-        console.log(id);
-        console.log(product);
+
         products.forEach( e => {
             if( e.id == id){
                 console.log("ESTOY DENTRO");
@@ -93,7 +92,7 @@ const productController = {
         product.guardado = +product.guardado;
         product.potencial = +product.potencial;
         product.priceUnity = +product.priceUnity; 
-        product.priceSix = +((product.priceUnity * 6).toFixed(2))*0.9;
+        product.priceSix = +((product.priceUnity * 6).toFixed(2));
         products.push(product);
 
         fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
