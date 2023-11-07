@@ -1,63 +1,61 @@
-module.exports = (sequelize, Datatypes) => {
+module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     id: {
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
     },
     firstName: {
-        type: Datatypes.STRING(100),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     lastName: {
-        type: Datatypes.STRING(100),
+        type: DataTypes.STRING(100),
         allowNull: false
     }, 
     email: {
-        type: Datatypes.STRING(50),
+        type: DataTypes.STRING(50),
         allowNull: false
     },
     contraseña: {
-        type: Datatypes.STRING(50), 
+        type: DataTypes.STRING(50), 
         allowNull: false
     },
     phone: {
-       type: Datatypes.BIGINT,
+       type: DataTypes.BIGINT(20),
        allowNull: false
     },
     birthdate: {
-        type: Datatypes.DATE,
+        type: DataTypes.DATE,
         allowNull: false
     },
     address: {
-        type: Datatypes.STRING(50),
+        type: DataTypes.STRING(50),
         allowNull: false
     },
     postalCode: {
-        type: Datatypes.CHAR(4),
+        type: DataTypes.CHAR(10),
         allowNull: false 
     },
     state: {
-        type: Datatypes.STRING(20),
+        type: DataTypes.STRING(20),
         allowNull: false
     },
     image: {
-        type: Datatypes.STRING(100), 
+        type: DataTypes.STRING(100), 
     },
     subscripcion: {
-        type: Datatypes.STRING(20),
+        type: DataTypes.STRING(20),
         allowNull: false
     },
     membershipLevel: {
-        type: Datatypes.STRING(20),
+        type: DataTypes.STRING(20),
         allowNull: false 
     },
     category_id: {
-        foreignKey: true,
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
-
     }
   }, {
     tableName: 'users', 
@@ -77,7 +75,7 @@ module.exports = (sequelize, Datatypes) => {
   })
 
    User.belongsToMany(models.Product, {
-     as: 'products_users',
+     as: 'users_products',
      through: 'users_products', 
      foreignKey: 'user_id', 
      otherKey: 'product_id',

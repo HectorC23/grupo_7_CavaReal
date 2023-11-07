@@ -1,23 +1,21 @@
-module.exports = (sequelize, Datatypes) => {
+module.exports = (sequelize, DataTypes) => {
     const productCart = sequelize.define('product_cart', {
       id: {
-          type: Datatypes.INTEGER,
+          type: DataTypes.INTEGER,
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
      cart_id: {
-         foreignKey: true,
-         type: Datatypes.INTEGER,
+         type: DataTypes.INTEGER,
          allowNull: false
       },
      product_id: {
-         foreignKey: true,
-         type: Datatypes.INTEGER,
+         type: DataTypes.INTEGER,
          allowNull: false
       }
     }, {
-      tableName: 'carts', 
+      tableName: 'products_cart', 
       timestamps: false
    })
   

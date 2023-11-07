@@ -1,20 +1,18 @@
-module.exports = (sequelize, Datatypes) => {
+module.exports = (sequelize, DataTypes) => {
   
     const userProduct = sequelize.define('user_product', {
       id: {
-          type: Datatypes.INTEGER,
+          type: DataTypes.INTEGER,
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
       product_id: {
-          foreignKey: true,
-          type: Datatypes.INTEGER,
+          type: DataTypes.INTEGER,
           allowNull: false
       },
       user_id: {
-        foreignKey: true,
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false
       }
     }, {

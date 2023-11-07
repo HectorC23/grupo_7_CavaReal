@@ -1,34 +1,33 @@
-module.exports = (sequelize, Datatypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Carts = sequelize.define('Cart', {
       id: {
-          type: Datatypes.INTEGER,
+          type: DataTypes.INTEGER,
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
       cantidad: {
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       precio_total: {
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       user_id: {
-       foreignKey: true,
-       type: Datatypes.INTEGER,
+       type: DataTypes.INTEGER,
        allowNull: false
       },
 
     }, {
-      tableName: 'products_cart', 
+      tableName: 'carts', 
       timestamps: false
    })
   
    Carts.associate = (models)=> {
     
     Carts.hasOne(models.User, {
-      as: 'cart',
+      as: 'user',
       foreignKey: 'user_id'
     })
     
@@ -37,5 +36,6 @@ module.exports = (sequelize, Datatypes) => {
         foreignKey: 'cart_id'
     })
   }
+
    return Carts;
 }

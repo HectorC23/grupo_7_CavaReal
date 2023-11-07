@@ -1,42 +1,41 @@
-module.exports = (sequelize, Datatypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Taster = sequelize.define('Taster', {
       id: {
-          type: Datatypes.INTEGER,
+          type: DataTypes.INTEGER,
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
       afrutado: {
-          type: Datatypes.INTEGER,
+          type: DataTypes.TINYINT(4),
           defaultValue: 1
       },
       nada: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.TINYINT(4),
          defaultValue: 1
       }, 
       seco: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.TINYINT(4),
          defaultValue: 1
       },
       amable: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.TINYINT(4),
          defaultValue: 1
       },
       entercipelado: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.TINYINT(4),
          defaultValue: 1 
       },
       liviano: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.TINYINT(4),
          defaultValue: 1 
       },
       delicado: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.TINYINT(4),
          defaultValue: 1 
       }, 
       product_id: {
-         foreignKey: true,
-         type: Datatypes.INTEGER,
+         type: DataTypes.INTEGER,
          allowNull: false
         },
     }, {

@@ -1,50 +1,57 @@
-module.exports = (sequelize, Datatypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Product = sequelize.define('Product', {
       id: {
-          type: Datatypes.INTEGER,
+          type: DataTypes.INTEGER,
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
       nombre: {
-          type: Datatypes.STRING(100),
+          type: DataTypes.STRING(100),
           allowNull: false
       },
       descripcion: {
-          type: Datatypes.STRING(100),
+          type: DataTypes.TEXT,
           allowNull: false
       }, 
       viñedo: {
-          type: Datatypes.STRING(50),
+          type: DataTypes.STRING(50),
           allowNull: false
       },
       edad: {
-         type: Datatypes.INTEGER
+         type: DataTypes.INTEGER,
+         allowNull: false
       },
       altitud: {
-          type: Datatypes.STRING(100), 
+          type: DataTypes.STRING(100), 
+          allowNull: false
       },
       variedad: {
-        type: Datatypes.STRING(100), 
+        type: DataTypes.STRING(100), 
+        allowNull: false
       },
       barriles: {
-        type: Datatypes.INTEGER
+        type: DataTypes.TINYINT(4),
+        allowNull: false
       },
       guardado: {
-        type: Datatypes.INTEGER
+        type: DataTypes.TINYINT(4),
+        allowNull: false
       },
-      precio_six: {
-        type: Datatypes.INTEGER
+      priceSix: {
+        type: DataTypes.DECIMAL(10,2),
+        allowNull: false
       },
-      precio_unidad: {
-        type: Datatypes.INTEGER
+      priceUnity: {
+        type: DataTypes.DECIMAL(10,2),
+        allowNull: false
       },
-      imagen: {
-          type: Datatypes.STRING(100),
+      img: {
+          type: DataTypes.STRING(100),
           allowNull: false
       },
       catproduct_id: {
-          type: Datatypes.INTEGER,
+          type: DataTypes.INTEGER,
           allowNull: false,
       }
     }, {
