@@ -208,7 +208,7 @@
                     </div>
                     <i class="fa-solid fa-circle-plus"></i>
                 </div>
-                <button>Agregar al carrito</button>
+                <button><a href="/cart/add/<%= product.id %>">Agregar al carrito</a></button>
 
                 <% if (isUserLogger) { %>
                     <a href="/product/edit/<% product.id %>">

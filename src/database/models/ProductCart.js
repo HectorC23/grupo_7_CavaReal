@@ -6,29 +6,29 @@ module.exports = (sequelize, DataTypes) => {
           autoIncrement: true,
           allowNull: false
       },
-     cart_id: {
+     cartId: {
          type: DataTypes.INTEGER,
          allowNull: false
       },
-     product_id: {
+     productId: {
          type: DataTypes.INTEGER,
          allowNull: false
       }
     }, {
       tableName: 'products_cart', 
-      timestamps: false
+      timestamps: true
    })
   
    productCart.associate = (models)=> {
 
     productCart.hasMany(models.Product, {
       as: 'products', //*
-      foreignKey: 'product_id'
+      foreignKey: 'productId'
     })
 
     productCart.hasMany(models.Cart, {
      as: 'cart_products',   
-     foreignKey: 'cart_id'
+     foreignKey: 'cartId'
     })
   }
    return productCart;

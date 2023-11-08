@@ -92,7 +92,7 @@
 
                 <div class="input-content">
                     <label for="adress" class="label-bar">Direccion</label>
-                    <input type="text" id="adress" name="adress"  placeholder="Calle: avenida siempre viva 426" class="input-bar" value="<%= locals.old && old.adress ? old.adress : '' %>">
+                    <input type="text" id="adress" name="address"  placeholder="Calle: avenida siempre viva 426" class="input-bar" value="<%= locals.old && old.adress ? old.adress : '' %>">
                 </div>
 
                 <div class="input-content">
@@ -122,13 +122,13 @@
                 </div>
 
                 <div class="input-checkbox">
-                    <input type="checkbox" id="subscripcion" name="subscripcion" value="Activa" <%= locals.old && old.subscripcion && old.subscripcion == 'Activa' ? 'Checked' : '' %>>
+                    <input type="checkbox" id="subscripcion" name="subscription" value="Activa" <%= locals.old && old.subscripcion && old.subscripcion == 'Activa' ? 'Checked' : '' %>>
                     <label for="subscripcion"> Suscripcion a notificaciones sobre descuentos y noticias de la página </label>
                 </div>
 
                 <div class="input-content">
                     <label for="img" class="label-bar">Imagen Del Producto</label>
-                    <input type="file" id="img" name="img" class="input-bar" accept=".png,.jpg">
+                    <input type="file" id="img" name="image" class="input-bar" accept=".png,.jpg">
                 </div>
 
                 <div class="botones">

@@ -7,17 +7,17 @@ module.exports = (sequelize, DataTypes) => {
           autoIncrement: true,
           allowNull: false
       },
-      product_id: {
+      productId: {
           type: DataTypes.INTEGER,
           allowNull: false
       },
-      user_id: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false
       }
     }, {
       tableName: 'users_products', 
-      timestamps: false
+      timestamps: true,
    })
   
    return userProduct;

@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
    Category_User.associate = (models)=> {
     
     Category_User.belongsTo(models.User, {
-       as : 'categories_users',
        foreignKey: 'category_id'
     })
    }

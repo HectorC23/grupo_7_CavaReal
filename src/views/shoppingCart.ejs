@@ -19,7 +19,7 @@
    <%- include("./partials/nav.ejs") %>
    
     <main>
-
+      
       <div class="carr-productos">
             <div class="carr-text">
                 <h1>CARRITO DE COMPRAS</h1>
@@ -35,59 +35,25 @@
                      <li class="subtotal">Subtotal</li>
                   </ul>
                </div>
-               <div class="card-articulo-mobile">
-                  <i class="fa-solid fa-trash-can" id="basura"></i>
-                     <div class="cont_imgproducto">
-                         <img src="/images/product1.png" alt="producto">
-                     </div>
-                     <p class="descripcion">taittinger Brut Millesime 750</p>
-                     <p class="precio"> Precio: <b>$80.000</b></p>
-                     <form class="cantidad">
-                        <label>Cantidad</label>
-                        <i class="fa-solid fa-circle-minus"></i>
-                        <input type="number" class="cantidad-input" min="0" max="20">
-                        <i class="fa-solid fa-circle-plus"></i>
-                     </form>
-                     <p class="subtotal">Subtotal: <b>$80.000</b></p>
-                     <i></i>
-               </div>
 
-               <div class="card-articulo-mobile">
-                  <i class="fa-solid fa-trash-can" id="basura"></i>
-                     <div class="cont_imgproducto">
-                         <img src="/images/product4.png" alt="producto">
-                     </div>
-                     <p class="descripcion">taittinger Brut Millesime 750</p>
-                     <p class="precio"> Precio: <b>$80.000</b></p>
-                     <form class="cantidad">
-                        <label>Cantidad</label>
-                        <i class="fa-solid fa-circle-minus"></i>
-                        <input type="number" class="cantidad-input" min="0" max="20">
-                        <i class="fa-solid fa-circle-plus"></i>
-                     </form>
-                     <p class="subtotal">Subtotal: <b>$80.000</b></p>
-                     <i></i>
-               </div>
-
-               <div class="card-articulo-mobile">
-                  <i class="fa-solid fa-trash-can" id="basura"></i>
-                     <div class="cont_imgproducto">
-                         <img src="/images/product2.png" alt="producto">
-                     </div>
-                     <p class="descripcion">taittinger Brut Millesime 750</p>
-                     <p class="precio"> Precio: <b>$80.000</b></p>
-                     <form class="cantidad">
-                        <label>Cantidad</label>
-                        <i class="fa-solid fa-circle-minus"></i>
-                        <input type="number" class="cantidad-input" min="0" max="20">
-                        <i class="fa-solid fa-circle-plus"></i>
-                     </form>
-                     <p class="subtotal">Subtotal: <b>$80.000</b></p>
-                     <i></i>
-               </div>
-               <div class="card-articulo-network">
-
-               </div>
+               <% products.forEach(product => { %>
+                  <div class="card-articulo-mobile">
+                     <a href="/cart/delete/<%= product.id %>?_method=DELETE"><i class="fa-solid fa-trash-can" id="basura"></i></a>
+                        <div class="cont_imgproducto">
+                            <img src="/images/<%= product.img %>" alt="producto">
+                        </div>
+                        <p class="descripcion"><%= product.name %></p>
+                        <p class="precio"> Precio: <b>$<%= product.price %></b></p>
+                        <form class="cantidad">
+                           <label>Cantidad</label>
+                           <i class="fa-solid fa-circle-minus"></i>
+                           <input type="number" class="cantidad-input" min="0" max="20">
+                           <i class="fa-solid fa-circle-plus"></i>
+                        </form>
+                        <p class="subtotal">Subtotal: <b>$<%= product.price %></b></p>
+                        <i></i>
+                  </div>
+               <% }) %>
 
                <button class="actualizar-carr" type="submit" onclick="document.location.reload()">Actualizar Carrito</button>
 
@@ -148,7 +114,7 @@
                      <div class="linea-carrito"></div>
 
                      <p class="envio">Costo de envio: <b>$5.000</b></p>
-                     <p class="sub-total">Subtotal: <b>$240.000</b></p>
+                     <p class="sub-total">Subtotal: <b>$<%= cart.totalPrice %></b></p>
 
                      <div class="linea-carrito"></div>
 
@@ -159,9 +125,9 @@
 
                      <div class="linea-carrito"></div>
 
-                     <p class="total">Total del pedido: <b>$245.000</b></p>
+                     <p class="total">Total del pedido: <b>$<%= cart.totalPrice + 5000 %></b></p>
 
-                     <button class="caja">Pasar a caja</button>
+                     <button class="caja"><a href="/buy/add/<%= cart.id %>">Comprar</a></button>
                     </form>
             </div>
                                     

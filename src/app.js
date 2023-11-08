@@ -1,7 +1,10 @@
 const express = require("express");
-const routes = require('./routes/index')
-const routesProduct = require("./routes/product")
-const routesUser = require('./routes/user')
+
+const routes = require('./routes/index');
+const routesProduct = require("./routes/product");
+const routesUser = require('./routes/user');
+const routesCart = require('./routes/cart');
+
 const methodOverride = require("method-override");
 const isUserLogger = require("./middlewares/isUserLogger");
 const discountUser = require('./middlewares/discountUser');
@@ -33,6 +36,7 @@ app.use(discountUser);
 // Routes
 
 app.use("/", routes);
+app.use('/cart', routesCart);
 app.use("/product", routesProduct)
 app.use("/user", routesUser)
 

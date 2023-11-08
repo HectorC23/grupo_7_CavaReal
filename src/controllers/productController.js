@@ -2,19 +2,49 @@ let products = require('../data/products.json');
 const fs = require('fs');
 const { dirname } = require('path');
 
+const Product = require('../database/models/Product');
+
 const path = require('path');
 
 const productController = {
+    add: (req,res)=> {
+        res.render("productAdd");
+    },
+    create: async(req,res) => {
+
+        const response = Product.create({
+            name: req.body.name,
+            description: req.body.description,
+            vineyard:  req.body.vineyard,
+            age:  +req.body.age,
+            altitude:  +req.body.altitude,
+            variety:  req.body.variety,
+            barrels:  req.body.barrels,
+            saved:  +req.body.saved,
+            priceUnity:  req.body.priceUnity,
+            priceSix:  req.body.priceUnity * 6,
+            img: req.file.filename,
+        })
+        
+        
+        product.guardado = +product.guardado;
+        product.potencial = +product.potencial;
+        product.priceUnity = +product.priceUnity; 
+        product.priceSix = +((product.priceUnity * 6).toFixed(2));
+        products.push(product);
+
+        fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
+
+        res.redirect('/home');
+    },
+
     detalle: (req,res)=> {
         const { id } =req.params;
 
         const product = products.find(p =>p.id == id)
         res.render("productDetail",{product});
     },
-    add: (req,res)=> {
-            res.render("productAdd");
-    },
-
+    
     process:(req,res)=>{
 
         const id = +req.params.id;
@@ -82,23 +112,7 @@ const productController = {
             //hay que actualizar la pagina luego de borrarla
             return res.redirect('/'); 
     },
-    productAdd: (req,res) => {
-        // const id = products.length + 1;
-        const product = req.body;
-        product.id = Date.now();
-        product.img= req.file.filename;
-        product.edad = +product.edad;
-        product.altitud = product.altitud;
-        product.guardado = +product.guardado;
-        product.potencial = +product.potencial;
-        product.priceUnity = +product.priceUnity; 
-        product.priceSix = +((product.priceUnity * 6).toFixed(2));
-        products.push(product);
-
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
-
-        res.redirect('/home');
-    },
+    
 
 }
 

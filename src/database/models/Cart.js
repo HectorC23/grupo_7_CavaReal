@@ -6,18 +6,22 @@ module.exports = (sequelize, DataTypes) => {
           autoIncrement: true,
           allowNull: false
       },
-      cantidad: {
+      amount: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      precio_total: {
-        type: DataTypes.INTEGER,
+      totalPrice: {
+        type: DataTypes.FLOAT,
         allowNull: false
       },
-      user_id: {
+      userId: {
        type: DataTypes.INTEGER,
        allowNull: false
       },
+      creationDate: {
+        type: DataTypes.DATE,
+        allowNull: false
+      }
 
     }, {
       tableName: 'carts', 
@@ -28,12 +32,12 @@ module.exports = (sequelize, DataTypes) => {
     
     Carts.hasOne(models.User, {
       as: 'user',
-      foreignKey: 'user_id'
+      foreignKey: 'userId'
     })
     
     Carts.belongsTo(models.product_cart, {
         as: 'products',
-        foreignKey: 'cart_id'
+        foreignKey: 'cartId'
     })
   }
 
