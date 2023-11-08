@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
           autoIncrement: true,
           allowNull: false
       },
-      categoria: {
+      category: {
           type: DataTypes.STRING(100),
           allowNull: false
       }
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Category_Product.belongsTo(models.Product, {
      as: 'categories',
-     foreignKey: 'catproduct_id'
+     foreignKey: 'catproductId'
     })
   }
 
