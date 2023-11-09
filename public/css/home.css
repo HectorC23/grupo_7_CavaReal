@@ -2,573 +2,255 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 body{
-    background-color: #f3f5f6;
     width: 100%;
     font-family: 'Lato', sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin: 0%;
-}
-
-main{
+    background-color: #222121;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0%;
 }
 
-/* Ofertas */
-
-.sec_ofertas {
-    width: 100%;
+main .principal-title-home{
+    margin-top: 20vh;
+    width: 100vw;
+    position: relative;
 }
 
-.sec_ofertas img {
+#cover-home{
     width: 100%;
-    height: 10%;
+    z-index: 0;
 }
 
-/* Productos */
-.sec_productos{
-    width: 100%;
-    margin-top: 10px;
-}
-
-.cont_categorias {
-    width: 100%;
+.container-title-home{
+    width: 50%;
+    height: 30vh;
+    position: absolute;
+    top: 20vh;
+    left: 5vw;
+    z-index: 1;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-bottom: 25px;
-    padding: 10px;
-}
-.catego {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }
 
-.catego h2{
-    font-size: 1.1em;
-    border-radius: 10px;
-    background-color: #7A1745;
+#title-home{
+    font-size: 7vw;
+    font-weight: 700;
+    color: #dd6477;
+    font-stretch: expanded;
+    font-family: 'Playfair Display', serif;;
+    letter-spacing: 1.4vw;
+    filter: drop-shadow(1.5px 1px 0px #ffff);
+}
+
+#subtitle-home{
+    font-size: 1.9vw;
+    color: #75343e;
+    margin-left: 10vw;
+    font-weight: 700;
+}
+
+#button-title-home{
+    font-size: 2.1vw;
     color: white;
-    padding: 5px;
-}
-
-.cont-presentacion{
-    width: 100%;
-    margin-bottom: 25px;
-    padding: 0px 10px;
-}
-.cont_prod {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-}
-
-.cont_filtros {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #333333;
-    padding: 20px 10px;
-    margin-bottom: 15px;
-}
-
-.cont_filtros p{
-    color: white;
-    font-size: 1em;
-    font-weight: lighter;
-    margin-bottom: 10px;
-}
-
-.cont_filtros form{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.cont_filtros form label{
-    color: white;
-    font-weight: 100;
-    font-size: 0.9em;
-    padding: 5px;
-}
-.cont_tproductos{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    padding: 10px;
-}
-.card_producto{
-    background-color: #EEE0CB;
-    width: 80%;
-    max-height: 400px;
-    border-radius: 7px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 25px;
-    justify-content: space-between;
-    height: 350px;
-}
-
-.cont_imgproducto{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: 200px;
-}
-
-.cont_imgproducto img {
-    width: 100%;
-    transition: all 1s ease;
-    margin-bottom: 10px;
-    object-fit: contain;
-}
-
-.precio{
-    font-size: 1.2em;
-    font-weight: 500;
-}
-.descuento{
-    color: green;
-    margin-bottom: 10px;
-}
-
-.nombre{
-    margin-bottom: 5px;
-}
-.cont_dsc{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 7px;
-}
-.btn_dsc{
+    background-color: #dd6477;
+    padding: 0.8vw;
+    margin-left: 25vw;
+    margin-top: 10vh;
+    font-weight: 700;
+    width: 30%;
+    text-align: center;
     text-decoration: none;
-    background-color: #7A1745;
-    color: white;
-    border-radius: 7px;
-    padding: 5px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 2px rgba(122, 106, 106, 0.479);
+    transition: all 450ms;
 }
 
-main .fa-cart-shopping{
-    color: #629677;
-    font-size: 1.2em;
-    margin-right: 10px;
+#button-title-home:hover{
+    background-color: #75343e;
+    width: 32%;
 }
 
-            /* Beneficios */
-
-.sec_beneficios{
+section{
+    width: 100vw;
+    margin-bottom: 5vh;
+}
+.product-category-home-carrousel-black{
+    width: 100vw;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 20px 0px 0px 0px;
-}
-.beneficio{
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-}
-.beneficio .fa-solid{
-    font-size: 2em;
-    color: #7A1745;
+    margin-top: 7vh;
+    position: relative;
 }
 
-            /* Suscripcion */
+section:hover .image-product img{
+    width: 40vw;
+}
 
-.sec_suscripcion{
+.title-category{
+    font-size: 2.5vw;
+    font-weight: 700;
+    letter-spacing: 1.2vw;
+    color: white;
+}
+
+.container-product{
+    display: flex;
+    justify-content: space-around;
+    width: 85vw;
+    margin-top: 5vw;
+}
+.information-product{
+    width: 50vw;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #EEE0CB;
-    padding: 30px 0px 30px 0px;
-    width: 100%;
-    margin-top: 30px;
+    margin-left: 3vw;
 }
-.suscripcion_info{
-    width: 90%;
-    margin-bottom: 15px;
+
+.name-product{
+    color: white;
+    font-weight: 500;
+    font-size: 3vw;
+    width: 80%;
+    letter-spacing: 0.5vw;
 }
-.suscripcion_info p{
-    margin: 0%;
+
+.description-product{
+    color: white;
+    font-size: 1.2vw;
+    width: 65%;
+    margin-top: 5vh;
     text-align: left;
 }
 
-.suscripcion_input{
-    width: 100%;
+.container-information-small-card{
+    width: 65%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#suscripcion{
-    border-radius: 7px;
-    width: 60%;
-    font-size: 1em;
-    padding: 5px;
-    border: none;
-    margin-right: 10px;
+    justify-content: space-between;
+    margin-top: 5vh;
 }
 
-.suscripcion_input button{
-    text-decoration: none;
-    background-color: #7A1745;
-    color: white;
-    border-radius: 7px;
-    padding: 5px;
-    border: none;
-    font-size: 1em;
-}
-
-
-
- 
-@media (min-width: 361px) {
-    main{
-        width: 100%;
-    }
-
-/* Productos */
-.catego {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.catego h2{
-    font-size: 1.3em;
-    border-radius: 10px;
-    background-color: #7A1745;
-    color: white;
-    padding: 5px 15px;
-}
-
-.cont-presentacion{
-    width: 100%;
-    margin-bottom: 25px;
-    padding: 0px 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cont-presentacion p{
-    width: 90%;
-    font-size: 1.1em;
-}
-
-.cont_prod {
+.information-small-card{
+    width: 40%;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: center;
+    background-color: #dd6477;
+    box-shadow: 2px 2px 2px #d6b9bd;
+    border-radius: 1.7vw;
+    padding: 1vw;
 }
 
-.cont_filtros {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #333333;
-    padding: 30px 20px;
-    margin-bottom: 15px;
-}
-
-.cont_filtros p{
+.anotation-small-card{
     color: white;
-    font-size: 1.2em;
-    font-weight: lighter;
-    margin-bottom: 10px;
+    font-size: 1.2vw;
+    font-weight: 900;
+    letter-spacing: 0.5vw;
+    text-align: center;
+    margin-bottom: 0.9vw;
 }
 
-.cont_filtros form{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.cont_filtros form label{
+.information-small-card p{
     color: white;
-    font-weight: 100;
-    font-size: 1em;
-    padding: 5px;
+    font-size: 1.1vw;
+    text-align: center;
 }
-.cont_tproductos{
-    width: 100%;
+
+.image-product{
+    width: 35vw;
+}
+
+.image-product img{
+    width: 35vw;
+    filter:  drop-shadow(5px 5px 10px #5a59599c) ;
+    transition: all 450ms;
+}
+
+#arrow-left, #arrow-right{
+    color: rgb(110, 110, 110);
+    font-size: 2.2vw;
+    top: 45vh;
+    transition: all 450ms;
+}
+
+#arrow-right{
+    position: absolute;
+    right: 4vw;
+}
+
+#arrow-left{
+    position: absolute;
+    left: 3vw;
+}
+
+#arrow-left:hover, #arrow-right:hover{
+    font-size: 5vw;
+}
+
+.product-category-home-carrousel-white{
+    background-color: #f3f5f6;
+    width: 100vw;
     display: flex;
-    flex-direction: row;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 10px;
-}
-.card_producto{
-    width: 42%;
-    height: 60vh;
-}
-
-.precio{
-    font-size: 1.4em;
-    font-weight: 600;
-    color: #333333;
+    flex-direction: column;
+    margin-top: 7vh;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+    position: relative;
 }
 
-.nombre{
-    font-size: 1.1em;
-    margin-bottom: 5px;
+.product-category-home-carrousel-white .title-category,
+.product-category-home-carrousel-white .name-product,
+.product-category-home-carrousel-white .description-product,
+.product-category-home-carrousel-white .anotation-small-card, 
+.product-category-home-carrousel-white #arrow-left,
+.product-category-home-carrousel-white #arrow-right,
+.product-category-home-carrousel-white .information-small-card p{
+    color: #222121;
 }
 
-.cont_dsc{
-    margin-top: 10px;
+.product-category-home-carrousel-white .information-small-card{
+    background-color: #629677;
+    box-shadow: 2px 2px 2px rgba(26, 35, 29, 0.774);
 }
-.btn_dsc{
-    width: 70%;
-    max-width: 125px;
-    font-size: 1.2em;
-    padding: 7px;
-    font-weight: 600;
+hr{
+    width: 60vw;
+    margin-top: 10vh;
 }
-
-.fa-cart-shopping{
-    font-size: 1.3em;
-}
-
-            /* Beneficios */
-
-.sec_beneficios{
+.container-benefits{
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin: 20px 0px 0px 0px;
+    margin-top: 7vh;
     width: 100%;
-    padding: 15px;
+    padding: 3vh 5vw;
 }
-.beneficio{
+.benefit{
     display: flex;
     flex-direction: column;
     width: 30%;
     align-items: center;
     margin-bottom: 10px;
 }
-.beneficio .fa-solid{
-    font-size: 2.3em;
-    color: #7A1745;
-    margin-bottom: 15px;
+
+.benefit > p{
+    color: white;
+    font-size: 1.4vw;
 }
 
-            /* Suscripcion */
-
-.sec_suscripcion{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #EEE0CB;
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+.benefit > i{
+    font-size: 3vw;
+    color: #dd6477;
+    margin-bottom: 1.5vh;
+    transition: all 450ms;    
 }
 
-.suscripcion_info{
-    width: 90%;
-    margin-bottom: 15px;
-}
-.suscripcion_info p{
-    margin: 0%;
-    text-align: left;
-    font-size: 1.1em;
+.benefit > i:hover{
+    font-size: 3.5vw;
 }
 
-.suscripcion_input{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#suscripcion{
-    border-radius: 7px;
-    width: 80%;
-    font-size: 1.1em;
-    padding: 7px;
-    border: none;
-    margin-right: 10px;
-}
-
-.suscripcion_input button{
-    border-radius: 7px;
-    padding: 7px;
-    border: none;
-    font-size: 1.1em;
-}
-
-}
-@media (min-width: 768px) {
-    main{
-        width: 100%;
-    }
-
-    /* Productos */
-    .catego {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .catego h2{
-        font-size: 1.5em;
-        border-radius: 10px;
-        background-color: #7A1745;
-        color: white;
-        padding: 15px 50px;
-    }
-
-    .cont_prod {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 0px 35px;
-        align-items: flex-start;
-
-    }
-
-    .cont_filtros {
-        width: 20%;
-        display: flex;
-        flex-direction: column;
-        background-color: #333333;
-        padding: 30px 20px;
-        margin-bottom: 15px;
-        border-radius: 7px;
-        margin-left: 40px;
-    }
-
-    .cont_filtros p{
-        color: white;
-        font-size: 1.2em;
-        font-weight: lighter;
-        margin-bottom: 10px;
-    }
-    .cont_filtros form{
-        display: flex;
-        flex-direction: column;
-    }
-    .filtro-check{
-        margin-bottom: 10px;
-    }
-    .cont_tproductos{
-        width: 80%;
-    }
-    .card_producto{
-        max-height: none;
-        width: 30%;
-        height: 500px;
-        box-sizing: border-box;
-    }
-
-    .fa-cart-shopping{
-        font-size: 1.3em;
-        transition: transform 450ms;
-    }
-
-    .btn_dsc{
-        max-width: 130px;
-        transition: all 450ms;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-    }
-
-    .btn_dsc:hover{
-        color: white;
-        font-size: 1.25em;
-        background-color: #561131;
-        transform: scale(1.1,1.1);
-    }
-    .card_producto:hover i{
-            transform: rotate(-90deg);
-    }
-
-    .card_producto:hover{
-        box-shadow: 1px -1px 20px 3px  rgba(0, 0, 0, 0.644);
-        transition: all 450ms ease;
-    }
-    .card_producto:hover .cont_imgproducto img {
-        filter: drop-shadow(5px 10px 8px black);
-    }
-    .cont_imgproducto{
-        height: 300px;
-    }
-    .cont_imgproducto img {
-        transition: all 450ms ease;
-        /* width: 512px; */
-        width: 100%;
-        height: 100%;
-        /* height: 512px; */
-        /* object-fit: contain; */
-    }
-
-
-
-                /* Beneficios */
-
-    .beneficio{
-        display: flex;
-        flex-direction: column;
-        width: 30%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-    .beneficio .fa-solid{
-        font-size: 2.4em;
-        color: #7A1745;
-        margin-bottom: 15px;
-        transition: all 450ms;
-    }
-
-    .beneficio .fa-solid:hover{
-        font-size: 2.7em;
-    }
-
-    /* Suscripcion */
-
-    .suscripcion_info{
-        margin-bottom: 20px;
-    }
-
-    .suscripcion_input{
-        width: 80%;
-    }
-
-    #suscripcion input{
-        margin-right: 15px;
-        transition: all 450ms;
-    }
-
-    #suscripcion:hover{
-        border: #333333 1px solid;
-    }
-
-    .suscripcion_input button{
-        padding: 7px 12px;
-        transition: all 450ms;
-    }
-
-    .suscripcion_input button:hover{
-        background-color: #561131;
-    }
-    
-}
