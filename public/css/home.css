@@ -114,14 +114,14 @@ section:hover .image-product img{
 .name-product{
     color: white;
     font-weight: 500;
-    font-size: 3vw;
+    font-size: 2.7vw;
     width: 80%;
     letter-spacing: 0.5vw;
 }
 
 .description-product{
     color: white;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     width: 65%;
     margin-top: 5vh;
     text-align: left;
@@ -216,41 +216,5 @@ section:hover .image-product img{
 .product-category-home-carrousel-white .information-small-card{
     background-color: #629677;
     box-shadow: 2px 2px 2px rgba(26, 35, 29, 0.774);
-}
-hr{
-    width: 60vw;
-    margin-top: 10vh;
-}
-.container-benefits{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 7vh;
-    width: 100%;
-    padding: 3vh 5vw;
-}
-.benefit{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.benefit > p{
-    color: white;
-    font-size: 1.4vw;
-}
-
-.benefit > i{
-    font-size: 3vw;
-    color: #dd6477;
-    margin-bottom: 1.5vh;
-    transition: all 450ms;    
-}
-
-.benefit > i:hover{
-    font-size: 3.5vw;
 }
 

@@ -55,6 +55,11 @@ footer{
     color: white;
     font-size: 2.2vw;
     margin-top: 1vh;
+    transition: all 450ms;
+}
+
+.nav-social-networks > a:hover{
+    font-size: 2.6vw;
 }
 
 .categories-section-footer{
@@ -78,6 +83,12 @@ footer{
     color: white;
     font-size: 1.2vw;
     margin-bottom: 1vh;
+    transition: all 450ms;
+}
+
+.categories-section-footer > a:hover{
+    color: #dd6477;
+    text-decoration-line: underline;
 }
 
 .container-suscription{

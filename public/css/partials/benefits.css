@@ -1,0 +1,36 @@
+hr{
+    width: 60vw;
+    margin-top: 10vh;
+}
+.container-benefits{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 7vh;
+    width: 100%;
+    padding: 3vh 5vw;
+}
+.benefit{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.benefit > p{
+    color: white;
+    font-size: 1.4vw;
+}
+
+.benefit > i{
+    font-size: 3vw;
+    color: #dd6477;
+    margin-bottom: 1.5vh;
+    transition: all 450ms;    
+}
+
+.benefit > i:hover{
+    font-size: 3.5vw;
+}

@@ -1,112 +1,82 @@
-<section id="OFERTAS" class="sec_ofertas">
-    <img src="/images/copa-uvas.jpg" alt="banner">
-</section>
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs',{title: 'Productos', css:'/list'}) %>
+<body>
 
-<section id="PRODUCTOS" class="sec_productos">
-    <div class="cont_categorias">
-        <div class="catego">
-            <h2>Vinos</h2>
+    <%- include("./partials/header.ejs") %>
+
+    <section class="front-page-list">
+        <img src="/images/cover-list.png" alt="cover">
+        <p id="title-cover-list">CAVA REAL</p>
+        <form action="" class="sercher-list">
+            <input type="text" name="produtc-search" placeholder="Cabernet...">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </section>
+    <section class="container-title-list">
+        <p id="title-list">PRODUCTOS</p>
+        <form class="container-filters">
+            <select name="category-filter" id="category-filter">
+                <option value="0" selected>Categorias</option>
+                <option value="wines">Vinos</option>
+                <option value="liquors">Licores</option>
+                <option value="accessory">Accesorios</option>
+            </select>
+            <div class="container-price-filter">
+                <label for="price-filter">$100</label>
+                <input type="range" name="price-filter" id="price-filter" max="10000" min="100">
+                <label for="price-filter">$10.000</label>
+            </div>
+            <div class="container-discount-filter">
+                <label for="discount-filter">%5</label>
+                <input type="range" name="discount-filter" id="discount-filter" max="10000" min="100">
+                <label for="discount-filter">%50</label>
+            </div>
+            <button type="submit">Filtrar</button>
+        </form>
+    </section>
+    <main class="container-products-list">
+        <% products.forEach(product => { %>
+        <div class="container-product-medium-card">
+            <img src="/images/<%= product.img %>" alt="">
+            <p class="name-product-card"><%= product.name %></p>
+            <p class="notation-product-card"><%= product.variedad %></p>
+            <p class="price-product-card">$<%= product.priceUnity %></p>
+            <a id="link-detail" href=""><i class="fa-solid fa-arrow-right"></i></a>
+            <a id="link-cart" href=""><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
-        <div class="catego">
-            <h2>Whiskys</h2>
-        </div>
-        <div class="catego">
-            <h2>Aperitivos</h2>
-        </div>
-        <div class="catego">
-            <h2>Accesorios</h2>
-        </div>
+        <% }) %>
+    </main>
+    <div class="pagination-arrows">
+        <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
+        <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
     </div>
 
-    <div class="cont-presentacion">
-        <p>Somos Cava Real y nuestro sitio de vinos ofrece una amplia y cuidadosamente seleccionada gama de vinos 🍷
-            de calidad premium provenientes de diversas regiones vinícolas alrededor del mundo 🌍.</p>
-    </div>
+    <%- include("./partials/benefits.ejs") %>
+    <%- include("./partials/footer.ejs") %>
+        
+        
+
+
+                <%# products.forEach(e => { %>
+                    <!-- <div class="card_producto">
+                        <div class="cont_imgproducto">
+                            <img src="/images/<%# e.img %>" alt="producto">
+                        </div>
+                        <p class="precio">$ <%# e.priceUnity %></p>
+                        <p class="descuento">10% Off</p>
+                        <p class="nombre"> <%# e.name %> </p>
+                        <div class="cont_dsc">
+                            <a href="/product/detail/<%# e.id %>" class="btn_dsc">Ver producto</a>
+                            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div> -->
+                <%# }) %>
     
-    <div class="cont_prod">
-        <div class="cont_filtros">
-            <p>FILTROS</p>
-            <form action="#" method="post">
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Afrutado" multiple>
-            <label for="Afrutado">Afrutado</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Muy-complejo" multiple>
-            <label for="Muy-complejo">Muy complejo</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Seco" multiple>
-            <label for="Seco">Seco</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Postre" multiple>
-            <label for="Postre">Postre</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Mucha-madera" multiple>
-            <label for="Mucha-madera">Mucha madera</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Nada-madera" multiple>
-            <label for="Nada-madera">Nada madera</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Amable" multiple>
-            <label for="Amable" >Amable</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Refrescante" multiple>
-            <label for="Refrescante">Refrescante</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Aterciopelado" multiple>
-            <label for="Aterciopelado">Aterciopelado</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Taninos-intensos" multiple>
-            <label for="Taninos-intensos">Taninos intensos</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Liviano" multiple>
-            <label for="Liviano">Liviano</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Mucho-cuerpo" multiple>
-            <label for="Mucho-cuerpo">Mucho cuerpo</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Delicado" multiple>
-            <label for="Delicado">Delicado</label>
-        </div>
-            <div class="filtro-check">
-            <input type="checkbox" name="filtros"  id="Estructurado" multiple>
-            <label for="Estructurado">Estructurado</label>
-        </div>
-            </form>
-        </div>
-        <div class="cont_tproductos">
+                <%# if (isUserLogger) { %>
+                    <!-- <a href="/product/add" class="btn_dsc"> Crear producto </a> -->
+                <%# } %>
+                
 
-            <!-- <% products %> -->
-            <% products.forEach(e => { %>
-                <div class="card_producto">
-                    <div class="cont_imgproducto">
-                        <img src="/images/<%= e.img %>" alt="producto">
-                    </div>
-                    <p class="precio">$ <%= e.priceUnity %></p>
-                    <p class="descuento">10% Off</p>
-                    <p class="nombre"> <%= e.name %> </p>
-                    <div class="cont_dsc">
-                        <a href="/product/detail/<%= e.id %>" class="btn_dsc">Ver producto</a>
-                        <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </div>
-                </div>
-            <% }) %>
-
-            <% if (isUserLogger) { %>
-                <a href="/product/add" class="btn_dsc"> Crear producto </a>
-            <% } %>
-            
-        </div>
-    </div>
-</section>
+</body>
+</html>
