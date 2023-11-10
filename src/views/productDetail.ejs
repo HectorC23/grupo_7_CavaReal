@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- css -->
-    <link rel="stylesheet" href="/css/detalle.css">
-    <script src="https://kit.fontawesome.com/ecd0310594.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    
-    <link rel="icon" href="/images/icon-pestaña.png">
-    
-    <title>Detalle de Producto</title>
+    <%- include('./partials/head.ejs',{title: 'Detalle de Producto', css:'/detail'}) %>
 </head>
 <body>
 
     <%- include("./partials/header.ejs") %>
-    <%- include("./partials/nav.ejs") %>
 
     <main>
         <!-- <form action="" class="container-main"> -->

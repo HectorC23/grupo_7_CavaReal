@@ -5,9 +5,10 @@
 }
 
 body{
-    background-color: #f3f5f6;
     width: 100%;
     font-family: 'Lato', sans-serif;
+    background-color: #222121;
+    align-items: center;
 }
 
 main{
@@ -57,7 +58,7 @@ main{
 }
 
 .wine-information{
-    background-color: #EEE0CB;
+    background-color: #f3f5f6;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -65,10 +66,11 @@ main{
     margin: 7px;
     padding: 5px;
     border-radius: 10px;
+    box-shadow: 2px 2px 3px #5c5c5c;
 }
 .wine-information i{
-    color: #7A1745;
-    background-color: #ffff;
+    color: white;
+    background-color: #dd6477;
     font-size: 20px;
     padding: 10px;
     border-radius: 50%;
@@ -96,9 +98,11 @@ main{
 }
 
 .nav-wine a{
-    font-size: 0.75em;
-    color: #f3f5f6;
-    text-decoration: underline;
+    font-size: 3vw;
+    font-weight: 700;
+    letter-spacing: 1.2vw;
+    color: white;
+    text-decoration: none;
 }
 
 .wine-description-text{
@@ -112,13 +116,16 @@ main{
     text-align: justify;
     width: 95%;
     font-size: 1em;
+    color: white;
 }
 
 #catador-tittle{
+    font-size: 3vw;
+    font-weight: 700;
+    letter-spacing: 1.2vw;
+    color: white;
     background-color: #333333;
     padding: 10px;
-    font-size: 0.75em;
-    color: #f3f5f6;
     margin: 5px 0px;
 }
 
@@ -157,6 +164,7 @@ main{
 
 .wine-catador-description p{
     font-size: 0.9em;
+    color: white;
 }
 
 .wine-catador-description-percentage{
@@ -171,7 +179,7 @@ main{
 
 .percentage{
     height: 100%;
-    background-color: #7A1745;
+    background-color: #dd6477;
 }
 
 .wine-catador-image{
@@ -213,7 +221,7 @@ main{
 .container-fixed{
     display: flex;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #f3f5f6;
     padding: 10px;
     position: fixed;
     bottom: 0;
@@ -246,13 +254,17 @@ main{
 }
 .container-fixed button{
     width: 100%;
-    background-color: #7A1745;
-    border: #7A1745 solid 1px;
+    background-color: #dd6477;
+    border: #dd6477 solid 1px;
     border-radius: 5px;
     padding: 5px 0px;
     font-size: 1.2em;
     margin-top: 5px;
-    color: #ffffff;
+}
+
+.container-fixed button a{
+    text-decoration: none;
+    color: white;
 }
 footer{
     margin-bottom: 26.5vh;
@@ -386,15 +398,19 @@ footer{
         padding-bottom: 20px;
     }
     .wine-image{
-        width: 65%;
+        width: 50vw;
     }
 
     .wine-image img {
-        max-width: 500px;
+        max-width: 50vw;
     }
     .wine-information{
         margin-bottom: 15px;
         padding: 10px 5px 10px 10px;
+    }
+
+    .wine-information-text > p{
+        font-size: 1.15vw;
     }
 
     .wine-information i{
@@ -413,6 +429,9 @@ footer{
         color: #000000;
     }
 
+    .wine-description-text > p{
+        font-size: 1.3vw;
+    }
     .container-fixed{
         position: relative;
         right: 0px;
@@ -441,6 +460,16 @@ footer{
         font-style: italic;
         margin-bottom: 30px;
         transition: font-size 400ms;
+    }
+
+    .wine-catador-description-percentage{
+        height: 10px;
+        border-radius: 4px;
+    }
+
+    .percentage{
+        height: 10px;
+        border-radius: 4px;
     }
 
     .container-fixed:hover .name-wine{

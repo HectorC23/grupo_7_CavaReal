@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/carrito.css">
-    <script src="https://kit.fontawesome.com/ecd0310594.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-
-    <link rel="icon" href="/images/icon-pestaña.png">
-
-    <title>Carrito de Compra</title>
+   <%- include('./partials/head.ejs',{title: 'Carrito de Compra', css:'/carrito'}) %>
 </head>
 
 <body>
 
    <%- include("./partials/header.ejs") %>
-   <%- include("./partials/nav.ejs") %>
    
     <main>
       
@@ -36,24 +26,24 @@
                   </ul>
                </div>
 
-               <% products.forEach(product => { %>
+               <%# products.forEach(product => { %>
                   <div class="card-articulo-mobile">
-                     <a href="/cart/delete/<%= product.id %>?_method=DELETE"><i class="fa-solid fa-trash-can" id="basura"></i></a>
+                     <a href="/cart/delete/<%# product.id %>?_method=DELETE"><i class="fa-solid fa-trash-can" id="basura"></i></a>
                         <div class="cont_imgproducto">
-                            <img src="/images/<%= product.img %>" alt="producto">
+                            <img src="/images/<%# product.img %>" alt="producto">
                         </div>
-                        <p class="descripcion"><%= product.name %></p>
-                        <p class="precio"> Precio: <b>$<%= product.price %></b></p>
+                        <p class="descripcion"><%# product.name %></p>
+                        <p class="precio"> Precio: <b>$<%# product.price %></b></p>
                         <form class="cantidad">
                            <label>Cantidad</label>
                            <i class="fa-solid fa-circle-minus"></i>
                            <input type="number" class="cantidad-input" min="0" max="20">
                            <i class="fa-solid fa-circle-plus"></i>
                         </form>
-                        <p class="subtotal">Subtotal: <b>$<%= product.price %></b></p>
+                        <p class="subtotal">Subtotal: <b>$<%# product.price %></b></p>
                         <i></i>
                   </div>
-               <% }) %>
+               <%# }) %>
 
                <button class="actualizar-carr" type="submit" onclick="document.location.reload()">Actualizar Carrito</button>
 
@@ -114,7 +104,7 @@
                      <div class="linea-carrito"></div>
 
                      <p class="envio">Costo de envio: <b>$5.000</b></p>
-                     <p class="sub-total">Subtotal: <b>$<%= cart.totalPrice %></b></p>
+                     <p class="sub-total">Subtotal: <b>$<%# cart.totalPrice %></b></p>
 
                      <div class="linea-carrito"></div>
 
@@ -125,9 +115,9 @@
 
                      <div class="linea-carrito"></div>
 
-                     <p class="total">Total del pedido: <b>$<%= cart.totalPrice + 5000 %></b></p>
+                     <p class="total">Total del pedido: <b>$<%# cart.totalPrice + 5000 %></b></p>
 
-                     <button class="caja"><a href="/buy/add/<%= cart.id %>">Comprar</a></button>
+                     <button class="caja"><a href="/buy/add/<%# cart.id %>">Comprar</a></button>
                     </form>
             </div>
                                     
