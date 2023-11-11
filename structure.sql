@@ -24,12 +24,13 @@ DROP TABLE IF EXISTS `carts`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `cantidad` tinyint(4) NOT NULL,
-  `precio_total` decimal(10,0) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `amount` tinyint(4) NOT NULL,
+  `totalPrice` float NOT NULL,
+  `creationDate` date NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKuserid_idx` (`user_id`),
-  CONSTRAINT `FKus` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FKuserid_idx` (`userId`),
+  CONSTRAINT `FKus` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,7 +52,7 @@ DROP TABLE IF EXISTS `categories_products`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories_products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categoria` varchar(50) NOT NULL,
+  `category` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -74,7 +75,7 @@ DROP TABLE IF EXISTS `categories_users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categoria` varchar(20) NOT NULL,
+  `category` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -97,14 +98,14 @@ DROP TABLE IF EXISTS `products`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  `descripcion` text NOT NULL,
-  `viñedo` varchar(100) NOT NULL,
-  `edad` tinyint(4) NOT NULL,
-  `altitud` varchar(100) NOT NULL,
-  `variedad` varchar(100) NOT NULL,
-  `barriles` tinyint(4) NOT NULL,
-  `guardado` tinyint(4) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `vineyard` varchar(100) NOT NULL,
+  `age` tinyint(4) NOT NULL,
+  `altitude` varchar(100) NOT NULL,
+  `variety` varchar(100) NOT NULL,
+  `barrels` tinyint(4) NOT NULL,
+  `saved` tinyint(4) NOT NULL,
   `priceUnity` decimal(10,2) NOT NULL,
   `priceSix` decimal(10,2) NOT NULL,
   `img` varchar(100) NOT NULL,
@@ -133,13 +134,13 @@ DROP TABLE IF EXISTS `products_cart`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products_cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cart_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `cartId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKcart_idx` (`cart_id`),
-  KEY `FKprodu_idx` (`product_id`),
-  CONSTRAINT `FKcart` FOREIGN KEY (`cart_id`) REFERENCES `carts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FKprodu` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FKcart_idx` (`cartId`),
+  KEY `FKprodu_idx` (`productId`),
+  CONSTRAINT `FKcart` FOREIGN KEY (`cartId`) REFERENCES `carts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FKprodu` FOREIGN KEY (`productId`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -169,12 +170,12 @@ CREATE TABLE `tasters` (
   `liviano` tinyint(4) DEFAULT 1,
   `delicado` tinyint(4) DEFAULT 1,
   `category_product_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKproductID_idx` (`product_id`),
+  KEY `FKproductID_idx` (`productId`),
   KEY `FKcatproid_idx` (`category_product_id`),
   CONSTRAINT `FKcatproid` FOREIGN KEY (`category_product_id`) REFERENCES `categories_products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FKprodid` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FKprodid` FOREIGN KEY (`productId`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -206,9 +207,10 @@ CREATE TABLE `users` (
   `postalCode` char(10) NOT NULL,
   `state` varchar(100) NOT NULL,
   `image` varchar(100) DEFAULT 'foto-perfil',
-  `subscripcion` varchar(20) NOT NULL,
+  `subscription` tinyint(4) NOT NULL,
   `membershipLevel` varchar(20) NOT NULL,
   `category_id` int(11) NOT NULL,
+  `userName` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user-category_idx` (`category_id`),
   CONSTRAINT `user-category` FOREIGN KEY (`category_id`) REFERENCES `categories_users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -233,13 +235,13 @@ DROP TABLE IF EXISTS `users_products`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users_products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKproductid_idx` (`product_id`),
-  KEY `FKuserid_idx` (`user_id`),
-  CONSTRAINT `FKproductid` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FKuserid` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FKproductid_idx` (`productId`),
+  KEY `FKuserid_idx` (`userId`),
+  CONSTRAINT `FKproductid` FOREIGN KEY (`productId`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FKuserid` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -261,4 +263,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-06 20:19:43
+-- Dump completed on 2023-11-08 21:53:37
