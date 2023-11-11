@@ -6,9 +6,9 @@
 }
 
 body{
-    background-color: #f3f5f6;
+    background-color: #222121;
     width: 100%;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     margin: 0%;
@@ -32,11 +32,13 @@ main{
 }
 .image-profile-container{
     width: 30%;
-    background-color: #EEE0CB;
+    background-color: #f3f5f6;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-left: 30px;
+    border-radius: 10px;
+    box-shadow: 1.5px 1.5px 3px #5c5c5c;
     flex-direction: column;
 }
 
@@ -53,7 +55,7 @@ main{
     margin-top: 10px;
 }
 .title-profile-image h2{
-    color: #f3f5f6;
+    color: white;
     font-weight: bold;
     font-size: 1.4em;
     padding: 10px 0px 0px 20px;
@@ -82,9 +84,10 @@ main{
     margin-left: 10px;
 }
 
-.medals p{
+#membership-level-p{
     width: 70%;
     font-size: 1.2em;
+    font-family: 'Poppins';
 }
 .benefits{
     width: 100%;
@@ -94,9 +97,10 @@ main{
 }
 .benefits h3{
     font-size: 1.05em;
+    letter-spacing: 0.3vw;
 }
 .benefits p{
-    color: #3da767;
+    color: #629677;
     font-weight: 700;
     font-size: 1.1em;
 }
@@ -104,8 +108,10 @@ main{
 .container-profile-user{
     width: 60%;
     display: flex;
-    background-color: #EEE0CB;
+    background-color: #f3f5f6;
     margin-right: 30px;
+    border-radius: 10px;
+    box-shadow: 1.5px 1.5px 3px #5c5c5c;
 }
 
 .container-profile-information{
@@ -137,6 +143,7 @@ main{
     width: 100%;
     padding: 20px 0px 7px 35px;
     font-size: 1.2em;
+    letter-spacing: 0.5vw;
 }
 .data-container{
     width: 50%;
@@ -151,12 +158,13 @@ main{
 .subtitle-information{
     width: 100%;
     padding: 5px;
-    font-size: 1.15em;
+    font-size: 1.05em;
+    color: #333333;
 }
 .data{
     width: 100%;
     padding: 5px;
-    font-size: 1.05em;
+    font-size: 1em;
 }
 .button-edit{
     width: 50%;
@@ -165,117 +173,24 @@ main{
 
 .button-edit button{
     width: 70%;
-    background-color: #7A1745;
-    border: #7A1745 solid 1px;
-    border-radius: 10px;
+    background-color: #dd6477;
+    border: #dd6477 solid 1px;
+    border-radius: 15px;
     transition: all 450ms;
     padding: 7px 0px;
     font-size: 1.2em;
     margin-top: 10px;
-    color: #ffffff;
+    color: white;
+    box-shadow: 2px 2px 3px #9a6b6b;
+    font-family: 'Poppins';
 }
 
 .button-edit button:hover{
-    background-color: #500f2d;
+    background-color: #93434f;
 }
-.container-profile-ranges
-
-
- /* Suscripcion */
-
- .sec_suscripcion{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #EEE0CB;
-    padding: 30px 0px 30px 0px;
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.suscripcion_info{
-    width: 90%;
-    margin-bottom: 15px;
-}
-.suscripcion_info p{
-    margin: 0%;
-    text-align: left;
-}
-
-.suscripcion_input{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-}
-#suscripcion{
-    border-radius: 7px;
-    width: 60%;
-    font-size: 1em;
-    padding: 5px;
-    border: none;
-    margin-right: 10px;
-}
-
-.suscripcion_input button{
-    text-decoration: none;
-    background-color: #7A1745;
-    color: white;
-    border-radius: 7px;
-    padding: 5px;
-    border: none;
-    font-size: 1em;
-}
-
 
 @media (min-width: 361px) {
     main{
         width: 100%;
     }
-            /* Suscripcion */
-
-.sec_suscripcion{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #EEE0CB;
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.suscripcion_info{
-    width: 90%;
-    margin-bottom: 15px;
-}
-.suscripcion_info p{
-    margin: 0%;
-    text-align: left;
-    font-size: 1.1em;
-}
-
-.suscripcion_input{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#suscripcion{
-    border-radius: 7px;
-    width: 80%;
-    font-size: 1.1em;
-    padding: 7px;
-    border: none;
-    margin-right: 10px;
-}
-
-.suscripcion_input button{
-    border-radius: 7px;
-    padding: 7px;
-    border: none;
-    font-size: 1.1em;
-}
 }

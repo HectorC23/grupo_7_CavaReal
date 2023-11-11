@@ -1,162 +1,95 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/ecd0310594.js" crossorigin="anonymous"></script>
-
-    <link rel="icon" href="/images/icon-pestaña.png">
-    <title>Home</title>
-</head>
+    <%- include('./partials/head.ejs',{title: 'Inicio', css:'/home'}) %>
 <body>
     <%- include("./partials/header.ejs") %>
-    <%- include("./partials/nav.ejs") %>
 
-    <main>
-        <section id="OFERTAS" class="sec_ofertas">
-            <img src="/images/copa-uvas.jpg" alt="banner">
-        </section>
-        
-        <section id="PRODUCTOS" class="sec_productos">
-            <div class="cont_categorias">
-                <div class="catego">
-                    <h2>Vinos</h2>
-                </div>
-                <div class="catego">
-                    <h2>Whiskys</h2>
-                </div>
-                <div class="catego">
-                    <h2>Aperitivos</h2>
-                </div>
-                <div class="catego">
-                    <h2>Accesorios</h2>
-                </div>
-            </div>
-
-            <div class="cont-presentacion">
-                <p>Somos Cava Real y nuestro sitio de vinos ofrece una amplia y cuidadosamente seleccionada gama de vinos 🍷
-                    de calidad premium provenientes de diversas regiones vinícolas alrededor del mundo 🌍.</p>
-            </div>
-            
-            <div class="cont_prod">
-                <div class="cont_filtros">
-                    <p>FILTROS</p>
-                    <form action="#" method="post">
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Afrutado" multiple>
-                    <label for="Afrutado">Afrutado</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Muy-complejo" multiple>
-                    <label for="Muy-complejo">Muy complejo</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Seco" multiple>
-                    <label for="Seco">Seco</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Postre" multiple>
-                    <label for="Postre">Postre</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Mucha-madera" multiple>
-                    <label for="Mucha-madera">Mucha madera</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Nada-madera" multiple>
-                    <label for="Nada-madera">Nada madera</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Amable" multiple>
-                    <label for="Amable" >Amable</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Refrescante" multiple>
-                    <label for="Refrescante">Refrescante</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Aterciopelado" multiple>
-                    <label for="Aterciopelado">Aterciopelado</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Taninos-intensos" multiple>
-                    <label for="Taninos-intensos">Taninos intensos</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Liviano" multiple>
-                    <label for="Liviano">Liviano</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Mucho-cuerpo" multiple>
-                    <label for="Mucho-cuerpo">Mucho cuerpo</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Delicado" multiple>
-                    <label for="Delicado">Delicado</label>
-                </div>
-                    <div class="filtro-check">
-                    <input type="checkbox" name="filtros"  id="Estructurado" multiple>
-                    <label for="Estructurado">Estructurado</label>
-                </div>
-                    </form>
-                </div>
-                <div class="cont_tproductos">
-
-                    <!-- <% products %> -->
-                    <% products.forEach(e => { %>
-                        <div class="card_producto">
-                            <div class="cont_imgproducto">
-                                <img src="/images/<%= e.img %>" alt="producto">
-                            </div>
-                            <p class="precio">$ <%= e.priceUnity %></p>
-                            <p class="descuento">10% Off</p>
-                            <p class="nombre"> <%= e.name %> </p>
-                            <div class="cont_dsc">
-                                <a href="/product/detail/<%= e.id %>" class="btn_dsc">Ver producto</a>
-                                <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-                            </div>
-                        </div>
-                    <% }) %>
-
-                    <% if (isUserLogger) { %>
-                        <a href="/product/add" class="btn_dsc"> Crear producto </a>
-                    <% } %>
-                    
-                </div>
-            </div>
-        </section>
-        <section id="BENEFICIOS" class="sec_beneficios">
-            <div class="beneficio">
-                <i class="fa-solid fa-truck-fast"></i>
-                <p>Envios rapidos y a todo el país</p>
-            </div>
-            <div class="beneficio">
-                <i class="fa-solid fa-credit-card"></i>
-                <p>Aceptamos todas las tarjetas</p>
-            </div>
-            <div class="beneficio">
-                <i class="fa-solid fa-envelope"></i>
-                <p>Consultas a soporte las 24hs</p>
-            </div>
-        </section>
-        <form id="SUSCRIPCION" class="sec_suscripcion">
-            <div class="suscripcion_info">
-                <p>
-                    Nuestro sitio está dirigido a una <b>audiencia apasionada por el mundo del vino 🍇</b>, desde 
-    conocedores y coleccionistas hasta entusiastas aficionados que deseen descubrir y disfrutar de 
-    experiencias vinícolas únicas. <b>Subscribete</b> para recibir contenido interesante, promos descuentos y mas!
-                </p>
-            </div>
-            <div class="suscripcion_input">
-                <input type="email" id="suscripcion" placeholder="marta978@hotmail.com">
-                <label for="suscripcion"> <button> Enviar </button></label>
-            </div>
-        </form>
+    <main class="principal-title-home">
+        <img id="cover-home" src="/images/cover.png" alt="cover">
+        <div class="container-title-home">
+            <p id="title-home">CAVA REAL</p>
+            <p id="subtitle-home">El sabor real del Vino</p>
+            <a id="button-title-home" href="/products/all">A degustar!</a>
+        </div>
     </main>
+        
+    <section class="product-category-home-carrousel-black">
+        <p class="title-category">VINOS</p>
+        <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
+        <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
+        <a class="container-product">
+                <div class="information-product">
+                    <p class="name-product">DE SANGRE · Cabernet Sauvignon</p>
+                    <p class="description-product">Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. Se distingue por sus aromas de excelente tipicidad varietal, dominados por la fruta negra y las notas de pimienta muy bien equilibradas con los tonos de torrefacción producto de su crianza en barricas. En el paladar es compacto, tenso, con muy buena estructura y cuerpo. Taninos finos y maduros, acidez equilibrada que aporta buena fluidez y final persistente y elegante.</p>
+                    <div class="container-information-small-card">
+                        <div class="information-small-card">
+                            <p class="anotation-small-card">VIÑEDO</p>
+                            <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
+                        </div>
+                        <div class="information-small-card">
+                            <p class="anotation-small-card">VARIEDAD</p>
+                            <p>Cabernet Sauvignon</p>
+                        </div>
+                    </div>
+                </div>
+               <div class="image-product">
+                    <img src="/images/product2.png" alt="">
+                </div>
+            </a>
+    </section>
 
+    <section class="product-category-home-carrousel-white">
+        <p class="title-category">LICORES</p>
+        <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
+        <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
+        <a class="container-product">
+                <div class="information-product">
+                    <p class="name-product">DE SANGRE · Cabernet Sauvignon</p>
+                    <p class="description-product">Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. Se distingue por sus aromas de excelente tipicidad varietal, dominados por la fruta negra y las notas de pimienta muy bien equilibradas con los tonos de torrefacción producto de su crianza en barricas. En el paladar es compacto, tenso, con muy buena estructura y cuerpo. Taninos finos y maduros, acidez equilibrada que aporta buena fluidez y final persistente y elegante.</p>
+                    <div class="container-information-small-card">
+                        <div class="information-small-card">
+                            <p class="anotation-small-card">VIÑEDO</p>
+                            <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
+                        </div>
+                        <div class="information-small-card">
+                            <p class="anotation-small-card">VARIEDAD</p>
+                            <p>Cabernet Sauvignon</p>
+                        </div>
+                    </div>
+                </div>
+               <div class="image-product">
+                    <img src="/images/product2.png" alt="">
+                </div>
+            </a>
+    </section>
+
+    <section class="product-category-home-carrousel-black">
+        <p class="title-category">ACCESORIOS</p>
+        <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
+        <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
+        <a class="container-product">
+                <div class="information-product">
+                    <p class="name-product">DE SANGRE · Cabernet Sauvignon</p>
+                    <p class="description-product">Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. Se distingue por sus aromas de excelente tipicidad varietal, dominados por la fruta negra y las notas de pimienta muy bien equilibradas con los tonos de torrefacción producto de su crianza en barricas. En el paladar es compacto, tenso, con muy buena estructura y cuerpo. Taninos finos y maduros, acidez equilibrada que aporta buena fluidez y final persistente y elegante.</p>
+                    <div class="container-information-small-card">
+                        <div class="information-small-card">
+                            <p class="anotation-small-card">VIÑEDO</p>
+                            <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
+                        </div>
+                        <div class="information-small-card">
+                            <p class="anotation-small-card">VARIEDAD</p>
+                            <p>Cabernet Sauvignon</p>
+                        </div>
+                    </div>
+                </div>
+               <div class="image-product">
+                    <img src="/images/product2.png" alt="">
+                </div>
+            </a>
+    </section>
+        
+    <%- include("./partials/benefits.ejs") %>
     <%- include("./partials/footer.ejs") %>
 </body>
 </html>

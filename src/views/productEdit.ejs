@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/add.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-
-    <link rel="icon" href="/images/icon-pestaña.png">
-
-    <title>Registro</title>
-</head>
+<%- include('../partials/head.ejs',{title: 'Editar Producto', css:'/add'}) %>
 
 <body>
 
     <%- include("./partials/header.ejs") %>
-    <%- include("./partials/nav.ejs") %>
 
     <main>
         <div class="register-box">
@@ -31,9 +20,9 @@
                     <div class="input-content">
                         <label for="category" class="label-bar">Tipo De Prodcuto</label>
                         <select id="tipProduct" name="category" required class="input-bar" valu>
-                            <option value="">--Please choose an option--</option>
+                            <option value="">Elige una opcion</option>
                             <option <%= product.category == "vino" ? "selected" : "" %> value="vino">Vino</option>
-                            <option <%= product.category == "wisky" ? "selected" : "" %> value="wisky">Wisky</option>
+                            <option <%= product.category == "licor" ? "selected" : "" %> value="licor">Licor</option>
                             <option <%= product.category == "accesorio" ? "selected" : "" %> value="accesorio">Accesorio</option>
                             <option <%= product.category == "otro" ? "selected" : "" %> value="otro">Otro</option>
                           </select>

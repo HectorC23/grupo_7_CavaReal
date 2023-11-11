@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
           autoIncrement: true,
           allowNull: false
       },
-      categoria: {
+      category: {
           type: DataTypes.STRING(100),
           allowNull: false
       }
@@ -18,8 +18,7 @@ module.exports = (sequelize, DataTypes) => {
    Category_User.associate = (models)=> {
     
     Category_User.belongsTo(models.User, {
-       as : 'categories_users',
-       foreignKey: 'category_id'
+       foreignKey: 'categoryId'
     })
    }
 

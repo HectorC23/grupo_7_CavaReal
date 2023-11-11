@@ -1,57 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/partials/header.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <div class="cont_logo_header">
-            <img src="/images/logo.png" alt="logo">
-        </div>
+ <%- include('./head.ejs',{title: '', css:'/partials/header'}) %>
 
-        <div class="nombre-slogan">
-            <p class="tittle">CAVA REAL</p>
-            <p class="slogan">El sabor real del vino</p>
-        </div>
-
-        <div class="cont_buscador">
-            <input type="text" placeholder="Buscar" id="buscador">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+ <header>
+        <div class="container-logo-header">
+            <a href="/"><img src="/images/logo.png" alt="logo"></a>
         </div>
 
         <% if (isUserLogger) { %>
-            <%= 'ABIERTA' %> 
-            <div class="cont_log_reg">
-                <a href="/user/profile"><i class="fa-solid fa-user"></i></a>
-                <a href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
-            </div>
-    
-            <div class="cont_log_reg-netbook">
-                <a href="/user/profile"><i class="fa-solid fa-user"></i><%= userLogged.userName %></a>
-                <a href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión </a>
-            </div>
+            <nav class="container-login-register-header">
+                <a href="/user/profile"><i class="fa-solid fa-user"></i><p class="notation"><%= userLogged.userName %></p></a>
+                <a href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i><p class="notation">Cerrar Sesión</p></a>
+                <div class="container-cart-header">
+                    <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </nav>
         <% } else {%> 
-            <%= 'Cerrada' %> 
-            <div class="cont_log_reg">
-            <a href="/user/login"><i class="fa-solid fa-user"></i></a>
-            <a href="/user/register"><i class="fa-solid fa-user-plus"></i></a>
-        </div>
-
-        <div class="cont_log_reg-netbook">
-            <a href="/user/login"><i class="fa-solid fa-user"></i> Iniciar Sesión</a>
-            <a href="/user/register"><i class="fa-solid fa-user-plus"></i>Registrarse </a>
-        </div>
-
+            <nav class="container-login-register-header">
+                <a href="/user/login"><i class="fa-solid fa-user"></i><p class="notation">Iniciar Sesión</p></a>
+                <a href="/user/register"><i class="fa-solid fa-user-plus"></i><p class="notation">Registrarse</p></a>
+                <div class="container-cart-header">
+                    <a id="cart" href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </nav>
         <% } %>
-
-        <div class="cont_carrito">
-            <a id="carrito-header" href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-    </header>
-</body>
-</html>
+</header>

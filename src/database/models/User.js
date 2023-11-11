@@ -13,17 +13,21 @@ module.exports = (sequelize, DataTypes) => {
     lastName: {
         type: DataTypes.STRING(100),
         allowNull: false
+    },
+    userName: {
+        type: DataTypes.STRING(50),
+        allowNull: false
     }, 
     email: {
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    contraseña: {
+    password: {
         type: DataTypes.STRING(50), 
         allowNull: false
     },
     phone: {
-       type: DataTypes.BIGINT(20),
+       type: DataTypes.STRING(20),
        allowNull: false
     },
     birthdate: {
@@ -45,40 +49,40 @@ module.exports = (sequelize, DataTypes) => {
     image: {
         type: DataTypes.STRING(100), 
     },
-    subscripcion: {
-        type: DataTypes.STRING(20),
+    subscription: {
+        type: DataTypes.TINY(1),
         allowNull: false
     },
     membershipLevel: {
         type: DataTypes.STRING(20),
         allowNull: false 
     },
-    category_id: {
+    categoryId: {
         type: DataTypes.INTEGER,
+        defaultValue: 1,
         allowNull: false,
     }
   }, {
     tableName: 'users', 
-    timestamps: false
+    timestamps: true
  })
 
  User.associate = (models)=> {
 
-   User.hasMany(models.Category_User, {
-     as: 'category_user',
-     foreignKey: 'category_id'
+   User.hasOne(models.Category_User, {
+     foreignKey: 'categoryId'
    }), 
    
    User.belongsTo(models.Cart, {
     as: 'cart',
-    foreignKey: 'user_id'
+    foreignKey: 'userId'
   })
 
    User.belongsToMany(models.Product, {
-     as: 'users_products',
+     as: 'usersProducts',
      through: 'users_products', 
-     foreignKey: 'user_id', 
-     otherKey: 'product_id',
+     foreignKey: 'userId', 
+     otherKey: 'productId',
      timestamps: false
    })
  }

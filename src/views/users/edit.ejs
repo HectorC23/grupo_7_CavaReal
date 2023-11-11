@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs',{title: 'Iniciar Sesion', css:'/users/login'}) %>
+<body>
+
+    <%- include("../partials/header.ejs") %>
+
+    <main>
+        <div class="register-box">
+            <h2>Regístrate</h2>
+            <p class="subtitulo" >Por favor verifique la información a continuación y modifique donde sea necesario</p>
+            <form action="/user/edit/<% user.id %>?_method=PUT" method="post" enctype="multipart/form-data"">
+
+                <div class="input-content">
+                    <label for="userName" class="label-bar">Usuario</label>
+                    <input type="text" id="userName" name="userName"  placeholder="Usuario" class="input-bar" value="<%= locals.old && old.userName ? old.userName : user.userName %>">
+                    <% if (typeof errors !== 'undefined' && errors.userName) { %> 
+                        <div>
+                            <p class="msg-error""><%= errors.userName.msg %></p>
+                        </div>
+                    <% } %>
+                </div>
+
+                <div class="input-content">
+                    <label for="phone" class="label-bar">Telefono o celular</label>
+                    <input type="text" id="phone" name="phone" 
+                        placeholder="+54 9 388 4888888" class="input-bar" value="<%= locals.old && old.phone ? old.phone : user.phone %>">
+                        <% if (typeof errors !== 'undefined' && errors.phone) { %> 
+                        <div>
+                            <p class="msg-error""><%= errors.phone.msg %></p>
+                        </div>
+                    <% } %>
+                </div>
+
+                <div class="input-content">
+                    <label for="state" class="label-bar">País</label>
+                    <input type="text" id="state" name="state"  placeholder="País " class="input-bar" value="<%= locals.old && old.state ? old.state : user.state %>">
+                </div>
+
+                <div class="input-content">
+                    <label for="adress" class="label-bar">Direccion</label>
+                    <input type="text" id="adress" name="address"  placeholder="Calle: avenida siempre viva 426" class="input-bar" value="<%= locals.old && old.address ? old.address : user.address %>">
+                </div>
+
+                <div class="input-content">
+                    <label for="postalCode" class="label-bar">Código postal</label>
+                    <input type="number" id="postalCode" name="postalCode"  placeholder="Código Postal " class="input-bar" value="<%= locals.old && old.postalCode ? old.postalCode : user.postalCode %>">
+                </div>
+
+                <div class="input-content">
+                    <label for="password" class="label-bar">Contraseña</label>
+                    <input type="password" id="password" name="password"  placeholder="Contraseña" class="input-bar" >
+                    <% if (typeof errors !== 'undefined' && errors.password) { %> 
+                        <div>
+                            <p class="msg-error""><%= errors.password.msg %></p>
+                        </div>
+                    <% } %>
+                </div> 
+
+                <div class="input-content">
+                    <label for="passwordConfirmation" class="label-bar">Confirmar Contraseña</label>
+                    <input type="password" id="passwordConfirmation" name="passwordConfirmation" 
+                        placeholder="Confirmar Contraseña" class="input-bar">
+                        <% if (typeof errors !== 'undefined' && errors.passwordConfirmation) { %> 
+                        <div>
+                            <p class="msg-error""><%= errors.passwordConfirmation.msg %></p>
+                        </div>
+                    <% } %>
+                </div>
+
+                <div class="input-content">
+                    <label for="img" class="label-bar">Imagen Del Producto</label>
+                    <input type="file" id="img" name="image" class="input-bar" accept=".png,.jpg">
+                </div>
+
+                <div class="botones">
+                    <button type="submit">Modificar Cuenta</button>
+                    <button class="delete"><a href="/user/profile/<%= user.id %>">Cancelar</a></button>
+                </div>
+
+                    <p class="recaptcha-info">
+                        Este sitio esta protegido por reCAPTCHA y se aplican las Politicas de Privacidad de Google
+                        y los terminos del Servicio.
+                    </p>
+                    
+            </form>
+        </div>
+    </main>
+
+    <%- include("../partials/footer.ejs")%>
+
+</body>
+
+</html>

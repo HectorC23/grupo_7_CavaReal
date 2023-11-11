@@ -6,35 +6,35 @@ module.exports = (sequelize, DataTypes) => {
           autoIncrement: true,
           allowNull: false
       },
-      nombre: {
+      name: {
           type: DataTypes.STRING(100),
           allowNull: false
       },
-      descripcion: {
+      description: {
           type: DataTypes.TEXT,
           allowNull: false
       }, 
-      viñedo: {
+      vineyard: {
           type: DataTypes.STRING(50),
           allowNull: false
       },
-      edad: {
+      age: {
          type: DataTypes.INTEGER,
          allowNull: false
       },
-      altitud: {
+      altitude: {
           type: DataTypes.STRING(100), 
           allowNull: false
       },
-      variedad: {
+      variety: {
         type: DataTypes.STRING(100), 
         allowNull: false
       },
-      barriles: {
+      barrels: {
         type: DataTypes.TINYINT(4),
         allowNull: false
       },
-      guardado: {
+      saved: {
         type: DataTypes.TINYINT(4),
         allowNull: false
       },
