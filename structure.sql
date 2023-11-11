@@ -153,7 +153,7 @@ DROP TABLE IF EXISTS `products`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `nameProduct` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `descripcion` text NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `image` varchar(100) NOT NULL,
@@ -276,4 +276,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-11 20:19:05
+-- Dump completed on 2023-11-11 20:33:27
