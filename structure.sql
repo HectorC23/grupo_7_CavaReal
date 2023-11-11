@@ -126,7 +126,7 @@ CREATE TABLE `detailproducts` (
   `id` int(11) NOT NULL,
   `productId` int(11) NOT NULL,
   `attributeId` int(11) NOT NULL,
-  `value` int(11) NOT NULL,
+  `value` varchar(120) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKdetail-produc_idx` (`productId`),
   KEY `FKdetail-attributed_idx` (`attributeId`),
@@ -276,4 +276,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-11 20:03:52
+-- Dump completed on 2023-11-11 20:19:05
