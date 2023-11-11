@@ -13,4 +13,9 @@ router.get('/detail', indexController.detail);
 router.get('/add', indexController.add);
 router.get('/cart', indexController.cart);
 
+router.get('/u/login', indexController.login);
+router.get('/u/profile', indexController.profile);
+router.get('/u/register', indexController.register);
+router.get('/u/edit', indexController.edit);
+
 module.exports = router;

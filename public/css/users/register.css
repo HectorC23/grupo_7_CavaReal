@@ -6,10 +6,13 @@
   }
   
   body{
-    background-color: #f3f5f6;
-    width: 100%;
-    font-family: 'Lato', sans-serif;
+    background-image: url('/images/cover-user.jpg');
     margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
   }
   
   main{
@@ -21,10 +24,10 @@
   }
   
   .register-box {
-    background-color: #eee0ca;
+    background-color: #222121b1;
+    box-shadow: 0px 0px 10px rgba(68, 68, 68, 0.3);
     border-radius: 10px;
     padding: 2em;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -37,11 +40,13 @@
     font-size: 1.5em;
     margin: 0;
     margin-bottom: 1em;
+    color: white;
   }
 
   .subtitulo{
     font-size: 0.9em;
     margin-bottom: 20px;
+    color: white;
   }
   
   .register-box form {
@@ -91,8 +96,8 @@
   
   main button {
     width: 100%;
-    background-color:#7A1745;
-    color: #fff;
+    background-color:#dd6477;
+    color: white;
     padding: 10px 0px;
     border: none;
     border-radius: 7px;
@@ -102,7 +107,7 @@
   
   .delete {
     background-color: #629677;
-    color: #fff;
+    color: white;
     border: 1px solid #629677;
     margin-top: 0.5em;
   }
@@ -110,7 +115,7 @@
   .recaptcha-info {
     font-size: 0.8em;
     margin-top: 1em;
-    color: #1b1815;
+    color: white;
     text-align: center;
   }
   
@@ -119,7 +124,7 @@
   }
   
   .login-options a {
-    color: #7A1745;
+    color: #dd6477;
     text-decoration: none;
     margin: 0.5em 0;
     display: block;
@@ -137,15 +142,23 @@
     margin: 0%;
   }
 
+  .input-checkbox > label{
+    color: white;
+  }
+
   .msg-error {
     position: absolute;
-    color: #7A1745;
+    color: #dd6477;
     bottom: 4px;
     left: 2px;
   }
   
   .botones{
     width: 100%;
+  }
+
+  .botones > button{
+    font-family: 'Poppins';
   }
   
   @media (min-width: 361px){
@@ -218,7 +231,7 @@
     }
   
     .botones button:hover{
-      background-color: #4f0f2d;
+      background-color: #93434f;
     }
   
     .botones .delete:hover{
@@ -230,6 +243,14 @@
     .input-checkbox input {
       width: auto;
       margin: 0%;
+    }
+
+    .login-options > a{
+      transition: all 450ms;
+    }
+  
+    .login-options > a:hover{
+      font-size: 1.4vw;
     }
   }
 

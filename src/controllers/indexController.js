@@ -20,7 +20,19 @@ const controller = {
     cart: (req,res)=> {
         let products = require("../data/products.json");
         res.render("shoppingCart",{products});
-    }
+    },
+    login: (req,res)=> {
+        res.render("users/login");
+    },
+    register: (req,res)=> {
+        res.render("users/register");
+    },
+    profile: (req,res)=> {
+        res.render("users/profile");
+    },
+    edit: (req,res)=> {
+        res.render("users/edit");
+    } 
 }
 
 module.exports = controller;

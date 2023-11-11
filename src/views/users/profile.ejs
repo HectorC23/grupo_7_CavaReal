@@ -1,74 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/users/profile.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/ecd0310594.js" crossorigin="anonymous"></script>
+    
+    <%- include('../partials/head.ejs',{title: 'Perfil de Usuario', css:'/users/profile'}) %>
 
-    <link rel="icon" href="/images/icon-pestaña.png">
-    <title>Home</title>
-</head>
 <body>
     <%- include("../partials/header.ejs") %>
-    <%- include("../partials/nav.ejs") %>
 
     <main>
         <div class="container-profile">
             <div class="image-profile-container">
-                <img src="/images/users/<%= user.image %>.jpg" alt="<%= user.userName %>">
+                <img src="/images/users/<%# user.image %>.jpg" alt="<%# user.userName %>">
                 <div class="title-profile-image">
-                    <h2><%= user.firstName + ' ' + user.lastName %></h2>
-                    <p>@<%= user.userName %></p>
+                    <h2><%# user.firstName + ' ' + user.lastName %></h2>
+                    <p>@<%# user.userName %></p>
                 </div>
                 <div class="level">
                     <div class="medals">
-                        <img src="/images/medals/<%= user.membershipLevel %>.png" alt="<%= user.membershipLevel %>">
-                    <p>Miembro <%= user.membershipLevel %></p>
+                        <img src="/images/medals/<%# user.membershipLevel %>.png" alt="<%# user.membershipLevel %>">
+                    <p id="membership-level-p">Miembro <%# user.membershipLevel %></p>
                     </div>
                     <div class="benefits">
                         <h3>BENEFICIOS</h3>
-                    <p class="discount">-<%= discount %>% en Vinos y Accesorios</p>
+                    <p class="discount">-<%# discount %>% en Vinos y Accesorios</p>
                     </div>
                 </div>
             </div>
             <div class="container-profile-user">
                 <div class="container-profile-information">
                     <div class="title-profile">
-                        <h2><%= user.firstName + ' ' + user.lastName %></h2>
-                        <p>@<%= user.userName %></p>
+                        <h2><%# user.firstName + ' ' + user.lastName %></h2>
+                        <p>@<%# user.userName %></p>
                     </div>
                     <h3>INFORMACION PERSONAL</h3>
                     <div class="information">
                         <div class="data-container">
                             <h4 class="subtitle-information">Nombre Completo</h4>
-                            <p class="data"><%= user.firstName + ' ' + user.lastName %></p>
+                            <p class="data"><%# user.firstName + ' ' + user.lastName %></p>
                         </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Email</h4>
-                        <p class="data"><%= user.email %></p>
+                        <p class="data"><%# user.email %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Pais</h4>
-                        <p class="data"><%= user.state %></p>
+                        <p class="data"><%# user.state %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Codigo Postal</h4>
-                        <p class="data"><%= user.postalCode %></p>
+                        <p class="data"><%# user.postalCode %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Direccion</h4>
-                        <p class="data"><%= user.adress %></p>
+                        <p class="data"><%# user.adress %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Telefono</h4>
-                        <p class="data"><%= user.phone %></p>
+                        <p class="data"><%# user.phone %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Fecha de Nacimiento</h4>
-                        <p class="data"><%= user.birthdate %></p>
+                        <p class="data"><%# user.birthdate %></p>
                        </div>
                        <div class="button-edit">
                         <button href="">Modificar perfil</button>
@@ -77,20 +68,6 @@
                 </div>
             </div>
         </div>
-
-        <form id="SUSCRIPCION" class="sec_suscripcion">
-            <div class="suscripcion_info">
-                <p>
-                    Nuestro sitio está dirigido a una <b>audiencia apasionada por el mundo del vino 🍇</b>, desde 
-    conocedores y coleccionistas hasta entusiastas aficionados que deseen descubrir y disfrutar de 
-    experiencias vinícolas únicas. <b>Subscribete</b> para recibir contenido interesante, promos descuentos y mas!
-                </p>
-            </div>
-            <div class="suscripcion_input">
-                <input type="email" id="suscripcion" placeholder="marta978@hotmail.com">
-                <label for="suscripcion"> <button> Enviar </button></label>
-            </div>
-
     </main>
     <%- include("../partials/footer.ejs") %>
 </body>

@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/users/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    
-    <link rel="icon" href="/images/icon-pestaña.png">
-    <title>Iniciar Sesión</title>
-</head>
+
+    <%- include('../partials/head.ejs',{title: 'Iniciar Sesion', css:'/users/login'}) %>
+
 <body>
 
     <%- include("../partials/header.ejs") %>
-    <%- include("../partials/nav.ejs") %>
-
 
     <main>
         <div class="login-box">
@@ -29,7 +20,10 @@
                         <p class="msg-error""><%= errors.email.msg %></p>
                     </div>
                 <% } %>
-                <input type="checkbox" id="keepUserLogger" name="keepUserLogger" value="true"> <label for="keepUserLogger"> Recordar </label>
+                <div class="remember-me-container">
+                    <input type="checkbox" id="keepUserLogger" name="keepUserLogger" value="true"> 
+                    <label for="keepUserLogger"> Recordar </label>
+                </div>
                 <div class="botones">
                     <button type="submit">Entrar</button>
                 <button type="button" class="google-login">Entrar con Google</button>
