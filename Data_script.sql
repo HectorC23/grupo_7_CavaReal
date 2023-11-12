@@ -41,6 +41,7 @@ VALUES
   ('Sets de Regalo para Amantes del Vino', 'Un set completo que incluye una botella de vino premium, copas de vino y otros accesorios elegantes (1 botella de vino, 2 copas, sacacorchos y tapones).', 79.99, NULL, NULL, 3),
   ('Marcadores de Copas de Vino', 'Conjunto de marcadores de copas de vino reutilizables y coloridos para que tus invitados identifiquen sus copas fácilmente en reuniones (12 unidades).', 12.99, NULL, NULL, 3);
 
+
 -- Categorías de productos
 INSERT INTO categoriesProducts (id, name)
 VALUES
@@ -75,6 +76,11 @@ VALUES
 
 -- Categorías de usuarios
 INSERT INTO categoriesUsers (categoria)
+
+VALUES
+('Cliente'),
+('Administrador');
+=======
 VALUES
 ('Cliente'),
 ('Administrador');

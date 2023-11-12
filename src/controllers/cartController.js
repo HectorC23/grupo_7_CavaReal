@@ -22,16 +22,16 @@ const cartController = {
     }
     },
     create : (req, res) => {
-        User.findByPk(req.params.id).then(user => {
-            Cart.create({
-                userId: user.id,
+        const idUser = req.params.id;
+
+       Cart.create({
+                userId: idUser,
                 amount: 0,
                 totalPrice: 0,
                 creationDate: Date.now()
             });
 
-            return res.redirect(`/user/profile/${user.id}`)
-        })
+        return res.redirect(`/user/profile/${idUser}`)
     },
     add: async(req, res) => {
         const cart = await Cart.findOne({

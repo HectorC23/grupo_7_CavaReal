@@ -36,7 +36,7 @@ const productController = {
             await DetailProducts.create({
                 productId: product.id,
                 attributeId: attribute.id,
-                value: req.body[attribute],
+                value: req.body[attribute.name],
             })
         }));
             /* vineyard:  req.body.vineyard,
@@ -72,7 +72,7 @@ const productController = {
         await Promise.all(
             attributesProduct.map(async (attribute) => {
                 DetailProducts.update({
-                    value: req.body[attribute]
+                    value: req.body[attribute.name]
                 },{
                     where:{
                         productId: idProduct,
