@@ -1,17 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
-    const productCart = sequelize.define('product_cart', {
+    const productCart = sequelize.define('productCart', {
       id: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.INTEGER(11),
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
      cartId: {
-         type: DataTypes.INTEGER,
+         type: DataTypes.INTEGER(11),
          allowNull: false
       },
      productId: {
-         type: DataTypes.INTEGER,
+         type: DataTypes.INTEGER(11),
          allowNull: false
       }
     }, {
@@ -21,13 +21,13 @@ module.exports = (sequelize, DataTypes) => {
   
    productCart.associate = (models)=> {
 
-    productCart.hasMany(models.Product, {
-      as: 'products', //*
+   productCart.hasMany(models.Product, {
+      as: 'products', 
       foreignKey: 'productId'
     })
 
     productCart.hasMany(models.Cart, {
-     as: 'cart_products',   
+     as: 'productCart',   
      foreignKey: 'cartId'
     })
   }

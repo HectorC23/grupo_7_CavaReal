@@ -1,17 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
-    const Category_Product = sequelize.define('Category_Product', {
+    const Category_Product = sequelize.define('categoryProduct', {
       id: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.INTEGER(11),
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
-      category: {
-          type: DataTypes.STRING(100),
+      name: {
+          type: DataTypes.STRING(50),
           allowNull: false
       }
     }, {
-      tableName: 'categories_products', 
+      tableName: 'category', 
       timestamps: false
    })
     
@@ -19,10 +19,14 @@ module.exports = (sequelize, DataTypes) => {
 
     Category_Product.belongsTo(models.Product, {
      as: 'categories',
-     foreignKey: 'catproductId'
-    })
+     foreignKey: 'categoryId'
+    }),
+    
+    Category_Product.belongsTo(models.Attribute, {
+      as: 'productAtributes',
+      foreignKey: 'categoryId'
+     })
   }
 
-   return Category_Product;
-   
-  }
+  return Category_Product;
+}

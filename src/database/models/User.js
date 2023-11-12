@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER(11),
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
     },
     phone: {
-       type: DataTypes.STRING(20),
+       type: DataTypes.BIGINT(20), //
        allowNull: false
     },
     birthdate: {
@@ -43,14 +43,15 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false 
     },
     state: {
-        type: DataTypes.STRING(20),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     image: {
         type: DataTypes.STRING(100), 
+        default: 'foto-perfil'
     },
     subscription: {
-        type: DataTypes.TINY(1),
+        type: DataTypes.TINY(1),//
         allowNull: false
     },
     membershipLevel: {
@@ -58,7 +59,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false 
     },
     categoryId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER(11),
         defaultValue: 1,
         allowNull: false,
     }
@@ -69,7 +70,8 @@ module.exports = (sequelize, DataTypes) => {
 
  User.associate = (models)=> {
 
-   User.hasOne(models.Category_User, {
+   User.hasMany(models.categoryUser, {
+     as: 'categoryUser',
      foreignKey: 'categoryId'
    }), 
    
