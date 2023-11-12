@@ -18,8 +18,11 @@ router.delete("/detail/:id", userPermissions, productController.delete);
 
 router.get('/detail/:id', productController.detail);
 
+router.get('/all', productController.list);
+
 router.get('/search', productController.search);
 
 router.get('/filter', productController.filter);
+
 
 module.exports = router;

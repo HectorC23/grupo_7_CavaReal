@@ -18,9 +18,9 @@
         <form action="/product/filter" class="container-filters" method="get">
             <select name="categoryFilter" id="category-filter">
                 <option value="" selected>Category</option>
-                <%# categories.forEach(category => { %>
-                    <option value="<%# category.id %>"><%# category.name %></option>
-                <%#}) %>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category.id %>"><%= category.name %></option>
+                <%}) %>
               </select>
             </select>
             <div class="container-price-filter">
@@ -41,9 +41,9 @@
         <div class="container-product-medium-card">
             <img src="/images/<%= product.img %>" alt="">
             <p class="name-product-card"><%= product.name %></p>
-            <p class="notation-product-card"><%= product.variedad %></p>
-            <p class="price-product-card">$<%= product.priceUnity %></p>
-            <a id="link-detail" href=""><i class="fa-solid fa-arrow-right"></i></a>
+            <p class="notation-product-card"><%= product.category.name %></p>
+            <p class="price-product-card">$<%= product.price %></p>
+            <a id="link-detail" href="/product/detail"><i class="fa-solid fa-arrow-right"></i></a>
             <a id="link-cart" href=""><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <% }) %>

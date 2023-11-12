@@ -11,19 +11,19 @@ module.exports = (sequelize, DataTypes) => {
           allowNull: false
       }
     }, {
-      tableName: 'category', 
+      tableName: 'categories_products', 
       timestamps: false
    })
     
    Category_Product.associate = (models)=> { 
 
     Category_Product.belongsTo(models.Product, {
-     as: 'categories',
+     as: 'category',
      foreignKey: 'categoryId'
     }),
     
     Category_Product.belongsTo(models.Attribute, {
-      as: 'productAtributes',
+      as: 'category_attributes',
       foreignKey: 'categoryId'
      })
   }

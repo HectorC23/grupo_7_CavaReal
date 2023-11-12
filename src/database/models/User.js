@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
         default: 'foto-perfil'
     },
     subscription: {
-        type: DataTypes.TINY(1),//
+        type: DataTypes.TINYINT(2),//
         allowNull: false
     },
     membershipLevel: {
