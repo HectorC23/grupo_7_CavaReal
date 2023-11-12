@@ -16,13 +16,12 @@
                         <input type="text" id="name" name="name" required placeholder="Nombre Del Producto" class="input-bar">
                     </div>
                     <div class="input-content">
-                        <label for="category" class="label-bar">Tipo De Prodcuto</label>
-                        <select id="tipProduct" name="category" required class="input-bar" valu>
-                            <option value="">Elige una opcion</option>
-                            <option value="vino">Vino</option>
-                            <option value="licor">Licor</option>
-                            <option value="accesorio">Accesorio</option>
-                            <option value="otro">Otro</option>
+                        <label for="category" class="label-bar">Tipo De Producto</label>
+                        <select id="tipProduct" name="category" required class="input-bar" required>
+                            <option value="" selected>Elige una opcion</option>
+                            <%# categories.forEach(category => { %>
+                                <option value="<%# category.id %>"><%# category.name %></option>
+                            <%#}) %>
                           </select>
                     </div>
                     <div class="input-content">
