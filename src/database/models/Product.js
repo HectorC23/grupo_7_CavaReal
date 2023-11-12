@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DECIMAL(10,0),
         allowNull: false
       },
-      image: {
+      img: {
         type: DataTypes.STRING(100),
         allowNull: false
       },
@@ -36,8 +36,8 @@ module.exports = (sequelize, DataTypes) => {
     Product.belongsToMany(models.User, {
       as: 'products_users',
       through: 'users_products', 
-      foreignKey: 'product_id', 
-      otherKey: 'user_id',
+      foreignKey: 'productId', 
+      otherKey: 'userId',
       timestamps: false
     }), 
 

@@ -3,6 +3,9 @@ const fs = require('fs');
 const { dirname } = require('path');
 
 const Product = require('../database/models/Product');
+const CategoryProduct = require('../database/models/CategoryProduct');
+
+const db = require('../database/models');
 
 const path = require('path');
 const { Op } = require('sequelize');
@@ -124,7 +127,9 @@ const productController = {
         res.render("productDetail",{ product, attributes: attributesProduct});
     },
     list: async(req, res) => {
-        const products = await Product.findAll();
+        const products = await db.Product.findAll({
+            include: [{ association: 'category'}]
+        });
 
         return res.render('productsList', { products });
     },
