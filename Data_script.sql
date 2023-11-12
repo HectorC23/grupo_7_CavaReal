@@ -1,5 +1,5 @@
 -- Usuarios
-INSERT INTO usuarios (firstName, lastName, email, password, phone, birthdate, address, postalCode, state, image, subscription, membershipLevel, category_id, userName)
+INSERT INTO users (firstName, lastName, email, password, phone, birthdate, address, postalCode, state, image, subscription, membershipLevel, category_id, userName)
 VALUES
 ('John', 'Doe', 'john@example.com', 'password123', 123456789, '1990-01-01', '123 Main St', '12345', 'California', 'john.jpg', 'Gratis', 'Básico', 1, 'raulito'),
 ('Jane', 'Doe', 'jane@example.com', 'password456', 987654321, '1992-05-15', '456 Oak St', '67890', 'Nueva York', 'jane.jpg', 'Premium', 'Oro', 2, 'raulito23'),
