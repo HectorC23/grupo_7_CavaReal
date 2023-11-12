@@ -10,6 +10,7 @@ VALUES
 ('Pedro', 'Martínez', 'pedro@example.com', 'pass789', 5554443333, '1992-02-10', 'Plaza Mayor 789', '67890', 'Villa', 'perfil3.jpg', 'subscripcion3', 'Bronce', 3, 'facufacu');
 
 -- Productos
+<<<<<<< HEAD
 INSERT INTO products (name, description, price, img, discount, categoryId)
 VALUES 
   ('DE SANGRE · Cabernet Sauvignon', 'Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. ...', 10000.66, 'product1.png', NULL, 1),
@@ -40,6 +41,17 @@ VALUES
   ('Termómetros para Vinos', 'Termómetro digital que muestra la temperatura exacta del vino para servirlo en su punto óptimo (rango temperatura: -9°C a 70°C)', 19.99, NULL, NULL, 3),
   ('Sets de Regalo para Amantes del Vino', 'Un set completo que incluye una botella de vino premium, copas de vino y otros accesorios elegantes (1 botella de vino, 2 copas, sacacorchos y tapones).', 79.99, NULL, NULL, 3),
   ('Marcadores de Copas de Vino', 'Conjunto de marcadores de copas de vino reutilizables y coloridos para que tus invitados identifiquen sus copas fácilmente en reuniones (12 unidades).', 12.99, NULL, NULL, 3);
+=======
+INSERT INTO products (name, description, vinedo, edad, altitud, variedad, barriles, guardado, precioUnidad, precioSeis, img, catproducto_id)
+VALUES
+('Vino Tinto', 'Un vino tinto afrutado con notas de cereza y roble.', 'Viñedo A', 5, 'Alta', 'Varietal', 10, 2, 15.99, 89.99, 'red_wine.jpg', 1),
+('Vino Blanco', 'Un vino blanco refrescante con toques de frutas cítricas.', 'Viñedo B', 3, 'Media', 'Chardonnay', 8, 1, 12.99, 74.99, 'white_wine.jpg', 1),
+('Champán', 'Un espumoso champán con burbujas finas y sabor afrutado.', 'Viñedo C', 2, 'Alta', 'Brut', 5, 3, 29.99, 159.99, 'champagne.jpg', 2),
+('Whisky Single Malt', 'Whisky envejecido con notas ahumadas y especiadas.', 'Destilería D', 8, 'Media', 'Single Malt', 0, 8, 49.99, 289.99, 'whisky.jpg', 1),
+('Vino Tinto Reserva', 'Vino tinto envejecido en barricas de roble francés', 'Viñedo A', 5, '300 metros', 'Cabernet Sauvignon', 12, 3, 25.99, 149.99, 'vino1.jpg', 1),
+('Vino Blanco Seco', 'Vino blanco seco con notas cítricas y frescas', 'Viñedo B', 3, '500 metros', 'Chardonnay', 8, 2, 19.99, 109.99, 'vino2.jpg', 2),
+('Vino Rosado Premium', 'Vino rosado premium con aromas a frutas del bosque', 'Viñedo C', 2, '400 metros', 'Garnacha', 10, 1, 15.99, 89.99, 'vino3.jpg', 1);
+>>>>>>> ca3b8130134ee4d9d86b9c54810c978a127c638c
 
 -- Categorías de productos
 INSERT INTO categoriesProducts (id, name)
