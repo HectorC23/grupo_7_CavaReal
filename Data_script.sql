@@ -10,15 +10,36 @@ VALUES
 ('Pedro', 'Martínez', 'pedro@example.com', 'pass789', 5554443333, '1992-02-10', 'Plaza Mayor 789', '67890', 'Villa', 'perfil3.jpg', 'subscripcion3', 'Bronce', 3, 'facufacu');
 
 -- Productos
-INSERT INTO productos (nombre, descripcion, vinedo, edad, altitud, variedad, barriles, guardado, precioUnidad, precioSeis, img, catproducto_id)
-VALUES
-('Vino Tinto', 'Un vino tinto afrutado con notas de cereza y roble.', 'Viñedo A', 5, 'Alta', 'Varietal', 10, 2, 15.99, 89.99, 'red_wine.jpg', 1),
-('Vino Blanco', 'Un vino blanco refrescante con toques de frutas cítricas.', 'Viñedo B', 3, 'Media', 'Chardonnay', 8, 1, 12.99, 74.99, 'white_wine.jpg', 1),
-('Champán', 'Un espumoso champán con burbujas finas y sabor afrutado.', 'Viñedo C', 2, 'Alta', 'Brut', 5, 3, 29.99, 159.99, 'champagne.jpg', 2),
-('Whisky Single Malt', 'Whisky envejecido con notas ahumadas y especiadas.', 'Destilería D', 8, 'Media', 'Single Malt', 0, 8, 49.99, 289.99, 'whisky.jpg', 1),
-('Vino Tinto Reserva', 'Vino tinto envejecido en barricas de roble francés', 'Viñedo A', 5, '300 metros', 'Cabernet Sauvignon', 12, 3, 25.99, 149.99, 'vino1.jpg', 1),
-('Vino Blanco Seco', 'Vino blanco seco con notas cítricas y frescas', 'Viñedo B', 3, '500 metros', 'Chardonnay', 8, 2, 19.99, 109.99, 'vino2.jpg', 2),
-('Vino Rosado Premium', 'Vino rosado premium con aromas a frutas del bosque', 'Viñedo C', 2, '400 metros', 'Garnacha', 10, 1, 15.99, 89.99, 'vino3.jpg', 1);
+INSERT INTO products (name, description, price, img, discount, categoryId)
+VALUES 
+  ('DE SANGRE · Cabernet Sauvignon', 'Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. ...', 10000.66, 'product1.png', NULL, 1),
+  ('DE SANGRE · Red Blend', 'LUIGI BOSCA DE SANGRE · Red Blend es un tinto rojo granate brillante con aromas muy atractivos ...', 7559.59, 'product2.png', NULL, 1),
+  ('La Linda Malbec · 750 ml', 'La Linda · Malbec es un tinto de color rojo violáceo brillante, de aromas muy expresivos ...', 3000.54, 'product3.webp', NULL, 1),
+  ('LUIGI BOSCA · Cabernet Sauvignon', 'Luigi Bosca Cabernet Sauvignon es un tinto de color rojo rubí profundo y brillante. ...', 5897.79, 'product4.png', NULL, 1),
+  ('DE SANGRE · Cabernet Franc', 'Luigi Bosca De Sangre· Cabernet Franc es un tinto de color rojo granate oscuro y profundo. ...', 9825.55, 'product5.png', NULL, 1),
+  ('La Linda Torrontes · 750 ml', 'La Linda · Torrontés es un blanco de color amarillo claro y brillante. ...', 3048.59, 'product6.png', NULL, 1),
+  ('LUIGI BOSCA · Chardonnay', 'Luigi Bosca Chardonnay es un blanco de color amarillo brillante. ...', 4899.99, 'product7.png', NULL, 1),
+  ('LA LINDA · Rosé Malbec', 'Un rosado de aspecto pálido y brillante, de aromas frescos y expresivos ...', 9897.82, 'product8.png', NULL, 1),
+  ('DE SANGRE · Malbec D.O.C', 'Cava Real De Sangre - Malbec D.O.C es uno de los primeros vinos argentinos con Denominación de Origen. ...', 10675.56, 'product9.png', NULL, 1),
+  ('Johnnie Walker Red Label', 'El carácter del whisky se define por una intensa, picante y marcada sensación de sabores. ...', 17231.00, 'JohnnieWalkerRedLabel.png', NULL, 2),
+  ('Johnnie Walker Double Black Label', 'Nariz llena de humo, especias inconfundibles y ligeros tonos de frutos secos. ...', 40771.00, 'doublebalcklabel.png', NULL, 2),
+  ('Talisker', 'Color: Oro brillante. Aroma: Potente turba de humo con toques de agua de mar salado, ...', 90873.00, 'Talisker.png', NULL, 2),
+  ('J&B Rare', 'De color dorado. En nariz es limpio, ligero y fresco, con un toque de hojas verdes y flores, ...', 17231.00, 'J&BRare.png', NULL, 2),
+  ('Old Parr De Luxe', 'El carácter del whisky se define por una intensa, picante y marcada sensación de sabores. ...', 26107.00, 'OldParrDeLuxe.png', NULL, 2),
+  ('Jagermeister Manifest', 'Tiene notas dulces a anís estrellado, fruta seca, jengibre, canela en rama, ...', 59620.00, 'JagermeisterManifest.png', NULL, 2),
+  ('Strega Limoncello', 'Un equilibrio perfecto entre sabor y aroma: el hábil método de infusión de las cáscaras de limón ...', 29560.00, 'StregaLimoncello.png', NULL, 2),
+  ('Amarula', 'Color: Marrón claro. En paladar: Sabor dulce de marula y suave de la crema.', 20454.00, 'Amarula.png', NULL, 2),
+  ('White Horse', 'Nariz: Buen equilibrio y complejidad, con notas de roble, humo y caramelo. ...', 5988.00, 'WhiteHorse.png', NULL, 2),
+  ('Tres Plumas Frutilla', 'Destilado natural de frutillas maduras seleccionadas, nuestro maestro licorista eligió un perfil cremoso, ...', 1936.00, 'TresPlumasFrutilla.png', NULL, 2),
+  ('Copas de Vino', 'Juego de copas de vino de alta calidad, ideales para realzar la experiencia de degustación de vinos. Incluye copas tintas, blancas y flautas.', 49.99, NULL, NULL, 3),
+  ('Sacacorchos', 'Sacacorchos de palanca con diseño ergonómico para abrir fácilmente las botellas de vino. Incluye cortador de cápsulas y sacacorchos adicional.', 29.99, NULL, NULL, 3),
+  ('Decantador de Vino', 'Decantador de vidrio soplado a mano con forma elegante para mejorar la aireación y el sabor del vino.', 39.99, NULL, NULL, 3),
+  ('Tapones para Botellas de Vino', 'Tapones de silicona reutilizables para mantener el vino fresco después de abrir una botella.', 9.99, NULL, NULL, 3),
+  ('Aireadores de Vino', 'Aireador de vino de bolsillo que mejora instantáneamente el sabor y el aroma del vino al verterlo en la copa.', 14.99, NULL, NULL, 3),
+  ('Cubiteras y Enfriadores de Vino', 'Cubitera de acero inoxidable con enfriador de vino integrado para mantener el vino a la temperatura perfecta.', 34.99, NULL, NULL, 3),
+  ('Termómetros para Vinos', 'Termómetro digital que muestra la temperatura exacta del vino para servirlo en su punto óptimo (rango temperatura: -9°C a 70°C)', 19.99, NULL, NULL, 3),
+  ('Sets de Regalo para Amantes del Vino', 'Un set completo que incluye una botella de vino premium, copas de vino y otros accesorios elegantes (1 botella de vino, 2 copas, sacacorchos y tapones).', 79.99, NULL, NULL, 3),
+  ('Marcadores de Copas de Vino', 'Conjunto de marcadores de copas de vino reutilizables y coloridos para que tus invitados identifiquen sus copas fácilmente en reuniones (12 unidades).', 12.99, NULL, NULL, 3);
 
 -- Categorías de productos
 INSERT INTO categoriesProducts (id, name)
@@ -57,35 +78,3 @@ INSERT INTO categoriesUsers (categoria)
 VALUES
 ('Cliente'),
 ('Administrador');
-
--- Carritos
-INSERT INTO carritos (usuario_id, cantidad, precio_total)
-VALUES
-(1, 3, 45.99),
-(2, 2, 29.99),
-(3, 1, 29.99),
-(4, 4, 119.96),
-(1, 2, 51.98),
-(2, 3, 169.97),
-(3, 1, 25.99),
-(1, 4, 103.96),
-(2, 2, 39.98);
-
--- Productos en carritos
-INSERT INTO productos_carrito (carrito_id, producto_id)
-VALUES
-(1, 1),
-(1, 2),
-(2, 2),
-(3, 3),
-(4, 1),
-(4, 4);
-
--- Catadores
-INSERT INTO productld (afrutado, nada, seco, amable, aterciopelado, liviano, delicado, categoria_producto_id, producto_id)
-VALUES
-(1, 0, 1, 1, 0, 1, 0, 1, 1),
-(0, 1, 0, 1, 1, 0, 1, 2, 2),
-(1, 0, 1, 0, 1, 1, 0, 1, 3),
-(1, 0, 1, 1, 0, 0, 1, 1, 4);
-
