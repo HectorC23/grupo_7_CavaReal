@@ -27,11 +27,6 @@ module.exports = (sequelize, DataTypes) => {
      foreignKey: 'categoryId'
     })
 
-    Attribute.hasMany(models.Product, {
-      as: 'attribute',
-      foreignKey: 'categoryId'
-    }),
-
     Attribute.belongsTo(models.detailProduct, {
       as: 'productAttributes',
       foreignKey: 'attributeId'
