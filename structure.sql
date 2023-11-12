@@ -158,6 +158,7 @@ CREATE TABLE `products` (
   `price` decimal(10,0) NOT NULL,
   `image` varchar(100) NOT NULL,
   `categoryId` int(11) NOT NULL,
+  `discount` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKproduct-category_idx` (`categoryId`),
   CONSTRAINT `FKproduct-category` FOREIGN KEY (`categoryId`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -276,4 +277,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-11 20:33:27
+-- Dump completed on 2023-11-11 21:40:12
