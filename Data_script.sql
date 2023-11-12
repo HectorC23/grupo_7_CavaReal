@@ -21,18 +21,42 @@ VALUES
 ('Vino Rosado Premium', 'Vino rosado premium con aromas a frutas del bosque', 'Viñedo C', 2, '400 metros', 'Garnacha', 10, 1, 15.99, 89.99, 'vino3.jpg', 1);
 
 -- Categorías de productos
-INSERT INTO categorias_productos (categoria)
+INSERT INTO categoriesProducts (id, name)
 VALUES
-('Vinos Tintos'),
-('Vinos Blancos'),
-('Licores');
+('Vino'),
+('Licor'),
+('Accesorios');
+
+-- Atributos
+INSERT INTO attributes (name, categoryProductId)
+VALUES
+('material',3),
+('detail',3),
+('vineyard',1),
+('age',1),
+('altitude',1),
+('variety',1),
+('barrels',1),
+('save',1),
+('fruity',1),
+('nothing',1),
+('dry',1),
+('kind',1),
+('velvety',1),
+('light',1),
+('delicate',1),
+('size',2),
+('category',2),
+('cutting',2),
+('producer',2),
+('elaboration',2),
+('type', 2);
 
 -- Categorías de usuarios
-INSERT INTO categorias_usuarios (categoria)
+INSERT INTO categoriesUsers (categoria)
 VALUES
-('Normal'),
-('VIP'),
-('Premium');
+('Cliente'),
+('Administrador');
 
 -- Carritos
 INSERT INTO carritos (usuario_id, cantidad, precio_total)
