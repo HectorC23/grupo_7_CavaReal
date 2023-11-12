@@ -214,7 +214,7 @@ CREATE TABLE `users` (
   `firstName` varchar(100) NOT NULL,
   `lastName` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `contraseña` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `phone` bigint(20) NOT NULL,
   `birthdate` date NOT NULL,
   `address` varchar(50) NOT NULL,
@@ -277,4 +277,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-11 21:40:12
+-- Dump completed on 2023-11-11 22:01:58
