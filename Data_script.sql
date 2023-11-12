@@ -10,7 +10,6 @@ VALUES
 ('Pedro', 'Martínez', 'pedro@example.com', 'pass789', 5554443333, '1992-02-10', 'Plaza Mayor 789', '67890', 'Villa', 'perfil3.jpg', 'subscripcion3', 'Bronce', 3, 'facufacu');
 
 -- Productos
-<<<<<<< HEAD
 INSERT INTO products (name, description, price, img, discount, categoryId)
 VALUES 
   ('DE SANGRE · Cabernet Sauvignon', 'Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. ...', 10000.66, 'product1.png', NULL, 1),
@@ -41,17 +40,7 @@ VALUES
   ('Termómetros para Vinos', 'Termómetro digital que muestra la temperatura exacta del vino para servirlo en su punto óptimo (rango temperatura: -9°C a 70°C)', 19.99, NULL, NULL, 3),
   ('Sets de Regalo para Amantes del Vino', 'Un set completo que incluye una botella de vino premium, copas de vino y otros accesorios elegantes (1 botella de vino, 2 copas, sacacorchos y tapones).', 79.99, NULL, NULL, 3),
   ('Marcadores de Copas de Vino', 'Conjunto de marcadores de copas de vino reutilizables y coloridos para que tus invitados identifiquen sus copas fácilmente en reuniones (12 unidades).', 12.99, NULL, NULL, 3);
-=======
-INSERT INTO products (name, description, vinedo, edad, altitud, variedad, barriles, guardado, precioUnidad, precioSeis, img, catproducto_id)
-VALUES
-('Vino Tinto', 'Un vino tinto afrutado con notas de cereza y roble.', 'Viñedo A', 5, 'Alta', 'Varietal', 10, 2, 15.99, 89.99, 'red_wine.jpg', 1),
-('Vino Blanco', 'Un vino blanco refrescante con toques de frutas cítricas.', 'Viñedo B', 3, 'Media', 'Chardonnay', 8, 1, 12.99, 74.99, 'white_wine.jpg', 1),
-('Champán', 'Un espumoso champán con burbujas finas y sabor afrutado.', 'Viñedo C', 2, 'Alta', 'Brut', 5, 3, 29.99, 159.99, 'champagne.jpg', 2),
-('Whisky Single Malt', 'Whisky envejecido con notas ahumadas y especiadas.', 'Destilería D', 8, 'Media', 'Single Malt', 0, 8, 49.99, 289.99, 'whisky.jpg', 1),
-('Vino Tinto Reserva', 'Vino tinto envejecido en barricas de roble francés', 'Viñedo A', 5, '300 metros', 'Cabernet Sauvignon', 12, 3, 25.99, 149.99, 'vino1.jpg', 1),
-('Vino Blanco Seco', 'Vino blanco seco con notas cítricas y frescas', 'Viñedo B', 3, '500 metros', 'Chardonnay', 8, 2, 19.99, 109.99, 'vino2.jpg', 2),
-('Vino Rosado Premium', 'Vino rosado premium con aromas a frutas del bosque', 'Viñedo C', 2, '400 metros', 'Garnacha', 10, 1, 15.99, 89.99, 'vino3.jpg', 1);
->>>>>>> ca3b8130134ee4d9d86b9c54810c978a127c638c
+
 
 -- Categorías de productos
 INSERT INTO categoriesProducts (id, name)
@@ -87,6 +76,234 @@ VALUES
 
 -- Categorías de usuarios
 INSERT INTO categoriesUsers (categoria)
+
 VALUES
 ('Cliente'),
 ('Administrador');
+=======
+VALUES
+('Cliente'),
+('Administrador');
+
+
+-- Detalles de productos
+INSERT INTO detailProducts (idProduct, idAttribute, value)
+VALUES
+  (1, 3, 'Las Compuertas, Agrelo, Gualtallary y Altamira'), -- Vineyard
+  (1, 4, 23), -- Age
+  (1, 5, 'Las Compuertas y Agrelo 1050 metros, Gualtallary 1230 metros y Altamira 1080 metros'), -- Altitude
+  (1, 6, 'Cabernet Sauvignon'), -- Variety
+  (1, 7, 10), -- Barrels
+  (1, 8, 20), -- Save
+  (1, 9, 43), -- Fruity
+  (1, 10, 88), -- Nothing
+  (1, 11, 7), -- Dry
+  (1, 12, 67), -- Kind
+  (1, 13, 30), -- Velvety
+  (1, 14, 54), -- Light
+  (1, 15, 100), -- Delicate
+
+  (2, 3, 'Las Compuertas y Agrelo'), -- Vineyard
+  (2, 4, 17), -- Age
+  (2, 5, 'Las Compuertas 1050, Agrelo 1050'), -- Altitude
+  (2, 6, 'Blend'), -- Variety
+  (2, 7, 12), -- Barrels
+  (2, 8, 12), -- Save
+  (2, 9, 81), -- Fruity
+  (2, 10, 62), -- Nothing
+  (2, 11, 18), -- Dry
+  (2, 12, 15), -- Kind
+  (2, 13, 23), -- Velvety
+  (2, 14, 90), -- Light
+  (2, 15, 95), -- Delicate
+  
+  (3, 1, 'Cristal fino'),        -- Material para La Linda Malbec · 750 ml
+  (3, 2, 'Apto para lavavajillas, diseño elegante.'),   -- Detalles para La Linda Malbec · 750 ml
+  (3, 3, 'Luigi Bosca'),          -- Viñedo para La Linda Malbec · 750 ml
+  (3, 4, 10),                     -- Edad para La Linda Malbec · 750 ml
+  (3, 5, '1.150'),                -- Altitud para La Linda Malbec · 750 ml
+  (3, 6, 'Malbec'),               -- Variedad para La Linda Malbec · 750 ml
+  (3, 7, 1),                      -- Barriles para La Linda Malbec · 750 ml
+  (3, 8, 6),                      -- Guardado para La Linda Malbec · 750 ml
+  (3, 9, 45),                     -- Afrutado para La Linda Malbec · 750 ml
+  (3, 10, 20),                    -- Nada para La Linda Malbec · 750 ml
+  (3, 11, 30),                    -- Seco para La Linda Malbec · 750 ml
+  (3, 12, 20),                    -- Amable para La Linda Malbec · 750 ml
+  (3, 13, 66),                    -- Aterciopelado para La Linda Malbec · 750 ml
+  (3, 14, 80),                    -- Liviano para La Linda Malbec · 750 ml
+  (3, 15, 86),                    -- Delicado para La Linda Malbec · 750 ml
+  (4, 1, 'Acero inoxidable y plástico resistente'),  -- Material para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 2, 'Funciona con todas las botellas de vino estándar.'),  -- Detalles para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 3, 'Luigi Bosca'),          -- Viñedo para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 4, 10),                     -- Edad para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 5, '1.150 metros'),          -- Altitud para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 6, 'Cabernet Sauvignon'),   -- Variedad para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 7, 12),                     -- Barriles para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 8, 7),                      -- Guardado para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 9, 80),                     -- Afrutado para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 10, 12),                    -- Nada para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 11, 26),                    -- Seco para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 12, 33),                    -- Amable para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 13, 48),                    -- Aterciopelado para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 14, 67),                    -- Liviano para LUIGI BOSCA · Cabernet Sauvignon
+  (4, 15, 72),
+  
+  (5, 6, 'Cabernet Franc'), -- Variety
+(5, 7, 'Finca el Paraiso'), -- Vineyard
+(5, 8, 25), -- Age
+(5, 9, '780 metros'), -- Altitude
+(5, 10, 10), -- Barrels
+(5, 11, 12), -- Save
+(5, 12, 60), -- Fruity
+(5, 13, 18), -- Nothing
+(5, 14, 12), -- Dry
+(5, 15, 62), -- Kind
+(5, 16, 33), -- Velvety
+(5, 17, 78), -- Light
+(5, 18, 71), -- Delicate
+
+(6, 6, 'Torrontes'), -- Variety
+(6, 7, 'Luigi Bosca'), -- Vineyard
+(6, 8, 10), -- Age
+(6, 9, '1.150 metros'), -- Altitude
+(6, 10, 0), -- Barrels
+(6, 11, 2), -- Save
+(6, 12, 30), -- Fruity
+(6, 13, 11), -- Nothing
+(6, 14, 20), -- Dry
+(6, 15, 99), -- Kind
+(6, 16, 55), -- Velvety
+(6, 17, 39), -- Light
+(6, 18, 28), -- Delicate
+
+(7, 3, 'Luigi Bosca'),
+  (7, 4, '20'),
+  (7, 5, '900 a 1.200 metros'),
+  (7, 6, 'Chardonnay'),
+  (7, 7, '2'),
+  (7, 8, '2'),
+  (7, 9, '36'),
+  (7, 10, '23'),
+  (7, 11, '32'),
+  (7, 12, '86'),
+  (7, 13, '59'),
+  (7, 14, '60'),
+  (7, 15, '54'),
+
+  (8, 3, 'La Linda'),
+  (8, 4, '30'),
+  (8, 5, '960 metros promedio'),
+  (8, 6, 'Malbec'),
+  (8, 7, '12'),
+  (8, 8, '2'),
+  (8, 9, '10'),
+  (8, 10, '12'),
+  (8, 11, '30'),
+  (8, 12, '60'),
+  (8, 13, '22'),
+  (8, 14, '10'),
+  (8, 15, '50'),
+
+  (9, 3, 'De Sangre'),
+  (9, 4, '70 años'),
+  (9, 5, '960 metros'),
+  (9, 6, 'Malbec'),
+  (9, 7, '12'),
+  (9, 8, '10'),
+  (9, 9, '22'),
+  (9, 10, '53'),
+  (9, 11, '12'),
+  (9, 12, '10'),
+  (9, 13, '45'),
+  (9, 14, '74'),
+  (9, 15, '83'),
+
+(10, 19, '750ml'), -- Size
+(10, 20, 'Licor'), -- Category
+(10, 21, 'Blended Scotch Whisky'), -- Cutting
+(10, 22, 'Johnnie Walker'), -- Producer
+(10, 23, 'Escocia'), -- Elaboration
+(10, 24, 'Blended'), -- Type
+
+(11, 19, '750ml'), -- Size
+(11, 20, 'Licor'), -- Category
+(11, 21, 'Blended Scotch Whisky'), -- Cutting
+(11, 22, 'Johnnie Walker'), -- Producer
+(11, 23, 'Escocia'), -- Elaboration
+(11, 24, 'Blended'), -- Type
+
+(12, 16, '750ml'),
+  (12, 17, 'Licor'),
+  (12, 18, 'Single Malt Scotch Whisky'),
+  (12, 19, 'Talisker'),
+  (12, 20, 'Isla de Skye, Escocia.'),
+  (12, 21, 'Single Malt'),
+
+  (13, 16, '750ml'),
+  (13, 17, 'Licor'),
+  (13, 18, 'Blended Scotch Whisky'),
+  (13, 19, 'J&B'),
+  (13, 20, 'Speyside. Escocia.'),
+  (13, 21, 'Blended'),
+
+  (14, 16, '750ml'),
+  (14, 17, 'Licor'),
+  (14, 18, 'Blended Scotch Whisky'),
+  (14, 19, 'Old Parr'),
+  (14, 20, 'Speyside, Escocia.'),
+  (14, 21, 'Blended'),
+
+  (15, 16, '1L'),
+  (15, 17, 'Licor'),
+  (15, 18, 'Licor de hierbas'),
+  (15, 19, 'Jagermeister'),
+  (15, 20, 'Alemania'),
+  (15, 21, 'Licor'),
+
+-- Otros detalles
+(16, 15, '700ml'), -- Size
+(16, 20, 'Licor'), -- Category
+(16, 21, 'Licor'), -- Cutting
+(16, 22, 'Strega'), -- Producer
+(16, 23, 'Italia'), -- Elaboration
+(16, 24, 'Licor'), -- Type
+
+(17, 19, '750ml'), -- Size
+(17, 20, 'Licor'), -- Category
+(17, 21, 'Licor de marula con crema'), -- Cutting
+(17, 22, 'Amarula'), -- Producer
+(17, 23, 'Stellenbosch, Sudáfrica.'), -- Elaboration
+(17, 24, 'Licor'), -- Type
+
+-- Detalles de accesorios
+(18, 15, NULL), -- Size (NULL para accesorios)
+(18, 20, 'Accesorios'), -- Category
+(18, 21, NULL), -- Cutting (NULL para accesorios)
+(18, 22, NULL), -- Producer (NULL para accesorios)
+(18, 23, NULL), -- Elaboration (NULL para accesorios)
+(18, 24, NULL), -- Type (NULL para accesorios)
+
+(19, 16, '750ml'),
+  (19, 17, 'Licor'),
+  (19, 18, 'Destilados'),
+  (19, 19, 'Tres Plumas'),
+  (19, 20, 'Buenos Aires. Argentina'),
+  (19, 21, 'Destilados'),
+
+  (20, 14, 'Cristal fino'),
+  (20, 15, 'Apto para lavavajillas, diseño elegante'),
+
+  (21, 14, 'Acero inoxidable y plástico resistente'),
+  (21, 15, 'Funciona con todas las botellas de vino estándar'),
+
+  (22, 15, 'Fácil de limpiar y usar'),
+
+  (23, 14, 'Silicona de grado alimenticio'),
+  (23, 15, 'Aptos para lavavajillas, herméticos y resistentes al aire'),
+
+  (24, 14, 'Acrílico y silicona'),
+  (24, 15, 'Diseño compacto, fácil de usar'),
+
+  (25, 15, 'Presentado en una caja de regalo de lujo'),
+
+  (26, 15, 'Se adhieren al tallo de la copa de manera segura y son aptos para lavavajillas');
