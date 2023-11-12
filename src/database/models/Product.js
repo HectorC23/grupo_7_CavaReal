@@ -1,57 +1,29 @@
 module.exports = (sequelize, DataTypes) => {
     const Product = sequelize.define('Product', {
       id: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.INTEGER(11),
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
       name: {
-          type: DataTypes.STRING(100),
+          type: DataTypes.STRING(50),
           allowNull: false
       },
       description: {
           type: DataTypes.TEXT,
           allowNull: false
       }, 
-      vineyard: {
-          type: DataTypes.STRING(50),
-          allowNull: false
-      },
-      age: {
-         type: DataTypes.INTEGER,
-         allowNull: false
-      },
-      altitude: {
-          type: DataTypes.STRING(100), 
-          allowNull: false
-      },
-      variety: {
-        type: DataTypes.STRING(100), 
+      price: {
+        type: DataTypes.DECIMAL(10,0),
         allowNull: false
       },
-      barrels: {
-        type: DataTypes.TINYINT(4),
+      image: {
+        type: DataTypes.STRING(100),
         allowNull: false
       },
-      saved: {
-        type: DataTypes.TINYINT(4),
-        allowNull: false
-      },
-      priceSix: {
-        type: DataTypes.DECIMAL(10,2),
-        allowNull: false
-      },
-      priceUnity: {
-        type: DataTypes.DECIMAL(10,2),
-        allowNull: false
-      },
-      img: {
-          type: DataTypes.STRING(100),
-          allowNull: false
-      },
-      catproduct_id: {
-          type: DataTypes.INTEGER,
+      categoryId: {
+          type: DataTypes.INTEGER(11),
           allowNull: false,
       }
     }, {
@@ -61,11 +33,6 @@ module.exports = (sequelize, DataTypes) => {
   
    Product.associate = (models)=> {
 
-    Product.belongsTo(models.product_cart, {
-      as: 'products', //*
-      foreignKey: 'product_id'
-    }),
-
     Product.belongsToMany(models.User, {
       as: 'products_users',
       through: 'users_products', 
@@ -74,17 +41,25 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false
     }), 
 
-    Product.hasMany(models.Category_Product, {
-      as: 'category_product',
-      foreignKey: 'catproduct_id'
+    Product.hasMany(models.categoryProduct, {
+      as: 'category',
+      foreignKey: 'categoryId'
     }), 
 
-    Product.belongsTo(models.Taster, {
-      as: 'product_taster',
-      foreignKey: 'product_id'
+    Product.belongsTo(models.detailProduct, {
+      as: 'productDetail',
+      foreignKey: 'productId'
+     }),
+
+    Product.belongsTo(models.Attribute, {
+      as: 'productAttribute',
+      foreignKey: 'categoryId'
+    }),
+
+    Product.belongsTo(models.productCart, {
+      as: 'productCarts',
+      foreignKey: 'cartId'
     })
   }
-
    return Product;
-   
-  }
+}

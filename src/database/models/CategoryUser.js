@@ -1,13 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
-    const Category_User = sequelize.define('Category_User', {
+    const Category_User = sequelize.define('categoryUser', {
       id: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.INTEGER(11),
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
       category: {
-          type: DataTypes.STRING(100),
+          type: DataTypes.STRING(20),
           allowNull: false
       }
     }, {
@@ -18,9 +18,10 @@ module.exports = (sequelize, DataTypes) => {
    Category_User.associate = (models)=> {
     
     Category_User.belongsTo(models.User, {
+       as: 'categories',
        foreignKey: 'categoryId'
     })
    }
 
-   return Category_User;
-  }
+  return Category_User;
+}
