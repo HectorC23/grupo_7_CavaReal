@@ -10,7 +10,7 @@ VALUES
 ('Pedro', 'Martínez', 'pedro@example.com', 'pass789', 5554443333, '1992-02-10', 'Plaza Mayor 789', '67890', 'Villa', 'perfil3.jpg', 'subscripcion3', 'Bronce', 3, 'facufacu');
 
 -- Productos
-INSERT INTO productos (nombre, descripcion, vinedo, edad, altitud, variedad, barriles, guardado, precioUnidad, precioSeis, img, catproducto_id)
+INSERT INTO products (name, description, vinedo, edad, altitud, variedad, barriles, guardado, precioUnidad, precioSeis, img, catproducto_id)
 VALUES
 ('Vino Tinto', 'Un vino tinto afrutado con notas de cereza y roble.', 'Viñedo A', 5, 'Alta', 'Varietal', 10, 2, 15.99, 89.99, 'red_wine.jpg', 1),
 ('Vino Blanco', 'Un vino blanco refrescante con toques de frutas cítricas.', 'Viñedo B', 3, 'Media', 'Chardonnay', 8, 1, 12.99, 74.99, 'white_wine.jpg', 1),

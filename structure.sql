@@ -154,7 +154,7 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `descripcion` text NOT NULL,
+  `description` text NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `image` varchar(100) NOT NULL,
   `categoryId` int(11) NOT NULL,
@@ -277,4 +277,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-11 22:01:58
+-- Dump completed on 2023-11-11 22:36:28
