@@ -5,141 +5,171 @@ const { dirname } = require('path');
 const Product = require('../database/models/Product');
 
 const path = require('path');
+const { Op } = require('sequelize');
 
 const productController = {
     add: (req,res)=> {
-        res.render("productAdd");
+        CategoryProduct.findAll().then(categories => {
+            res.render("productAdd", { categories });
+        })
     },
     create: async(req,res) => {
 
-        const response = Product.create({
+        const product = await Product.create({
             name: req.body.name,
             description: req.body.description,
-            vineyard:  req.body.vineyard,
+            price:  req.body.price,
+            img: req.file.filename,
+            categoryId: req.body.categoryId,
+        })
+
+        const categoryProduct = product.categoryId
+
+        const attributesProduct = await Attribute.findAll({
+            where: {
+                categoryId: categoryProduct
+            }
+        });
+
+        await Promise.all(
+        attributesProduct.map( async (attribute) => {
+            await DetailProducts.create({
+                productId: product.id,
+                attributeId: attribute.id,
+                value: req.body[attribute],
+            })
+        }));
+            /* vineyard:  req.body.vineyard,
             age:  +req.body.age,
             altitude:  +req.body.altitude,
             variety:  req.body.variety,
             barrels:  req.body.barrels,
-            saved:  +req.body.saved,
-            priceUnity:  req.body.priceUnity,
-            priceSix:  req.body.priceUnity * 6,
-            img: req.file.filename,
-        })
+            saved:  +req.body.saved, */
         
-        
-        product.guardado = +product.guardado;
-        product.potencial = +product.potencial;
-        product.priceUnity = +product.priceUnity; 
-        product.priceSix = +((product.priceUnity * 6).toFixed(2));
-        products.push(product);
-
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
-
-        res.redirect('/home');
+        return res.redirect('/home');
     },
+    edit: async(req, res) => {
+        const idProduct = req.params.id;
 
-    detalle: (req,res)=> {
-        const { id } =req.params;
+        const product = await Product.findByPk(idProduct);
 
-        const product = products.find(p =>p.id == id)
-        res.render("productDetail",{product});
+        res.render("productEdit",{ product });
     },
-    
-    process:(req,res)=>{
+    update: async(req,res)=>{
 
-        const id = +req.params.id;
-        // const product = products.find(p => p.id == id)
-        const product = req.body;
+        const idProduct = +req.params.id;
 
-        products.forEach( e => {
-            if( e.id == id){
-                console.log("ESTOY DENTRO");
-                e.name = product.name;
-                e.descripcion = product.descripcion.trim();
-                e.descripcion = e.descripcion.trim();
-                e.vinedo = product.vinedo;
-                e.edad = +product.edad;
-                e.variedad = product.variedad;
-                e.altitud = product.altitud;
-                e.barriles = +product.barriles;
-                e.guardado = +product.guardado;                
-                if(e.priceUnity != +product.priceUnity) {
-                    e.priceSix = ((product.priceUnity * 6).toFixed(2))*0.9;
-                }
-                e.priceUnity = +product.priceUnity;
-                e.afrutado = +product.afrutado;
-                e.nada = +product.nada;
-                e.seco = +product.seco;
-                e.amable = +product.amable;
-                e.aterciopelado = +product.aterciopelado;
-                e.liviano = +product.liviano;
-                e.delicado = +product.delicado;
-                if(req.file){
-                    let imagen = path.join(__dirname, '../../public/images/' + e.img)
-                    if(fs.existsSync(imagen)){
-                        fs.unlinkSync(imagen)
-                    };
-                    e.img = req.file.filename;
-                }
-                e.category = product.category;
-                console.log(e);
+        const product = await Product.findByPk(idProduct);
+
+        const categoryProduct = product.category;
+
+        const attributesProduct = await Attribute.findAll({
+            where: {
+                categoryId: categoryProduct
             }
         });
 
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
+        await Promise.all(
+            attributesProduct.map(async (attribute) => {
+                DetailProducts.update({
+                    value: req.body[attribute]
+                },{
+                    where:{
+                        productId: idProduct,
+                        attributeId: attribute.id
+                    }
+                })
+            })
+        );
 
         res.redirect(`/`);
     },
-    edit: (req, res) => {
-            const { id } =req.params;
+    delete: async(req,res)=>{
 
-            const product = products.find(p =>p.id == id)
-            res.render("productEdit",{product})
-    },
-    deleteProduct:(req,res)=>{
+        const idProduct= +req.params.id;
+        const productImg = await Product.findByPk(idProduct).img;
 
-            const idProduct= +req.params.id;
-            const product = products.find(p => p.id == idProduct)
-            let imagen = path.join(__dirname, '../../public/images/' + product.img)
-            if(fs.existsSync(imagen)){
-                fs.unlinkSync(imagen)
+        const product = await Product.destroy({
+            where:{
+                id: idProduct
             }
+        });
 
-            products = products.filter((p)=> p.id !== idProduct);
+        await DetailProducts.destroy({
+            where: {
+                productId: idProduct
+            }
+        }); 
 
-            fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(products),{encoding: 'utf-8'});
-            
-            //hay que actualizar la pagina luego de borrarla
-            return res.redirect('/'); 
+        let imagen = path.join(__dirname, '../../public/images/' + productImg)
+        if(fs.existsSync(imagen)){
+            fs.unlinkSync(imagen)
+        }
+
+        return res.redirect('/products'); 
     },
-    
+    detail: async(req,res)=> {
 
+        const idProduct = req.params.id;
+
+        const product = await Product.findByPk(idProduct);
+
+        const attributesProduct = await DetailProducts.findAll({
+            where: {
+                productId : idProduct
+            },
+            include: [{ association: 'attribute' }]     
+        });
+
+        res.render("productDetail",{ product, attributes: attributesProduct});
+    },
+    list: async(req, res) => {
+        const products = await Product.findAll();
+
+        return res.render('productsList', { products });
+    },
+    search: async(req, res) => {
+        const searchedProduct = req.query.searched;
+
+        const productsFound = await Product.findAll({
+            where: {
+                [Op.or]:{
+                    name: {
+                        [Op.like]: '%' + searchedProduct + '%'
+                    },
+                    description: {
+                        [Op.like]: '%' + searchedProduct + '%'
+                    }
+                } 
+            }
+        }); 
+
+         return res.render('productsList', { products : productsFound});
+    },
+    filter: async(req, res) => {
+
+        const categoryFilter = req.query.categoryFilter;
+        const priceFilter = req.query.priceFilter;
+        const discountFilter = req.query.discountFilter;
+
+        const productsFound = await Product.findAll({
+            where: {
+                [Op.or]:{
+                    idCategory: {
+                        [Op.eq]: categoryFilter
+                    },
+                    price: {
+                        [Op.between]: [priceFilter, priceFilter + 500]
+                    },
+                    discount: {
+                        [Op.eq]: discountFilter
+                    }
+                } 
+            }
+        }); 
+
+         return res.render('productsList', { products : productsFound});
+    }
 }
 
 module.exports = productController;
-
-
-/*const editedProduct={
-    id: req.body.id,
-    name: req.body.name,
-    descripcion: req.body.descripcion,
-    viñedo: req.body.viñedo,
-    edad: req.body.edad,
-    altitud: req.body.altitud,
-    variedad: req.body.variedad,
-    barriles:req.body.barriles,
-    guardado:req.body.guardado,
-    priceUnity:req.body.priceUnity,
-    priceSix:req.body.priceSix,
-    afrutado:req.body.afrutado,
-    nada:req.body.nada,
-    seco:req.body.seco,
-    amable:req.body.amable,
-    aterciopelado:req.body.aterciopelado,
-    liviano:req.body.liviano,
-    delicado:req.body.delicado,
-    img:req.body.img,
-
-
-    res.redirect('/product/detail/:idProduct');
-}*/

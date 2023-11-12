@@ -8,28 +8,29 @@
     <section class="front-page-list">
         <img src="/images/cover-list.png" alt="cover">
         <p id="title-cover-list">CAVA REAL</p>
-        <form action="" class="sercher-list">
-            <input type="text" name="produtc-search" placeholder="Cabernet...">
+        <form action="/product/search" class="sercher-list" method="get" required>
+            <input type="text" name="searched" placeholder="Cabernet...">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </section>
     <section class="container-title-list">
         <p id="title-list">PRODUCTOS</p>
-        <form class="container-filters">
-            <select name="category-filter" id="category-filter">
-                <option value="0" selected>Categorias</option>
-                <option value="wines">Vinos</option>
-                <option value="liquors">Licores</option>
-                <option value="accessory">Accesorios</option>
+        <form action="/product/filter" class="container-filters" method="get">
+            <select name="categoryFilter" id="category-filter">
+                <option value="" selected>Category</option>
+                <%# categories.forEach(category => { %>
+                    <option value="<%# category.id %>"><%# category.name %></option>
+                <%#}) %>
+              </select>
             </select>
             <div class="container-price-filter">
                 <label for="price-filter">$100</label>
-                <input type="range" name="price-filter" id="price-filter" max="10000" min="100">
+                <input type="range" name="priceFilter" id="price-filter" max="10000" min="100">
                 <label for="price-filter">$10.000</label>
             </div>
             <div class="container-discount-filter">
                 <label for="discount-filter">%5</label>
-                <input type="range" name="discount-filter" id="discount-filter" max="10000" min="100">
+                <input type="range" name="discountFilter" id="discount-filter" max="10000" min="100" step="5">
                 <label for="discount-filter">%50</label>
             </div>
             <button type="submit">Filtrar</button>

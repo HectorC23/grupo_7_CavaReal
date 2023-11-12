@@ -13,12 +13,13 @@ const buysController = {
             }
         });
 
-        productsCart.forEach(product => {
-             UserProduct.create({
+        await Promise.all(
+        productsCart.map( async(product) => {
+             await UserProduct.create({
                 productId: product.productId,
                 userId: cart.userId
             });
-        });
+        }));
     },
     list: async(req, res) => {
         const products = await UserProduct.findAll({
