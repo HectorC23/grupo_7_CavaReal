@@ -1,13 +1,13 @@
 -- Usuarios
-INSERT INTO usuarios (firstName, lastName, email, password, telefono, fechaNacimiento, direccion, codigoPostal, estado, imagen, subscripcion, nivelMembresia, categoria_id)
+INSERT INTO usuarios (firstName, lastName, email, password, phone, birthdate, address, postalCode, state, image, subscription, membershipLevel, category_id, userName)
 VALUES
-('John', 'Doe', 'john@example.com', 'password123', 123456789, '1990-01-01', '123 Main St', '12345', 'California', 'john.jpg', 'Gratis', 'Básico', 1),
-('Jane', 'Doe', 'jane@example.com', 'password456', 987654321, '1992-05-15', '456 Oak St', '67890', 'Nueva York', 'jane.jpg', 'Premium', 'Oro', 2),
-('Mike', 'Smith', 'mike@example.com', 'password789', 555555555, '1985-08-22', '789 Pine St', '45678', 'Texas', 'mike.jpg', 'Gratis', 'Plata', 1),
-('Emily', 'Johnson', 'emily@example.com', 'passwordabc', 333333333, '1988-11-10', '567 Cedar St', '89012', 'Florida', 'emily.jpg', 'Premium', 'Platino', 2),
-('Juan', 'González', 'juan@example.com', 'password123', 1234567890, '1990-05-15', 'Calle Principal 123', '12345', 'Ciudad', 'perfil1.jpg', 'subscripcion1', 'Oro', 1),
-('María', 'López', 'maria@example.com', 'pass456', 9876543210, '1985-08-22', 'Avenida Central 456', '54321', 'Pueblo', 'perfil2.jpg', 'subscripcion2', 'Plata', 2),
-('Pedro', 'Martínez', 'pedro@example.com', 'pass789', 5554443333, '1992-02-10', 'Plaza Mayor 789', '67890', 'Villa', 'perfil3.jpg', 'subscripcion3', 'Bronce', 3);
+('John', 'Doe', 'john@example.com', 'password123', 123456789, '1990-01-01', '123 Main St', '12345', 'California', 'john.jpg', 'Gratis', 'Básico', 1, 'raulito'),
+('Jane', 'Doe', 'jane@example.com', 'password456', 987654321, '1992-05-15', '456 Oak St', '67890', 'Nueva York', 'jane.jpg', 'Premium', 'Oro', 2, 'raulito23'),
+('Mike', 'Smith', 'mike@example.com', 'password789', 555555555, '1985-08-22', '789 Pine St', '45678', 'Texas', 'mike.jpg', 'Gratis', 'Plata', 1, 'raulito33123'),
+('Emily', 'Johnson', 'emily@example.com', 'passwordabc', 333333333, '1988-11-10', '567 Cedar St', '89012', 'Florida', 'emily.jpg', 'Premium', 'Platino', 2, '123123'),
+('Juan', 'González', 'juan@example.com', 'password123', 1234567890, '1990-05-15', 'Calle Principal 123', '12345', 'Ciudad', 'perfil1.jpg', 'subscripcion1', 'Oro', 1, 'asdddd'),
+('María', 'López', 'maria@example.com', 'pass456', 9876543210, '1985-08-22', 'Avenida Central 456', '54321', 'Pueblo', 'perfil2.jpg', 'subscripcion2', 'Plata', 2, 'carlitos'),
+('Pedro', 'Martínez', 'pedro@example.com', 'pass789', 5554443333, '1992-02-10', 'Plaza Mayor 789', '67890', 'Villa', 'perfil3.jpg', 'subscripcion3', 'Bronce', 3, 'facufacu');
 
 -- Productos
 INSERT INTO productos (nombre, descripcion, vinedo, edad, altitud, variedad, barriles, guardado, precioUnidad, precioSeis, img, catproducto_id)
