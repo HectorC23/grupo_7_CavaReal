@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Carts = sequelize.define('Cart', {
+    const Cart = sequelize.define('Cart', {
       id: {
           type: DataTypes.INTEGER(11),
           primaryKey: true,
@@ -16,7 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       userId: {
        type: DataTypes.INTEGER(11),
-       allowNull: false
+       allowNull: false,
+       references: {
+        model: 'User', // Nombre de la tabla a la que hace referencia
+        key: 'id' // Nombre de la columna a la que hace referencia
+      }
       },
       creationDate: {
         type: DataTypes.DATE,
@@ -28,18 +32,21 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false
    })
   
-   Carts.associate = (models)=> {
+   Cart.associate = (models)=> {
     
-    Carts.hasOne(models.User, {
+    Cart.hasOne(models.User, {
       as: 'user',
       foreignKey: 'userId'
     })
     
-    Carts.belongsTo(models.productCart, {
+    Cart.belongsToMany(models.ProductCart, {
         as: 'products',
+        through: 'ProductCart',
+        otherKey: 'productId',
+        timestamps: false,
         foreignKey: 'cartId'
     })
   }
 
-  return Carts;
+  return Cart;
 }

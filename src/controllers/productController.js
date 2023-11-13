@@ -2,22 +2,20 @@ let products = require('../data/products.json');
 const fs = require('fs');
 const { dirname } = require('path');
 
-const Product = require('../database/models/Product');
-const CategoryProduct = require('../database/models/CategoryProduct');
-
 const db = require('../database/models');
+
+const Product = db.Product;
+const CategoryProduct = db.CategoryProduct;
 
 const path = require('path');
 const { Op } = require('sequelize');
 
 const productController = {
-    add: (req,res)=> {
-        CategoryProduct.findAll().then(categories => {
+    add: async(req,res)=> {
+         const categories = await CategoryProduct.findAll();
             res.render("productAdd", { categories });
-        })
     },
     create: async(req,res) => {
-
         const product = await Product.create({
             name: req.body.name,
             description: req.body.description,
@@ -127,14 +125,17 @@ const productController = {
         res.render("productDetail",{ product, attributes: attributesProduct});
     },
     list: async(req, res) => {
-        const products = await db.Product.findAll({
+        const products = await Product.findAll({
             include: [{ association: 'category'}]
         });
 
-        return res.render('productsList', { products });
+        const categories = await CategoryProduct.findAll();
+
+        return res.render('productsList', { products, categories });
     },
     search: async(req, res) => {
         const searchedProduct = req.query.searched;
+        const categories = await CategoryProduct.findAll();
 
         const productsFound = await Product.findAll({
             where: {
@@ -146,10 +147,11 @@ const productController = {
                         [Op.like]: '%' + searchedProduct + '%'
                     }
                 } 
-            }
+            },
+            include: [{ association: 'category'}]
         }); 
 
-         return res.render('productsList', { products : productsFound});
+         return res.render('productsList', { products : productsFound, categories});
     },
     filter: async(req, res) => {
 
@@ -157,23 +159,32 @@ const productController = {
         const priceFilter = req.query.priceFilter;
         const discountFilter = req.query.discountFilter;
 
+        let whereCondition = {};
+
+        if(categoryFilter !== ''){
+            whereCondition.categoryId = categoryFilter;
+        }
+
+        if(priceFilter != 100000){
+            whereCondition.price ={
+                [Op.between]: [priceFilter <= 500? priceFilter : priceFilter - 500, priceFilter <= 99.500? priceFilter + 500: priceFilter]
+            };
+        }
+
+        if(discountFilter != 0){
+            whereCondition.discount = discountFilter;
+        }
+
+        const categories = await CategoryProduct.findAll();
+
         const productsFound = await Product.findAll({
             where: {
-                [Op.or]:{
-                    idCategory: {
-                        [Op.eq]: categoryFilter
-                    },
-                    price: {
-                        [Op.between]: [priceFilter, priceFilter + 500]
-                    },
-                    discount: {
-                        [Op.eq]: discountFilter
-                    }
-                } 
-            }
+                [Op.or]: whereCondition
+            },
+            include: [{ association: 'category'}]
         }); 
 
-         return res.render('productsList', { products : productsFound});
+         return res.render('productsList', { products : productsFound, categories});
     }
 }
 

@@ -62,6 +62,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER(11),
         defaultValue: 1,
         allowNull: false,
+        references: {
+            model: 'CategoryUser', // Nombre de la tabla a la que hace referencia
+            key: 'id' // Nombre de la columna a la que hace referencia
+          }
     }
   }, {
     tableName: 'users', 
@@ -70,8 +74,8 @@ module.exports = (sequelize, DataTypes) => {
 
  User.associate = (models)=> {
 
-   User.hasMany(models.categoryUser, {
-     as: 'categoryUser',
+   User.belongsTo(models.CategoryUser, {
+     as: 'category',
      foreignKey: 'categoryId'
    }), 
    
@@ -82,10 +86,10 @@ module.exports = (sequelize, DataTypes) => {
 
    User.belongsToMany(models.Product, {
      as: 'usersProducts',
-     through: 'users_products', 
+     through: 'UserProduct', 
      foreignKey: 'userId', 
      otherKey: 'productId',
-     timestamps: false
+     timestamps: true
    })
  }
 

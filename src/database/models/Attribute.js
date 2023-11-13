@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       categoryId: {
         type: DataTypes.INTEGER(11),
         allowNull: false,
+        references: {
+          model: 'CategoryProduct', // Nombre de la tabla a la que hace referencia
+          key: 'id' // Nombre de la columna a la que hace referencia
+        }
      },
      
     }, {
@@ -22,14 +26,17 @@ module.exports = (sequelize, DataTypes) => {
 
     Attribute.associate = (models)=> { 
 
-    Attribute.hasMany(models.categoryProduct, {
-     as: 'attributeCategory',
+    Attribute.belongsTo(models.CategoryProduct, {
+     as: 'category',
      foreignKey: 'categoryId'
     })
 
-    Attribute.belongsTo(models.detailProduct, {
+    Attribute.belongsToMany(models.Product, {
+      through: 'DetailProduct',
       as: 'productAttributes',
-      foreignKey: 'attributeId'
+      foreignKey: 'attributeId',
+      otherKey: 'productId',
+      timestamps: true
     })
 
   }
