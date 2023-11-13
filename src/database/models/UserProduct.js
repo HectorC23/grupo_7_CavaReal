@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   
-    const userProduct = sequelize.define('user_product', {
+    const UserProduct = sequelize.define('UserProduct', {
       id: {
           type: DataTypes.INTEGER(11),
           primaryKey: true,
@@ -9,16 +9,24 @@ module.exports = (sequelize, DataTypes) => {
       },
       productId: {
           type: DataTypes.INTEGER(11),
-          allowNull: false
+          allowNull: false,
+          references: {
+            model: 'Product', // Nombre de la tabla a la que hace referencia
+            key: 'id' // Nombre de la columna a la que hace referencia
+          }
       },
       userId: {
         type: DataTypes.INTEGER(11),
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'User', // Nombre de la tabla a la que hace referencia
+          key: 'id' // Nombre de la columna a la que hace referencia
+        }
       }
     }, {
       tableName: 'users_products', 
       timestamps: true,
    })
   
-   return userProduct;
+   return UserProduct;
 }

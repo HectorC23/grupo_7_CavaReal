@@ -1,9 +1,9 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": 'root',
+    "password": "root",
     "database": "cava_real",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {

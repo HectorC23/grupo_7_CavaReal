@@ -1,12 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
-    const Category_User = sequelize.define('categoryUser', {
+    const CategoryUser = sequelize.define('CategoryUser', {
       id: {
           type: DataTypes.INTEGER(11),
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
       },
-      category: {
+      name: {
           type: DataTypes.STRING(20),
           allowNull: false
       }
@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false
    })
   
-   Category_User.associate = (models)=> {
+   CategoryUser.associate = (models)=> {
     
-    Category_User.belongsTo(models.User, {
-       as: 'categories',
+    CategoryUser.hasMany(models.User, {
+       as: 'users',
        foreignKey: 'categoryId'
     })
    }
 
-  return Category_User;
+  return CategoryUser;
 }

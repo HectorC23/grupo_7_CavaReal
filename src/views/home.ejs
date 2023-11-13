@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <%- include('./partials/head.ejs',{title: 'Inicio', css:'/home'}) %>
@@ -13,81 +12,64 @@
             <a id="button-title-home" href="/product/all">A degustar!</a>
         </div>
     </main>
+
+    <% let i = 0 %>
+
+    <% categoriesProducts.forEach(cp => { %>
         
-    <section class="product-category-home-carrousel-black">
-        <p class="title-category">VINOS</p>
-        <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
-        <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
-        <a class="container-product">
-                <div class="information-product">
-                    <p class="name-product">DE SANGRE · Cabernet Sauvignon</p>
-                    <p class="description-product">Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. Se distingue por sus aromas de excelente tipicidad varietal, dominados por la fruta negra y las notas de pimienta muy bien equilibradas con los tonos de torrefacción producto de su crianza en barricas. En el paladar es compacto, tenso, con muy buena estructura y cuerpo. Taninos finos y maduros, acidez equilibrada que aporta buena fluidez y final persistente y elegante.</p>
-                    <div class="container-information-small-card">
-                        <div class="information-small-card">
-                            <p class="anotation-small-card">VIÑEDO</p>
-                            <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
+        <% if (i % 2 == 0) { %>
+            <section class="product-category-home-carrousel-black">
+                <p class="title-category"><%= cp.nameCategory %></p>
+                <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
+                <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
+                <a class="container-product">
+                        <div class="information-product">
+                            <p class="name-product"><%= cp.product.name %></p>
+                            <p class="description-product"><%= cp.product.description %></p>
+                            <div class="container-information-small-card">
+                                <div class="information-small-card">
+                                    <p class="anotation-small-card">VIÑEDO</p>
+                                    <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
+                                </div>
+                                <div class="information-small-card">
+                                    <p class="anotation-small-card">VARIEDAD</p>
+                                    <p>Cabernet Sauvignon</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="information-small-card">
-                            <p class="anotation-small-card">VARIEDAD</p>
-                            <p>Cabernet Sauvignon</p>
+                       <div class="image-product">
+                            <img src="/images/<%= cp.product.img %>" alt="<%= cp.product.name %>">
                         </div>
-                    </div>
-                </div>
-               <div class="image-product">
-                    <img src="/images/product2.png" alt="">
-                </div>
-            </a>
-    </section>
-
-    <section class="product-category-home-carrousel-white">
-        <p class="title-category">LICORES</p>
-        <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
-        <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
-        <a class="container-product">
-                <div class="information-product">
-                    <p class="name-product">DE SANGRE · Cabernet Sauvignon</p>
-                    <p class="description-product">Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. Se distingue por sus aromas de excelente tipicidad varietal, dominados por la fruta negra y las notas de pimienta muy bien equilibradas con los tonos de torrefacción producto de su crianza en barricas. En el paladar es compacto, tenso, con muy buena estructura y cuerpo. Taninos finos y maduros, acidez equilibrada que aporta buena fluidez y final persistente y elegante.</p>
-                    <div class="container-information-small-card">
-                        <div class="information-small-card">
-                            <p class="anotation-small-card">VIÑEDO</p>
-                            <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
+                    </a>
+            </section>
+        <% } else {%>
+            <section class="product-category-home-carrousel-white" %>>
+                <p class="title-category"><%= cp.nameCategory %></p>
+                <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
+                <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
+                <a class="container-product">
+                        <div class="information-product">
+                            <p class="name-product"><%= cp.product.name %></p>
+                            <p class="description-product"><%= cp.product.description %></p>
+                            <div class="container-information-small-card">
+                                <div class="information-small-card">
+                                    <p class="anotation-small-card">VIÑEDO</p>
+                                    <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
+                                </div>
+                                <div class="information-small-card">
+                                    <p class="anotation-small-card">VARIEDAD</p>
+                                    <p>Cabernet Sauvignon</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="information-small-card">
-                            <p class="anotation-small-card">VARIEDAD</p>
-                            <p>Cabernet Sauvignon</p>
+                       <div class="image-product">
+                            <img src="/images/<%= cp.product.img %>" alt="<%= cp.product.name %>">
                         </div>
-                    </div>
-                </div>
-               <div class="image-product">
-                    <img src="/images/product2.png" alt="">
-                </div>
-            </a>
-    </section>
-
-    <section class="product-category-home-carrousel-black">
-        <p class="title-category">ACCESORIOS</p>
-        <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
-        <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
-        <a class="container-product">
-                <div class="information-product">
-                    <p class="name-product">DE SANGRE · Cabernet Sauvignon</p>
-                    <p class="description-product">Luigi Bosca De Sangre Cabernet Sauvignon es un tinto de color rojo profundo. Se distingue por sus aromas de excelente tipicidad varietal, dominados por la fruta negra y las notas de pimienta muy bien equilibradas con los tonos de torrefacción producto de su crianza en barricas. En el paladar es compacto, tenso, con muy buena estructura y cuerpo. Taninos finos y maduros, acidez equilibrada que aporta buena fluidez y final persistente y elegante.</p>
-                    <div class="container-information-small-card">
-                        <div class="information-small-card">
-                            <p class="anotation-small-card">VIÑEDO</p>
-                            <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
-                        </div>
-                        <div class="information-small-card">
-                            <p class="anotation-small-card">VARIEDAD</p>
-                            <p>Cabernet Sauvignon</p>
-                        </div>
-                    </div>
-                </div>
-               <div class="image-product">
-                    <img src="/images/product2.png" alt="">
-                </div>
-            </a>
-    </section>
+                    </a>
+            </section>
+    <% } %>
+    <% i++ %>
+    <% }) %>
         
     <%- include("./partials/benefits.ejs") %>
     <%- include("./partials/footer.ejs") %>
