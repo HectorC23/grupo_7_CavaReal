@@ -1,4 +1,3 @@
-let products = require('../data/products.json');
 const fs = require('fs');
 const { dirname } = require('path');
 
@@ -6,6 +5,8 @@ const db = require('../database/models');
 
 const Product = db.Product;
 const CategoryProduct = db.CategoryProduct;
+const DetailProduct = db.DetailProducts;
+const Attribute = db.Attribute;
 
 const path = require('path');
 const { Op } = require('sequelize');
@@ -16,38 +17,40 @@ const productController = {
             res.render("productAdd", { categories });
     },
     create: async(req,res) => {
-        const product = await Product.create({
-            name: req.body.name,
-            description: req.body.description,
-            price:  req.body.price,
-            img: req.file.filename,
-            categoryId: req.body.categoryId,
-        })
+        try {
 
-        const categoryProduct = product.categoryId
-
-        const attributesProduct = await Attribute.findAll({
-            where: {
-                categoryId: categoryProduct
-            }
-        });
-
-        await Promise.all(
-        attributesProduct.map( async (attribute) => {
-            await DetailProducts.create({
-                productId: product.id,
-                attributeId: attribute.id,
-                value: req.body[attribute.name],
-            })
-        }));
-            /* vineyard:  req.body.vineyard,
-            age:  +req.body.age,
-            altitude:  +req.body.altitude,
-            variety:  req.body.variety,
-            barrels:  req.body.barrels,
-            saved:  +req.body.saved, */
+            console.log(req.body);
+            const product = await Product.create({
+              name: req.body.name,
+              description: req.body.description,
+              price: parseFloat(req.body.price),
+              img: req.file.filename,
+              categoryId: +req.body.categoryId,
+            });
         
-        return res.redirect('/home');
+            const categoryProduct = product.categoryId;
+        
+            const attributesProduct = await Attribute.findAll({
+              where: {
+                categoryId: categoryProduct,
+              },
+            });
+        
+            await Promise.all(
+              attributesProduct.map(async (attribute) => {
+                await DetailProduct.create({
+                  productId: +product.id,
+                  attributeId: +attribute.id,
+                  value: req.body[attribute.name],
+                });
+              })
+            );
+        
+            return res.redirect('/home');
+          } catch (error) {
+            console.error('Error al crear el producto:', error);
+            return res.status(500).send('Error interno al crear el producto');
+          }
     },
     edit: async(req, res) => {
         const idProduct = req.params.id;
