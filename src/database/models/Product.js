@@ -25,10 +25,6 @@ module.exports = (sequelize, DataTypes) => {
       categoryId: {
           type: DataTypes.INTEGER(11),
           allowNull: false,
-          references: {
-            model: 'CategoryProduct', // Nombre de la tabla a la que hace referencia
-            key: 'id' // Nombre de la columna a la que hace referencia
-          }
       }
     }, {
       tableName: 'products', 
