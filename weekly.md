@@ -82,3 +82,32 @@
 - **Héctor**: Practicar todo lo visto hasta ahora.
 - **Fernanda**: Evaluar mejoras en el diseño y estilo del sitio web.
 - **Jesus**: mantenerse actualizado con los últimos avances de las clases sobre  manejo de usuarios y base de datos.
+
+------------------------------------------------------------------------------------------------
+
+
+
+**Semana del 25 al 8 de Noviembre**
+
+
+## Integrantes y Logros
+
+### Guille
+-Elaboró el Diagrama de Entidades y Relaciones (DER) para la base de datos, asegurando un diseño legible y relaciones correctas.
+-Implementó las claves foráneas necesarias para representar las relaciones entre las tablas.
+
+### Milagro
+-Configuró Sequelize y creó archivos de modelos para las tablas de Usuarios, Productos y tablas secundarias con sus respectivas relaciones.
+
+### Héctor
+-Escribió el Script de Estructura en SQL, incluyendo la creación de la base de datos, tablas, tipos de datos y relaciones.
+
+### Fernanda
+-Contribuyó en la implementación del CRUD para usuarios, permitiendo operaciones de creación, edición y visualización de detalle.
+Colaboró en la configuración de Sequelize y la creación de archivos de modelos.
+
+### Jesus
+Desarrolló el Script de Datos en SQL, permitiendo poblar la base de datos con datos de ejemplo.
+
+
+------------------------------------------------------------------------------------------------
