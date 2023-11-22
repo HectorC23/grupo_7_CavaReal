@@ -5,7 +5,7 @@ const db = require('../database/models');
 
 const Product = db.Product;
 const CategoryProduct = db.CategoryProduct;
-const DetailProduct = db.DetailProducts;
+const DetailProduct = db.DetailProduct;
 const Attribute = db.Attribute;
 
 const path = require('path');
@@ -18,8 +18,6 @@ const productController = {
     },
     create: async(req,res) => {
         try {
-
-            console.log(req.body);
             const product = await Product.create({
               name: req.body.name,
               description: req.body.description,
@@ -41,7 +39,7 @@ const productController = {
                 await DetailProduct.create({
                   productId: +product.id,
                   attributeId: +attribute.id,
-                  value: req.body[attribute.name],
+                  value: req.body[attribute.name]
                 });
               })
             );
@@ -55,17 +53,44 @@ const productController = {
     edit: async(req, res) => {
         const idProduct = req.params.id;
 
-        const product = await Product.findByPk(idProduct);
+        try {
+        const product = await Product.findByPk(idProduct, {
+            include: [{association: 'category'}]
+        });
 
-        res.render("productEdit",{ product });
+        const details = await DetailProduct.findAll({
+            where:{
+                productId : idProduct
+            },
+            include: [{ model: Attribute }]
+        })
+
+        res.render("productEdit", { product, details } );
+        }catch(error){
+            console.error('Error al obtener detalles del producto:', error);
+            res.status(500).send('Error interno al obtener detalles del producto');
+        }
     },
     update: async(req,res)=>{
-
+        try{        
+            
         const idProduct = +req.params.id;
 
-        const product = await Product.findByPk(idProduct);
+        const original = await Product.findByPk(idProduct);
+        const imageProduct = original.img;
+        const categoryProduct = original.categoryId;
 
-        const categoryProduct = product.category;
+        const product = await Product.update({
+              name: req.body.name,
+              description: req.body.description,
+              price: parseFloat(req.body.price),
+              img: req.file? req.file.filename : imageProduct,
+              categoryId: +categoryProduct,
+        },{
+            where:{
+                id: idProduct
+            }
+        })
 
         const attributesProduct = await Attribute.findAll({
             where: {
@@ -75,7 +100,7 @@ const productController = {
 
         await Promise.all(
             attributesProduct.map(async (attribute) => {
-                DetailProducts.update({
+                await DetailProduct.update({
                     value: req.body[attribute.name]
                 },{
                     where:{
@@ -86,7 +111,12 @@ const productController = {
             })
         );
 
-        res.redirect(`/`);
+        res.redirect(`/product/detail/${idProduct}`);
+
+        } catch (error) {
+            console.error('Error al actualizar el producto:', error);
+            return res.status(500).send('Error interno al actualizar el producto');
+        }
     },
     delete: async(req,res)=>{
 

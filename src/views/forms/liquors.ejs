@@ -1,0 +1,65 @@
+<% let attributes = details? details : [] %>
+
+<% if (Array.isArray(attributes)) { %>
+<% attributes.forEach(detail => { %>
+
+    <% if(detail.Attribute.name == 'size') {%>
+    <div class="input-content">
+        <label for="size" class="label-bar">Tamaño</label>
+        <input type="text" id="size" name="size" placeholder="750ml/0.75L" class="input-bar" value="<%= detail.Attribute.name == 'size'? detail.value : ' ' %>">
+    </div>
+    <% } %>
+
+    <% if(detail.Attribute.name == 'cutting') {%>
+    <div class="input-content">
+        <label for="cutting" class="label-bar">Corte</label>
+        <input type="text" id="cutting" name="cutting" placeholder="Licor de marula con crema" class="input-bar" value="<%= detail.Attribute.name == 'cutting'? detail.value : ' ' %>">
+    </div>
+    <% } %>
+
+    <% if(detail.Attribute.name == 'producer') {%>
+    <div class="input-content">
+        <label for="producer" class="label-bar">Productor</label>
+        <input type="text" id="producer" name="producer" placeholder="Productor" class="input-bar" value="<%= detail.Attribute.name == 'producer'? detail.value : ' ' %>">
+    </div>
+    <% } %>
+
+    <% if(detail.Attribute.name == 'elaboration') {%>
+    <div class="input-content">
+        <label for="elaboration" class="label-bar">Lugar de Elaboracion</label>
+        <input type="text" id="elaboration" name="elaboration" placeholder="Lugar de Elaboracion" class="input-bar" value="<%= detail.Attribute.name == 'elaboration'? detail.value : ' ' %>">
+    </div>
+    <% } %>
+
+    <% if(detail.Attribute.name == 'type') {%>
+    <div class="input-content">
+        <label for="type" class="label-bar">Tipo</label>
+        <input type="text" id="type" name="type" placeholder="Destilados" class="input-bar" value="<%= detail.Attribute.name == 'type'? detail.value : ' ' %>">
+    </div>
+    <% } %>
+    <% }) %>
+    <% } %>
+    
+<% if (attributes.length == 0) { %>
+    <div class="input-content">
+        <label for="size" class="label-bar">Tamaño</label>
+        <input type="text" id="size" name="size" placeholder="750ml/0.75L" class="input-bar">
+    </div>
+    <div class="input-content">
+        <label for="cutting" class="label-bar">Corte</label>
+        <input type="text" id="cutting" name="cutting" placeholder="Licor de marula con crema" class="input-bar">
+    </div>
+    <div class="input-content">
+        <label for="producer" class="label-bar">Productor</label>
+        <input type="text" id="producer" name="producer" placeholder="Productor" class="input-bar">
+    </div>
+    <div class="input-content">
+        <label for="elaboration" class="label-bar">Lugar de Elaboracion</label>
+        <input type="text" id="elaboration" name="elaboration" placeholder="Lugar de Elaboracion" class="input-bar">
+    </div>
+    <div class="input-content">
+        <label for="type" class="label-bar">Tipo</label>
+        <input type="text" id="type" name="type" placeholder="Destilados" class="input-bar">
+    </div>
+    <div class="input-content"></div>
+<% } %> 

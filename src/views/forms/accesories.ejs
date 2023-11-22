@@ -1,0 +1,32 @@
+<% let attributes = details? details : [] %>
+
+<% if (Array.isArray(attributes)) { %>
+<% attributes.forEach(detail => { %>
+
+    <% if(detail.Attribute.name == 'material') {%>
+    <div class="input-content">
+        <label for="material" class="label-bar">Material</label>
+        <input type="text" id="material" name="material" placeholder="Material" class="input-bar" value="<%= detail.Attribute.name == 'material'? detail.value : ' ' %>">
+    </div>
+    <% } %>
+
+    <% if (detail.Attribute.name == 'detail') { %>
+        <div class="input-content">
+            <label for="detail" class="label-bar">Detalle</label>
+            <input type="text" id="detail" name="detail" placeholder="Detalle" class="input-bar" value="<%= detail.Attribute.name == 'detail'? detail.value : ' ' %>">
+        </div>
+    <% } %>
+    
+    <% }) %>
+<% } %>
+
+<% if (attributes.length == 0) { %>
+    <div class="input-content">
+        <label for="material" class="label-bar">Material</label>
+        <input type="text" id="material" name="material" placeholder="Material" class="input-bar">
+    </div>
+    <div class="input-content">
+        <label for="detail" class="label-bar">Detalle</label>
+        <input type="text" id="detail" name="detail" placeholder="Detalle" class="input-bar">
+    </div>
+<% } %> 
