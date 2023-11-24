@@ -3,24 +3,28 @@ const bcrypt = require('bcryptjs');
 const { validationResult, cookie } = require('express-validator');
 const { error } = require("console");
 
-const User = require('../database/models/User');
+const db = require('../database/models');
+const User = db.User;
+const CategoryUser = db.CategoryUser;
 
 const userController = {
     register: (req,res)=> {
         res.render("users/register");
     },
-    create: (req,res) => {
+    create: async (req,res) => {
         let errors = validationResult(req);
+
+        console.log(errors);
 
         if(errors.isEmpty()){
         let medal = Math.random();
 
-        User.create({
+       await User.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             userName: req.body.userName,
             email: req.body.email,
-            password: req.body.password? bcrypt.hashSync(user.password, 10) : null,
+            password: req.body.password? bcrypt.hashSync(req.body.password, 10) : null,
             phone: req.body.phone,
             birthdate: req.body.birthdate,
             address: req.body.address,
@@ -29,13 +33,14 @@ const userController = {
             subscription: req.body.subscription,
             membershipLevel: medal < 0.2 ? 'Bronze' : (medal < 0.4 ? 'Silver' : (medal < 0.6 ? 'Gold' : 'Platinum') ),
             image: req.file ? req.file.filename : 'foto-perfil',
-            categoryId: +req.body.categoryId
-        }).then(user => {
-            res.redirect('/');
-        })
+            categoryId: 1,
+        });
+        
+        return res.redirect('/');
+
         } else {
 
-            res.render('users/register', {errors: errors.mapped(), old: req.body});
+           return res.render('users/register', {errors: errors.mapped(), old: req.body});
             
         }
         
@@ -80,22 +85,22 @@ const userController = {
                 })
             })
     },
-    edit: (req,res)=> {
+    edit: async (req,res)=> {
 
-        User.findByPk(req.params.id).then(user => {
-            return res.render('users/edit', { user });
-        })
+        const user = await User.findByPk(req.params.id);
 
+        return res.render('users/edit', { user });
     },
-    update: (req,res) => {
+    update: async (req,res) => {
 
         let errors = validationResult(req);
+        const id = +req.params.id;
 
         if(errors.isEmpty()){
 
-        User.update({
+        await User.update({
             userName: req.body.userName,
-            password: req.body.password? bcrypt.hashSync(user.password, 10) : null,
+            password: req.body.password? bcrypt.hashSync(req.body.password, 10) : null,
             phone: req.body.phone,
             address: req.body.address,
             postalCode: req.body.postalCode,
@@ -103,11 +108,12 @@ const userController = {
             image: req.file ? req.file.filename : 'foto-perfil',
         },{
             where: {
-                id: req.params.id
+                id: id
             }
-        }).then(user => {
-            res.redirect(`/user/profile/${user.id}`);
-        })
+        });
+
+            res.redirect(`/user/profile/${id}`);
+
         } else {
 
             res.render('users/edit', {errors: errors.mapped(), old: req.body});
@@ -115,11 +121,12 @@ const userController = {
         }
         
     },    
-    profile: (req, res) => {
-        
-       User.findByPk(req.params.id).then(user => {
+    profile: async (req, res) => {
+        const id = +req.params.id;
+
+       const user = await User.findByPk(id);
+
         return res.render('users/profile', { user });
-       })
 
     },
     

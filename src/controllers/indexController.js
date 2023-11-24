@@ -2,6 +2,8 @@ const db = require('../database/models');
 
 const Product = db.Product;
 const CategoryProduct = db.CategoryProduct;
+const DetailProduct = db.DetailProduct;
+const Attribute = db.Attribute;
 
 const controller = {
     home: async(req,res)=> {
@@ -16,11 +18,21 @@ const controller = {
                     },
                     order: [
                         ['price', 'DESC']
-                    ],
+                    ]
                 });
+
+                const details = await DetailProduct.findAll({
+                    where:{
+                        productId : product.id
+                    },
+                    include: [{ model: Attribute }]
+                })
+
                 categoriesProducts.push({
+                    id: category.id,
                     nameCategory : category.name,
-                    product: product.dataValues
+                    product: product.dataValues,
+                    details: details
                 });
 
                 console.log(categoriesProducts);

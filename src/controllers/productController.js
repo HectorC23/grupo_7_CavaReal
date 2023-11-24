@@ -14,7 +14,7 @@ const { Op } = require('sequelize');
 const productController = {
     add: async(req,res)=> {
          const categories = await CategoryProduct.findAll();
-            res.render("productAdd", { categories });
+            res.render("productAdd", { categories, details : []});
     },
     create: async(req,res) => {
         try {
@@ -65,7 +65,8 @@ const productController = {
             include: [{ model: Attribute }]
         })
 
-        res.render("productEdit", { product, details } );
+        console.log(product.id + 'HOLAAAAAA');
+        res.render("productEdit", { product , details } );
         }catch(error){
             console.error('Error al obtener detalles del producto:', error);
             res.status(500).send('Error interno al obtener detalles del producto');
@@ -148,7 +149,7 @@ const productController = {
 
         const product = await Product.findByPk(idProduct);
 
-        const attributesProduct = await DetailProducts.findAll({
+        const attributesProduct = await DetailProduct.findAll({
             where: {
                 productId : idProduct
             },

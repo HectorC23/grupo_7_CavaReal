@@ -1,7 +1,4 @@
-<% let attributes = [] %>
-<% if (details != undefined) { %>
-  <% attributes = details %>
-<% } %>
+<% let attributes = details %>
 
 <% if (Array.isArray(attributes) && attributes.length > 0) { %>
   <% attributes.forEach(detail => { %> 
@@ -38,7 +35,7 @@
 
   </div>
 
-  <div class="input-content rangos wines">
+  <div class="input-content rangos">
 
     <% if(detail.Attribute.name == 'fruity') {%>
     <label for="categoriProduct" class="label-bar">Catador</label>

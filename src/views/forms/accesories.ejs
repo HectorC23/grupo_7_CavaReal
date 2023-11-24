@@ -1,6 +1,6 @@
-<% let attributes = details? details : [] %>
+<% let attributes = details %>
 
-<% if (Array.isArray(attributes)) { %>
+<% if (Array.isArray(attributes) && attributes.length > 0) { %>
 <% attributes.forEach(detail => { %>
 
     <% if(detail.Attribute.name == 'material') {%>

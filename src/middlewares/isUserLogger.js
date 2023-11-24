@@ -1,4 +1,5 @@
-const users = require('../data/user.json');
+const db = require('../database/models');
+const User = db.User;
 
 const isUserLogger = (req, res, next) => {
     res.locals.isUserLogger = false;
@@ -25,7 +26,11 @@ const isUserLogger = (req, res, next) => {
     if(req.cookies.userEmail){
 
         // let userCookie = users.find(e => e.email == emailCookie)
-        req.session.userLogged = users.find(e => e.email == req.cookies.userEmail)
+        req.session.userLogged = User.findOne({
+            where:{
+                email: req.cookies.userEmail
+            }
+        });
     }
 
 
