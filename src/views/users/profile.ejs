@@ -9,60 +9,60 @@
     <main>
         <div class="container-profile">
             <div class="image-profile-container">
-                <img src="/images/users/<%# user.image %>.jpg" alt="<%# user.userName %>">
+                <img src="/images/users/<%= user.image %>.jpg" alt="<%= user.userName %>">
                 <div class="title-profile-image">
-                    <h2><%# user.firstName + ' ' + user.lastName %></h2>
-                    <p>@<%# user.userName %></p>
+                    <h2><%= user.firstName + ' ' + user.lastName %></h2>
+                    <p>@<%= user.userName %></p>
                 </div>
                 <div class="level">
                     <div class="medals">
-                        <img src="/images/medals/<%# user.membershipLevel %>.png" alt="<%# user.membershipLevel %>">
-                    <p id="membership-level-p">Miembro <%# user.membershipLevel %></p>
+                        <img src="/images/medals/<%= user.membershipLevel %>.png" alt="<%= user.membershipLevel %>">
+                    <p id="membership-level-p">Miembro <%= user.membershipLevel %></p>
                     </div>
                     <div class="benefits">
                         <h3>BENEFICIOS</h3>
-                    <p class="discount">-<%# discount %>% en Vinos y Accesorios</p>
+                    <p class="discount">-<%= discount %>% en Vinos y Accesorios</p>
                     </div>
                 </div>
             </div>
             <div class="container-profile-user">
                 <div class="container-profile-information">
                     <div class="title-profile">
-                        <h2><%# user.firstName + ' ' + user.lastName %></h2>
-                        <p>@<%# user.userName %></p>
+                        <h2><%= user.firstName + ' ' + user.lastName %></h2>
+                        <p>@<%= user.userName %></p>
                     </div>
                     <h3>INFORMACION PERSONAL</h3>
                     <div class="information">
                         <div class="data-container">
                             <h4 class="subtitle-information">Nombre Completo</h4>
-                            <p class="data"><%# user.firstName + ' ' + user.lastName %></p>
+                            <p class="data"><%= user.firstName + ' ' + user.lastName %></p>
                         </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Email</h4>
-                        <p class="data"><%# user.email %></p>
+                        <p class="data"><%= user.email %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Pais</h4>
-                        <p class="data"><%# user.state %></p>
+                        <p class="data"><%= user.state %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Codigo Postal</h4>
-                        <p class="data"><%# user.postalCode %></p>
+                        <p class="data"><%= user.postalCode %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Direccion</h4>
-                        <p class="data"><%# user.adress %></p>
+                        <p class="data"><%= user.address %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Telefono</h4>
-                        <p class="data"><%# user.phone %></p>
+                        <p class="data"><%= user.phone %></p>
                        </div>
                        <div class="data-container">
                         <h4 class="subtitle-information">Fecha de Nacimiento</h4>
-                        <p class="data"><%# user.birthdate %></p>
+                        <p class="data"><%= user.birthdate %></p>
                        </div>
                        <div class="button-edit">
-                        <button href="">Modificar perfil</button>
+                        <button href="/users/edit/<%= user.id %>">Modificar perfil</button>
                        </div>
                     </div>
                 </div>

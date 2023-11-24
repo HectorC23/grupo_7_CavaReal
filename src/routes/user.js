@@ -7,7 +7,7 @@ const guestPermissions = require("../middlewares/guestPermissions");
 const userPermissions = require("../middlewares/userPermissions");
 const multer = require("../middlewares/multer");
 const validationsRegister= require('../middlewares/validationsRegister');
-//const validationsLogin= require('../middlewares/validationsLogin');
+const validationLogin= require('../middlewares/validationLogin');
 
 router.get('/register', guestPermissions, userController.register);
 router.post('/register',multer.single('image'), validationsRegister, userController.create)
@@ -16,7 +16,7 @@ router.get('/edit/:id', userPermissions, userController.edit);
 router.put('/edit/:id', multer.single('image'), validationsRegister, userController.update);
 
 router.get('/login',guestPermissions, userController.login); 
-router.post('/login', userController.process);
+router.post('/login', validationLogin, userController.process);
 
 router.get('/profile/:id',userPermissions, userController.profile);
 

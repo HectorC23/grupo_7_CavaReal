@@ -3,13 +3,12 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req,file,cb)=> {
-        let uploadPath = '';
-        if(req.path == '/edit/:id'){
-            uploadPath = '../../public/images'
-        } else if(req.path == '/register') {
-            uploadPath = '../../public/images/users/'
+        let uploadPath = path.resolve(__dirname, '../../public/images');
+        if (req.path === '/register') {
+            uploadPath = path.resolve(__dirname, '../../public/images/users');
         }
-        cb(null,path.join(__dirname, uploadPath));
+    
+        cb(null, uploadPath);
     },
     filename: (req,file,cb)=>{
         let nameImage = "img-" + Date.now() + path.extname(file.originalname);

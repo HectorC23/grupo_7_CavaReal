@@ -1,0 +1,190 @@
+<% let attributes = details %>
+
+<% if (Array.isArray(attributes) && attributes.length > 0) { %>
+  <% attributes.forEach(detail => { %> 
+    <div class="input-content">
+      <% if(detail.Attribute.name == 'vineyard') {%>
+      <label for="vineyard" class="label-bar">Nombre del viñedo</label>
+      <input type="text" id="vineyard" name="vineyard" placeholder="Viñedo" class="input-bar" value="<%= detail.Attribute.name == 'vineyard'? detail.value : ' ' %>">
+      <% } %>
+
+      <% if(detail.Attribute.name == 'age') {%>
+      <label for="age" class="label-bar">Edad del viñedo</label>
+      <input type="number" id="age" name="age" min="0" placeholder="Edad del viñedo en años" class="input-bar" value="<%= detail.Attribute.name == 'age'? detail.value : ' ' %>">
+      <% } %>
+
+      <% if(detail.Attribute.name == 'altitude') {%>
+      <label for="altitude" class="label-bar">Altitud</label>
+      <input type="text" id="altitude" name="altitude" min="0" placeholder="Altitud km" class="input-bar" value="<%= detail.Attribute.name == 'altitude'? detail.value : ' ' %>">
+      <% } %>
+
+      <% if(detail.Attribute.name == 'variety') {%>
+      <label for="variety" class="label-bar">Variedad</label>
+      <input type="text" id="variety" name="variety" placeholder="Variedad en marcas" class="input-bar" value="<%= detail.Attribute.name == 'variety'? detail.value : ' ' %>">
+      <% } %>
+
+      <% if(detail.Attribute.name == 'barrels') {%>
+      <label for="barrels" class="label-bar">Guardado en barriles</label>
+      <input type="number" id="barrels" name="barrels" min="0" placeholder="Guardado en barriles en meses" class="input-bar" value="<%= detail.Attribute.name == 'barrels'? detail.value : ' ' %>">
+      <% } %>
+
+      <% if(detail.Attribute.name == 'saved') {%>
+      <label for="saved" class="label-bar">Potencial de guardado</label>
+      <input type="number" id="saved" name="saved" min="0" placeholder="Potencial de guardado en años" class="input-bar" value="<%= detail.Attribute.name == 'saved'? detail.value : ' ' %>">
+      <% } %>
+
+  </div>
+
+  <div class="input-content rangos">
+
+    <% if(detail.Attribute.name == 'fruity') {%>
+    <label for="categoriProduct" class="label-bar">Catador</label>
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct" name="fruity" list="markers" min="0" max="100" value="<%= detail.Attribute.name == 'fruity'? detail.value : ' ' %>">
+        <datalist id="markers">
+          <option value="0" label="Afrutado"></option>
+          <option value="100" label="Muy Complejo"></option>
+        </datalist>
+    </div>
+    <% } %>
+    
+    <% if(detail.Attribute.name == 'nothing') {%>
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2-2" name="nothing" list="markers" min="0" max="100" value="<%= detail.Attribute.name == 'nothing'? detail.value : ' ' %>">
+        <datalist id="markers">
+          <option value="0" label="Nada"></option>
+          <option value="100" label="Mucha Madera"></option>
+        </datalist>
+    </div>
+    <% } %>
+    
+    <% if(detail.Attribute.name == 'dry') {%>
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="dry" list="markers" min="0" max="100" value="<%= detail.Attribute.name == 'dry'? detail.value : ' ' %>">
+        <datalist id="markers">
+          <option value="0" label="Muy Seco"></option>
+          <option value="100" label="Postre"></option>
+        </datalist>
+    </div>
+    <% } %>
+    
+    <% if(detail.Attribute.name == 'king') {%>
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="king" list="markers" min="0" max="100" value="<%= detail.Attribute.name == 'king'? detail.value : ' ' %>">
+        <datalist id="markers">
+          <option value="0" label="Amable"></option>
+          <option value="100" label="Refrescante"></option>
+        </datalist>
+    </div>
+    <% } %>
+    
+    <% if(detail.Attribute.name == 'velvety') {%>
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="velvety" list="markers" min="0" max="100" value="<%= detail.Attribute.name == 'velvety'? detail.value : ' ' %>">
+        <datalist id="markers">
+          <option value="0" label="Aterciopelado"></option>
+          <option value="100" label="Taninos Intensos"></option>
+        </datalist>
+    </div>
+    <% } %>
+    
+    <% if(detail.Attribute.name == 'light') {%>
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="light" list="markers" min="0" max="100" value="<%= detail.Attribute.name == 'light'? detail.value : ' ' %>">
+        <datalist id="markers">
+          <option value="0" label="Liviano "></option>
+          <option value="100" label="Mucho Cuerpo"></option>
+        </datalist>
+    </div>
+    <% } %>
+    
+    <% if(detail.Attribute.name == 'delicate') {%> 
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="delicate" list="markers" min="0" max="100" value="<%= detail.Attribute.name == 'delicate'? detail.value : ' ' %>">
+        <datalist id="markers">
+            <option value="0" label="Delicado"></option>
+            <option value="100" label="Estructurado"></option>
+        </datalist>
+    </div>
+    <% } %>
+</div>
+
+    <% }) %>
+    <% } %>
+
+<% if (attributes.length == 0) { %>
+<div class="input-content">
+    <label for="vineyard" class="label-bar">Nombre del viñedo</label>
+    <input type="text" id="vineyard" name="vineyard" placeholder="Viñedo" class="input-bar">
+    <label for="age" class="label-bar">Edad del viñedo</label>
+    <input type="number" id="age" name="age" min="0" placeholder="Edad del viñedo en años" class="input-bar">
+    <label for="altitude" class="label-bar">Altitud</label>
+    <input type="text" id="altitude" name="altitude" min="0" placeholder="Altitud km" class="input-bar">
+    <label for="variety" class="label-bar">Variedad</label>
+    <input type="text" id="variety" name="variety" placeholder="Variedad en marcas" class="input-bar">
+    <label for="barrels" class="label-bar">Guardado en barriles</label>
+    <input type="number" id="barrels" name="barrels" min="0" placeholder="Guardado en barriles en meses" class="input-bar">
+    <label for="saved" class="label-bar">Potencial de guardado</label>
+    <input type="number" id="saved" name="saved" min="0" placeholder="Potencial de guardado en años" class="input-bar">
+</div>
+
+    <div class="input-content rangos wines">
+
+    <label for="categoriProduct" class="label-bar">Catador</label>
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct" name="fruity" list="markers" min="0" max="100">
+        <datalist id="markers">
+          <option value="0" label="Afrutado"></option>
+          <option value="100" label="Muy Complejo"></option>
+        </datalist>
+    </div>
+    
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2-2" name="nothing" list="markers" min="0" max="100">
+        <datalist id="markers">
+          <option value="0" label="Nada"></option>
+          <option value="100" label="Mucha Madera"></option>
+        </datalist>
+    </div>
+    
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="dry" list="markers" min="0" max="100">
+        <datalist id="markers">
+          <option value="0" label="Muy Seco"></option>
+          <option value="100" label="Postre"></option>
+        </datalist>
+    </div>
+    
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="king" list="markers" min="0" max="100">
+        <datalist id="markers">
+          <option value="0" label="Amable"></option>
+          <option value="100" label="Refrescante"></option>
+        </datalist>
+    </div>
+    
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="velvety" list="markers" min="0" max="100">
+        <datalist id="markers">
+          <option value="0" label="Aterciopelado"></option>
+          <option value="100" label="Taninos Intensos"></option>
+        </datalist>
+    </div>
+    
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="light" list="markers" min="0" max="100">
+        <datalist id="markers">
+          <option value="0" label="Liviano "></option>
+          <option value="100" label="Mucho Cuerpo"></option>
+        </datalist>
+    </div>
+    
+    <div class="input-content-2">
+        <input type="range" class="categoriProduct-2" name="delicate" list="markers" min="0" max="100">
+        <datalist id="markers">
+            <option value="0" label="Delicado"></option>
+            <option value="100" label="Estructurado"></option>
+        </datalist>
+    </div>
+</div>
+<% } %> 

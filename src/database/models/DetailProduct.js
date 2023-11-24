@@ -27,8 +27,13 @@ module.exports = (sequelize, DataTypes) => {
      },
     }, {
       tableName: 'detail_products', 
-      timestamps: true
+      timestamps: false
    })
 
+   DetailProduct.associate = (models)=> {
+   DetailProduct.belongsTo(models.Attribute, { 
+    foreignKey: 'attributeId' 
+  });
+   }
    return DetailProduct;
 }

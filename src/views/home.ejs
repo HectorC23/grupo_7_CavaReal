@@ -16,7 +16,6 @@
     <% let i = 0 %>
 
     <% categoriesProducts.forEach(cp => { %>
-        
         <% if (i % 2 == 0) { %>
             <section class="product-category-home-carrousel-black">
                 <p class="title-category"><%= cp.nameCategory %></p>
@@ -28,12 +27,32 @@
                             <p class="description-product"><%= cp.product.description %></p>
                             <div class="container-information-small-card">
                                 <div class="information-small-card">
-                                    <p class="anotation-small-card">VIÑEDO</p>
-                                    <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
+                                    <p class="anotation-small-card"><%= cp.id == 1? 'VIÑEDO' : cp.id == 2? 'PRODUCTOR' : cp.id == 3 ? 'MATERIAL' : ''%></p>
+                                    <% cp.details.forEach(detail => { %>
+                                        <% if (cp.id == 1 && detail.Attribute.name == 'vineyard') { %>
+                                            <p><%= detail.value %></p>
+                                        <% } %>
+                                        <% if (cp.id == 2 && detail.Attribute.name == 'producer') { %>
+                                            <p><%= detail.value %></p>
+                                        <% } %>
+                                        <% if (cp.id == 3 && detail.Attribute.name == 'material') { %>
+                                            <p><%= detail.value %></p>
+                                        <% } %>
+                                    <% }) %>
                                 </div>
                                 <div class="information-small-card">
-                                    <p class="anotation-small-card">VARIEDAD</p>
-                                    <p>Cabernet Sauvignon</p>
+                                    <p class="anotation-small-card"><%= cp.id == 1? 'VARIEDAD' : cp.id == 2? 'ELABORACION' : cp.id == 3 ? 'DETALLE' : ''%></p>
+                                    <% cp.details.forEach(detail => { %>
+                                        <% if (cp.id == 1 && detail.Attribute.name == 'variety') { %>
+                                            <p><%= detail.value %></p>
+                                        <% }%>
+                                        <% if (cp.id == 2 && detail.Attribute.name == 'elaboration') { %>
+                                            <p><%= detail.value %></p>
+                                        <% }%>
+                                        <% if (cp.id == 3 && detail.Attribute.name == 'detail') { %>
+                                            <p><%= detail.value %></p>
+                                        <% } %>
+                                    <% }) %>
                                 </div>
                             </div>
                         </div>
@@ -53,12 +72,32 @@
                             <p class="description-product"><%= cp.product.description %></p>
                             <div class="container-information-small-card">
                                 <div class="information-small-card">
-                                    <p class="anotation-small-card">VIÑEDO</p>
-                                    <p>Las Compuertas, Agrelo, Gualtallary y Altamira</p>
+                                    <p class="anotation-small-card"><%= cp.id == 1? 'VIÑEDO' : cp.id == 2? 'PRODUCTOR' : cp.id == 3 ? 'MATERIAL' : ''%></p>
+                                    <% cp.details.forEach(detail => { %>
+                                        <% if (cp.id == 1 && detail.Attribute.name == 'vineyard') { %>
+                                            <p><%= detail.value %></p>
+                                        <% } %>
+                                        <% if (cp.id == 2 && detail.Attribute.name == 'producer') { %>
+                                            <p><%= detail.value %></p>
+                                        <% } %>
+                                        <% if (cp.id == 3 && detail.Attribute.name == 'material') { %>
+                                            <p><%= detail.value %></p>
+                                        <% } %>
+                                    <% }) %>
                                 </div>
                                 <div class="information-small-card">
-                                    <p class="anotation-small-card">VARIEDAD</p>
-                                    <p>Cabernet Sauvignon</p>
+                                    <p class="anotation-small-card"><%= cp.id == 1? 'VARIEDAD' : cp.id == 2? 'ELABORACION' : cp.id == 3 ? 'DETALLE' : ''%></p>
+                                    <% cp.details.forEach(detail => { %>
+                                        <% if (cp.id == 1 && detail.Attribute.name == 'variety') { %>
+                                            <p><%= detail.value %></p>
+                                        <% }%>
+                                        <% if (cp.id == 2 && detail.Attribute.name == 'elaboration') { %>
+                                            <p><%= detail.value %></p>
+                                        <% }%>
+                                        <% if (cp.id == 3 && detail.Attribute.name == 'detail') { %>
+                                            <p><%= detail.value %></p>
+                                        <% } %>
+                                    <% }) %>
                                 </div>
                             </div>
                         </div>
