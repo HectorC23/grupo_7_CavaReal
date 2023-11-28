@@ -1,22 +1,31 @@
-const User = require('../database/models/User');
-const Cart = require('../database/models/Cart');
-const Product = require('../database/models/Product');
-const ProductCart = require('../database/models/ProductCart');
 const sequelize = require('sequelize');
-
+const db = require('../database/models');
+const User = db.User
+const Cart = db.Cart
+const Product = db.Product
+const ProductCart = db.ProductCart
 
 const cartController = {
-    list : (req, res) => {
+    list : async(req, res) => {
        
-        if(res.locals.isUserLogger){
-        Cart.findOne({
-             where: {
-                 idUser: userLogged.id
-            },
-            include: [{association: 'user'},{association: 'products'}]
-        }).then(cart => {
-            return res.render('shoppingCart', { cart, products: cart.getProducts()});
-        })
+    if(res.locals.isUserLogger){
+
+        const cart = await Cart.findOne({
+            where: {
+                idUser: userLogged.id
+           },
+           include: [{association: 'user'}]
+       });
+
+       const products = await ProductCart.findAll({
+        where:{
+            cartId: cart.id
+        },
+        include:[{model: Product}]
+       })
+
+       return res.render('shoppingCart', { cart, products });
+       
     } else{
         return res.render('shoppingCart');
     }
@@ -40,16 +49,17 @@ const cartController = {
             }
         });
 
-        const product = await ProductCart.create({
+        const productCart = await ProductCart.create({
             cartId: cart.id,
             productId: req.params.idProduct,
+            amount: req.body.amount
         });
 
-        const productPrice = await Product.findByPk(product.productId);
+        const product= await Product.findByPk(product.productId);
 
         await Cart.update({
-            amount: sequelize.literal('amount + 1'),
-            totalPrice: sequelize.literal(`totalPrice + ${productPrice.price}`)
+            amount: sequelize.literal(`amount + ${productCart.amount}`),
+            totalPrice: sequelize.literal(`totalPrice + ${product.price * productCart.amount}`)
         }, {
             where: {
                 id: cart.id

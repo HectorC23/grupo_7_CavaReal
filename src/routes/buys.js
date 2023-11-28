@@ -2,7 +2,6 @@ const express = require("express");
 const buysController = require("../controllers/buysController");
 const router = express.Router();
 
-router.post('/add/:idCart', buysController.add);
-router.get('/', buysController.list);
+router.post('/:idCart', buysController.add);
 
 module.exports = router;

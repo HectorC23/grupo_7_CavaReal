@@ -17,18 +17,13 @@ const buysController = {
         productsCart.map( async(product) => {
              await UserProduct.create({
                 productId: product.productId,
-                userId: cart.userId
+                userId: cart.userId,
+                amount: product.amount,
+                dateBuy: Date.now()
             });
         }));
-    },
-    list: async(req, res) => {
-        const products = await UserProduct.findAll({
-            where: {
-                userId: userLogged.id 
-            }
-        });
 
-        return res.render('shopping', { products });
+        return res.redirect(`/user/profile/${cart.userId}`);
     }
 }
 

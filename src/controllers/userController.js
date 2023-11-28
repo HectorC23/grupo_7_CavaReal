@@ -6,6 +6,7 @@ const { error } = require("console");
 const db = require('../database/models');
 const User = db.User;
 const CategoryUser = db.CategoryUser;
+const Product = db.Product;
 
 const userController = {
     register: (req,res)=> {
@@ -126,7 +127,14 @@ const userController = {
 
        const user = await User.findByPk(id);
 
-        return res.render('users/profile', { user });
+       const products = await UserProduct.findAll({
+        where: {
+            userId: id
+        },
+        include:[{model: Product}]
+        });
+
+        return res.render('users/profile', { user , products});
 
     },
     
