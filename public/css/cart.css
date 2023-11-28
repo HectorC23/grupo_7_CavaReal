@@ -332,6 +332,12 @@ b{ font-size: 17px;
         border: solid 1px #333333;
     }
 
+    .cantidad input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+
     .subtotal{
         width: 15%;
         text-align: center;

@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
           model: 'Product', // Nombre de la tabla a la que hace referencia
           key: 'id' // Nombre de la columna a la que hace referencia
         }
+      }, 
+      amount: {
+        type: DataTypes.INTEGER(2),
+        allowNull: false
       }
     }, {
       tableName: 'products_cart', 

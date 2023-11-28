@@ -4,6 +4,7 @@ const routes = require('./routes/index');
 const routesProduct = require("./routes/product");
 const routesUser = require('./routes/user');
 const routesCart = require('./routes/cart');
+const routesBuy = require('./routes/buys');
 
 const methodOverride = require("method-override");
 const isUserLogger = require("./middlewares/isUserLogger");
@@ -37,8 +38,9 @@ app.use(discountUser);
 
 app.use("/", routes);
 app.use('/cart', routesCart);
-app.use("/product", routesProduct)
-app.use("/user", routesUser)
+app.use("/product", routesProduct);
+app.use("/user", routesUser);
+app.use("/buy", routesBuy)
 
 app.listen(PORT, () => {
     console.log(`[Server]: running on port ${PORT}`)
