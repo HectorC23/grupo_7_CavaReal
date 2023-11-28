@@ -147,13 +147,15 @@ const productController = {
 
         const idProduct = req.params.id;
 
-        const product = await Product.findByPk(idProduct);
+        const product = await Product.findByPk(idProduct,{
+            include: [{association: 'category'}]
+        });
 
         const attributesProduct = await DetailProduct.findAll({
             where: {
                 productId : idProduct
             },
-            include: [{ association: 'attribute' }]     
+            include: [{ model: Attribute }]
         });
 
         res.render("productDetail",{ product, attributes: attributesProduct});
