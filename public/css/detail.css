@@ -252,6 +252,30 @@ main{
     align-items: center;
     width: 70%;
 }
+
+.wine-units form{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.wine-units form button{
+    margin-top: 15px;
+}
+
+.wine-units input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.wine-units input {
+    text-align: center;
+}
+
+
 .container-fixed button{
     width: 100%;
     background-color: #dd6477;
@@ -260,12 +284,15 @@ main{
     padding: 5px 0px;
     font-size: 1.2em;
     margin-top: 5px;
+    color: white;
 }
 
 .container-fixed button a{
     text-decoration: none;
     color: white;
 }
+
+
 footer{
     margin-bottom: 26.5vh;
 }
@@ -403,6 +430,7 @@ footer{
 
     .wine-image img {
         max-width: 50vw;
+        max-height: 100vh;
     }
     .wine-information{
         margin-bottom: 15px;
@@ -530,6 +558,9 @@ footer{
     .wine-units{
         width: 95%;
         margin-bottom: 20px;
+    }
+    .wine-units form {
+        width: 100%;
     }
     .container-fixed{
         box-shadow: 0px 4px 5px rgb(100, 100, 100);

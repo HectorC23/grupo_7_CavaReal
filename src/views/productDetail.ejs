@@ -8,210 +8,353 @@
     <%- include("./partials/header.ejs") %>
 
     <main>
-        <!-- <form action="" class="container-main"> -->
-        <div class="container-main">
-            <div class="container-secondary">
-                <div class="container-wine-information">
-                    <div class="wine-information">
-                        <i class="fa-solid fa-tractor"></i>
-                        <div class="wine-information-text">
-                            <b>Viñedo</b>
-                            <p> <%= product.vinedo %> </p>
-                        </div>
-                    </div>
-                    <div class="wine-information">
-                        <i class="fa-regular fa-clock"></i>
-                        <div class="wine-information-text">
-                            <b>Edad del viñedo</b>
-                            <p> <%= product.edad%> </p>
-                        </div>
-                    </div>
-                    <div class="wine-information">
-                        <i class="fa-solid fa-arrows-up-down"></i>
-                        <div class="wine-information-text">
-                            <b>Altitud</b>
-                            <p> <%= product.altitud %> </p>
-                        </div>
-                    </div>
-                    <div class="wine-information">
-                        <i class="fa-solid fa-wine-glass"></i>
-                        <div class="wine-information-text">
-                            <b>Variedad</b>
-                            <p> <%= product.variedad %> </p>
-                        </div>
-                    </div>
-                    <div class="wine-information">
-                        <i class="fa-solid fa-boxes-stacked"></i>
-                        <div class="wine-information-text">
-                            <b>Guardado en barriles</b>
-                            <p> <%= product.barriles %> </p>
-                        </div>
-                    </div>
-                    <div class="wine-information">
-                        <i class="fa-solid fa-box"></i>
-                        <div class="wine-information-text">
-                            <b>Potencial de guardado</b>
-                            <p> <%= product.guardado %> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="wine-image">
-                    <img src="/images/<%= product.img%>" alt="example-wine">
-                </div>
-            </div>
-            <div class="nav-wine">
-                <nav>
-                    <ul type="none">
-                        <li><a href="#wine-description">DESCRIPCIÓN</a></li>
-                        <li><a href="#catador-tittle">CATADOR</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="wine-description-text" id="wine-description">
-                <p> <%= product.descripcion %> </p>
-            </div>
-            <p id="catador-tittle">CATADOR</p>
-            <div class="container-tertiary">
-            <div class="wine-catador-container">
-                
-                <div class="wine-catador-description">
-                    <div class="wine-catador-description-text">
-                    <p>Afrutado</p>
-                    <p>Muy complejo</p>
-                    </div>
+         <div class="container-main">
+                <div class="container-secondary">
+                    <div class="container-wine-information">
 
-                    <div class="wine-catador-description-percentage">
-                        
-                        <div class="percentage" style="width:<%=product.afrutado%>%"></div>
-                    </div>
-                </div>
-                <div class="wine-catador-description">
-                    <div class="wine-catador-description-text">
-                        <p>Seco</p>
-                        <p>Postre</p>
-                    </div>
-                    <div class="wine-catador-description-percentage">
-                        <div class="percentage" style="width:<%= product.seco %>%"></div>
-                    </div>
-                </div>
-                <div class="wine-catador-description">
-                    <div class="wine-catador-description-text">
-                    <p>Nada</p>
-                    <p>Mucha madera</p>
-                    </div>
-                    <div class="wine-catador-description-percentage">
-                        <div class="percentage" style="width:<%= product.nada %>%"></div>
+                        <% if (product.category.name == 'Vinos') { %> 
+                        <% attributes.forEach(attribute => { %>
 
-                    </div>
-                </div>
-                <div class="wine-catador-description">
-                    <div class="wine-catador-description-text">
-                    <p>Amable</p>
-                    <p>Refrescante</p>
-                    </div>
-                    <div class="wine-catador-description-percentage">
-                        <div class="percentage" style="width:<%= product.amable %>%"></div>
-                    </div>          
-                </div>
-                <div class="wine-catador-description">
-                    <div class="wine-catador-description-text">
-                    <p>Aterciopelado</p>
-                    <p>Taninos intensos</p>
-                    </div>
-                    <div class="wine-catador-description-percentage">
-                        <div class="percentage" style="width:<%= product.aterciopelado %>%"></div>
-                    </div>
-                </div>
-                <div class="wine-catador-description">
-                    <div class="wine-catador-description-text">
-                    <p>Liviano</p>
-                    <p>Mucho cuerpo</p>
-                    </div>
-                    <div class="wine-catador-description-percentage">
-                        <div class="percentage" style="width:<%= product.liviano %>%"></div>
-                    </div>        
-                </div>
-                <div class="wine-catador-description">
-                    <div class="wine-catador-description-text">
-                    <p>Delicado</p>
-                    <p>Estructurado</p>
-                    </div>
-                    <div class="wine-catador-description-percentage">
-                        <div class="percentage" style="width:<%= product.delicado %>%"></div>
-                    </div>       
-                </div>
-            </div>
-            <div class="wine-catador-image">
-                <img src="/images/example-image.jpg" alt="">
-            </div>
-            </div>
-        </div>
+                            <% if (attribute.Attribute.name == 'vineyard') { %>
+                                <div class="wine-information">
+                                    <i class="fa-solid fa-tractor"></i>
+                                    <div class="wine-information-text">
+                                        <b>Viñedo</b>
+                                        <p> <%= attribute.value %> </p>
+                                    </div>
+                                </div>
+                            <% } %>
+                            
+                            <% if (attribute.Attribute.name == 'age') { %>
+                                <div class="wine-information">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <div class="wine-information-text">
+                                        <b>Edad del viñedo</b>
+                                        <p> <%= attribute.value %> </p>
+                                    </div>
+                                </div>
+                            <% } %>
 
-        <div class="pay-delivery-mobile-container">
-            <div class="pay-delivery-mobile">
-                <i class="fa-solid fa-credit-card"></i>
-                <p>Hasta <b>6 cuotas sin interés</b></p>
-            </div>
-            <div class="pay-delivery-mobile">
-                <i class="fa-solid fa-truck-fast"></i>
-                <p>Envíos a todo el país</p>
-            </div>
-        </div>
+                            <% if (attribute.Attribute.name == 'altitude') { %>
+                                <div class="wine-information">
+                                    <i class="fa-solid fa-arrows-up-down"></i>
+                                    <div class="wine-information-text">
+                                        <b>Altitud</b>
+                                        <p> <%= attribute.value %> </p>
+                                    </div>
+                                </div>
+                            <% } %>
+                            
+                            <% if (attribute.Attribute.name == 'variety') { %>
+                                <div class="wine-information">
+                                    <i class="fa-solid fa-wine-glass"></i>
+                                    <div class="wine-information-text">
+                                        <b>Variedad</b>
+                                        <p> <%= attribute.value %> </p>
+                                    </div>
+                                </div>
+                            <% } %>
 
-        <div class="container-fixed">
-            <div class="algo">
-                <div class="container-fixed-secondary">
-                    <div class="fixed-information">
-                        <p class="name-wine"> <%= product.name %> </p>
-                        <% if (isUserLogger) { %>
-                            <div class="discount">
-                                <b class="price-wine-discount">$ <%= product.priceSix %> </b>
-                                <b class="discount-porcentage">-% <%= discount %></b>
-                            </div>
-                            <b class="price-wine">$ <%= (product.priceSix - (product.priceSix * discount / 100)).toFixed(2) %></b>
-                        <% } else {%>
-                        <b class="price-wine">$ <%= product.priceSix %> </b>
+                            <% if (attribute.Attribute.name == 'barrels') { %>
+                                <div class="wine-information">
+                                    <i class="fa-solid fa-boxes-stacked"></i>
+                                    <div class="wine-information-text">
+                                        <b>Guardado en barriles</b>
+                                        <p> <%= attribute.value %> </p>
+                                    </div>
+                                </div>
+                            <% } %>
+
+                            <% if (attribute.Attribute.name == 'saved') { %>
+                                <div class="wine-information">
+                                    <i class="fa-solid fa-box"></i>
+                                    <div class="wine-information-text">
+                                        <b>Potencial de guardado</b>
+                                        <p> <%= attribute.value %> </p>
+                                    </div>
+                                </div>
+                            <% } %>
+
+                        <% }) %>
+
                         <% } %>
-                        <p class="wine-box">Caja de 6 unidades</p>
-                        <p class="price-unity">Precio por botella: <b>$ <%= product.priceUnity %> </b></p>
+
+
+                        <% if (product.category.name == 'Licores') { %> 
+                            <% attributes.forEach(attribute => { %>
+    
+                                <% if (attribute.Attribute.name == 'size') { %>
+                                    <div class="wine-information">
+                                        <i class="fa-solid fa-weight-hanging"></i>
+                                        <div class="wine-information-text">
+                                            <b>Tamaño</b>
+                                            <p> <%= attribute.value %> </p>
+                                        </div>
+                                    </div>
+                                <% } %>
+                                
+                                <% if (attribute.Attribute.name == 'cutting') { %>
+                                    <div class="wine-information">
+                                        <i class="fa-solid fa-scissors"></i>
+                                        <div class="wine-information-text">
+                                            <b>Corte</b>
+                                            <p> <%= attribute.value %> </p>
+                                        </div>
+                                    </div>
+                                <% } %>
+    
+                                <% if (attribute.Attribute.name == 'producer') { %>
+                                    <div class="wine-information">
+                                        <i class="fa-solid fa-user-gear"></i>
+                                        <div class="wine-information-text">
+                                            <b>Productor</b>
+                                            <p> <%= attribute.value %> </p>
+                                        </div>
+                                    </div>
+                                <% } %>
+                                
+                                <% if (attribute.Attribute.name == 'elaboration') { %>
+                                    <div class="wine-information">
+                                        <i class="fa-solid fa-warehouse"></i>
+                                        <div class="wine-information-text">
+                                            <b>Elaboracion</b>
+                                            <p> <%= attribute.value %> </p>
+                                        </div>
+                                    </div>
+                                <% } %>
+    
+                                <% if (attribute.Attribute.name == 'type') { %>
+                                    <div class="wine-information">
+                                        <i class="fa-solid fa-tag"></i>
+                                        <div class="wine-information-text">
+                                            <b>Tipos</b>
+                                            <p> <%= attribute.value %> </p>
+                                        </div>
+                                    </div>
+                                <% } %>
+
+                            <% }) %>
+    
+                            <% } %>
+
+                            <% if (product.category.name == 'Accesorios') { %> 
+                                <% attributes.forEach(attribute => { %>
+        
+                                    <% if (attribute.Attribute.name == 'material') { %>
+                                        <div class="wine-information">
+                                            <i class="fa-solid fa-hammer"></i>
+                                            <div class="wine-information-text">
+                                                <b>Tamaño</b>
+                                                <p> <%= attribute.value %> </p>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                    
+                                    <% if (attribute.Attribute.name == 'detail') { %>
+                                        <div class="wine-information">
+                                            <i class="fa-solid fa-wine-bottle"></i>
+                                            <div class="wine-information-text">
+                                                <b>Corte</b>
+                                                <p> <%= attribute.value %> </p>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                    
+                                <% }) %>
+        
+                                <% } %>
+
                     </div>
-                    <div class="pay-delivery-tablet">
-                        <div class="pay-delivery" id="pay-card">
-                            <i class="fa-solid fa-credit-card"></i>
-                            <p> Hasta <b>6 cuotas sin interés</b></p>
-                        </div>
-                        <div class="pay-delivery" id="truck">
-                            <i class="fa-solid fa-truck-fast"></i>
-                            <p> Envíos a todo el país</p>
-                        </div>
+                    <div class="wine-image">
+                        <img src="/images/<%= product.img? product.img : 'cover-list.png'%>" alt="<%= product.name %>">
                     </div>
                 </div>
-                <div class="wine-units">
-                    <p>Cantidad </p>
-                    <i class="fa-solid fa-circle-minus"></i>
-                    <div class="units-number">
-                        <form action="">
-                            <input type="number" min="0" max="20">
+                <div class="nav-wine">
+                    <nav>
+                        <ul type="none">
+                            <li><a href="#wine-description">DESCRIPCIÓN</a></li>
+                            <% if (product.categoryId.name == 'Vinos') { %>
+                                <li><a href="#catador-tittle">CATADOR</a></li>
+                            <% } %>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="wine-description-text" id="wine-description">
+                    <p> <%= product.description %> </p>
+                </div>
+
+                <% if (product.category.name == 'Vinos') { %>
+                 
+                <p id="catador-tittle">CATADOR</p>
+                <div class="container-tertiary">
+                <div class="wine-catador-container">
+
+                    <% attributes.forEach(attribute => { %>
+ 
+                    <% if (attribute.Attribute.name == 'fruity') { %>
+                        <div class="wine-catador-description">
+                            <div class="wine-catador-description-text">
+                            <p>Afrutado</p>
+                            <p>Muy complejo</p>
+                            </div>
+                            <div class="wine-catador-description-percentage">
+                                <div class="percentage" style="width:<%= attribute.value %>%"></div>
+                            </div>
+                        </div>
+                    <% } %>
+
+                    <% if (attribute.Attribute.name == 'dry') { %>
+                        <div class="wine-catador-description">
+                            <div class="wine-catador-description-text">
+                                <p>Seco</p>
+                                <p>Postre</p>
+                            </div>
+                            <div class="wine-catador-description-percentage">
+                                <div class="percentage" style="width:<%= attribute.value %>%"></div>
+                            </div>
+                        </div>
+                    <% } %>
+
+                    <% if (attribute.Attribute.name == 'nothing') { %>
+                        <div class="wine-catador-description">
+                            <div class="wine-catador-description-text">
+                            <p>Nada</p>
+                            <p>Mucha madera</p>
+                            </div>
+                            <div class="wine-catador-description-percentage">
+                                <div class="percentage" style="width:<%= attribute.value %>%"></div>
+                            </div>
+                        </div>
+                    <% } %>
+
+                    <% if (attribute.Attribute.name == 'kind') { %>
+                        <div class="wine-catador-description">
+                            <div class="wine-catador-description-text">
+                            <p>Amable</p>
+                            <p>Refrescante</p>
+                            </div>
+                            <div class="wine-catador-description-percentage">
+                                <div class="percentage" style="width:<%= attribute.value %>%"></div>
+                            </div>          
+                        </div>
+                    <% } %>
+
+                    <% if (attribute.Attribute.name == 'velvety') { %>
+                        <div class="wine-catador-description">
+                            <div class="wine-catador-description-text">
+                            <p>Aterciopelado</p>
+                            <p>Taninos intensos</p>
+                            </div>
+                            <div class="wine-catador-description-percentage">
+                                <div class="percentage" style="width:<%= attribute.value %>%"></div>
+                            </div>
+                        </div>
+                    <% } %>
+                                
+                    <% if (attribute.Attribute.name == 'light') { %>
+                        <div class="wine-catador-description">
+                            <div class="wine-catador-description-text">
+                            <p>Liviano</p>
+                            <p>Mucho cuerpo</p>
+                            </div>
+                            <div class="wine-catador-description-percentage">
+                                <div class="percentage" style="width:<%= attribute.value %>%"></div>
+                            </div>        
+                        </div>
+                    <% } %>
+
+                    <% if (attribute.Attribute.name == 'delicate') { %>
+                        <div class="wine-catador-description">
+                            <div class="wine-catador-description-text">
+                            <p>Delicado</p>
+                            <p>Estructurado</p>
+                            </div>
+                            <div class="wine-catador-description-percentage">
+                                <div class="percentage" style="width:<%= attribute.value %>%"></div>
+                            </div>       
+                        </div>
+                    <% } %>
+
+                    <% }) %>
+                </div>
+
+                <div class="wine-catador-image">
+                    <img src="/images/example-image.jpg" alt="">
+                </div>
+              </div>
+             <% } %>
+ 
+            </div>
+    
+            <div class="pay-delivery-mobile-container">
+                <div class="pay-delivery-mobile">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <p>Hasta <b>6 cuotas sin interés</b></p>
+                </div>
+                <div class="pay-delivery-mobile">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <p>Envíos a todo el país</p>
+                </div>
+            </div>
+    
+            <div class="container-fixed">
+                <div class="algo">
+                    <div class="container-fixed-secondary">
+                        <div class="fixed-information">
+                            <p class="name-wine"> <%= product.name %> </p>
+                            <% if (isUserLogger) { %>
+                                <div class="discount">
+                                    <b class="price-wine-discount">$ <%= product.price * 6%> </b>
+                                    <b class="discount-porcentage">-% <%= discount %></b>
+                                </div>
+                                <b class="price-wine">$ <%= ((product.price * 6) - ((product.price * 6)* discount / 100)).toFixed(2) %></b>
+                            <% } else {%>
+                            <b class="price-wine">$ <%= product.price * 6 %> </b>
+                            <% } %>
+                            <p class="wine-box">Caja de 6 unidades</p>
+                            <p class="price-unity">Precio por botella: <b>$ <%= product.price %> </b></p>
+                        </div>
+                        <div class="pay-delivery-tablet">
+                            <div class="pay-delivery" id="pay-card">
+                                <i class="fa-solid fa-credit-card"></i>
+                                <p> Hasta <b>6 cuotas sin interés</b></p>
+                            </div>
+                            <div class="pay-delivery" id="truck">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <p> Envíos a todo el país</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wine-units">
+                        <form action=<%= isUserLogger? "/cart/add/" + product.id : "/product/detail/" + product.id %> method=<%= isUserLogger? "post" : "get" %>>
+                            <p>Cantidad </p>
+                            <i class="fa-solid fa-circle-minus"></i>
+                                <div class="units-number">
+                                    <input type="number" min="0" max="10">
+                                </div>
+                            <i class="fa-solid fa-circle-plus"></i>
+                            <button type="submit">Agregar al carrito</button>
                         </form>
                     </div>
-                    <i class="fa-solid fa-circle-plus"></i>
+                    
+    
+                    <% if (isUserLogger) { %>
+                        <a href="/product/edit/<% product.id %>">
+    
+                            <button>Editar producto</button>
+                        </a>
+                        <form action="/product/detail/<%product.id%>?_method=DELETE" method="POST" ">
+                            <button type="submit">Borar producto</button>
+                        </form>
+                   <% } %>
+
                 </div>
-                <button><a href="/cart/add/<%= product.id %>">Agregar al carrito</a></button>
-
-                <% if (isUserLogger) { %>
-                    <a href="/product/edit/<% product.id %>">
-
-                        <button>Editar producto</button>
-                    </a>
-                    <form action="/product/detail/<%product.id%>?_method=DELETE" method="POST" ">
-                        <button type="submit">Borar producto</button>
-                    </form>
-                <% } %>
-
             </div>
-        </div>
+       
     </main>
 
     <%- include("./partials/footer.ejs")%>
+
+    <script src="/js/productDetail.js"></script>
 </body>
 </html>
