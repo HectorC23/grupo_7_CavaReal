@@ -326,7 +326,7 @@
                         </div>
                     </div>
                     <div class="wine-units">
-                        <form action=<%= isUserLogger? "/cart/add/" + product.id : "/product/detail/" + product.id %> method=<%= isUserLogger? "post" : "get" %>>
+                        <form action=<%= locals.isUserLogger? "/cart/add/" + product.id : "/product/detail/" + product.id %> method=<%= locals.isUserLogger? "post" : "get" %>>
                             <p>Cantidad </p>
                             <i class="fa-solid fa-circle-minus"></i>
                                 <div class="units-number">
@@ -339,11 +339,11 @@
                     
     
                     <% if (isUserLogger) { %>
-                        <a href="/product/edit/<% product.id %>">
+                        <a href="/product/edit/<%= product.id %>">
     
                             <button>Editar producto</button>
                         </a>
-                        <form action="/product/detail/<%product.id%>?_method=DELETE" method="POST" ">
+                        <form action="/product/detail/<%=product.id%>?_method=DELETE" method="POST" ">
                             <button type="submit">Borar producto</button>
                         </form>
                    <% } %>

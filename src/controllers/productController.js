@@ -124,24 +124,24 @@ const productController = {
         const idProduct= +req.params.id;
         const productImg = await Product.findByPk(idProduct).img;
 
-        const product = await Product.destroy({
-            where:{
-                id: idProduct
-            }
-        });
-
-        await DetailProducts.destroy({
+        await DetailProduct.destroy({
             where: {
                 productId: idProduct
             }
         }); 
+
+        await Product.destroy({
+            where:{
+                id: idProduct
+            }
+        });
 
         let imagen = path.join(__dirname, '../../public/images/' + productImg)
         if(fs.existsSync(imagen)){
             fs.unlinkSync(imagen)
         }
 
-        return res.redirect('/products'); 
+        return res.redirect('/product/all'); 
     },
     detail: async(req,res)=> {
 
@@ -161,13 +161,24 @@ const productController = {
         res.render("productDetail",{ product, attributes: attributesProduct});
     },
     list: async(req, res) => {
+        const rowCount = await Product.count();
+        const itemsPerPage = 6;
+        console.log(rowCount);
+        const pagesCount = rowCount%itemsPerPage!=0? rowCount/itemsPerPage + 1 : rowCount/itemsPerPage
+        console.log(pagesCount);
+        
+        let page = +req.query.page? +req.query.page == 0? 1 : +req.query.page > pagesCount? pagesCount : +req.query.page : 1;
+        const offset = (page - 1) * itemsPerPage;
+
         const products = await Product.findAll({
+            limit: itemsPerPage,
+            offset: offset,
             include: [{ association: 'category'}]
         });
 
         const categories = await CategoryProduct.findAll();
 
-        return res.render('productsList', { products, categories });
+        return res.render('productsList', { products, categories, currentPage: page });
     },
     search: async(req, res) => {
         const searchedProduct = req.query.searched;

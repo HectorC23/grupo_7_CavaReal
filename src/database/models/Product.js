@@ -34,10 +34,8 @@ module.exports = (sequelize, DataTypes) => {
    Product.associate = (models)=> {
 
     Product.belongsToMany(models.User, {
-      as: 'productsUsers',
-      through: 'UserProduct', 
-      foreignKey: 'productId', 
-      otherKey: 'userId',
+      as: 'users',
+      through: 'UserProduct',
       timestamps: true
     }), 
 
@@ -54,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: true
      }),
 
-    Product.belongsToMany(models.ProductCart, {
+    Product.belongsToMany(models.Cart, {
       through: 'ProductCart',
       as: 'productCarts',
       foreignKey: 'productId',

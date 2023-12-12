@@ -330,6 +330,7 @@ b{ font-size: 17px;
         padding: 5px;
         border-radius: 7px;
         border: solid 1px #333333;
+        text-align: center;
     }
 
     .cantidad input[type=number]::-webkit-inner-spin-button, 

@@ -26,27 +26,27 @@
                   </ul>
                </div>
 
-               <%# if (products.length > 0) { %>
+               <% if (products.length > 0 && locals.isUserLogger) { %>
                 
-               <%# products.forEach(product => { %>
+               <% products.forEach(product => { %>
                   <div class="card-articulo-mobile">
-                     <a href="/cart/delete/<%# product.productId %>?_method=DELETE"><i class="fa-solid fa-trash-can" id="basura"></i></a>
+                     <form action="/cart/delete/<%= product.productId %>?_method=DELETE" method="post"><button type="submit"><i class="fa-solid fa-trash-can" id="basura"></i></button></form>
                         <div class="cont_imgproducto">
-                            <img src="/images/<%# product.Product.img %>" alt="producto">
+                            <img src="/images/<%= product.Product.img %>" alt="producto">
                         </div>
-                        <p class="descripcion"><%# product.Product.name %></p>
-                        <p class="precio"> Precio: <b>$<%# product.Product.price %></b></p>
+                        <p class="descripcion"><%= product.Product.name %></p>
+                        <p class="subtotal"> Precio: <b>$<%= product.Product.price %></b></p>
                         <form class="cantidad">
                            <label>Cantidad</label>
                            <i class="fa-solid fa-circle-minus"></i>
-                           <input type="number" class="cantidad-input" min="0" max="10" value="<%# product.amount %>">
+                           <input type="number" class="cantidad-input" min="0" max="10" value="<%= product.amount %>">
                            <i class="fa-solid fa-circle-plus"></i>
                         </form>
-                        <p class="subtotal">Subtotal: <b>$<%# product.Product.price * product.amount %></b></p>
+                        <p class="subtotal">Subtotal: <b>$<%= (product.Product.price * product.amount) %></b></p>
                         <i></i>
                   </div>
-               <%# }) %>
-               <%#} %>
+               <% }) %>
+               <% } %>
                <button class="actualizar-carr" type="submit" onclick="document.location.reload()">Actualizar Carrito</button>
 
             </div>
@@ -58,7 +58,7 @@
                     <p class="entrega">Elegí dónde recibir tus compras</p>
                     <p class="entrega-sub">Podrás ver costos y tiempos de entrega precisos en todo lo que busques.</p>
                     
-                    <form action=<%=isUserLogger? "/buy/" + cart.id : "" %> method=<%=isUserLogger? "post" : ""%>>
+                    <form action=<%=locals.isUserLogger? "/buy/" + cart.id : "" %> method=<%=locals.isUserLogger? "post" : ""%>>
                      <div class="input-entrega">
                         <label>Pais</label>
                                 <select class="barras">
@@ -106,7 +106,7 @@
                      <div class="linea-carrito"></div>
 
                      <p class="envio">Costo de envio: <b>$5.000</b></p>
-                     <p class="sub-total">Subtotal: <b>$<%# cart.totalPrice %></b></p>
+                     <p class="sub-total">Subtotal: <b>$<%= cart.totalPrice == -5000? 0 : cart.totalPrice %></b></p>
 
                      <div class="linea-carrito"></div>
 
@@ -117,7 +117,7 @@
 
                      <div class="linea-carrito"></div>
 
-                     <p class="total">Total del pedido: <b>$<%# cart.totalPrice + 5000 %></b></p>
+                     <p class="total">Total del pedido: <b>$<%= cart.totalPrice + 5000 %></b></p>
 
                      <button class="caja" type="submit">Comprar</button>
                     </form>

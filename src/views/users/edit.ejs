@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head.ejs',{title: 'Iniciar Sesion', css:'/users/login'}) %>
+    <%- include('../partials/head.ejs',{title: 'Editar Usuario', css:'/users/register'}) %>
 <body>
 
     <%- include("../partials/header.ejs") %>
 
     <main>
         <div class="register-box">
-            <h2>Regístrate</h2>
+            <h2>Modificar Perfil</h2>
             <p class="subtitulo" >Por favor verifique la información a continuación y modifique donde sea necesario</p>
-            <form action="/user/edit/<% user.id %>?_method=PUT" method="post" enctype="multipart/form-data"">
+            <form action="/user/edit/<%= user.id %>?_method=PUT" method="post" enctype="multipart/form-data"">
 
                 <div class="input-content">
                     <label for="userName" class="label-bar">Usuario</label>

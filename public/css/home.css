@@ -104,6 +104,7 @@ section:hover .image-product img{
     justify-content: space-around;
     width: 85vw;
     margin-top: 5vw;
+    text-decoration: none;
 }
 .information-product{
     width: 50vw;
