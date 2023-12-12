@@ -1,6 +1,7 @@
-const Cart = require('../database/models/Cart');
-const UserProduct = require('../database/models/UserProduct');
-const ProductCart = require('../database/models/ProductCart');
+const db = require('../database/models');
+const Cart = db.Cart;
+const UserProduct = db.UserProduct;
+const ProductCart = db.ProductCart;
 
 const buysController = {
     add: async(req, res) => {
@@ -9,7 +10,7 @@ const buysController = {
 
         const productsCart = await ProductCart.findAll({
             where: {
-                idCart: req.params.idCart
+                cartId: req.params.idCart
             }
         });
 
@@ -23,7 +24,7 @@ const buysController = {
             });
         }));
 
-        return res.redirect(`/user/profile/${cart.userId}`);
+        return res.redirect(`/cart/${cart.userId}`);
     }
 }
 

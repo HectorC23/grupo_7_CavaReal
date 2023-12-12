@@ -1,12 +1,13 @@
 const bcrypt = require('bcryptjs');
 
 const { validationResult, cookie } = require('express-validator');
-const { error } = require("console");
+const { error, log } = require("console");
 
 const db = require('../database/models');
 const User = db.User;
 const CategoryUser = db.CategoryUser;
 const Product = db.Product;
+const UserProduct = db.UserProduct;
 
 const userController = {
     register: (req,res)=> {
@@ -31,9 +32,9 @@ const userController = {
             address: req.body.address,
             postalCode: req.body.postalCode,
             state: req.body.state,
-            subscription: req.body.subscription,
+            subscription: +req.body.subscription,
             membershipLevel: medal < 0.2 ? 'Bronze' : (medal < 0.4 ? 'Silver' : (medal < 0.6 ? 'Gold' : 'Platinum') ),
-            image: req.file ? req.file.filename : 'foto-perfil',
+            image: req.file? req.file.filename : 'foto-perfil',
             categoryId: 1,
         });
         
@@ -97,6 +98,13 @@ const userController = {
         let errors = validationResult(req);
         const id = +req.params.id;
 
+        const original = await User.findByPk(id);
+        const imageUser = original.img;
+
+        console.log(errors);
+
+        console.log(req.body);
+
         if(errors.isEmpty()){
 
         await User.update({
@@ -106,7 +114,7 @@ const userController = {
             address: req.body.address,
             postalCode: req.body.postalCode,
             state: req.body.state,
-            image: req.file ? req.file.filename : 'foto-perfil',
+            image: req.file ? req.file.filename : imageUser ,
         },{
             where: {
                 id: id
@@ -117,7 +125,7 @@ const userController = {
 
         } else {
 
-            res.render('users/edit', {errors: errors.mapped(), old: req.body});
+            res.render('users/edit', {errors: errors.mapped(), old: req.body, user:{}});
             
         }
         
@@ -131,11 +139,12 @@ const userController = {
         where: {
             userId: id
         },
-        include:[{model: Product}]
+         include:[{ model: Product }]
         });
 
-        return res.render('users/profile', { user , products});
+        console.log(products);
 
+        return res.render('users/profile', { user, products });
     },
     
     logout: (req, res) => {

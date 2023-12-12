@@ -44,13 +44,13 @@
             <p class="notation-product-card"><%= product.category.name %></p>
             <p class="price-product-card">$<%= product.price %></p>
             <a id="link-detail" href="/product/detail/<%= product.id %>"><i class="fa-solid fa-arrow-right"></i></a>
-            <a id="link-cart" href=""><i class="fa-solid fa-cart-shopping"></i></a>
+            <a id="link-cart" href="<%= locals.isUserLogger? "/cart/add/" + product.id : "/cart" %>" ><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <% }) %>
     </main>
     <div class="pagination-arrows">
-        <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
-        <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
+        <a href="/product/all?page=<%= (currentPage - 1) %>"><i id="arrow-left" class="fa-solid fa-chevron-left"></i></a>
+        <a href="/product/all?page=<%= (currentPage + 1) %>"><i id="arrow-right" class="fa-solid fa-chevron-right"></i></a>
     </div>
 
     <%- include("./partials/benefits.ejs") %>

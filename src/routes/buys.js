@@ -2,6 +2,8 @@ const express = require("express");
 const buysController = require("../controllers/buysController");
 const router = express.Router();
 
-router.post('/:idCart', buysController.add);
+const userPermissions = require('../middlewares/userPermissions');
+
+router.post('/:idCart', userPermissions ,buysController.add);
 
 module.exports = router;

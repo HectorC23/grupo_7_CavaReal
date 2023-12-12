@@ -21,7 +21,7 @@
                 <p class="title-category"><%= cp.nameCategory %></p>
                 <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
                 <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
-                <a class="container-product">
+                <a class="container-product" href="/product/detail/<%= cp.product.id %>">
                         <div class="information-product">
                             <p class="name-product"><%= cp.product.name %></p>
                             <p class="description-product"><%= cp.product.description %></p>
@@ -66,7 +66,7 @@
                 <p class="title-category"><%= cp.nameCategory %></p>
                 <i id="arrow-left" class="fa-solid fa-chevron-left"></i>
                 <i id="arrow-right" class="fa-solid fa-chevron-right"></i>
-                <a class="container-product">
+                <a class="container-product" href="/product/detail/<%= cp.product.id %>">
                         <div class="information-product">
                             <p class="name-product"><%= cp.product.name %></p>
                             <p class="description-product"><%= cp.product.description %></p>
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                        <div class="image-product">
-                            <img src="/images/<%= cp.product.img %>" alt="<%= cp.product.name %>">
+                            <img src="/images/<%= cp.product.img %>" alt="<%= cp.product.name %>">  
                         </div>
                     </a>
             </section>

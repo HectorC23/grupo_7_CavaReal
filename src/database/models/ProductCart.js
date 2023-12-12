@@ -24,12 +24,20 @@ module.exports = (sequelize, DataTypes) => {
       }, 
       amount: {
         type: DataTypes.INTEGER(2),
+        defaultValue: 1,
         allowNull: false
       }
     }, {
       tableName: 'products_cart', 
       timestamps: false
    })
+
+   ProductCart.associate = (models)=> {
+
+    ProductCart.belongsTo(models.Product, { 
+     foreignKey: 'productId' 
+   });
+    }
   
    return ProductCart;
 }

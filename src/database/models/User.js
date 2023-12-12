@@ -23,11 +23,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
     },
     password: {
-        type: DataTypes.STRING(50), 
+        type: DataTypes.STRING(200), 
         allowNull: false
     },
     phone: {
-       type: DataTypes.BIGINT(20), //
+       type: DataTypes.STRING(20), //
        allowNull: false
     },
     birthdate: {
@@ -58,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(20),
         allowNull: false 
     },
-    categoryId: {
+     categoryId: {
         type: DataTypes.INTEGER(11),
         defaultValue: 1,
         allowNull: false,
@@ -72,26 +72,26 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false
  })
 
- User.associate = (models)=> {
+  User.associate = (models)=> {
 
    User.belongsTo(models.CategoryUser, {
      as: 'category',
      foreignKey: 'categoryId'
-   }), 
+   })
    
-   User.belongsTo(models.Cart, {
+   User.hasMany(models.Cart, {
     as: 'cart',
     foreignKey: 'userId'
-  })
-
-   User.belongsToMany(models.Product, {
+  }) 
+   
+  User.belongsToMany(models.Product, {
      as: 'usersProducts',
      through: 'UserProduct', 
      foreignKey: 'userId', 
      otherKey: 'productId',
      timestamps: true
    })
- }
+ } 
 
  return User;
  
