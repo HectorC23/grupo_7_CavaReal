@@ -111,3 +111,28 @@ Desarrolló el Script de Datos en SQL, permitiendo poblar la base de datos con d
 
 
 ------------------------------------------------------------------------------------------------
+
+
+
+**Semana del 12 al .. de Diciembre**
+
+
+## Fernanda Sivila
+
+### 12-12
+-Lectura y division de tareas, completando retro del sprint, ademas de repaso de contenidos
+
+### 13-12
+-
+
+### 14-12
+-
+
+### Fernanda
+-Contribuyó en la implementación del CRUD para usuarios, permitiendo operaciones de creación, edición y visualización de detalle.
+Colaboró en la configuración de Sequelize y la creación de archivos de modelos.
+
+### Jesus
+
+
+------------------------------------------------------------------------------------------------

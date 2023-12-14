@@ -4,7 +4,7 @@ const path = require('path');
 const storage = multer.diskStorage({
     destination: (req,file,cb)=> {
         let uploadPath = path.resolve(__dirname, '../../public/images');
-        if (req.path === '/register') {
+        if (req.path === '/register' || req.path.startsWith('/edit/')) {
             uploadPath = path.resolve(__dirname, '../../public/images/users');
         }
     

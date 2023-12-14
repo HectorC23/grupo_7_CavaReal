@@ -16,7 +16,7 @@
                     <input type="text" id="userName" name="userName"  placeholder="Usuario" class="input-bar" value="<%= locals.old && old.userName ? old.userName : user.userName %>">
                     <% if (typeof errors !== 'undefined' && errors.userName) { %> 
                         <div>
-                            <p class="msg-error"><%= errors.userName.msg %></p>
+                            <small class="msg-error"><%= errors.userName.msg %></small>
                         </div>
                     <% } %>
                 </div>
@@ -27,7 +27,7 @@
                         placeholder="+54 9 388 4888888" class="input-bar" value="<%= locals.old && old.phone ? old.phone : user.phone %>">
                         <% if (typeof errors !== 'undefined' && errors.phone) { %> 
                         <div>
-                            <p class="msg-error"><%= errors.phone.msg %></p>
+                            <small class="msg-error"><%= errors.phone.msg %></small>
                         </div>
                     <% } %>
                 </div>
@@ -49,10 +49,10 @@
 
                 <div class="input-content">
                     <label for="password" class="label-bar">Contraseña</label>
-                    <input type="password" id="password" name="password"  placeholder="Contraseña" class="input-bar" >
+                    <input type="password" id="password" name="password"  placeholder="Contraseña" class="input-bar" value="<%= locals.old && old.password ? old.password: '' %>">
                     <% if (typeof errors !== 'undefined' && errors.password) { %> 
                         <div>
-                            <p class="msg-error"><%= errors.password.msg %></p>
+                            <small class="msg-error"><%= errors.password.msg %></small>
                         </div>
                     <% } %>
                 </div> 
@@ -60,17 +60,23 @@
                 <div class="input-content">
                     <label for="passwordConfirmation" class="label-bar">Confirmar Contraseña</label>
                     <input type="password" id="passwordConfirmation" name="passwordConfirmation" 
-                        placeholder="Confirmar Contraseña" class="input-bar">
+                        placeholder="Confirmar Contraseña" class="input-bar" value="<%= locals.old && old.passwordConfirmation ? old.passwordConfirmation : '' %>">
                         <% if (typeof errors !== 'undefined' && errors.passwordConfirmation) { %> 
                         <div>
-                            <p class="msg-error"><%= errors.passwordConfirmation.msg %></p>
+                            <small class="msg-error"><%= errors.passwordConfirmation.msg %></small>
                         </div>
                     <% } %>
                 </div>
 
                 <div class="input-content">
                     <label for="img" class="label-bar">Imagen Del Producto</label>
+                    <img src="<%= imagePath? imagePath : "/images/users/" + user.image %>" alt="<%= (user.firstName || 'Usuario') + ' ' + (user.lastName || '') %>" width="250">
                     <input type="file" id="img" name="image" class="input-bar" accept=".png,.jpg,.jpeg">
+                    <% if (typeof errors !== 'undefined' && errors.image) { %> 
+                        <div>
+                            <small class="msg-error"><%= errors.image.msg %></small>
+                        </div>
+                    <% } %>
                 </div>
 
                 <div class="botones">

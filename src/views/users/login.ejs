@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="es">
 
     <%- include('../partials/head.ejs',{title: 'Iniciar Sesion', css:'/users/login'}) %>
@@ -12,12 +12,17 @@
             <h2>Conéctate a tu cuenta</h2>
             <form action="/user/login" method="post">
                 <label class="label-bar" for="email">Ingresa tu email</label>
-                <input class="input-bar" type="email" id="email" name="email">
-                <label class="label-pass" for="password">Ingresa tu contraseña</label>
-                <input class="input-pass" type="password" id="password" name="password">
+                <input class="input-bar" type="email" id="email" name="email" value="<%= locals.old && old.email ? old.email : '' %>">
                 <% if (typeof errors !== 'undefined' && errors.email) { %> 
-                    <div>
-                        <p class="msg-error""><%= errors.email.msg %></p>
+                    <div class="div-error">
+                        <small class="msg-error"><%= errors.email.msg %></small>
+                    </div>
+                <% } %>
+                <label class="label-pass" for="password">Ingresa tu contraseña</label>
+                <input class="input-pass" type="password" id="password" name="password" value="<%= locals.old && old.password ? old.password : '' %>">
+                <% if (typeof errors !== 'undefined' && errors.password) { %> 
+                    <div class="div-error">
+                        <small class="msg-error"><%= errors.password.msg %></small>
                     </div>
                 <% } %>
                 <div class="remember-me-container">
@@ -30,7 +35,7 @@
                 </div>
                 <p class="recaptcha-info">Este sitio está protegido por reCAPTCHA y se aplican la política de privacidad de Google y los términos de servicio.</p>
                 <div class="login-options">
-                    <a href="#">¿Ya tienes una cuenta? <b>Entra aquí</b></a>
+                    <a href="/user/register">¿No tienes una cuenta? <b>Entra aquí</b></a>
                     <a href="#">¿Contraseña olvidada? <b>Recuperar contraseña</b></a>
                 </div>
             </form>
