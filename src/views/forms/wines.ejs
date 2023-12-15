@@ -5,7 +5,7 @@
     <div class="input-content">
       <% if(detail.Attribute.name == 'vineyard') {%>
       <label for="vineyard" class="label-bar">Nombre del viñedo</label>
-      <input type="text" id="vineyard" name="vineyard" placeholder="Viñedo" class="input-bar" value="<%= detail.Attribute.name == 'vineyard'? detail.value : ' ' %>">
+      <input type="text" id="vineyard" name="vineyard" placeholder="Viñedo" class="input-bar" value="<%= locals.old && old.vineyard ? old.vineyard : detail.Attribute.name == 'vineyard'? detail.value : ' ' %>">
       <% if (typeof errors !== 'undefined' && errors.vineyard) { %> 
         <div>
             <small class="msg-error"><%= errors.vineyard.msg %></small>
