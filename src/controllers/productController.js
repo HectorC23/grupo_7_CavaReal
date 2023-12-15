@@ -10,19 +10,32 @@ const Attribute = db.Attribute;
 
 const path = require('path');
 const { Op } = require('sequelize');
+const { validationResult } = require('express-validator');
 
 const productController = {
     add: async(req,res)=> {
          const categories = await CategoryProduct.findAll();
-            res.render("productAdd", { categories, details : []});
+            res.render("productAdd", { categories, details : [], imagePath: null, errors: [], old: null});
     },
     create: async(req,res) => {
+        let errors = validationResult(req);
+
+        let imagePath;
+
+        if(req.session.imagePath){
+        imagePath = req.session.imagePath;
+        }
+
+        console.log(imagePath);
+
+        console.log(errors);
+        if(errors.isEmpty()){
         try {
             const product = await Product.create({
               name: req.body.name,
               description: req.body.description,
               price: parseFloat(req.body.price),
-              img: req.file.filename,
+              img: imagePath? imagePath : 'cover-list.png',
               categoryId: +req.body.categoryId,
             });
         
@@ -43,12 +56,19 @@ const productController = {
                 });
               })
             );
+
+            delete req.session.imagePath;
         
             return res.redirect('/home');
           } catch (error) {
             console.error('Error al crear el producto:', error);
             return res.status(500).send('Error interno al crear el producto');
           }
+        } else {
+            const categories = await CategoryProduct.findAll();
+            return res.render("productAdd", { categories, details : [], errors: errors.mapped(), old: req.body, imagePath: req.session.imagePath? '/images/' + imagePath : null,});
+            
+        }
     },
     edit: async(req, res) => {
         const idProduct = req.params.id;

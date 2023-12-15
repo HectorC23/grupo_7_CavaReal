@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs');
 
 const { validationResult, cookie } = require('express-validator');
-const { error, log } = require("console");
 
 const db = require('../database/models');
 const User = db.User;
@@ -9,14 +8,34 @@ const CategoryUser = db.CategoryUser;
 const Product = db.Product;
 const UserProduct = db.UserProduct;
 
+function getMaxBirthdate() {
+    const now = new Date(Date.now());
+    const year = now.getFullYear() - 18;
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+
+    const date = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
+
+    return date
+}
+
 const userController = {
     register: (req,res)=> {
-        res.render("users/register");
+        
+        const date = getMaxBirthdate();
+
+        res.render("users/register", {imagePath: null, date});
     },
     create: async (req,res) => {
         let errors = validationResult(req);
 
         console.log(errors);
+
+        let imagePath;
+
+        if(req.session.imagePath){
+        imagePath = req.session.imagePath;
+        }
 
         if(errors.isEmpty()){
         let medal = Math.random();
@@ -34,23 +53,32 @@ const userController = {
             state: req.body.state,
             subscription: +req.body.subscription,
             membershipLevel: medal < 0.2 ? 'Bronze' : (medal < 0.4 ? 'Silver' : (medal < 0.6 ? 'Gold' : 'Platinum') ),
-            image: req.file? req.file.filename : 'foto-perfil',
+            image: imagePath? imagePath : 'foto-perfil.jpg',
             categoryId: 1,
         });
         
+        delete req.session.imagePath;
         return res.redirect('/');
 
         } else {
+            const date = getMaxBirthdate();
 
-           return res.render('users/register', {errors: errors.mapped(), old: req.body});
+           return res.render('users/register', {errors: errors.mapped(), old: req.body, imagePath: req.session.imagePath? '/images/users/' + imagePath : null, date});
+
+           console.log(imagePath);
             
         }
-        
     },
     login: (req,res)=> {
         res.render("users/login");
     },
     process: (req, res) => {
+
+        let errors = validationResult(req);
+
+        console.log(errors);
+
+        if(errors.isEmpty()){
         User.findOne({
             where: {
                 email: req.body.email
@@ -86,24 +114,34 @@ const userController = {
                     }
                 })
             })
+        } else {
+
+           return res.render('users/login', {errors: errors.mapped(), old: req.body});
+            
+        }
     },
     edit: async (req,res)=> {
 
         const user = await User.findByPk(req.params.id);
 
-        return res.render('users/edit', { user });
+        return res.render('users/edit', { user, imagePath: null});
     },
     update: async (req,res) => {
 
         let errors = validationResult(req);
         const id = +req.params.id;
 
+        let imagePath;
+
+        if(req.session.imagePath){
+        imagePath = req.session.imagePath;
+        }
+
         const original = await User.findByPk(id);
-        const imageUser = original.img;
+
+        const imageUser = original.dataValues.image;
 
         console.log(errors);
-
-        console.log(req.body);
 
         if(errors.isEmpty()){
 
@@ -114,19 +152,18 @@ const userController = {
             address: req.body.address,
             postalCode: req.body.postalCode,
             state: req.body.state,
-            image: req.file ? req.file.filename : imageUser ,
+            image: imagePath? imagePath : imageUser ,
         },{
             where: {
                 id: id
             }
         });
-
+            delete req.session.imagePath;
             res.redirect(`/user/profile/${id}`);
 
         } else {
 
-            res.render('users/edit', {errors: errors.mapped(), old: req.body, user:{}});
-            
+            res.render('users/edit', {errors: errors.mapped(), old: req.body, user:{id: id}, imagePath: imagePath? '/images/users/' + imagePath : '/images/users/' + imageUser});
         }
         
     },    

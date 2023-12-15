@@ -65,8 +65,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    padding-bottom: 15px;
   }
+
+  .msg-error {
+    position: absolute;
+    color: white;
+    bottom: 3px;
+    left: 2px;
+    background-color: #dd6477;
+  }
+
+  .img-actual{
+    width: 60%;
+    margin-bottom: 20px;
+  }
+
   .input-content-2{
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;

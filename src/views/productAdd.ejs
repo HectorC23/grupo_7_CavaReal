@@ -13,41 +13,71 @@
                 
                     <div class="input-content">
                         <label for="name" class="label-bar">Nombre Del Producto</label>
-                        <input type="text" id="name" name="name" required placeholder="Nombre Del Producto" class="input-bar">
+                        <input type="text" id="name" name="name"  placeholder="Nombre Del Producto" class="input-bar" value="<%= locals.old && old.name ? old.name : '' %>">
+                        <% if (typeof errors !== 'undefined' && errors.name) { %> 
+                            <div>
+                                <small class="msg-error"><%= errors.name.msg %></small>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="input-content">
                         <label for="category" class="label-bar">Tipo De Producto</label>
-                        <select id="tipProduct" name="categoryId" required class="input-bar" required>
+                        <select id="tipProduct" name="categoryId"  class="input-bar" >
                             <option value="" selected>Elige una opcion</option>
                             <% categories.forEach(category => { %>
-                                <option value="<%= category.id %>"><%= category.name %></option>
+                                <option value="<%= category.id %>" <%= locals.old && old.categoryId && old.categoryId == category.id ? 'selected' : '' %>><%= category.name %></option>
                             <%}) %>
                           </select>
+                        <% if (typeof errors !== 'undefined' && errors.categoryId) { %> 
+                            <div>
+                                <small class="msg-error"><%= errors.categoryId.msg %></small>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="input-content">
                         <label for="descriptionProduct" class="label-bar">Descripción Del Producto</label>
-                        <textarea name="description" id="descriptionProduct" cols="30" rows="10"> </textarea>
+                        <textarea name="description" id="descriptionProduct" cols="30" rows="10"><%= locals.old && old.description ? old.description : '' %></textarea>
+                        <% if (typeof errors !== 'undefined' && errors.description) { %> 
+                            <div>
+                                <small class="msg-error"><%= errors.description.msg %></small>
+                            </div>
+                        <% } %>
                     </div>
 
                     <div class="input-content">
                         <label for="precio" class="label-bar">Precio</label>
-                        <input type="number" id="precio" name="price" requirestep="0.01" placeholder="$10.000.00" min="0" class="input-bar">
+                        <input type="number" id="precio" name="price" requirestep="0.01" placeholder="$10.000.00" min="0" class="input-bar" value="<%= locals.old && old.price ? old.price : '' %>">
+                        <% if (typeof errors !== 'undefined' && errors.price) { %> 
+                            <div>
+                                <small class="msg-error"><%= errors.price.msg %></small>
+                            </div>
+                        <% } %>
                     </div>
 
                     <div id="form-wines" >
-                        <%- include('./forms/wines.ejs', { details }) %>
+                        <%- include('./forms/wines.ejs', { details, errors, old}) %>
                     </div>
                     <div id="form-liquors">
-                        <%- include("./forms/liquors.ejs", { details }) %>
+                        <%- include("./forms/liquors.ejs", { details, errors, old }) %>
                     </div>
                     <div id="form-accesories">
-                        <%- include("./forms/accesories.ejs", { details }) %>
+                        <%- include("./forms/accesories.ejs", { details, errors, old }) %>
                     </div>
 
                     <div class="input-content">
                         <label for="img" class="label-bar">Imagen Del Producto</label>
-                        <input type="file" id="img" name="img" required class="input-bar" accept=".png">
+                            <% if (imagePath) { %>
+                            <img class="img-actual" src="<%= imagePath %>" alt="Imagen Actual" />
+                            <% } %>
+                        <input type="file" id="img" name="img" class="input-bar" accept=".png">
+                            <% if (typeof errors !== 'undefined' && errors.img) { %> 
+                                <div>
+                                    <small class="msg-error"><%= errors.img.msg %></small>
+                                </div>
+                            <% } %>
                     </div>
+
+                    
                     <div class="botones">
                         <button type="submit">Subir Producto</button>
                         <button type="reset" class="delete">Borrar</button>

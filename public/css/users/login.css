@@ -76,6 +76,22 @@ main label {
   padding: 10px;
 }
 
+.div-error{
+  margin-top: 0px;
+  height: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.msg-error {
+  margin-top: 0px;
+  text-align: center;
+  color: white;
+  background-color: #dd6477;
+}
+
 main input {
   padding: 0.5em;
   margin-bottom: 1em;
@@ -179,15 +195,7 @@ main button {
   .login-box input:hover{
     border: #1b1815 1px solid;
   }
-  .msg-error {
-    padding: 10px;
-    text-align: center;
-    width: 300px;
-    margin-bottom: 10px;
-    color: #dd6477;
-    /*bottom: 4px;*/
-    left: 2px;
-  }
+
   .botones{
     display: flex;
     justify-content: space-between;
