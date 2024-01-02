@@ -81,6 +81,15 @@
     margin-bottom: 20px;
   }
 
+  .alert-warning{
+    color:#93434f;
+    background-color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+
   .label-bar{
     background-color:  #333333;
     padding: 0.5em;

@@ -114,7 +114,7 @@ Desarrolló el Script de Datos en SQL, permitiendo poblar la base de datos con d
 
 
 
-**Semana del 12 al .. de Diciembre**
+**Semana del 12 al 17 de Diciembre**
 
 
 ## Fernanda Sivila
@@ -123,16 +123,41 @@ Desarrolló el Script de Datos en SQL, permitiendo poblar la base de datos con d
 -Lectura y division de tareas, completando retro del sprint, ademas de repaso de contenidos
 
 ### 13-12
+-Completando de manera mas especifica las validaciones por parte del backend del Registro y Login de Usuarios
+
+### 15-12
+-Comienzo y finalizacion de la validacion de Productos desde el backend pero quedan errores por resolver por parte de tablas secundarias de los mismos (Atributos)
+
+### 16-12
+-Inicio de las validaciones por parte del Front-end para el Registro, hubo algunas complicaciones para implementar el validator.js pero fueron resueltas.
+
+### 17-12
+-Finalizacion de la validaciones de Registro, Login y Productos desde el front. 
+
+
+------------------------------------------------------------------------------------------------
+
+
+
+**Semana del 17 al .. de Enero**
+
+
+## Fernanda Sivila
+
+### 17-12
+-Lectura y division de tareas, completando retro del sprint, ademas de repaso de contenidos
+
+### 
 -
 
-### 14-12
+### 
 -
 
-### Fernanda
--Contribuyó en la implementación del CRUD para usuarios, permitiendo operaciones de creación, edición y visualización de detalle.
-Colaboró en la configuración de Sequelize y la creación de archivos de modelos.
+### 
+-
 
-### Jesus
+### 
+-
 
 
 ------------------------------------------------------------------------------------------------

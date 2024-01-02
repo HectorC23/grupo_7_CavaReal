@@ -52,7 +52,7 @@ const validationsProduct = [
       }else{
           throw new Error('Categoria invalida');
       }
-    }).bail().isLength({ min: 4 , max: 150 }).withMessage('Debe tener minimo 4 caracteres'),
+    }).bail().isLength({ min: 5 , max: 150 }).withMessage('Debe tener minimo 5 caracteres'),
     body('variety')
     .if((value, { req }) => req.body.variety)
     .custom((value, { req }) => {

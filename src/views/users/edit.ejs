@@ -9,7 +9,8 @@
         <div class="register-box">
             <h2>Modificar Perfil</h2>
             <p class="subtitulo" >Por favor verifique la información a continuación y modifique donde sea necesario</p>
-            <form action="/user/edit/<%= user.id %>?_method=PUT" method="post" enctype="multipart/form-data"">
+            <p class="msg-errors-all"></p>
+            <form action="/user/edit/<%= user.id %>?_method=PUT" method="post" id="form-edit-user" enctype="multipart/form-data"">
 
                 <div class="input-content">
                     <label for="userName" class="label-bar">Usuario</label>
@@ -95,6 +96,7 @@
 
     <%- include("../partials/footer.ejs")%>
 
+    <script src="/js/editUser.js"></script>
 </body>
 
 </html>

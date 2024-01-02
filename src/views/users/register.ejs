@@ -11,6 +11,7 @@
         <div class="register-box">
             <h2>Regístrate</h2>
             <p class="subtitulo" >Por favor complete la información a continuación</p>
+            <p class="msg-errors-all"></p>
             <form action="/user/register" id="form-register" method="post" enctype="multipart/form-data"">
                 
                 <div class="input-content">
@@ -18,7 +19,7 @@
                     <input type="text" id="firstName" name="firstName"  placeholder="Nombre" class="input-bar" value="<%= locals.old && old.firstName ? old.firstName : '' %>">
                     <% if (typeof errors !== 'undefined' && errors.firstName) { %> 
                         <div>
-                            <small class="msg-error"><%= errors.firstName.msg %></small>
+                            <small class="msg-error alert-warning"><%= errors.firstName.msg %></small>
                         </div>
                     <% } %>
                 </div>
@@ -28,7 +29,7 @@
                     <input type="text" id="lastName" name="lastName"  placeholder="Apellido" class="input-bar" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
                     <% if (typeof errors !== 'undefined' && errors.lastName) { %> 
                         <div>
-                            <small class="msg-error"><%= errors.lastName.msg %></small>
+                            <small class="msg-error alert-warning"><%= errors.lastName.msg %></small>
                         </div>
                     <% } %>
                 </div>
@@ -38,7 +39,7 @@
                     <input type="text" id="userName" name="userName"  placeholder="Usuario" class="input-bar" value="<%= locals.old && old.userName ? old.userName : '' %>">
                     <% if (typeof errors !== 'undefined' && errors.userName) { %> 
                         <div>
-                            <small class="msg-error"><%= errors.userName.msg %></small>
+                            <small class="msg-error alert-warning"><%= errors.userName.msg %></small>
                         </div>
                     <% } %>
                 </div>
@@ -48,7 +49,7 @@
                     <input type="date" id="birthdate" name="birthdate"  class="input-bar" max="<%= date %>"  value="<%= locals.old && old.birthdate ? old.birthdate : '' %>">
                     <% if (typeof errors !== 'undefined' && errors.birthdate) { %> 
                         <div>
-                            <small class="msg-error"><%= errors.birthdate.msg %></small>
+                            <small class="msg-error alert-warning"><%= errors.birthdate.msg %></small>
                         </div>
                     <% } %>
                 </div>
@@ -58,17 +59,17 @@
                     <input type="email" id="email" name="email"  placeholder="E-mail" class="input-bar" value="<%= locals.old && old.email ? old.email : '' %>">
                     <% if (typeof errors !== 'undefined' && errors.email) { %> 
                         <div>
-                            <small class="msg-error"><%= errors.email.msg %></small>
+                            <small class="msg-error alert-warning"><%= errors.email.msg %></small>
                         </div>
                     <% } %>
                 </div>
 
                 <div class="input-content">
                     <label for="phone" class="label-bar">Telefono o celular</label>
-                    <input type="text" id="phone" name="phone" placeholder="+54 9 388 4888888" class="input-bar" value="<%= locals.old && old.phone ? old.phone : '' %>">
+                    <input type="tel" id="phone" name="phone" placeholder="3884888888" class="input-bar" pattern="[0-9]{10}" value="<%= locals.old && old.phone ? old.phone : '' %>">
                         <% if (typeof errors !== 'undefined' && errors.phone) { %> 
                         <div>
-                            <small class="msg-error"><%= errors.phone.msg %></small>
+                            <small class="msg-error alert-warning"><%= errors.phone.msg %></small>
                         </div>
                     <% } %>
                 </div>
@@ -93,7 +94,7 @@
                     <input type="password" id="password" name="password"  placeholder="Contraseña" class="input-bar" value="<%= locals.old && old.password ? old.password : '' %>">
                     <% if (typeof errors !== 'undefined' && errors.password) { %> 
                         <div>
-                            <small class="msg-error"><%= errors.password.msg %></small>
+                            <small class="msg-error alert-warning"><%= errors.password.msg %></small>
                         </div>
                     <% } %>
                 </div> 
@@ -104,7 +105,7 @@
                         placeholder="Confirmar Contraseña" class="input-bar" value="<%= locals.old && old.passwordConfirmation ? old.passwordConfirmation : '' %>">
                         <% if (typeof errors !== 'undefined' && errors.passwordConfirmation) { %> 
                         <div>
-                            <small class="msg-error"><%= errors.passwordConfirmation.msg %></small>
+                            <small class="msg-error alert-warning"><%= errors.passwordConfirmation.msg %></small>
                         </div>
                     <% } %>
                 </div>
@@ -122,7 +123,7 @@
                     <input type="file" id="img" name="image" class="input-bar" accept=".png,.jpg,.jpeg,.gif">
                     <% if (typeof errors !== 'undefined' && errors.image) { %> 
                         <div>
-                            <small class="msg-error"><%= errors.image.msg %></small>
+                            <small class="msg-error alert-warning"><%= errors.image.msg %></small>
                         </div>
                     <% } %>
                 </div>
@@ -139,7 +140,7 @@
                     
             </form>
             <div class="login-options">
-                <a href="#">¿Ya tienes una cuenta? <b>Entra aquí</b></a>
+                <a href="/user/login">¿Ya tienes una cuenta? <b>Entra aquí</b></a>
             </div>
         </div>
     </main>
