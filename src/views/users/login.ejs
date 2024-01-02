@@ -10,19 +10,20 @@ s<!DOCTYPE html>
     <main>
         <div class="login-box">
             <h2>Conéctate a tu cuenta</h2>
-            <form action="/user/login" method="post">
+            <p class="msg-errors-all"></p>
+            <form action="/user/login" id="form-login" method="post">
                 <label class="label-bar" for="email">Ingresa tu email</label>
                 <input class="input-bar" type="email" id="email" name="email" value="<%= locals.old && old.email ? old.email : '' %>">
                 <% if (typeof errors !== 'undefined' && errors.email) { %> 
                     <div class="div-error">
-                        <small class="msg-error"><%= errors.email.msg %></small>
+                        <small class="msg-error alert-warning"><%= errors.email.msg %></small>
                     </div>
                 <% } %>
                 <label class="label-pass" for="password">Ingresa tu contraseña</label>
                 <input class="input-pass" type="password" id="password" name="password" value="<%= locals.old && old.password ? old.password : '' %>">
                 <% if (typeof errors !== 'undefined' && errors.password) { %> 
                     <div class="div-error">
-                        <small class="msg-error"><%= errors.password.msg %></small>
+                        <small class="msg-error alert-warning"><%= errors.password.msg %></small>
                     </div>
                 <% } %>
                 <div class="remember-me-container">
@@ -44,5 +45,6 @@ s<!DOCTYPE html>
 
     <%- include("../partials/footer.ejs")%>
 
+    <script src="/js/loginUser.js"></script>
 </body>
 </html>

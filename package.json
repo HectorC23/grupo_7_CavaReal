@@ -4,7 +4,7 @@
   "description": "CAVA REAL 🍷👑",
   "main": "src/app.js",
   "scripts": {
-    "dev": "npx nodemon src/app.js",
+    "dev": "concurrently \"npx nodemon src/app\" \"cd cava_real && npm start\"",
     "start": "npx nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,15 +13,20 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "ejs": "^3.1.9",
+    "email-validator": "^2.0.4",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.3",
-    "sequelize": "5.21"
+    "react-router-dom": "^6.21.0",
+    "sequelize": "5.21",
+    "validator": "^13.11.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",

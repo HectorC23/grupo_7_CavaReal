@@ -92,6 +92,15 @@ main label {
   background-color: #dd6477;
 }
 
+.alert-warning{
+  color:#93434f;
+  background-color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
 main input {
   padding: 0.5em;
   margin-bottom: 1em;

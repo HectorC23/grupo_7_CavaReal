@@ -23,7 +23,7 @@ const validaciones = [
         return true;
     }),
     body('phone').trim().notEmpty().withMessage('El campo está vacio'),
-    body('birthdate').trim().notEmpty().withMessage('El campo está vacio').bail().isBefore(new Date(new Date().setFullYear(new Date().getFullYear() - 16)).toString()).withMessage('Debes ser mayor de edad para crear una cuenta'),
+    body('birthdate').trim().notEmpty().withMessage('El campo está vacio').bail().isBefore(new Date(new Date().setFullYear(new Date().getFullYear() - 18)).toString()).withMessage('Debes ser mayor de edad para crear una cuenta'),
     body('email').trim().notEmpty().withMessage('El campo está vacio').isEmail().withMessage('Tienes que escribir un email valido').bail()
     .custom(async (value) => {
 
